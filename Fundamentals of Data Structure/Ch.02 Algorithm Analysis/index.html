@@ -1147,7 +1147,7 @@
 <h2 id="compare-the-algorithms">Compare the Algorithms<a class="headerlink" href="#compare-the-algorithms" title="Permanent link">&para;</a></h2>
 <h3 id="maxsubsequencesum-problem">MaxSubsequenceSum problem<a class="headerlink" href="#maxsubsequencesum-problem" title="Permanent link">&para;</a></h3>
 <h4 id="divide-and-conquer">Divide and Conquer<a class="headerlink" href="#divide-and-conquer" title="Permanent link">&para;</a></h4>
-<p><img alt="Pasted image 20240422120424.png" src="../Pasted-image-20240422120424.png" /></p>
+<p>![[Pasted image 20240422120424.png]]</p>
 <ul>
 <li>先 divide，找到每个最小单元（单个数）返回这个数</li>
 <li>然后 conquer，需要进行判断<ul>
@@ -1157,7 +1157,7 @@
 </li>
 </ul>
 <h4 id="on-line-algotithm">On-line Algotithm<a class="headerlink" href="#on-line-algotithm" title="Permanent link">&para;</a></h4>
-<p><img alt="Pasted image 20240422121930.png" src="../Pasted-image-20240422121930.png" /></p>
+<p>![[Pasted image 20240422121930.png]]</p>
 <ul>
 <li>使用 ThisSum 记录这个子序列的和<ul>
 <li>如果 ThisSum 小于零，说明这个位置前面的子序列已经为负数，可以抛弃，重置 ThisSum 为 0</li>
@@ -1166,7 +1166,7 @@
 </li>
 </ul>
 <h2 id="recursion-analysis">Recursion Analysis<a class="headerlink" href="#recursion-analysis" title="Permanent link">&para;</a></h2>
-<p><img alt="Pasted image 20240627161739.png" src="../Pasted-image-20240627161739.png" /></p>
+<p>![[Pasted image 20240627161739.png]]</p>
 <ul>
 <li>只需要记得前面的指数为 <span class="arithmatex">\(\log_ba\)</span> 需要和后面的 <span class="arithmatex">\(k\)</span> 进行比较 </li>
 </ul>
@@ -1201,12 +1201,12 @@
 </ul>
 <h3 id="pta">PTA<a class="headerlink" href="#pta" title="Permanent link">&para;</a></h3>
 <ul>
-<li><img alt="Pasted image 20240423114454.png" src="../Pasted-image-20240423114454.png" /><ul>
+<li>![[Pasted image 20240423114454.png]]<ul>
 <li>可能需要自己算一下，也可以记住这个答案</li>
 <li>这其实很简单，上面的显然是 log，下面的因为每次除三又乘三，所以是 O(N)</li>
 </ul>
 </li>
-<li><img alt="Pasted image 20240423114537.png" src="../Pasted-image-20240423114537.png" /><ul>
+<li>![[Pasted image 20240423114537.png]]<ul>
 <li>空间复杂度等于递归深度，而由于存在 <span class="arithmatex">\(F_{N-1}\)</span>，最大递归深度为 N</li>
 </ul>
 </li>

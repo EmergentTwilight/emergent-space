@@ -866,20 +866,20 @@
 </ul>
 <h2 id="todo">TODO<a class="headerlink" href="#todo" title="Permanent link">&para;</a></h2>
 <h3 id="_4">界面设计<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>[x] CSS 不渲染问题</li>
-<li>[x] 更好的 css 样式<ul>
-<li>[x] 更多切换选择<ul>
-<li>[x] 浅色黑白</li>
-<li>[x] 深色高亮</li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> CSS 不渲染问题</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 更好的 css 样式<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 更多切换选择<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 浅色黑白</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 深色高亮</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>[x] 字体适配</li>
-<li>[x] github 链接</li>
-<li>[ ] 标题图标绘制</li>
-<li>[ ] homepage 设计</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 字体适配</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> github 链接</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 标题图标绘制</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> homepage 设计</li>
 </ul>
 <h3 id="_5">工作流<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <h4 id="mkdocs">mkdocs 表现记录<a class="headerlink" href="#mkdocs" title="Permanent link">&para;</a></h4>
@@ -888,22 +888,9 @@
 <li>默认打开</li>
 </ol>
 <h4 id="10-attachments">1.0 抓取到 attachments 目录<a class="headerlink" href="#10-attachments" title="Permanent link">&para;</a></h4>
-<ul>
-<li>[x] obsidian 附件抓取脚本</li>
-</ul>
-<p>请帮我编写一个 python 程序，对 mkdocs 中从 obsidian 中复制过来的 markdown 文件进行附件检查和格式修正，执行以下功能：
-1. 对于目录 A/docs 及其子目录下的所有 markdown 文件，依次读取其中的 wikilink 格式的 [[filename]] 中的内容 filename，请注意，filename 可能包括空格，我需要的是 [[]] 中的完整内容。对于其中一个 filename 内容：
-    1. 如果 filename 含有扩展名，即 ".foo" 形式，请截取 filename 中第一个非空格字符开始到扩展名中的最后一个字符的字符串为 filename_cut（你需要将所有扩展名查找规则列成一个列表，方便我进行修改）：
-        1. 对于这个 filename_cut 字符串，计算其扩展名之外部分的 SHA 256 编码并再拼接上扩展名，得到 encoded_filename 字符串
-        2. 在 A/docs/attachments 中搜索这个 encoded_filename 是否存在
-            1. 如果存在这样一个全名为 encoded_filename 的文件，不进行操作
-            2. 如果不存在这样一个文件，那么在目录 B 中搜索 filename_cut 文件：
-                1. 如果找到这样一个 filename_cut 文件，复制到 A/attachments 中并重命名为 encoded_filename
-                2. 如果不存在，那么程序暂停，给出报错信息
-        3. 将原本 markdown 文件中的 [[filename]] 完整替换成 <a href=".docs/attachments/encoded_filename">filename_cut</a>，其中的 encoded_filename 是刚才的字符串变量
-    2. 如果 filename 不含有扩展名，则不进行操作</p>
-<ul>
-<li>[x] 使用 <code>.gitignore</code></li>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> obsidian 附件抓取脚本</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> 使用 <code>.gitignore</code></li>
 </ul>
 <h4 id="20">2.0 附件放在每个文件的目录下面<a class="headerlink" href="#20" title="Permanent link">&para;</a></h4>
 <h5 id="markdown-publish">markdown 内容 publish 流程<a class="headerlink" href="#markdown-publish" title="Permanent link">&para;</a></h5>

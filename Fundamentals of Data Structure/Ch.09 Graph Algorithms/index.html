@@ -1792,12 +1792,12 @@
 </ul>
 <h5 id="inverse-adjacency-lists">Inverse adjacency lists<a class="headerlink" href="#inverse-adjacency-lists" title="Permanent link">&para;</a></h5>
 <ul>
-<li>构建 <strong>inverse adjacency list</strong> 表示哪些节点指向了本节点<img alt="Pasted image 20240422211604.png" src="../Pasted-image-20240422211604.png" /></li>
+<li>构建 <strong>inverse adjacency list</strong> 表示哪些节点指向了本节点![[Pasted image 20240422211604.png]]</li>
 </ul>
 <h5 id="multilist-representation-for-adj_matij">Multilist representation for <code>adj_mat[i][j]</code><a class="headerlink" href="#multilist-representation-for-adj_matij" title="Permanent link">&para;</a></h5>
 <ul>
 <li><strong>Multilists</strong>回忆十字链表，上课问题，多少人上课，这门课有多少人选修问题 ![[Ch.03 List#Multilists]]<ul>
-<li>每个节点有 <code>head list, tail list</code><img alt="Pasted image 20240422211644.png" src="../Pasted-image-20240422211644.png" /></li>
+<li>每个节点有 <code>head list, tail list</code>![[Pasted image 20240422211644.png]]</li>
 </ul>
 </li>
 </ul>
@@ -1814,7 +1814,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="Pasted image 20240420173718.png" src="../Pasted-image-20240420173718.png" /></p>
+<p>![[Pasted image 20240420173718.png]]</p>
 <ul>
 <li><strong>缺点？</strong><ul>
 <li>构造麻烦</li>
@@ -2080,7 +2080,7 @@
 </li>
 <li><strong>CPM</strong>: Critical Path Method</li>
 </ul>
-<p><img alt="Pasted image 20240430144433.png" src="../Pasted-image-20240430144433.png" /></p>
+<p>![[Pasted image 20240430144433.png]]</p>
 <ul>
 <li><strong>EC</strong>：从起点开始往后计算，每次加上边，每个节点要取入度中最大的</li>
 <li><strong>LC</strong>：从终点往前计算，每次减去边，每个节点要取出度中最小的</li>
@@ -2115,7 +2115,7 @@
 <li>并更新 residual</li>
 <li>如果 residual 中仍然存在 path，继续 step 1；否则结束</li>
 </ul>
-<p><img alt="Pasted image 20240507125634.png" src="../Pasted-image-20240507125634.png" /></p>
+<p>![[Pasted image 20240507125634.png]]</p>
 <h4 id="1">问题 1<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>如果使用 greedy method，可能提前导致路封死</li>
@@ -2125,7 +2125,7 @@
 <li>更新 residual 时，加上反向的路径，有一个改错的机会</li>
 <li><strong>Proposition</strong>: 如果边是<strong>有理数</strong>，一定会找到最大的流量</li>
 <li><strong>Note</strong>: The algorithm works for G with <em>cycles</em> as well</li>
-<li><img alt="Pasted image 20240507125833.png" src="../Pasted-image-20240507125833.png" /></li>
+<li>![[Pasted image 20240507125833.png]]</li>
 </ul>
 <h3 id="analysis-if-the-capacities-are-all-integers">Analysis ( If the capacities are all integers )<a class="headerlink" href="#analysis-if-the-capacities-are-all-integers" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2144,7 +2144,7 @@
 <li>
 <div class="arithmatex">\[T=T_{augmentation}*T_{find\,a\,path}=O(|E|)*O(|E|*|V|)=O(|E|^2|V|)\]</div>
 </li>
-<li>Note<img alt="Pasted image 20240507130456.png" src="../Pasted-image-20240507130456.png" /></li>
+<li>Note![[Pasted image 20240507130456.png]]</li>
 </ul>
 </li>
 </ul>
@@ -2228,13 +2228,13 @@
 </span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a><a href="#__codelineno-8-8"><span class="linenos" data-linenos="8 "></span></a><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="biconnectivity">Biconnectivity<a class="headerlink" href="#biconnectivity" title="Permanent link">&para;</a></h3>
-<p><img alt="Pasted image 20240507143212.png" src="../Pasted-image-20240507143212.png" /></p>
+<p>![[Pasted image 20240507143212.png]]</p>
 <ul>
 <li><strong>Articulation Point</strong>: v is an articulation point if G' = deleteVertex(G, v) has <strong>at least 2</strong> connected components <em>如果把这个节点删掉之后，图被分开了</em></li>
 <li><strong>Biconnected graph</strong>: G is a biconnected graph if G is <strong>connected</strong> and <strong>has no articulation points</strong></li>
 <li>A <strong>biconnected component</strong> is a <em>maximal biconnected subgraph</em></li>
 </ul>
-<p><img alt="Pasted image 20240507144005.png" src="../Pasted-image-20240507144005.png" /></p>
+<p>![[Pasted image 20240507144005.png]]</p>
 <h4 id="finding-the-biconnected-components">Finding the biconnected components<a class="headerlink" href="#finding-the-biconnected-components" title="Permanent link">&para;</a></h4>
 <h5 id="1-use-dfs-to-obtain-a-spanning-tree-of-g">1. Use DFS to obtain a spanning tree of G<a class="headerlink" href="#1-use-dfs-to-obtain-a-spanning-tree-of-g" title="Permanent link">&para;</a></h5>
 <ul>
@@ -2247,7 +2247,7 @@
 <li>The <em>root</em> is an articulation point iff it has <strong>at least 2 children</strong></li>
 <li>Any <em>other vertex</em> is an articulation point iff u has <strong>at least 1 child</strong>, <mark>and</mark> it is impossible to <strong>move down at least 1 step and then jump up to u's ancestor</strong><ul>
 <li>至少有一个孩子，而且无法从后代中通过 <em>back edge</em> 回到祖先</li>
-<li><img alt="Pasted image 20240507145305.png" src="../Pasted-image-20240507145305.png" /></li>
+<li>![[Pasted image 20240507145305.png]]</li>
 </ul>
 </li>
 </ul>
@@ -2255,7 +2255,7 @@
 <ul>
 <li>是 <strong>自己的 number</strong>、<strong>children 中最小的 low number</strong>、<strong>自己 backedge 另一头中最小的 number</strong> 中最小的</li>
 <li>计算 Low number<ul>
-<li><img alt="Pasted image 20240507151416.png" src="../Pasted-image-20240507151416.png" /></li>
+<li>![[Pasted image 20240507151416.png]]</li>
 <li><strong>根节点</strong> 的 low number 是 0</li>
 <li>先找所有 <strong>backedge</strong> 影响的 low number <em>因为 backedge 要找的是另一头的 number， 已经全部已知</em></li>
 <li><strong>DFS</strong>，每次返回本节点的 low number，每次比较自己的 number 和所有返回值，取最小的</li>
@@ -2279,7 +2279,7 @@
 </li>
 </ul>
 <h4 id="algorithm">algorithm<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h4>
-<p><img alt="Pasted image 20240507152342.png" src="../Pasted-image-20240507152342.png" /></p>
+<p>![[Pasted image 20240507152342.png]]</p>
 <ul>
 <li>the path should be maintained as a linked list</li>
 <li>for each adjacency list, maintain a pointer to the last edge scanned</li>
