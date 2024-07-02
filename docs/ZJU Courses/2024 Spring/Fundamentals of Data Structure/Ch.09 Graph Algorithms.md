@@ -1,6 +1,6 @@
 ---
 created: 2024-04-16T03:07:06
-updated: 2024-06-27T10:39:40
+updated: 2024-07-02T10:54:31
 type: 
 status: 
 tags: 
@@ -73,14 +73,14 @@ aliases:
 	- DG: $S=(n+e)(ptrs)+e(ints)$
 - Degree(i) 就是对应 list 的长度
 - $T(N)=O(n+e)$
-- #疑问 [[DS08_Ch09_Graph Definition_Topological Sort.pdf#page=6&selection=0,1,15,1|DS08_Ch09_Graph Definition_Topological Sort, page 6]]
+
 #### Inverse adjacency lists
 
 - 构建 **inverse adjacency list** 表示哪些节点指向了本节点![Pasted image 20240422211604.png](Pasted-image-20240422211604.png)
 
 #### Multilist representation for `adj_mat[i][j]`
 
-- **Multilists**回忆十字链表，上课问题，多少人上课，这门课有多少人选修问题 ![[Ch.03 List#Multilists]]
+- **Multilists**回忆十字链表，上课问题，多少人上课，这门课有多少人选修问题 ![[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.03 List#Multilists]]
 	- 每个节点有 `head list, tail list`![Pasted image 20240422211644.png](Pasted-image-20240422211644.png)
 
 ### Adjacency Multilists
@@ -326,7 +326,7 @@ void  WeightedNegative( Table T )
 
 ### Acyclic Graphs *无环图*
 
--  回忆 [[Ch.09 Graph Algorithms#2 Topological Sort 拓扑排序]] 里的无环图，AOV Network，$T=O(|E|+|V|)$
+-  回忆 [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.09 Graph Algorithms#2 Topological Sort 拓扑排序]] 里的无环图，AOV Network，$T=O(|E|+|V|)$
 
 #### Application: AOE(Activity On Edge) Networks
 

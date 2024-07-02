@@ -79,21 +79,21 @@ updated: 2024-06-29T06:28:48
 > - **完美二叉树**：所有内节点都有两个子节点，所有叶子节点在同一层。
 > - **平衡二叉树**：任何节点的两个子树高度差不超过 1。
 
-## [[Ch.02 Algorithm Analysis]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.02 Algorithm Analysis]]
 
 - $T(N)=O(f(N))$ 上界，小于等于
 - $T(N)=\Omega(g(N))$ 下界，大于等于
 - $T(N)=\Theta(h(N))$ 确界，表示上下界同阶
 - $T(N)=o(p(N))$ **严格渐进上界**，严格小于
 
-## [[Ch.03 List]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.03 List]]
 
 - ADT 的概念
 - Sequential List
 	- Imp
 		- Array
 		- Linked List
-		- [[Ch.03 List#Cursor Implementation of Linked Lists (no pointer)|Cursor Imp]]
+		- [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.03 List#Cursor Implementation of Linked Lists (no pointer)|Cursor Imp]]
 	- App
 		- 多项式表示
 		- Multilists 矩阵稀疏表示
@@ -111,7 +111,7 @@ updated: 2024-06-29T06:28:48
 	- `Dequeue` 在 `fornt++` 删除元素
 	- 需要执行满/空检查
 
-## [[Ch.04 Trees]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.04 Trees]]
 
 - Preliminaries
 	- Degree
@@ -147,7 +147,7 @@ updated: 2024-06-29T06:28:48
 			- lazy deletion
 	- $height(bst)\in[h-1,\lceil\log_2(n+1)\rceil-1]$
 
-## [[Ch.05 Priority Queues (Heaps)]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.05 Priority Queues (Heaps)]]
 
 - sentinel value 是不可能出现的最小/最大值
 - `insert` 放到末尾，`PercolateUp`
@@ -158,7 +158,7 @@ updated: 2024-06-29T06:28:48
 - `BuildHeap` 直接放，然后堆每个父节点 `PercolateDown`
 	- 也称为 **Linear Algorithm** $T(N)=O(N)$
 
-## [[Ch.06 Sorting]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.06 Sorting]]
 
 - **Insertion Sort** 插入排序 ***stable***
 	- best case $O(N)$
@@ -204,7 +204,7 @@ updated: 2024-06-29T06:28:48
 	- MSD Approach: *Parallel sort*
 	- LSD Approach: serial sort
 
-## [[Ch.07 Hashing]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.07 Hashing]]
 
 - Identifier density $n/T$
 - loading density $n/(sb)$
@@ -218,7 +218,7 @@ updated: 2024-06-29T06:28:48
 		- 如果是质数而且可以写成 $4 k+3$，且采用 $f(i)=\pm i^2$，那么只要有空位就行
 	- *Double Hashing* $f(i)=i*hash_2(x)$ 第二个哈希函数
 
-## [[Ch.08 The Disjoint Set ADT]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.08 The Disjoint Set ADT]]
 
 - Basic worst case $\Theta(N^2)$, skewed tree, where 1 = 2, 2 = 3, 3 = 4, ...
 - Smart Union Algorithm 都叫做 *Union-by-rank*
@@ -227,7 +227,7 @@ updated: 2024-06-29T06:28:48
 - $\alpha$ 反 Ackermann 函数，几乎等于常数
 - 如果有 $M$ 个 find，$N-1$ 个 unions，$T=O(M\alpha(M,N))$
 
-## [[Ch.09 Graph Algorithms]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.09 Graph Algorithms]]
 
 - Definitions
 	- complete
@@ -271,7 +271,7 @@ updated: 2024-06-29T06:28:48
 		- $O(|V|^2)$ 或者使用了更高级的图表示的话 $O(|E|\log|V|)$ or $O(|V|\log|E|)$ 适合 **Dense Graph**
 	- *Kruskal* 从森林开始，找最小的边将它们连接起来
 		- $T=O(|E|\log|E|)$ 适合在 **Sparse Graph**
-- **DFS** [[Ch.09 Graph Algorithms#1. Use DFS to obtain a spanning tree of G]]
+- **DFS** [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.09 Graph Algorithms#1. Use DFS to obtain a spanning tree of G]]
 	- *Biconnectivily* 不存在割点的图
 	- **求解 biconnected components**
 		1. 使用 DFS 获得一个 spanning tree

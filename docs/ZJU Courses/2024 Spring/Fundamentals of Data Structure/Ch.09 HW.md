@@ -299,7 +299,7 @@ updated: 2024-05-22T11:38:31
 
 ### 函数题：Strongly Connected Components
 
-- 注意不是连通是 **digraph 强连通**，所以不是简单的 [[Ch.09 Graph Algorithms#Undirected Graphs]]
+- 注意不是连通是 **digraph 强连通**，所以不是简单的 [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.09 Graph Algorithms#Undirected Graphs]]
 
 #### Idea
 

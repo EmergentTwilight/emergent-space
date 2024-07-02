@@ -1,11 +1,11 @@
 # navigation
 #nav:
-#  - Home: index.md  # must be in docs/
+#  - Home:
+#      - index.md
+#      - Setup Log.md
 #  - ZJU Courses:
-#      - 2024 Spring:
-#          - Fundamentals of Data Structure:
-#              - "markdown/Fundamentals of Data Structure/Ch.00 Fundamentals of Data Structure"
-
+#      - Fundamentals of Data Structure:
+#        - "ZJU Courses/2024 Spring/Fundamentals of Data Structure/"
 
 # site metadata
 site_name: Emergent Space
@@ -16,7 +16,6 @@ repo_name: emergent-space
 # use_directory_urls: false  # use slash instead of backslash
 copyright: Copyright &copy; 2024 EmergentTwilight
 site_dir: "site"
-docs_dir: "docs"
 
 # theme: material for mkdocs
 theme:
@@ -87,6 +86,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - md_in_html
 #  - pymdownx.keys
 #  - attr_list
 #  - pymdownx.emoji:
@@ -94,43 +96,32 @@ markdown_extensions:
 #      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 #  - pymdownx.highlight:
 #      anchor_linenums: true
-#  - pymdownx.details
-#  - pymdownx.superfences
 #  - pymdownx.tabbed:
 #      alternate_style: true
-#  - pymdownx.highlight:
-#      anchor_linenums: true
-#      line_spans: __span
-#      pygments_lang_class: true
 #  - pymdownx.inlinehilite
 #  - pymdownx.snippets
-#  - pymdownx.tasklist:
-#      custom_checkbox: true
 #  - footnotes
-#  - md_in_html
 #  - codehilite
-#  - admonition
 #  - nl2br
-#  - admonition
-#  - pymdownx.details
-#  - pymdownx.superfences
-
 
 # plugins
 plugins:
   - callouts # with obsidian callout syntax
   - search # search bar on top
+  - statistics:
+      page_template: _srcs/html/stat.html
+      words_per_minute: 400
 
 extra_javascript:
   # with latex
-  - 0srcs/javascript/katex.js
+  - _srcs/javascript/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
 extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css # with latex
-  - 0srcs/CSS/md_color_custom.css
-  - 0srcs/CSS/font.css
+  - _srcs/CSS/md_color_custom.css
+  - _srcs/CSS/font.css
 
 extra:
   social:

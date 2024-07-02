@@ -75,7 +75,7 @@ typedef poly_ptr a; // nodes sorted by exponent
 
 ### Multilists
 
-[[Ch.09 Graph Algorithms#Adjacency Multilists]] 也使用到了 multilist 的思想
+[[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.09 Graph Algorithms#Adjacency Multilists]] 也使用到了 multilist 的思想
 
 For example, represent the relationship between students and the courses. **Array would be too complex in space**
 
@@ -261,4 +261,4 @@ struct QueueRecord {
 			- i o i o i o
 		- i o o 不允许，已经空
 - ![Pasted image 20240423115651.png](Pasted-image-20240423115651.png)
-	- 结合 [[Ch.03 List#Circular Queue]] 内容思考
+	- 结合 [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.03 List#Circular Queue]] 内容思考

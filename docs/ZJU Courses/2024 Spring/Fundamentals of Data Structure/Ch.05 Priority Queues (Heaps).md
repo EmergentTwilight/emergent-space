@@ -66,7 +66,7 @@ ElementType FindMin( PriorityQueue H );
 ### Definition
 
 - A binary tree with n nodes and height h is **complete** iff its nodes correspond to the nodes numbered from 1 to n in the prefect binary tree of height h. 也就是完全二叉树，但是只有前 n 个节点
-	- ![[Ch.04 Trees#^bfe95b]]
+	- ![[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.04 Trees#^bfe95b]]
 - 对于一个高度为 h 的二叉树，有 $[2^h,2^{h+1}-1]$ 个元素
 	- $h=\lfloor\log_2 N\rfloor$
 
