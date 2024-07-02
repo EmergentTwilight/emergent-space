@@ -16,7 +16,7 @@ repo_name: emergent-space
 # use_directory_urls: false  # use slash instead of backslash
 copyright: Copyright &copy; 2024 EmergentTwilight
 site_dir: "site"
-#docs_dir: "docs/markdown"
+docs_dir: "docs"
 
 # theme: material for mkdocs
 theme:
@@ -120,19 +120,17 @@ markdown_extensions:
 plugins:
   - callouts # with obsidian callout syntax
   - search # search bar on top
-#  - ezlinks: # enable wiki link
-#      wikilinks: true
 
 extra_javascript:
   # with latex
-  - javascripts/katex.js
+  - 0srcs/javascript/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
 extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css # with latex
-  - CSS/md_color_custom.css
-  - CSS/font.css
+  - 0srcs/CSS/md_color_custom.css
+  - 0srcs/CSS/font.css
 
 extra:
   social:

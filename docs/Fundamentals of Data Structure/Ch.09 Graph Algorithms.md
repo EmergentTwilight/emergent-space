@@ -73,7 +73,7 @@ aliases:
 	- DG: $S=(n+e)(ptrs)+e(ints)$
 - Degree(i) 就是对应 list 的长度
 - $T(N)=O(n+e)$
-- #疑问 [[DS08_Ch09_Graph Definition_Topological Sort.pdf#page=6&selection=0,1,15,1|DS08_Ch09_Graph Definition_Topological Sort, page 6]]
+- 
 #### Inverse adjacency lists
 
 - 构建 **inverse adjacency list** 表示哪些节点指向了本节点![Pasted image 20240422211604.png](Pasted-image-20240422211604.png)
