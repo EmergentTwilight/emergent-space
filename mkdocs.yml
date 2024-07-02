@@ -1,0 +1,139 @@
+# navigation
+#nav:
+#  - home: index.md
+#  - ZJU Courses:
+#      - 2024 Spring:
+#          - Fundamentals of Data Structure:
+#              -
+
+
+# site metadata
+site_name: Emergent Space
+site_author: Emergent Twilight
+site_url: https://emergenttwilight.github.io/emergent-space/
+repo_url: https://github.com/EmergentTwilight/emergent-space
+repo_name: emergent-space
+use_directory_urls: false  # use slash instead of backslash
+copyright: Copyright &copy; 2024 EmergentTwilight
+site_dir: "site"
+
+# theme: material for mkdocs
+theme:
+  name: material
+  language: en
+  # material for mkdocs features
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.tracking
+    - navigation.prune
+#    - toc.integrate # toc integrated with catalogue
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotation
+    - content.tabs.link
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default # light mode
+      toggle:
+        icon: material/brightness-7
+        name: Switch to colorful dark mode
+      primary: white
+      accent: cyan
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate # dark mode
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: black
+      accent: cyan
+
+
+markdown_extensions:
+  # table of content settings
+  - toc:
+      permalink: true
+      toc_depth: 4
+      baselevel: 2
+      title: On this page
+#      anchorlink: true
+  # with latex
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition # namely callout
+  - footnotes # [^1]: content
+  - pymdownx.superfences # basic code highlight
+  # code line highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true
+      pygments_lang_class: true
+      auto_title: false
+      linenums: true
+      linenums_style: pymdownx-inline
+      line_spans: __span
+  - pymdownx.betterem # improves the detection of Markup
+  # allowing ==, ^^, ~~
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic # highlighting changes? {--deleted--} {++added++} {~~one~>a single~~} {==Highlighting==} {>>and comments can be added inline<<}.
+  - pymdownx.details # collapsible callout
+  # use emoji
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+#  - pymdownx.keys
+#  - attr_list
+#  - pymdownx.emoji:
+#      emoji_index: !!python/name:material.extensions.emoji.twemoji
+#      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+#  - pymdownx.highlight:
+#      anchor_linenums: true
+#  - pymdownx.details
+#  - pymdownx.superfences
+#  - pymdownx.tabbed:
+#      alternate_style: true
+#  - pymdownx.highlight:
+#      anchor_linenums: true
+#      line_spans: __span
+#      pygments_lang_class: true
+#  - pymdownx.inlinehilite
+#  - pymdownx.snippets
+#  - pymdownx.tasklist:
+#      custom_checkbox: true
+#  - footnotes
+#  - md_in_html
+#  - codehilite
+#  - admonition
+#  - nl2br
+#  - admonition
+#  - pymdownx.details
+#  - pymdownx.superfences
+
+
+# plugins
+plugins:
+  - callouts # with obsidian callout syntax
+  - search # search bar on top
+#  - ezlinks: # enable wiki link
+#      wikilinks: true
+
+extra_javascript:
+  # with latex
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css # with latex
+  - CSS/md_color_custom.css
+  - CSS/font.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/emergenttwilight
