@@ -1,0 +1,45 @@
+/* light theme */
+:root {
+    --md-h1-color: #f0cbcb;
+    --md-h2-color: #f7e0ae;
+    --md-h3-color: #a5e1a0;
+    --md-h4-color: #93e0d3;
+    --md-h5-color: #b3bdfc;
+    --md-h6-color: #c9a5f5;
+    --md-em-color: #a5e1a0;
+    --md-strong-color: #f8b286;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: var(--md-h1-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: var(--md-h2-color);
+  border-bottom: 1px dashed var(--md-h2-color);
+  padding-bottom: 0.1em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: var(--md-h3-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h4 {
+  color: var(--md-h4-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h5 {
+  color: var(--md-h5-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h6 {
+  color: var(--md-h6-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset em {
+  color: var(--md-em-color);
+}
+
+[data-md-color-scheme="slate"] .md-typeset strong {
+  color: var(--md-strong-color);
+}
