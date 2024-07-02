@@ -1,7 +1,4 @@
 ---
-created: 2024-07-02T01:57:35
-updated: 2024-07-02T02:02:47
+created: 2024-07-02T03:09:57
+updated: 2024-07-02T03:10:41
 ---
-# Welcome to Emergent Space
-
-I have some funny stuff here :wave:.
