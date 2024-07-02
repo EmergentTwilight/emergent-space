@@ -2,20 +2,6 @@
 created: 2024-07-02T01:57:35
 updated: 2024-07-02T02:02:47
 ---
-# Welcome to MkDocs
+# Welcome to Emergent Space
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+I have some funny stuff here :wave:.

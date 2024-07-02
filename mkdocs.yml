@@ -1,10 +1,10 @@
 # navigation
 #nav:
-#  - home: index.md
+#  - Home: index.md  # must be in docs/
 #  - ZJU Courses:
 #      - 2024 Spring:
 #          - Fundamentals of Data Structure:
-#              -
+#              - "markdown/Fundamentals of Data Structure/Ch.00 Fundamentals of Data Structure"
 
 
 # site metadata
@@ -13,9 +13,10 @@ site_author: Emergent Twilight
 site_url: https://emergenttwilight.github.io/emergent-space/
 repo_url: https://github.com/EmergentTwilight/emergent-space
 repo_name: emergent-space
-use_directory_urls: false  # use slash instead of backslash
+# use_directory_urls: false  # use slash instead of backslash
 copyright: Copyright &copy; 2024 EmergentTwilight
 site_dir: "site"
+#docs_dir: "docs/markdown"
 
 # theme: material for mkdocs
 theme:
