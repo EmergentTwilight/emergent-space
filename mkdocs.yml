@@ -104,6 +104,7 @@ markdown_extensions:
 #  - codehilite
 #  - nl2br
 
+
 # plugins
 plugins:
   - callouts # with obsidian callout syntax
@@ -112,16 +113,20 @@ plugins:
       page_template: _srcs/html/stat.html
       words_per_minute: 400
 
+
 extra_javascript:
   # with latex
   - _srcs/javascript/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
+
 extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css # with latex
   - _srcs/CSS/md_color_custom.css
   - _srcs/CSS/font.css
+  - _srcs/CSS/width.css
+
 
 extra:
   social:

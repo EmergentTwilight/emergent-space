@@ -4,7 +4,7 @@ status:
 tags: 
 aliases: 
 created: 2024-04-02T02:23:58
-updated: 2024-06-27T05:13:41
+updated: 2024-07-07T10:47:18
 ---
 > [!NOTE] Priority queues
 > delete the element with the highest / lowest priority
@@ -66,7 +66,7 @@ ElementType FindMin( PriorityQueue H );
 ### Definition
 
 - A binary tree with n nodes and height h is **complete** iff its nodes correspond to the nodes numbered from 1 to n in the prefect binary tree of height h. 也就是完全二叉树，但是只有前 n 个节点
-	- ![[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.04 Trees#^bfe95b]]
+	- ![[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.04 Trees#^bfe95b]]
 - 对于一个高度为 h 的二叉树，有 $[2^h,2^{h+1}-1]$ 个元素
 	- $h=\lfloor\log_2 N\rfloor$
 
@@ -216,18 +216,6 @@ ElementType DeleteMin( Priority Queue H)
 - sort the input array
 - inorder write into the CBT
 - print
-
-```c
-void inorderInsert(int* array, int* CBST, int N, int* indexArray, int indexCBST)
-{
-    if(indexCBST >= N) return;        // invalid node, exit
-    inorderInsert(array, CBST, N, indexArray, indexCBST*2+1);        // left
-    CBST[indexCBST] = array[*indexArray];        // root
-    (*indexArray)++;
-    inorderInsert(array, CBST, N, indexArray, indexCBST*2+2);        // right
-}
-```
-
 - 仍然要注意 `(*p)++` 的问题
 
 ## Midterm

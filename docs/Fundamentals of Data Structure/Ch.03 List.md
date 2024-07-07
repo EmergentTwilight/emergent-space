@@ -1,6 +1,6 @@
 ---
 created: 2024-03-12T02:56:55
-updated: 2024-06-26T01:57:42
+updated: 2024-07-07T10:46:44
 ---
 # Abstract Data Type (ADT)
 
@@ -75,7 +75,7 @@ typedef poly_ptr a; // nodes sorted by exponent
 
 ### Multilists
 
-[[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.09 Graph Algorithms#Adjacency Multilists]] 也使用到了 multilist 的思想
+[[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.09 Graph Algorithms#Adjacency Multilists]] 也使用到了 multilist 的思想
 
 For example, represent the relationship between students and the courses. **Array would be too complex in space**
 
@@ -261,4 +261,4 @@ struct QueueRecord {
 			- i o i o i o
 		- i o o 不允许，已经空
 - ![Pasted image 20240423115651.png](Pasted-image-20240423115651.png)
-	- 结合 [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.03 List#Circular Queue]] 内容思考
+	- 结合 [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.03 List#Circular Queue]] 内容思考

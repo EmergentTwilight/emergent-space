@@ -1,6 +1,6 @@
 ---
 created: 2024-07-01T10:22:37
-updated: 2024-07-02T10:51:21
+updated: 2024-07-03T11:05:02
 ---
 # 教程
 
@@ -65,6 +65,7 @@ git config --global https.proxy 127.0.0.1:7890  # 修复代理设置的问题
 - [x] github 链接
 - [ ] 标题图标绘制
 - [ ] homepage 设计
+- [ ] 图片标题显示 [Lab1-简单集群搭建 - HPC101-Labs-2024 (zju.edu.cn)](http://zjusct-pages-zjusct-io-s.webvpn.zju.edu.cn:8001/summer_hpc101_2024/hpc-101-labs-2024/Lab1-MiniCluster/)
 
 ## 工作流
 

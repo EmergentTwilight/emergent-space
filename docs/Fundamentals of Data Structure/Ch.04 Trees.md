@@ -1,6 +1,6 @@
 ---
 created: 2024-03-19T02:25:13
-updated: 2024-06-26T02:34:13
+updated: 2024-07-07T10:46:52
 aliases: 
 type: learningNote
 tags: 
@@ -337,7 +337,7 @@ SearchTree Delete( ElementType X, SearchTree T )
 # HW
 
 - There exists a binary tree with 2016 nodes in total, and with 16 nodes having only one child. **F**
-	- 根据 [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.04 Trees#Properties of Binary Trees]] 进行推导得出 $2n_2=1999$ 除不尽，所以不可能
+	- 根据 [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.04 Trees#Properties of Binary Trees]] 进行推导得出 $2n_2=1999$ 除不尽，所以不可能
 - In a binary search tree which contains several integer keys including 4, 5, and 6, if 4 and 6 are on the same level, then 5 must be their parent. **F**
 	- False: 可以是三层的树，5 为根，4 为右孩子，6 为左孩子
 - ![Pasted image 20240401074157.png](Pasted-image-20240401074157.png)

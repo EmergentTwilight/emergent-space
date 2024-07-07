@@ -4,7 +4,7 @@ status:
 tags: 
 aliases: 
 created: 2024-06-26T01:41:07
-updated: 2024-06-29T06:28:48
+updated: 2024-07-07T10:48:43
 ---
 # Mistakes
 
@@ -79,21 +79,21 @@ updated: 2024-06-29T06:28:48
 > - **完美二叉树**：所有内节点都有两个子节点，所有叶子节点在同一层。
 > - **平衡二叉树**：任何节点的两个子树高度差不超过 1。
 
-## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.02 Algorithm Analysis]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.02 Algorithm Analysis]]
 
 - $T(N)=O(f(N))$ 上界，小于等于
 - $T(N)=\Omega(g(N))$ 下界，大于等于
 - $T(N)=\Theta(h(N))$ 确界，表示上下界同阶
 - $T(N)=o(p(N))$ **严格渐进上界**，严格小于
 
-## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.03 List]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.03 List]]
 
 - ADT 的概念
 - Sequential List
 	- Imp
 		- Array
 		- Linked List
-		- [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.03 List#Cursor Implementation of Linked Lists (no pointer)|Cursor Imp]]
+		- [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.03 List#Cursor Implementation of Linked Lists (no pointer)|Cursor Imp]]
 	- App
 		- 多项式表示
 		- Multilists 矩阵稀疏表示
@@ -111,7 +111,7 @@ updated: 2024-06-29T06:28:48
 	- `Dequeue` 在 `fornt++` 删除元素
 	- 需要执行满/空检查
 
-## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.04 Trees]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.04 Trees]]
 
 - Preliminaries
 	- Degree
@@ -147,7 +147,7 @@ updated: 2024-06-29T06:28:48
 			- lazy deletion
 	- $height(bst)\in[h-1,\lceil\log_2(n+1)\rceil-1]$
 
-## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.05 Priority Queues (Heaps)]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.05 Priority Queues (Heaps)]]
 
 - sentinel value 是不可能出现的最小/最大值
 - `insert` 放到末尾，`PercolateUp`
@@ -158,7 +158,7 @@ updated: 2024-06-29T06:28:48
 - `BuildHeap` 直接放，然后堆每个父节点 `PercolateDown`
 	- 也称为 **Linear Algorithm** $T(N)=O(N)$
 
-## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.06 Sorting]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.06 Sorting]]
 
 - **Insertion Sort** 插入排序 ***stable***
 	- best case $O(N)$
@@ -204,7 +204,7 @@ updated: 2024-06-29T06:28:48
 	- MSD Approach: *Parallel sort*
 	- LSD Approach: serial sort
 
-## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.07 Hashing]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.07 Hashing]]
 
 - Identifier density $n/T$
 - loading density $n/(sb)$
@@ -218,7 +218,7 @@ updated: 2024-06-29T06:28:48
 		- 如果是质数而且可以写成 $4 k+3$，且采用 $f(i)=\pm i^2$，那么只要有空位就行
 	- *Double Hashing* $f(i)=i*hash_2(x)$ 第二个哈希函数
 
-## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.08 The Disjoint Set ADT]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.08 The Disjoint Set ADT]]
 
 - Basic worst case $\Theta(N^2)$, skewed tree, where 1 = 2, 2 = 3, 3 = 4, ...
 - Smart Union Algorithm 都叫做 *Union-by-rank*
@@ -227,7 +227,7 @@ updated: 2024-06-29T06:28:48
 - $\alpha$ 反 Ackermann 函数，几乎等于常数
 - 如果有 $M$ 个 find，$N-1$ 个 unions，$T=O(M\alpha(M,N))$
 
-## [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.09 Graph Algorithms]]
+## [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.09 Graph Algorithms]]
 
 - Definitions
 	- complete
@@ -271,7 +271,7 @@ updated: 2024-06-29T06:28:48
 		- $O(|V|^2)$ 或者使用了更高级的图表示的话 $O(|E|\log|V|)$ or $O(|V|\log|E|)$ 适合 **Dense Graph**
 	- *Kruskal* 从森林开始，找最小的边将它们连接起来
 		- $T=O(|E|\log|E|)$ 适合在 **Sparse Graph**
-- **DFS** [[Blog/mkdocs-blog-project/emergent-space-obmd/ZJU Courses/2024 Spring/Fundamentals of Data Structure/Ch.09 Graph Algorithms#1. Use DFS to obtain a spanning tree of G]]
+- **DFS** [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.09 Graph Algorithms#1. Use DFS to obtain a spanning tree of G]]
 	- *Biconnectivily* 不存在割点的图
 	- **求解 biconnected components**
 		1. 使用 DFS 获得一个 spanning tree
@@ -312,15 +312,6 @@ updated: 2024-06-29T06:28:48
 > }
 > ```
 
-```c
-int cmp(const void* a, const void* b)
-{
-	return *(int*)a - *(int*)b;
-}
-
-qsort(thisSeq, 1000, sizeof(int), cmp);
-```
-
 ## [[16-17秋冬期末模拟.pdf]] 最小共同祖先问题
 
 - 先确定最小祖先，只需要找到第一个分叉点即可，也就是与子树根节点比较发现一个大一个小，或者出现一个等于的时候
@@ -337,65 +328,6 @@ qsort(thisSeq, 1000, sizeof(int), cmp);
 > 	- 使用数组进行表示，根的下标取 0
 > 	- 注意将数组初始化成 `-1` 表示未占用
 > - 然后，进行 `insert` 递归操作
-
-> [!example]- My Code
-> 
-> ```c
-> #include <stdio.h>
-> #include <string.h>
-> 
-> #define MAXN 10  
-> 
-> int IsCBST( int A[], int N );
-> 
-> int main(void)
-> {
->     int A[MAXN], N, i;
->     scanf("%d", &N);
->     for (i = 0; i < N; i++) scanf("%d", &A[i]);
->     if( IsCBST(A, N) ) printf("Yes\n");
->     else printf("No\n");
->     for (i = 0; i < N; i++) printf("%d ", A[i]);
->     return 0;
-> }
->   
-> //// my code ////
-> 
-> int BST[10000];
-> int preorder_index;
->   
-> void insert(int x, int index)
-> {
->     if(BST[index] == -1) BST[index] = x;
->     else if(x > BST[index]) insert(x, 2 * index + 1); // larger left
->     else if(x < BST[index]) insert(x, 2 * index + 2);
-> }
->   
-> void preorder(int index, int N, int A[])
-> {
->     if(BST[index] == -1) return; // null
->     A[preorder_index++] = BST[index];
->     preorder(2 * index + 1, N, A);
->     preorder(2 * index + 2, N, A);
-> }
->   
-> int IsCBST(int A[], int N)
-> {
->    // build tree
->     memset(BST, -1, sizeof(BST));
->     for(int i = 0; i < N; i++) insert(A[i], 0);
-> 
->     // postorder traversal
->     preorder_index = 0;
->     preorder(0, N, A);
->   
->     // chech validity
->     int valid = 1; // is cbst at default
->     for(int i = 0; i < N; i++) if(BST[i] == -1){valid = 0; break;}
->     if(valid) return 1;
->     else return 0;
-> }
-> ```
 
 [标准Kruskal算法及时间复杂度分析_kruskal算法时间复杂度分析-CSDN博客](https://blog.csdn.net/weixin_40673608/article/details/85308236)
 

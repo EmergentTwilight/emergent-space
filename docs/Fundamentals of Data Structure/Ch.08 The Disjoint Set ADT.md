@@ -4,7 +4,7 @@ status:
 tags: 
 aliases: 
 created: 2024-04-09T02:27:06
-updated: 2024-04-23T03:09:32
+updated: 2024-07-07T10:47:26
 ---
 # Equivalence Relations
 
