@@ -1,0 +1,2092 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Emergent Twilight">
+      
+      
+        <link rel="canonical" href="https://emergenttwilight.github.io/emergent-space/Fundamentals%20of%20Data%20Structure/Ch.04%20Trees/">
+      
+      
+        <link rel="prev" href="../Ch.03%20List/">
+      
+      
+        <link rel="next" href="../Ch.05%20Priority%20Queues%20%28Heaps%29/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+    
+    
+      
+        <title>Ch.04 Trees - Emergent Space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../../_srcs/CSS/md_color_custom.css">
+    
+      <link rel="stylesheet" href="../../_srcs/CSS/font.css">
+    
+      <link rel="stylesheet" href="../../_srcs/CSS/width.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#preliminaries" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Emergent Space" class="md-header__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Emergent Space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ch.04 Trees
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="cyan"  aria-label="Switch to colorful dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to colorful dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EmergentTwilight/emergent-space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    emergent-space
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Setup%20Log/" class="md-tabs__link">
+        
+  
+    
+  
+  Setup Log
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Ch.02%20Algorithm%20Analysis/" class="md-tabs__link">
+          
+  
+    
+  
+  Fundamentals of Data Structure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chap.00%20%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%EF%BC%88%E7%94%B2%EF%BC%89%20Learning%20Guide/" class="md-tabs__link">
+          
+  
+    
+  
+  微观经济学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Emergent Space" class="md-nav__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Emergent Space
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EmergentTwilight/emergent-space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    emergent-space
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Setup%20Log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Log
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Fundamentals of Data Structure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Fundamentals of Data Structure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ch.02%20Algorithm%20Analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch.02 Algorithm Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ch.03%20List/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch.03 List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ch.04 Trees
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Ch.04 Trees
+  </span>
+  
+
+      </a>
+      
+        
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preliminaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preliminaries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preliminaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      List Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firstchild-nextsibiling-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      FirstChild-NextSibiling Representation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Binary Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expression-tree-syntax-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expression Tree (syntax trees)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tree-traversels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tree Traversels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tree Traversels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expression-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      expression tree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      print directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculating-the-size-of-a-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating the size of a directory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#different-binary-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Different Binary Trees
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Different Binary Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#threaded-binary-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Threaded Binary Trees 线索二叉树
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-binary-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other binary trees
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-of-binary-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties of Binary Trees
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-search-tree-adt-binary-search-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Search Tree ADT - Binary Search Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Search Tree ADT - Binary Search Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adt" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findminfindmax" class="md-nav__link">
+    <span class="md-ellipsis">
+      FindMin/FindMax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insert
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-case-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Average-Case Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW 4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HW 4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isomorphic" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数题：Isomorphic 同构树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数题：Isomorphic 同构树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idea-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Idea 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Idea 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      易错点、改进建议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zigzagging-on-a-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      编程题：ZigZagging on a Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编程题：ZigZagging on a Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea-1-abandoned" class="md-nav__link">
+    <span class="md-ellipsis">
+      idea 1: abandoned 空间太大了，其实操作很简单，真正建立树的结构没有用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      idea 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ch.05%20Priority%20Queues%20%28Heaps%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch.05 Priority Queues (Heaps)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ch.06%20Sorting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch.06 Sorting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ch.07%20Hashing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch.07 Hashing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ch.08%20The%20Disjoint%20Set%20ADT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch.08 The Disjoint Set ADT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ch.09%20Graph%20Algorithms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch.09 Graph Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ch.09%20HW/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ch.09 HW
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Final%20Map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final Map
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6/Chap.00%20%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%EF%BC%88%E7%94%B2%EF%BC%89%20Learning%20Guide/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    微观经济学
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preliminaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preliminaries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preliminaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      List Representation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firstchild-nextsibiling-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      FirstChild-NextSibiling Representation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Binary Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expression-tree-syntax-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Expression Tree (syntax trees)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tree-traversels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tree Traversels
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tree Traversels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#expression-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      expression tree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      print directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculating-the-size-of-a-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calculating the size of a directory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#different-binary-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Different Binary Trees
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Different Binary Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#threaded-binary-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Threaded Binary Trees 线索二叉树
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-binary-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other binary trees
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties-of-binary-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Properties of Binary Trees
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-search-tree-adt-binary-search-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Search Tree ADT - Binary Search Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Search Tree ADT - Binary Search Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adt" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    <span class="md-ellipsis">
+      Find
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findminfindmax" class="md-nav__link">
+    <span class="md-ellipsis">
+      FindMin/FindMax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      Insert
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-case-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Average-Case Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW 4
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HW 4">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isomorphic" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数题：Isomorphic 同构树
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数题：Isomorphic 同构树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#idea-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Idea 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Idea 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      易错点、改进建议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zigzagging-on-a-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      编程题：ZigZagging on a Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编程题：ZigZagging on a Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question" class="md-nav__link">
+    <span class="md-ellipsis">
+      Question
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea-1-abandoned" class="md-nav__link">
+    <span class="md-ellipsis">
+      idea 1: abandoned 空间太大了，其实操作很简单，真正建立树的结构没有用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#idea-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      idea 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hw" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Ch.04 Trees</h1>
+
+<h2 id="preliminaries">Preliminaries<a class="headerlink" href="#preliminaries" title="Permanent link">&para;</a></h2>
+<div style="margin-top: -85px; font-size: 0.75em; opacity: 0.7; margin-bottom: 65px">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2017 个字  • <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 65 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 6 分钟</p>
+</div>
+<h3 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A tree is a <strong>collection of nodes</strong>. The collection can be <strong>empty</strong>, which is sometimes denoted as A. Otherwise, a tree consists of a distinguished node <strong>r</strong>, called the <strong>root</strong>, and zero or more <strong>(sub)trees</strong> T 1, T 2, . . . , Tk, each of whose roots are connected by a directed edge to r.<ul>
+<li>这是一个递归的定义</li>
+</ul>
+</li>
+<li>Note<ul>
+<li>subtrees <em>must not</em> connect to each other</li>
+<li>there are <em>N-1</em> edges in a tree with N nodes</li>
+</ul>
+</li>
+<li><strong>Degree</strong><ul>
+<li>for a node, <em>degree(node) = the number of its children node</em></li>
+<li>for a tree, it is the maximum of degree of its node</li>
+</ul>
+</li>
+<li>Parent, children, sibilings, leaf 都是特殊定义的节点</li>
+<li>Path: the path from node A to node B is <strong>unique</strong> in a tree <em>只能是从上到下走</em><ul>
+<li><strong>Length of path</strong>: 路径中边的个数</li>
+</ul>
+</li>
+<li><strong>Depth</strong>: the length of the path from root to this node, <em>Depth(root)=0</em></li>
+<li><strong>Height</strong> the length of the <em>longest</em> path from this node to a leaf, <em>height(leaf)=0</em></li>
+<li><strong>height(depth) of a tree</strong> = height(root) = depth(deepest leaf)</li>
+<li><strong>Ancestors</strong>: all the nodes along the path from this node up to the root</li>
+<li><strong>descendants</strong>: all the nodes in its subtrees</li>
+</ul>
+<h3 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">&para;</a></h3>
+<h4 id="list-representation">List Representation<a class="headerlink" href="#list-representation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>可以用 (A(B(E,F),C,D)) 的线性结构来表示</li>
+<li>可以用链表来表示<ul>
+<li><em>劣势</em>：tree 在生长的时候每个节点需要几个 pointer 不好确定<ul>
+<li>如果提前知道了 degree，也会浪费空间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="firstchild-nextsibiling-representation">FirstChild-NextSibiling Representation<a class="headerlink" href="#firstchild-nextsibiling-representation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>每个 node 都有两个 pointer，第一个指向 firstchild，第二个指向 nextsibiling</li>
+<li>表达<strong>不唯一</strong>，子节点的顺序是不重要的</li>
+</ul>
+<p><img alt="Pasted image 20240319185741.png" src="../Pasted-image-20240319185741.png" />
+<em>general tree can be converted into a Binary Tree</em></p>
+<h2 id="binary-tree">Binary Tree<a class="headerlink" href="#binary-tree" title="Permanent link">&para;</a></h2>
+<h3 id="definition_1">Definition<a class="headerlink" href="#definition_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>每个节点最多只能有两个子节点</li>
+<li>相当于 general 的 firstchild-nextsibiling 表达旋转 45°</li>
+</ul>
+<h3 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link">&para;</a></h3>
+<h4 id="expression-tree-syntax-trees">Expression Tree (syntax trees)<a class="headerlink" href="#expression-tree-syntax-trees" title="Permanent link">&para;</a></h4>
+<ul>
+<li>review: postfix expression -&gt; stack</li>
+<li>constructing an Expression Tree <em>from postfil expression</em><ul>
+<li>operand, push</li>
+<li>operatior, operator 指向栈顶两个元素，push operator 的指针</li>
+</ul>
+</li>
+</ul>
+<h3 id="tree-traversels">Tree Traversels<a class="headerlink" href="#tree-traversels" title="Permanent link">&para;</a></h3>
+<ul>
+<li>preorder <em>先根遍历，根左右</em></li>
+<li>postorder <em>后根遍历，左右根</em></li>
+<li><strong>levelorder</strong> <em>深度遍历</em><ul>
+<li>使用 <strong>queue</strong> 存储将要遍历的节点指针</li>
+<li>每遍历一个节点，将它的子节点加入队列</li>
+</ul>
+</li>
+<li>Inorder Traversal <em>中根遍历，左根右</em><ul>
+<li>先左子树，再根节点，再右子树</li>
+<li>递推形式非常复杂，递归很好读</li>
+</ul>
+</li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">iter_inorder</span><span class="p">(</span><span class="w"> </span><span class="n">tree_ptr</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="n">Stack</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateStack</span><span class="p">(</span><span class="n">MAX_SIZE</span><span class="p">);</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">    </span><span class="k">for</span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><a href="#__codelineno-0-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">        </span><span class="k">for</span><span class="p">(;</span><span class="w"> </span><span class="n">tree</span><span class="p">;</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="n">Push</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><a href="#__codelineno-0-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">        </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Top</span><span class="p">(</span><span class="n">S</span><span class="p">);</span><span class="w"> </span><span class="n">Pop</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><a href="#__codelineno-0-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">tree</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><a href="#__codelineno-0-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">        </span><span class="n">visit</span><span class="p">(</span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">);</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><a href="#__codelineno-0-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">        </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><a href="#__codelineno-0-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><a href="#__codelineno-0-11"><span class="linenos" data-linenos="11 "></span></a><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="expression-tree">expression tree<a class="headerlink" href="#expression-tree" title="Permanent link">&para;</a></h4>
+<ul>
+<li>按照不同的遍历方式，能得到不同的表达式，<strong>这就是 expression tree 的作用</strong></li>
+<li>perorder: prefix exp</li>
+<li>inorder: infix exp</li>
+<li>postorder: postfix exp</li>
+</ul>
+<h4 id="print-directory">print directory<a class="headerlink" href="#print-directory" title="Permanent link">&para;</a></h4>
+<ul>
+<li>使用 <strong>preorder</strong> 遍历，先打印根目录</li>
+<li>记录 depth，用作 print 的缩进</li>
+</ul>
+<h4 id="calculating-the-size-of-a-directory">Calculating the size of a directory<a class="headerlink" href="#calculating-the-size-of-a-directory" title="Permanent link">&para;</a></h4>
+<ul>
+<li>使用 <strong>postorder</strong>，先计算子节点（文件或文件夹）的大小，在返回子节点</li>
+<li><span class="arithmatex">\(T(N)=O(N)\)</span></li>
+</ul>
+<h3 id="different-binary-trees">Different Binary Trees<a class="headerlink" href="#different-binary-trees" title="Permanent link">&para;</a></h3>
+<h4 id="threaded-binary-trees">Threaded Binary Trees 线索二叉树<a class="headerlink" href="#threaded-binary-trees" title="Permanent link">&para;</a></h4>
+<ul>
+<li>一个二叉树有 n 个节点，那么它就一定有 n+1 个空的指针，所以为了 避免浪费可以使用 <strong>threads</strong></li>
+<li>Rules: 有一个 dummy head node<ol>
+<li>如果左指针空，替换为中序遍历的前驱<ol>
+<li>如果没有前驱，替换为 <em>dummy head node</em></li>
+</ol>
+</li>
+<li>如果右指针空，替换为中序遍历的后继</li>
+</ol>
+</li>
+<li>便于从下面来往上遍历</li>
+</ul>
+<h4 id="other-binary-trees">Other binary trees<a class="headerlink" href="#other-binary-trees" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Skewed</strong> Binary Trees: 斜树，退化成线性结构 <em>表达能力很弱，不如用 linear list</em></li>
+<li><strong>Complete</strong> Binary Trees: 完全二叉树 ^bfe95b<ul>
+<li>除了最后一层，全都填满</li>
+<li>最后一层从左往右填</li>
+</ul>
+</li>
+</ul>
+<h3 id="properties-of-binary-trees">Properties of Binary Trees<a class="headerlink" href="#properties-of-binary-trees" title="Permanent link">&para;</a></h3>
+<ul>
+<li>第 i 层最大有 <span class="arithmatex">\(2^{i-1}\)</span> 个节点</li>
+<li>k 层二叉树的最大节点个数为 <span class="arithmatex">\(2^k-1\)</span></li>
+<li>完全二叉树中，<strong>叶子节点的个数比 2 度节点个数多 1</strong> <span class="arithmatex">\(n_0=n_2+1\)</span><ul>
+<li><img alt="Pasted image 20240422190953.png" src="../Pasted-image-20240422190953.png" /></li>
+<li>或者这样理解<ul>
+<li>如果没有二度节点，只会有一个叶子</li>
+<li>每多一个二度节点，就能多一条支路，多一个叶子</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-search-tree-adt-binary-search-tree">The Search Tree ADT - Binary Search Tree<a class="headerlink" href="#the-search-tree-adt-binary-search-tree" title="Permanent link">&para;</a></h2>
+<h3 id="definition_2">Definition<a class="headerlink" href="#definition_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>每个节点都有一个 key，为整数，每个 key 不同</li>
+<li>左子树的 key 都小于 root</li>
+<li>右子树的 key 都大于 root</li>
+<li>Binary Search Tree 的子树也是 Binary Search Tree</li>
+</ul>
+<h3 id="adt">ADT<a class="headerlink" href="#adt" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Objects: A finite ordered list with zero or more elements</li>
+<li>Operations</li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">SearchTree</span><span class="w"> </span><span class="nf">MakeEmpty</span><span class="p">(</span><span class="w"> </span><span class="n">SearchTree</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">);</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos="2 "></span></a><span class="n">Position</span><span class="w"> </span><span class="nf">Find</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">SearchTree</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">);</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><a href="#__codelineno-1-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">Position</span><span class="w"> </span><span class="nf">FindMin</span><span class="p">(</span><span class="w"> </span><span class="n">SearchTree</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">);</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">Position</span><span class="w"> </span><span class="nf">FindMax</span><span class="p">(</span><span class="w"> </span><span class="n">SearchTree</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">);</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><a href="#__codelineno-1-5"><span class="linenos" data-linenos="5 "></span></a><span class="n">SearchTree</span><span class="w"> </span><span class="nf">Insert</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">SearchTree</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">);</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><a href="#__codelineno-1-6"><span class="linenos" data-linenos="6 "></span></a><span class="n">SearchTree</span><span class="w"> </span><span class="nf">Delete</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">SearchTree</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">);</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><a href="#__codelineno-1-7"><span class="linenos" data-linenos="7 "></span></a><span class="n">ElementType</span><span class="w"> </span><span class="nf">Retrieve</span><span class="p">(</span><span class="w"> </span><span class="n">Position</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="implementations">Implementations<a class="headerlink" href="#implementations" title="Permanent link">&para;</a></h3>
+<h4 id="find">Find<a class="headerlink" href="#find" title="Permanent link">&para;</a></h4>
+<ul>
+<li>递归可以实现</li>
+<li>由于是尾递归，可以优化为循环</li>
+<li>时间复杂度，就是<strong>树的深度 d</strong></li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">Position</span><span class="w"> </span><span class="nf">Iter_Find</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">SearchTree</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos="2 "></span></a><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="p">){</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w">    </span><span class="c1">// found</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos="5 "></span></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><a href="#__codelineno-2-6"><span class="linenos" data-linenos="6 "></span></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><a href="#__codelineno-2-7"><span class="linenos" data-linenos="7 "></span></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><a href="#__codelineno-2-8"><span class="linenos" data-linenos="8 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w">    </span><span class="c1">// not found</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><a href="#__codelineno-2-9"><span class="linenos" data-linenos="9 "></span></a><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="findminfindmax">FindMin/FindMax<a class="headerlink" href="#findminfindmax" title="Permanent link">&para;</a></h4>
+<ul>
+<li>找到左下角/右下角的节点 <em>循环解决</em></li>
+<li>时间复杂度为 <strong>d</strong></li>
+</ul>
+<h4 id="insert">Insert<a class="headerlink" href="#insert" title="Permanent link">&para;</a></h4>
+<ul>
+<li>找到待插入的位置（父节点）<ul>
+<li>进行和 Find 一样的操作</li>
+<li>最后一个遇到的节点就是这个数的父节点</li>
+</ul>
+</li>
+<li>创建节点并返回指针</li>
+<li>上一层调用中使父节点的指针等于这个新节点的指针</li>
+<li><span class="arithmatex">\(T(N)=O(d)\)</span> </li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="n">SearchTree</span><span class="w"> </span><span class="nf">Insert</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">SearchTree</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><a href="#__codelineno-3-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><a href="#__codelineno-3-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">){</span><span class="w"> </span><span class="c1">// the initial T is NULL, or the position of X is found</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><a href="#__codelineno-3-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">SearchTree</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="p">));</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><a href="#__codelineno-3-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="n">FatalError</span><span class="p">(</span><span class="s">&quot;Out of space!!&quot;</span><span class="p">);</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><a href="#__codelineno-3-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">        </span><span class="k">else</span><span class="p">{</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><a href="#__codelineno-3-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">            </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><a href="#__codelineno-3-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">            </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><a href="#__codelineno-3-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><a href="#__codelineno-3-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><a href="#__codelineno-3-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="k">else</span><span class="p">{</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a><a href="#__codelineno-3-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Insert</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">);</span><span class="w"> </span><span class="c1">// need to update T-&gt;Left in this recursion</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a><a href="#__codelineno-3-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Insert</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">);</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a><a href="#__codelineno-3-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">        </span><span class="c1">// else X already exist, do nothing</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a><a href="#__codelineno-3-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a><a href="#__codelineno-3-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w">   </span><span class="c1">// make this return because the original T is allowed to be NULL, thus we need to build such a tree and ptr to it!!!</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a><a href="#__codelineno-3-17"><span class="linenos" data-linenos="17 "></span></a><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h4>
+<ul>
+<li>delete leaf node: free 并将父节点指向空</li>
+<li>delete 1 degree node: 将它的子节点直接接到父节点上</li>
+<li>delete 2 degree node: <ul>
+<li>将这个节点替换为<strong>左子树中最大的</strong>，或<strong>右子树中最小的</strong></li>
+<li>对被换过来的这个节点<strong>递归进行 delete 操作</strong></li>
+</ul>
+</li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><a href="#__codelineno-4-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="n">SearchTree</span><span class="w"> </span><span class="nf">Delete</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">SearchTree</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><a href="#__codelineno-4-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><a href="#__codelineno-4-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="n">TmpCell</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><a href="#__codelineno-4-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">&quot;Element not found&quot;</span><span class="p">);</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><a href="#__codelineno-4-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Delete</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">);</span><span class="w">    </span><span class="c1">// go left</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><a href="#__codelineno-4-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">X</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Delete</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">);</span><span class="w"> </span><span class="c1">// go right</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><a href="#__codelineno-4-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="k">else</span><span class="p">{</span><span class="w">   </span><span class="c1">// found, just this node</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><a href="#__codelineno-4-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">){</span><span class="w">    </span><span class="c1">// two child</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><a href="#__codelineno-4-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">            </span><span class="n">TmpCell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindMax</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">);</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><a href="#__codelineno-4-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">            </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TmpCell</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a><a href="#__codelineno-4-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">            </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Delete</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">);</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a><a href="#__codelineno-4-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><a href="#__codelineno-4-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">        </span><span class="k">else</span><span class="p">{</span><span class="w">       </span><span class="c1">// one or no child</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a><a href="#__codelineno-4-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">            </span><span class="n">TmpCell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a><a href="#__codelineno-4-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">;</span><span class="w">    </span><span class="c1">// left not empty, replace with left</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16"></a><a href="#__codelineno-4-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">;</span><span class="w"> </span><span class="c1">// right not empty, replace with right</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17"></a><a href="#__codelineno-4-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">            </span><span class="n">free</span><span class="p">(</span><span class="n">TmpCell</span><span class="p">);</span><span class="w">  </span><span class="c1">// don&#39;t forget to free memory!</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18"></a><a href="#__codelineno-4-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19"></a><a href="#__codelineno-4-19"><span class="linenos" data-linenos="19 "></span></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20"></a><a href="#__codelineno-4-20"><span class="linenos" data-linenos="20 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">T</span><span class="p">;</span><span class="w">   </span><span class="c1">// if deleted, ptr has to be updated</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21"></a><a href="#__codelineno-4-21"><span class="linenos" data-linenos="21 "></span></a><span class="p">}</span>
+</span></code></pre></div>
+<h5 id="lazy-deletion">Lazy Deletion<a class="headerlink" href="#lazy-deletion" title="Permanent link">&para;</a></h5>
+<ul>
+<li>使用一个 flag 来标记这个节点是否 <strong>active</strong>，标记为 <strong>deleted</strong> 就可以，用于减少 free 操作</li>
+<li>如果二叉树比较平衡的话，使用 lazy deletion 只会使搜索的时间复杂度增加一点点</li>
+</ul>
+<h3 id="average-case-analysis">Average-Case Analysis<a class="headerlink" href="#average-case-analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li>建立一个 n 个节点的 binary search tree</li>
+<li><span class="arithmatex">\(height(bst)\in[h-1,\lceil\log_2(n+1)\rceil-1]\)</span></li>
+</ul>
+<h2 id="hw-4">HW 4<a class="headerlink" href="#hw-4" title="Permanent link">&para;</a></h2>
+<ol>
+<li>There exists a binary tree with 2016 nodes in total, and with 16 nodes having only one child. <strong>F</strong><ol>
+<li>去除所有的单个孩子的节点，剩下 2000 个节点的完全二叉树，但 2000 不是 2 的次方数</li>
+</ol>
+</li>
+<li>Given a tree of degree 3. Suppose that there are 3 nodes of degree 2 and 2 nodes of degree 3. Then the number of leaf nodes must be ____.<ol>
+<li>如果所有的 degree 都是 1，那么只有一个叶子节点</li>
+<li>every extra degree add 1 leaf node</li>
+<li>1+3+2*2=8</li>
+</ol>
+</li>
+<li>If a general tree T is converted into a binary tree BT, then which of the following BT traversals gives the same sequence as that of the post-order traversal of T?<ol>
+<li>left right root</li>
+<li>the sequence of <em>M H I J D</em></li>
+<li><strong>T preorder = BT preorder; T postorder = BT inorder</strong></li>
+</ol>
+</li>
+<li>Among the following threaded binary trees (the threads are represented by dotted curves), which one is the postorder threaded tree?<ol>
+<li>threaded binary tree 空指针的替换规则<strong>可以是 postorder, inorder, preorder</strong></li>
+</ol>
+</li>
+</ol>
+<h3 id="isomorphic">函数题：Isomorphic 同构树<a class="headerlink" href="#isomorphic" title="Permanent link">&para;</a></h3>
+<h4 id="idea-1">Idea 1<a class="headerlink" href="#idea-1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>需要使用递归，每次判断一层，然后拆成子树再次判断</li>
+<li><strong>degree 不相等</strong>直接返回 0<ul>
+<li><strong>对于 degree = 2 节点</strong>在本层，判断下一层的 value 是否对应<ul>
+<li>对应，则对应递归调用</li>
+<li>不对应，则返回 0</li>
+</ul>
+</li>
+<li><strong>对于 degree = 1 节点</strong>在本层，判断下一层的 value 是否对应</li>
+<li><strong>对于 degree = 0 的节点</strong>返回 1</li>
+</ul>
+</li>
+</ul>
+<h4 id="idea-2">Idea 2<a class="headerlink" href="#idea-2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>判断值是否相等</strong>，不相等返回 0</li>
+<li><strong>判断 degree</strong><ul>
+<li><strong>not equal</strong> return 0</li>
+<li><strong>= 2</strong><ul>
+<li>if tree 1 left == tree 2 left<ul>
+<li>iso(left, left)</li>
+<li>iso(right, right)</li>
+</ul>
+</li>
+<li>else<ul>
+<li>iso(left, right)</li>
+<li>iso(right, left)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>=1</strong><ul>
+<li>相应调用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_1">易错点、改进建议<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>需要考虑对两个空树调用的情况</li>
+<li>使用 bitmap 来统一表示，可以稍微减少判断的问题</li>
+</ul>
+<h3 id="zigzagging-on-a-tree">编程题：ZigZagging on a Tree<a class="headerlink" href="#zigzagging-on-a-tree" title="Permanent link">&para;</a></h3>
+<h4 id="question">Question<a class="headerlink" href="#question" title="Permanent link">&para;</a></h4>
+<ul>
+<li>how to build a tree from inorder array and postorder array?</li>
+<li>how to traversal this binary tree in required form?</li>
+<li>build binary tree</li>
+<li>traversal it</li>
+</ul>
+<h4 id="idea-1-abandoned">idea 1: abandoned 空间太大了，其实操作很简单，真正建立树的结构没有用<a class="headerlink" href="#idea-1-abandoned" title="Permanent link">&para;</a></h4>
+<h5 id="_2">建立树<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li>拿到 postorder 的最后一个元素作为 pivot</li>
+<li>在 parent 下建立这个节点</li>
+<li>在 inorder 中找到这个 pivot，查询左右子树长度</li>
+<li>递归调用，分别传入 root 的左右指针</li>
+<li>当 size = 1 时，建立这个节点，<strong>递归出口</strong></li>
+</ul>
+<h5 id="_3">遍历树<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<h4 id="idea-2_1">idea 2<a class="headerlink" href="#idea-2_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>使用一个二维数组 inorder 标记每个数字的深度？<ul>
+<li>需要用到遍历，每次取 postorder 的最后一个数字为 pivot，设置这个 pivot 的深度，并递归求子树元素的深度</li>
+</ul>
+</li>
+<li>然后直接交叉遍历数组？</li>
+</ul>
+<h5 id="_4">评价：非常好，一遍过！很省空间<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<ul>
+<li>最后换成单独的 depths 数组，维护起来比较方便</li>
+</ul>
+<h5 id="_5">建议<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<ul>
+<li>注意输出格式的限制，末尾是否允许有多余的空格</li>
+<li>注意这是 C 语言，不是 python</li>
+<li>三目运算符 <code>int max = a&gt;b?a:b;</code></li>
+</ul>
+<h2 id="hw">HW<a class="headerlink" href="#hw" title="Permanent link">&para;</a></h2>
+<ul>
+<li>There exists a binary tree with 2016 nodes in total, and with 16 nodes having only one child. <strong>F</strong><ul>
+<li>根据 [[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.04 Trees#Properties of Binary Trees]] 进行推导得出 <span class="arithmatex">\(2n_2=1999\)</span> 除不尽，所以不可能</li>
+</ul>
+</li>
+<li>In a binary search tree which contains several integer keys including 4, 5, and 6, if 4 and 6 are on the same level, then 5 must be their parent. <strong>F</strong><ul>
+<li>False: 可以是三层的树，5 为根，4 为右孩子，6 为左孩子</li>
+</ul>
+</li>
+<li><img alt="Pasted image 20240401074157.png" src="../Pasted-image-20240401074157.png" /><ul>
+<li><a href="https://blog.csdn.net/qq_41754065/article/details/106590844#:~:text=%E7%AD%94%E6%A1%88%EF%BC%9AB%E7%AD%94%E6%A1%88%E8%A7%A3%E6%9E%90%EF%BC%9A%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE%E5%88%A4%E5%AE%9A%E6%A0%91%E5%AE%9E%E9%99%85%E4%B8%8A%E6%98%AF%E4%B8%80%E6%A3%B5%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%EF%BC%8C%E5%AE%83%E7%9A%84%E4%B8%AD%E5%BA%8F%E5%BA%8F%E5%88%97%E6%98%AF%E4%B8%80%E4%B8%AA%E6%9C%89%E5%BA%8F%E5%BA%8F%E5%88%97%E3%80%82,%E5%8F%AF%E4%BB%A5%E5%9C%A8%E6%A0%91%E7%BB%93%E7%82%B9%E4%B8%8A%E4%BE%9D%E6%AC%A1%E5%A1%AB%E4%B8%8A%E7%9B%B8%E5%BA%94%E7%9A%84%E5%85%83%E7%B4%A0%EF%BC%8C%E7%AC%A6%E5%90%88%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE%E8%A7%84%E5%88%99%E7%9A%84%E6%A0%91%E5%8D%B3%E6%98%AF%E6%89%80%E6%B1%82%E3%80%82%20B%E9%80%89%E9%A1%B94%E3%80%815%E7%9B%B8%E5%8A%A0%E9%99%A4%E4%BA%8C%E5%90%91%E4%B8%8A%E5%8F%96%E6%95%B4%EF%BC%8C7%E3%80%818%E7%9B%B8%E5%8A%A0%E9%99%A4%E4%BA%8C%E5%90%91%E4%B8%8B%E5%8F%96%E6%95%B4%EF%BC%8C%E7%9F%9B%E7%9B%BE%E3%80%82">下列二叉树中，可能成为折半查找判定树（不含外部结点）的是（）_下列二叉树中,可能成为折半查找判定树(不含外部结点)的是:-CSDN博客</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="review">Review<a class="headerlink" href="#review" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The time comlexity of Binary Search will be the same no matter we store the elements in an array or a linked list.<ul>
+<li>F, idkw</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 EmergentTwilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/emergenttwilight" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.tracking", "navigation.prune", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotation", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+        <script src="../../_srcs/javascript/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
