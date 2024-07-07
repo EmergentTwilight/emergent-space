@@ -826,8 +826,8 @@ cudaFree(a);
 3. 进行 GPU 内存分配 `cudaMallocManaged(&buf, bytes)`
 4. 预取操作 `cudaMemPrefetchAsync(p, bytes, deviceId)`
 5. 使用非默认流 `cudaCreateStream(&stream)`
-
-```cpp hl="21-24,45,46,48,49,78,82,100,101,103,105,106,111,131" title="Solution"
+ 
+```cpp hl_lines="21-24 45 46 48 49 78 82 100 101 103 105 106 111 131" title="Solution"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

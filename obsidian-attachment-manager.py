@@ -10,6 +10,12 @@ extensions = ['.jpg', '.jpeg', '.png']
 processing_directory = "docs"
 attachments_directory = "D:/Obsidian-Vault/Alpha/0 Foundation/1 Attachment"
 
+# hl syntax match
+hl_pattern = r'hl="([\d,-]+)"'
+def replace_hl(match):
+    lines = match.group(1).replace(",", " ")
+    return f'hl_lines="{lines}"'
+
 def find_file_in_directory(filename, directory):
     for root, dirs, files in os.walk(directory):
         for file in files:
@@ -21,6 +27,8 @@ def find_file_in_directory(filename, directory):
 def process_markdown_file(md_path, attachments_dir):
     with open(md_path, 'r', encoding='utf-8') as md:
         md_content = md.read()
+
+    md_content = re.sub(hl_pattern, replace_hl, md_content)
 
     md_updated_content = md_content
     wikilinks = re.findall(r'\[\[(.*?)\]\]', md_content)
