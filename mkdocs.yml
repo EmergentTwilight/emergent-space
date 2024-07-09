@@ -1,11 +1,20 @@
 # navigation
 #nav:
 #  - Home:
-#      - index.md
+#      - Welcome to my blog !: index.md
 #      - Setup Log.md
-#  - ZJU Courses:
-#      - Fundamentals of Data Structure:
-#        - "ZJU Courses/2024 Spring/Fundamentals of Data Structure/"
+#  - Fundamentals of Data Structure:
+#      - Fundamentals of Data Structure/Ch.02 Algorithm Analysis.md
+#      - Fundamentals of Data Structure/Ch.03 List.md
+#      - Fundamentals of Data Structure/Ch.04 Trees.md
+#      - Fundamentals of Data Structure/Ch.05 Priority Queues (Heaps).md
+#      - Fundamentals of Data Structure/Ch.06 Sorting.md
+#      - Fundamentals of Data Structure/Ch.07 Hashing.md
+#      - Fundamentals of Data Structure/Ch.08 The Disjoint Set ADT.md
+#      - Fundamentals of Data Structure/Ch.09 Graph Algorithms.md
+#      - Fundamentals of Data Structure/Final Map.md
+#  - 微观经济学:
+#      -
 
 # site metadata
 site_name: Emergent Space
@@ -65,7 +74,11 @@ markdown_extensions:
       generic: true
   - admonition # namely callout
   - footnotes # [^1]: content
-  - pymdownx.superfences # basic code highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   # code line highlight
   - pymdownx.highlight:
       anchor_linenums: true

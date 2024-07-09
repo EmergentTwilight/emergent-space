@@ -10,7 +10,6 @@ def push(source_dir, target_dir):
         os.makedirs(target_dir)
 
     for root, dirs, files in os.walk(source_dir):
-        # 计算目标路径
         for dir_name in dirs:
             target_sub_dir = os.path.join(target_dir, os.path.relpath(os.path.join(root, dir_name), source_dir))
             if not os.path.exists(target_sub_dir):
