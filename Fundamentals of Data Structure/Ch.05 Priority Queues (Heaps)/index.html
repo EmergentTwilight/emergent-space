@@ -1409,27 +1409,22 @@
 
   <h1>Ch.05 Priority Queues (Heaps)</h1>
 
+<h2 id="adt-model">ADT Model<a class="headerlink" href="#adt-model" title="Permanent link">&para;</a></h2>
+<div style="margin-top: -85px; font-size: 0.75em; opacity: 0.7; margin-bottom: 65px">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 6v2H3V6h18M3 18h9v-2H3v2m0-5h18v-2H3v2Z"/></svg></span> 约 979 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.03 7.39 1.42-1.42c-.45-.51-.9-.97-1.41-1.41L17.62 6c-1.55-1.26-3.5-2-5.62-2a9 9 0 0 0 0 18c5 0 9-4.03 9-9 0-2.12-.74-4.07-1.97-5.61M13 14h-2V7h2v7m2-13H9v2h6V1Z"/></svg></span> 预计阅读时间 2 分钟</p>
+</div>
+<!--<div markdown="1" style="margin-top: -30px; font-size: 0.9em; opacity: 0.7;">-->
+<!--:material-circle-edit-outline: 约 979 个字 :material-clock-time-two-outline: 预计阅读时间 2 分钟-->
+<!--</div>-->
+
 <div class="admonition note">
 <p class="admonition-title">Priority queues</p>
 <p>delete the element with the highest / lowest priority</p>
 </div>
-<h2 id="adt-model">ADT Model<a class="headerlink" href="#adt-model" title="Permanent link">&para;</a></h2>
-<div style="margin-top: -85px; font-size: 0.75em; opacity: 0.7; margin-bottom: 65px">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 6v2H3V6h18M3 18h9v-2H3v2m0-5h18v-2H3v2Z"/></svg></span> 约 950 个字  • <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 51 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.03 7.39 1.42-1.42c-.45-.51-.9-.97-1.41-1.41L17.62 6c-1.55-1.26-3.5-2-5.62-2a9 9 0 0 0 0 18c5 0 9-4.03 9-9 0-2.12-.74-4.07-1.97-5.61M13 14h-2V7h2v7m2-13H9v2h6V1Z"/></svg></span> 预计阅读时间 3 分钟</p>
-</div>
-<!--<div markdown="1" style="margin-top: -30px; font-size: 0.9em; opacity: 0.7;">-->
-<!--:material-circle-edit-outline: 约 950 个字 :fontawesome-solid-code: 51 行代码 :material-clock-time-two-outline: 预计阅读时间 3 分钟-->
-<!--</div>-->
-
 <ul>
 <li>Objects: A finite ordered list with zero or more elements</li>
 <li>Operations</li>
 </ul>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">PriorityQueue</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MaxElements</span><span class="w"> </span><span class="p">);</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos="2 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">Insert</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">);</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos="3 "></span></a><span class="n">ElementType</span><span class="w"> </span><span class="nf">DeleteMin</span><span class="p">(</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">);</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos="4 "></span></a><span class="n">ElementType</span><span class="w"> </span><span class="nf">FindMin</span><span class="p">(</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">);</span>
-</span></code></pre></div>
 <h2 id="simple-implementations">Simple Implementations<a class="headerlink" href="#simple-implementations" title="Permanent link">&para;</a></h2>
 <h3 id="array">Array<a class="headerlink" href="#array" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1483,10 +1478,19 @@
 <h3 id="structure-property">Structure Property<a class="headerlink" href="#structure-property" title="Permanent link">&para;</a></h3>
 <h4 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h4>
 <ul>
-<li>A binary tree with n nodes and height h is <strong>complete</strong> iff its nodes correspond to the nodes numbered from 1 to n in the prefect binary tree of height h. 也就是完全二叉树，但是只有前 n 个节点<ul>
-<li>![[Blog/mkdocs-blog-project/emergent-space-obmd/Fundamentals of Data Structure/Ch.04 Trees#^bfe95b]]</li>
+<li>A binary tree with n nodes and height h is <strong>complete</strong> iff its nodes correspond to the nodes numbered from 1 to n in the prefect binary tree of height h. 也就是完全二叉树，但是只有前 n 个节点</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">完全二叉树 <a href="../Ch.04%20Trees/">Ch.04 Trees</a></p>
+<ul>
+<li><strong>Complete</strong> Binary Trees: 完全二叉树 ^bfe95b<ul>
+<li>除了最后一层，全都填满</li>
+<li>最后一层从左往右填</li>
 </ul>
 </li>
+</ul>
+</div>
+<ul>
 <li>对于一个高度为 h 的二叉树，有 <span class="arithmatex">\([2^h,2^{h+1}-1]\)</span> 个元素<ul>
 <li><span class="arithmatex">\(h=\lfloor\log_2 N\rfloor\)</span></li>
 </ul>
@@ -1512,21 +1516,6 @@
 </li>
 <li>初始化的时候，在第零个 index 设置一个最小的值，称为 sentinel <em>哨兵</em></li>
 </ul>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="n">PriorityQueue</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MaxElements</span><span class="w"> </span><span class="p">)</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="p">{</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><a href="#__codelineno-1-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H</span><span class="p">;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">MaxElements</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MinPQSize</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Error</span><span class="p">(</span><span class="s">&quot;Priority queue size is too small&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// too small size, no need for a queue</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><a href="#__codelineno-1-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">HeapStruct</span><span class="p">));</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><a href="#__codelineno-1-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">H</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">FatalError</span><span class="p">(</span><span class="s">&quot;Out of space!!&quot;</span><span class="p">);</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><a href="#__codelineno-1-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="cm">/*allocate the array plus one extra for sentinel*/</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><a href="#__codelineno-1-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">((</span><span class="n">MaxElements</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="n">ElememtType</span><span class="p">));</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><a href="#__codelineno-1-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">ELements</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">FatalError</span><span class="p">(</span><span class="s">&quot;Out of space!!&quot;</span><span class="p">);</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a><a href="#__codelineno-1-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MaxElements</span><span class="p">;</span><span class="w">  </span><span class="c1">// max allowed num of elements</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><a href="#__codelineno-1-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">    </span><span class="c1">// current, no elements</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a><a href="#__codelineno-1-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MinData</span><span class="p">;</span><span class="w">  </span><span class="c1">// sentinel</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><a href="#__codelineno-1-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">H</span><span class="p">;</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a><a href="#__codelineno-1-14"><span class="linenos" data-linenos="14 "></span></a><span class="p">}</span>
-</span></code></pre></div>
 <h3 id="heap-order-property">Heap Order Property<a class="headerlink" href="#heap-order-property" title="Permanent link">&para;</a></h3>
 <ul>
 <li>最小树：每个节点的值都不比孩子大</li>
@@ -1539,21 +1528,6 @@
 <li>插入之后树的结构是一定的，因为要保持 index 连续</li>
 <li>插入到新开的节点，如果比父节点大，就互换，并递归比较互换 <strong>Percolate Up</strong></li>
 </ul>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="p">{</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">  </span><span class="c1">// node ptr</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">isFull</span><span class="p">(</span><span class="n">H</span><span class="p">)){</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="s">&quot;Priority queue is full!!&quot;</span><span class="p">);</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><a href="#__codelineno-2-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><a href="#__codelineno-2-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><a href="#__codelineno-2-8"><span class="linenos" data-linenos=" 8 "></span></a>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><a href="#__codelineno-2-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">/=</span><span class="mi">2</span><span class="p">){</span><span class="w">    </span><span class="c1">// 零号有哨兵，不需要判断是否为根节点</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><a href="#__codelineno-2-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">        </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span><span class="w">    </span><span class="c1">// Procolete up, dont swap!!!</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><a href="#__codelineno-2-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><a href="#__codelineno-2-12"><span class="linenos" data-linenos="12 "></span></a>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><a href="#__codelineno-2-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><a href="#__codelineno-2-14"><span class="linenos" data-linenos="14 "></span></a><span class="p">}</span>
-</span></code></pre></div>
 <h4 id="deletemin">DeleteMin<a class="headerlink" href="#deletemin" title="Permanent link">&para;</a></h4>
 <ul>
 <li>先把最大 index 的元素写到根节点</li>
@@ -1561,26 +1535,6 @@
 <li>递归调用</li>
 <li><span class="arithmatex">\(O(logn)\)</span></li>
 </ul>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><a href="#__codelineno-3-1"><span class="linenos" data-linenos=" 1 "></span></a><span class="n">ElementType</span><span class="w"> </span><span class="nf">DeleteMin</span><span class="p">(</span><span class="w"> </span><span class="n">Priority</span><span class="w"> </span><span class="n">Queue</span><span class="w"> </span><span class="n">H</span><span class="p">)</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><a href="#__codelineno-3-2"><span class="linenos" data-linenos=" 2 "></span></a><span class="p">{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><a href="#__codelineno-3-3"><span class="linenos" data-linenos=" 3 "></span></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">Child</span><span class="p">;</span><span class="w">  </span><span class="c1">// ptrs</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><a href="#__codelineno-3-4"><span class="linenos" data-linenos=" 4 "></span></a><span class="w">    </span><span class="n">ElementType</span><span class="w"> </span><span class="n">MinElement</span><span class="p">,</span><span class="w"> </span><span class="n">LastElement</span><span class="p">;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><a href="#__codelineno-3-5"><span class="linenos" data-linenos=" 5 "></span></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">IsEmpty</span><span class="p">(</span><span class="n">H</span><span class="p">)){</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><a href="#__codelineno-3-6"><span class="linenos" data-linenos=" 6 "></span></a><span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="s">&quot;Priority queue is empty&quot;</span><span class="p">);</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><a href="#__codelineno-3-7"><span class="linenos" data-linenos=" 7 "></span></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w">    </span><span class="c1">// return the sential</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><a href="#__codelineno-3-8"><span class="linenos" data-linenos=" 8 "></span></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><a href="#__codelineno-3-9"><span class="linenos" data-linenos=" 9 "></span></a><span class="w">    </span><span class="n">MinElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">    </span><span class="c1">// save the smallest</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><a href="#__codelineno-3-10"><span class="linenos" data-linenos="10 "></span></a><span class="w">    </span><span class="n">LastElement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="o">--</span><span class="p">];</span><span class="w">    </span><span class="c1">// take last and reset szie</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><a href="#__codelineno-3-11"><span class="linenos" data-linenos="11 "></span></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Child</span><span class="p">){</span><span class="w">    </span><span class="c1">// find smaller child</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a><a href="#__codelineno-3-12"><span class="linenos" data-linenos="12 "></span></a><span class="w">        </span><span class="n">Child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span><span class="w">    </span><span class="c1">// find left child</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a><a href="#__codelineno-3-13"><span class="linenos" data-linenos="13 "></span></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">Child</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">ELements</span><span class="p">[</span><span class="n">Child</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">Child</span><span class="p">])</span><span class="w"> </span><span class="n">Child</span><span class="o">++</span><span class="p">;</span><span class="w">    </span><span class="c1">// if there is smaller right child, jump to it</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a><a href="#__codelineno-3-14"><span class="linenos" data-linenos="14 "></span></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">LastElement</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">Child</span><span class="p">])</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">Child</span><span class="p">];</span><span class="w">    </span><span class="c1">// percolate down one level</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a><a href="#__codelineno-3-15"><span class="linenos" data-linenos="15 "></span></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w">    </span><span class="c1">// proper postion found</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a><a href="#__codelineno-3-16"><span class="linenos" data-linenos="16 "></span></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a><a href="#__codelineno-3-17"><span class="linenos" data-linenos="17 "></span></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LastElement</span><span class="p">;</span><span class="w">   </span><span class="c1">// put it there</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18"></a><a href="#__codelineno-3-18"><span class="linenos" data-linenos="18 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">MinElement</span><span class="p">;</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19"></a><a href="#__codelineno-3-19"><span class="linenos" data-linenos="19 "></span></a><span class="p">}</span>
-</span></code></pre></div>
 <h4 id="other-heap-operations">Other Heap Operations<a class="headerlink" href="#other-heap-operations" title="Permanent link">&para;</a></h4>
 <h5 id="decreasekeyp-delta-h-percolate-up">DecreaseKey(P, delta, H) <em>Percolate up</em><a class="headerlink" href="#decreasekeyp-delta-h-percolate-up" title="Permanent link">&para;</a></h5>
 <ul>
@@ -1592,11 +1546,11 @@
 <li>Increases the value ofthe key in the <em>heap H</em> at <em>position P</em> by a positive amount of <em>delta</em></li>
 <li>取出，然后 percolate <em>注意要找比较小的孩子</em>，找到正确位置，写入</li>
 </ul>
-<h5 id="deletep-h-p">Delete(P, H) <em>删除第 P 个元素</em><a class="headerlink" href="#deletep-h-p" title="Permanent link">&para;</a></h5>
+<h5 id="deletep-h-删除第-p-个元素">Delete(P, H) <em>删除第 P 个元素</em><a class="headerlink" href="#deletep-h-删除第-p-个元素" title="Permanent link">&para;</a></h5>
 <ul>
 <li>DecreaseKey(P, infty, H); DeleteMin(H); <em>变成根节点，然后 deleteMin</em></li>
 </ul>
-<h5 id="buildheaph">BuildHeap(H) <em>将一个数组排列成堆</em><a class="headerlink" href="#buildheaph" title="Permanent link">&para;</a></h5>
+<h5 id="buildheaph-将一个数组排列成堆">BuildHeap(H) <em>将一个数组排列成堆</em><a class="headerlink" href="#buildheaph-将一个数组排列成堆" title="Permanent link">&para;</a></h5>
 <ul>
 <li>先构建堆（写入数组）</li>
 <li>PercolateDown(7, 6, 5, 4, ....)<ul>
@@ -1640,7 +1594,7 @@
 <p>什么是 <em>linear algorithm</em> ?</p>
 <ul>
 <li>先将元素写成堆的样子</li>
-<li>然后从最后一个父节点开始 <code>PercolateDown</code></li>
+<li>然后从最后一个父节点开始 </li>
 </ul>
 </li>
 </ul>
@@ -1649,7 +1603,7 @@
 <li>sort the input array</li>
 <li>inorder write into the CBT</li>
 <li>print</li>
-<li>仍然要注意 <code>(*p)++</code> 的问题</li>
+<li>仍然要注意  的问题</li>
 </ul>
 <h3 id="midterm">Midterm<a class="headerlink" href="#midterm" title="Permanent link">&para;</a></h3>
 <ul>
