@@ -63,11 +63,13 @@ theme:
 
 markdown_extensions:
   # table of content settings
-  - toc:
+  - toc:  # https://python-markdown.github.io/extensions/toc/#usage
       permalink: true
       toc_depth: 4
       baselevel: 2
       title: On this page
+      slugify: !!python/name:markdown.extensions.toc.slugify_unicode
+#      slugify: !!python/name:slugify.slugify
 #      anchorlink: true
   # with latex
   - pymdownx.arithmatex:

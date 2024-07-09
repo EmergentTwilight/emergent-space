@@ -13,6 +13,8 @@ attachment_directory = "D:/Obsidian-Vault/Alpha"
 # code block highlight syntax match
 hl_pattern = r'hl="([\d,-]+)"'
 
+# permalink forbidden chars
+chars_to_delete = ['*', '，', '\\']
 
 # <<<<<<<<<< utils >>>>>>>>>> #
 
@@ -45,9 +47,13 @@ def extract_wikilink_components(wikilink):  # [[path#anchor|title]]
 
 
 def process_anchor(anchor):
+    # process chars to delete directly
+    print(f'        Processing anchor "{anchor}"')
+    anchor = ''.join([char for char in anchor if char not in chars_to_delete])
     anchor = anchor.lower()
     anchor = re.sub(r'[^\w\s-]', '', anchor)
     anchor = anchor.replace(' ', '-')
+    print(f'        Processing result "{anchor}"')
     return anchor
 
 
@@ -84,10 +90,11 @@ def convert_wikilinks(md_content, md_filename, md_dir):
             attachment_path = find_file_in_directory(attachment_name, attachment_directory)
             shutil.copy(attachment_path, os.path.join(md_dir, attachment_name_no_space))
             # update link
-            md_content = md_content.replace(f"[[{wikilink}]]", f"[{attachment_name_no_space}]({attachment_name_no_space})")
+            link_title_new = link_title if link_title else (attachment_name + link_anchor) if link_anchor else attachment_name
+            md_content = md_content.replace(f"[[{wikilink}]]", f"[{link_title_new}]({attachment_name_no_space})")
         # handle links to other content
         else:
-            link_anchor_new = process_anchor(link_anchor) if link_anchor is not None else None
+            link_anchor_new = process_anchor(link_anchor) if link_anchor else None
             # in-file anchor
             if link_path is None or add_md_ext(os.path.basename(link_path)) == md_filename:
                 print(f'    Converting in-file wikilink "{wikilink}"')
@@ -132,3 +139,5 @@ def process_directory(directory):
                 process_md_file(root, file)
 
 process_directory(processing_directory)
+
+# print(process_anchor("#07-08\ 冬\ A\ 有答案"))
