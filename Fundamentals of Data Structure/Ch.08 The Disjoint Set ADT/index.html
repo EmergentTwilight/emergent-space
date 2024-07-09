@@ -1465,10 +1465,10 @@
 
 <h2 id="equivalence-relations">Equivalence Relations<a class="headerlink" href="#equivalence-relations" title="Permanent link">&para;</a></h2>
 <div style="margin-top: -85px; font-size: 0.75em; opacity: 0.7; margin-bottom: 65px">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 6v2H3V6h18M3 18h9v-2H3v2m0-5h18v-2H3v2Z"/></svg></span> 约 666 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.03 7.39 1.42-1.42c-.45-.51-.9-.97-1.41-1.41L17.62 6c-1.55-1.26-3.5-2-5.62-2a9 9 0 0 0 0 18c5 0 9-4.03 9-9 0-2.12-.74-4.07-1.97-5.61M13 14h-2V7h2v7m2-13H9v2h6V1Z"/></svg></span> 预计阅读时间 2 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 6v2H3V6h18M3 18h9v-2H3v2m0-5h18v-2H3v2Z"/></svg></span> 约 680 个字  • <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 14 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.03 7.39 1.42-1.42c-.45-.51-.9-.97-1.41-1.41L17.62 6c-1.55-1.26-3.5-2-5.62-2a9 9 0 0 0 0 18c5 0 9-4.03 9-9 0-2.12-.74-4.07-1.97-5.61M13 14h-2V7h2v7m2-13H9v2h6V1Z"/></svg></span> 预计阅读时间 2 分钟</p>
 </div>
 <!--<div markdown="1" style="margin-top: -30px; font-size: 0.9em; opacity: 0.7;">-->
-<!--:material-circle-edit-outline: 约 666 个字 :material-clock-time-two-outline: 预计阅读时间 2 分钟-->
+<!--:material-circle-edit-outline: 约 680 个字 :fontawesome-solid-code: 14 行代码 :material-clock-time-two-outline: 预计阅读时间 2 分钟-->
 <!--</div>-->
 
 <h3 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h3>
@@ -1513,21 +1513,32 @@
 </ul>
 <h4 id="implementation-2">Implementation 2<a class="headerlink" href="#implementation-2" title="Permanent link">&para;</a></h4>
 <ul>
-<li>数组表示 ，每个 index 对应的 value 是父母的值，根节点 value 为 -1<ul>
+<li>数组表示 <code>S[element] = the element's parent</code>，每个 index 对应的 value 是父母的值，根节点 value 为 -1<ul>
 <li>事实上，对于从 1 到 N 命名的元素，元素就是下标</li>
 </ul>
 </li>
 <li>合并的时候，只需要将一个集合的根节点的值写成另一个集合的根节点</li>
 </ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><a href="#__codelineno-0-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetUnion</span><span class="p">(</span><span class="w"> </span><span class="n">DisjSet</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">SetType</span><span class="w"> </span><span class="n">Rt1</span><span class="p">,</span><span class="w"> </span><span class="n">SetType</span><span class="w"> </span><span class="n">Rt2</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><a href="#__codelineno-0-2"><span class="linenos" data-linenos="2 "></span></a><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><a href="#__codelineno-0-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="n">S</span><span class="p">[</span><span class="n">Rt2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rt1</span><span class="p">;</span><span class="w">    </span><span class="c1">// 这个元素的组长设置为Rt1</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><a href="#__codelineno-0-4"><span class="linenos" data-linenos="4 "></span></a><span class="p">}</span>
+</span></code></pre></div>
 <h3 id="findi">Find(i)<a class="headerlink" href="#findi" title="Permanent link">&para;</a></h3>
 <ul>
-<li>，找到元素 i 所在的等价类</li>
+<li><code>Find(i)</code>，找到元素 i 所在的等价类</li>
 </ul>
 <h4 id="implementation-1_1">Implementation 1<a class="headerlink" href="#implementation-1_1" title="Permanent link">&para;</a></h4>
 <ul>
 <li>顺着树找到根节点，根节点找到 S 下标</li>
 </ul>
 <h4 id="implementation-2_1">Implementation 2<a class="headerlink" href="#implementation-2_1" title="Permanent link">&para;</a></h4>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><a href="#__codelineno-1-1"><span class="linenos" data-linenos="1 "></span></a><span class="kt">int</span><span class="w"> </span><span class="nf">Find</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">DisjSet</span><span class="w"> </span><span class="n">S</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><a href="#__codelineno-1-2"><span class="linenos" data-linenos="2 "></span></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><a href="#__codelineno-1-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><a href="#__codelineno-1-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><a href="#__codelineno-1-5"><span class="linenos" data-linenos="5 "></span></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
 <h3 id="比较难分析时间复杂度">比较难分析时间复杂度<a class="headerlink" href="#比较难分析时间复杂度" title="Permanent link">&para;</a></h3>
 <h3 id="worst-case">Worst case<a class="headerlink" href="#worst-case" title="Permanent link">&para;</a></h3>
@@ -1540,7 +1551,7 @@
 <h2 id="smart-union-algorithms">Smart Union Algorithms<a class="headerlink" href="#smart-union-algorithms" title="Permanent link">&para;</a></h2>
 <h3 id="union-by-size-always-change-the-smaller-tree">Union by size - Always change the smaller tree<a class="headerlink" href="#union-by-size-always-change-the-smaller-tree" title="Permanent link">&para;</a></h3>
 <ul>
-<li>如何标记一个树的大小？</li>
+<li>如何标记一个树的大小？<code>S[Root] = -size</code></li>
 <li>Let T be a tree created by union-by-size with N nodes, then<ul>
 <li><span class="arithmatex">\(height(T) \le \lfloor \log_2N\rfloor +1\)</span></li>
 <li>proof: Each element can have its set name changed at most <span class="arithmatex">\(\log_2N\)</span> times</li>
@@ -1555,18 +1566,22 @@
 <h3 id="union-by-height">Union by height<a class="headerlink" href="#union-by-height" title="Permanent link">&para;</a></h3>
 <ul>
 <li>总是把矮的树指向高的树</li>
-<li>同样使用  来表示高度</li>
+<li>同样使用 <code>S[Root] = -height</code> 来表示高度</li>
 </ul>
 <h2 id="path-compression-路径压缩">Path Compression 路径压缩<a class="headerlink" href="#path-compression-路径压缩" title="Permanent link">&para;</a></h2>
 <p><img alt="Pasted image 20240422204545.png" src="../Pasted-image-20240422204545.png" /></p>
 <ul>
 <li>所有的 member 都直接和组长联系，只有两层</li>
-<li>
-<p>在查找的同时指向 root  </p>
-</li>
-<li>
-<p><strong>Path compression 和 union-by-height 不可以同时使用</strong></p>
-</li>
+<li>在查找的同时指向 root  </li>
+</ul>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><a href="#__codelineno-2-1"><span class="linenos" data-linenos="1 "></span></a><span class="n">SetType</span><span class="w"> </span><span class="nf">Find</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">S</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><a href="#__codelineno-2-2"><span class="linenos" data-linenos="2 "></span></a><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><a href="#__codelineno-2-3"><span class="linenos" data-linenos="3 "></span></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">X</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">X</span><span class="p">;</span><span class="w">  </span><span class="c1">// this is root</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><a href="#__codelineno-2-4"><span class="linenos" data-linenos="4 "></span></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">X</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Find</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">X</span><span class="p">],</span><span class="w"> </span><span class="n">S</span><span class="p">);</span><span class="w">  </span><span class="c1">// function &quot;Find&quot; will return the root, and set the parent of this element directly to root</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><a href="#__codelineno-2-5"><span class="linenos" data-linenos="5 "></span></a><span class="p">}</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Path compression 和 union-by-height 不可以同时使用</strong></li>
 <li>如果 find 多的话，就可以使用 path compression，减少之后的 find 的时间复杂度</li>
 </ul>
 <h2 id="worst-case-for-union-by-rank-and-path-compression">Worst case for Union-by-Rank and Path Compression<a class="headerlink" href="#worst-case-for-union-by-rank-and-path-compression" title="Permanent link">&para;</a></h2>
