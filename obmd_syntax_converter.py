@@ -66,10 +66,13 @@ def find_file_in_directory(filenameOrPath, directory):  # relative to pwd, easy 
     sys.exit(1)
 
 
-def find_file_in_directory_relative(filenameOrPath, directory, basepath):
-    filename = os.path.basename(filenameOrPath)  # allow redundant path
+def find_file_in_directory_relative(filePath, directory, basepath):
+    filename = os.path.basename(filePath)  # allow redundant path
+    parent_dir = os.path.basename(os.path.dirname(filePath))
+    if parent_dir == '':
+        print(f'        Error: "{filePath}" doesn\'t have a parent directory')
     for root, dirs, files in os.walk(directory):
-        if filename in files:
+        if filename in files and os.path.basename(root) == parent_dir:
             return os.path.normpath(os.path.relpath(os.path.join(root, filename), basepath))
     print(f'        Error: "{filename}" not found in "{directory}"')
     sys.exit(1)

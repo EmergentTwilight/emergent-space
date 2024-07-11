@@ -1,24 +1,38 @@
 # navigation
-#nav:
-#  - Home:
-#      - Welcome to my blog !: index.md
-#      - Setup Log.md
-#  - Fundamentals of Data Structure:
-#      - Fundamentals of Data Structure/Ch.02 Algorithm Analysis.md
-#      - Fundamentals of Data Structure/Ch.03 List.md
-#      - Fundamentals of Data Structure/Ch.04 Trees.md
-#      - Fundamentals of Data Structure/Ch.05 Priority Queues (Heaps).md
-#      - Fundamentals of Data Structure/Ch.06 Sorting.md
-#      - Fundamentals of Data Structure/Ch.07 Hashing.md
-#      - Fundamentals of Data Structure/Ch.08 The Disjoint Set ADT.md
-#      - Fundamentals of Data Structure/Ch.09 Graph Algorithms.md
-#      - Fundamentals of Data Structure/Final Map.md
-#  - 微观经济学:
-#      -
+nav:
+  - Home:
+      - Welcome to my blog !: index.md
+      - 建站记录: Setup Log.md
+  - FDS:
+      - Fundamentals of Data Structure/index.md
+      - Fundamentals of Data Structure/Ch.02 Algorithm Analysis.md
+      - Fundamentals of Data Structure/Ch.03 List.md
+      - Fundamentals of Data Structure/Ch.04 Trees.md
+      - Fundamentals of Data Structure/Ch.05 Priority Queues (Heaps).md
+      - Fundamentals of Data Structure/Ch.06 Sorting.md
+      - Fundamentals of Data Structure/Ch.07 Hashing.md
+      - Fundamentals of Data Structure/Ch.08 The Disjoint Set ADT.md
+      - Fundamentals of Data Structure/Ch.09 Graph Algorithms.md
+      - Fundamentals of Data Structure/Final Map.md
+  - 微观经济学（甲）:
+      - 微观经济学/index.md
+      - 微观经济学/Chap.00 微观经济学（甲） Learning Guide.md
+      - 微观经济学/Chap.01 需求、供给和均衡价格.md
+      - 微观经济学/Chap.02 消费者选择.md
+      - 微观经济学/Chap.03 生产者行为理论.md
+      - 微观经济学/Chap.04 完全竞争产品市场.md
+      - 微观经济学/Chap.05 完全垄断市场.md
+      - 微观经济学/Chap.06 垄断竞争.md
+      - 期末复习笔记: 微观经济学/Final Map.md
+  - HPC101:
+      - HPC101/Lec.02-体系结构与高性能基础.md
+      - HPC101/Lec.03-高性能计算方法学.md
+      - HPC101/Lec.04-集群软硬件及运维基础.md
+      - HPC101/Lec.05-向量化计算.md
+      - HPC101/Lec.06-CUDA-C-编程基础.md
+      - HPC101/Lec.07-OpenMP,MPI-并行计算基础.md
 
-#nav:
-#  - Home:
-#    - Trst: HPC101/Lec.07-OpenMP,MPI-并行计算基础.md
+
 
 # site metadata
 site_name: Emergent Space
@@ -142,7 +156,6 @@ extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css # with latex
   - _srcs/CSS/md_color_custom.css
   - _srcs/CSS/font.css
-  - _srcs/CSS/new.css
 
 
 extra:

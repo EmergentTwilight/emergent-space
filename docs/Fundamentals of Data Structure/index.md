@@ -1,13 +1,8 @@
 ---
 created: 2024-07-09T08:38:33
-updated: 2024-07-09T10:30:24
+updated: 2024-07-11T01:45:22
 ---
-# Basic Info
-
-> [!check] This note is complete
-> - 本笔记涵盖了所有课程内容，主要来源于 sllides、老师的讲解和个人理解
-> - 每章节笔记末尾有 pta 题目的订正/思路
-> - 有一份没什么用的 [FDS Final Map](FDS Final Map.md)
+# 课程信息
 
 > [!info] Fundamentals of Data Structure 数据结构基础
 > - 课程号: CS1018F (211C0020)
@@ -83,6 +78,13 @@ updated: 2024-07-09T10:30:24
 > - the programs are not well-commented (-50)
 > - the programming style is too messy to be judged (-1 ~ -5)
 > - others - please specify in the final comments.
+
+# 如何使用这份笔记
+
+> [!check] This note is complete!
+> - 本笔记涵盖了所有课程内容，主要来源于 slides、老师的讲解和个人理解
+> - 每章节笔记末尾有 pta 题目的订正/思路，**由于课程要求，没有任何源码**
+> - 有一份没什么用的 [期末复习笔记](Final Map.md)
 
 # 修读建议
 

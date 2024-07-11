@@ -4,11 +4,11 @@ type: learingGuide
 tags: 
 status: referencing
 created: 2024-03-13T09:48:15
-updated: 2024-07-07T10:46:11
+updated: 2024-07-11T01:06:47
 ---
 # Strategy
 
-- 上课记很多笔记
+- 上课记笔记
 - 课后作业认真完成
 - 及时复习，做题目
 
