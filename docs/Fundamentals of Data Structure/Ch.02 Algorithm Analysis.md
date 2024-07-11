@@ -26,7 +26,7 @@ updated: 2024-07-02T11:12:59
 
 ## General Rules
 
-- 
+- `if/else`
 	- 上界是不同选择中 runtime 最大的
 - Recursions
 	- 使用递推数列来计算
@@ -74,7 +74,12 @@ updated: 2024-07-02T11:12:59
 		- 有余数，则计算小除余数
 		- 直到出现整除，输出最后那个除数就是答案
 
-
+```c
+int gcd(int a, int b) {
+    while(b^=a^=b^=a%=b);	// 交换ab，并计算a/b的余数
+    return a;
+}
+```
 
 ## Exponentiation 快速幂
 

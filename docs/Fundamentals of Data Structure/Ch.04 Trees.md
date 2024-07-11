@@ -71,7 +71,19 @@ archived: false
 	- 先左子树，再根节点，再右子树
 	- 递推形式非常复杂，递归很好读
 
-
+```c
+void iter_inorder( tree_ptr tree )
+{
+	Stack S = CreateStack(MAX_SIZE);
+	for(;;) {
+		for(; tree; tree = tree->left) Push(tree, S);
+		tree = Top(S); Pop(S);
+		if(!tree) break;
+		visit(tree->Element);
+		tree = tree->Right;
+	}
+}
+```
 
 ### expression tree
 
@@ -132,7 +144,15 @@ archived: false
 - Objects: A finite ordered list with zero or more elements
 - Operations
 
-
+```c
+SearchTree MakeEmpty( SearchTree T );
+Position Find( ElementType X, SearchTree T );
+Position FindMin( SearchTree T );
+Position FindMax( SearchTree T );
+SearchTree Insert( ElementType X, SearchTree T );
+SearchTree Delete( ElementType X, SearchTree T );
+ElementType Retrieve( Position P );
+```
 
 ## Implementations
 
@@ -142,7 +162,17 @@ archived: false
 - 由于是尾递归，可以优化为循环
 - 时间复杂度，就是**树的深度 d**
 
-
+```c
+Position Iter_Find( ElementType X, SearchTree T )
+{
+	while(T){
+		if(X == T->Element) return T;    // found
+		else if(X < T->Element) T = T->Left;
+		else T = T->Right;
+	}
+	return NULL;    // not found
+}
+```
 
 ### FindMin/FindMax
 
@@ -158,7 +188,25 @@ archived: false
 - 上一层调用中使父节点的指针等于这个新节点的指针
 - $T(N)=O(d)$ 
 
-
+```c
+SearchTree Insert( ElementType X, SearchTree T )
+{
+	if(T == NULL){ // the initial T is NULL, or the position of X is found
+		T = (SearchTree)malloc(sizeof(struct TreeNode));
+		if(T == NULL) FatalError("Out of space!!");
+		else{
+			T->Element = X;
+			T->Left = NULL; T->Right = NULL;
+		}
+	}
+	else{
+		if(X < T->Element) T->Left = Insert(X, T->Left); // need to update T->Left in this recursion
+		else if(X > T->Element) T->Right = Insert(X, T->Right);
+		// else X already exist, do nothing
+	}
+	return T;	// make this return because the original T is allowed to be NULL, thus we need to build such a tree and ptr to it!!!
+}
+```
 
 ### Delete
 
@@ -168,7 +216,29 @@ archived: false
 	- 将这个节点替换为**左子树中最大的**，或**右子树中最小的**
 	- 对被换过来的这个节点**递归进行 delete 操作**
 
-
+```c
+SearchTree Delete( ElementType X, SearchTree T )
+{
+	Position TmpCell;
+	if(T == NULL) Error("Element not found");
+	if(X < T->Element) T->Left = Delete(X, T->Left);	// go left
+	else if(X > T->Element) T->Right = Delete(X, T->Right);	// go right
+	else{	// found, just this node
+		if(T->Left && T->Right){	// two child
+			TmpCell = FindMax(T->Left);
+			T->Element = TmpCell->Element;
+			T->Left = Delete(T->Element, T->Left);
+		}
+		else{		// one or no child
+			TmpCell = T;
+			if(T->Left) T = T->Left;	// left not empty, replace with left
+			else if(T->Right) T = T->Right;	// right not empty, replace with right
+			free(TmpCell);	// don't forget to free memory!
+		}
+	}
+	return T;	// if deleted, ptr has to be updated
+}
+```
 
 #### Lazy Deletion
 
@@ -262,7 +332,7 @@ archived: false
 
 - 注意输出格式的限制，末尾是否允许有多余的空格
 - 注意这是 C 语言，不是 python
-- 三目运算符 
+- 三目运算符 `int max = a>b?a:b;`
 
 # HW
 

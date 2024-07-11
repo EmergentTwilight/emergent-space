@@ -52,13 +52,26 @@ updated: 2024-07-07T10:46:44
 
 #### Representation 1
 
-
+```c
+typedef struct {
+	int CoeffArray [MaxDegree + 1];
+	int HighPower;
+} *Polynomial
+```
 
 - 对于稀疏数组，过于复杂
 
 #### Representation 2
 
-
+```c
+typedef struct poly_node *poly_ptr;
+struct poly_node {
+	int Coefficient;
+	int Exponent;
+	poly_ptr Next;
+} ;
+typedef poly_ptr a; // nodes sorted by exponent
+```
 
 ### Multilists
 
@@ -86,23 +99,31 @@ For example, represent the relationship between students and the courses. **Arra
 
 ### Cursor Implementation of Linked Lists (no pointer)
 
-- 维护一个  ，等价为从 0 开始的循环链表
-- malloc，就是在  中删去 0 之后的节点
-- free，就是将一个节点添加到  0 之后
+- 维护一个 `freelist` ，等价为从 0 开始的循环链表
+- malloc，就是在 `freelist` 中删去 0 之后的节点
+- free，就是将一个节点添加到 `freelist` 0 之后
 
 ![Pasted image 20240422170812.png](Pasted-image-20240422170812.png)
 
 > [!hint] Title
-> - malloc 可以看出  总是队尾的空位，且队尾的下一个一定是空的
+> - malloc 可以看出 `CursorSpace[0].Next` 总是队尾的空位，且队尾的下一个一定是空的
 > - free 操作的原理
 > 	- 将原本队尾第一个空位放在要删除的元素后面
-> 	- 将  指向要删除的元素
+> 	- 将 `CursorSpace[0].Next` 指向要删除的元素
 
 # The Stack ADT
 
 ## Operations
 
-
+```c
+int IsEmpty( Stack S );
+Stack CreateStack();
+DisposeStack( Stack S );
+MakeEmpty( Stack S );
+Push( ElementType X, Stack S );
+ElementType Top( Stack S );
+void Pop( Stack S );
+```
 
 - 满的 stack push error
 - 空的 stack pop error
@@ -112,11 +133,17 @@ For example, represent the relationship between students and the courses. **Arra
 ### 链表实现
 
 - dummy head 指向栈顶元素，相当于链表插入头节点
-- 出栈需要  ，但是可以使用一个  链表来存储所有 pop 出来的元素，减少  的次数有利于提升性能
+- 出栈需要 `free()` ，但是可以使用一个 `recycle bin` 链表来存储所有 pop 出来的元素，减少 `free` 的次数有利于提升性能
 
 ### 数组实现
 
-
+```c
+typedef struct {
+	int StackSize;
+	int Top;	// top pointer
+	Element type *Array;
+} Stack;
+```
 
 - **一定要封装好**，不能让主程序能够直接读取非栈顶元素
 - 对于 *pop, push* 需要进行检查
@@ -132,9 +159,9 @@ For example, represent the relationship between students and the courses. **Arra
 
 #### 逆波兰表达式
 
--   **infix** expression 中缀表达式
--  **prefix** expression 前缀表达式
--  **postfix** evalution 逆波兰表达式
+-  `a+b*c-d/e` **infix** expression 中缀表达式
+- `- + a * b c / d e` **prefix** expression 前缀表达式
+- `a b c * + d e / -` **postfix** evalution 逆波兰表达式
 
 #### 操作方法
 
@@ -158,14 +185,14 @@ a\*(b+c)-d ->
 
 - 读到元素直接输出
 - 读到符号（包括括号）
-	- if 读到 ，**入栈**
-	- else if 读到 ，**一直出栈到左括号**
-	- else if 栈顶不是  && 栈顶符号优先级 $\ge$ 当前读到的符号，**出栈**
+	- if 读到 `(`，**入栈**
+	- else if 读到 `)`，**一直出栈到左括号**
+	- else if 栈顶不是 `(` && 栈顶符号优先级 $\ge$ 当前读到的符号，**出栈**
 	- else **入栈**
 
 > [!NOTE] 可以理解为
-> - 读到  一定入栈
-> - 读到  才能让  出栈，而且中间的全部出栈
+> - 读到 `(` 一定入栈
+> - 读到 `)` 才能让 `(` 出栈，而且中间的全部出栈
 > - 其他一样
 
 > [!attention] 注意，这个问题需要单独分析
@@ -185,13 +212,29 @@ a\*(b+c)-d ->
 - 与栈相反，first in first out
 - 尾部插入，队首取出
 
-
+```c
+int IsEmpty( Queue Q );
+Queue CreateQueue();
+void DisposeQueue( Queue Q );
+void MakeEmpty( Queue Q );
+void Enqueue ( ElementType X, Queue Q );
+ElementType Front( Queue Q );		// 获取队列第一个元素
+void Dequeue( Queue Q );
+```
 
 ## 实现
 
 ### Array Implementation
 
-
+```c
+struct QueueRecord {
+	int Capacity;
+	int Front;
+	int Rear;  //Rear == -1 队列为空
+	int Size;	// current size
+	ElementType *Array;
+}
+```
 
 ### Circular Queue
 
@@ -199,8 +242,8 @@ a\*(b+c)-d ->
 
 - 队列首尾相接，相当于数组最后添加元素添加到数组的开头
 - Rear 默认在 0，Front 默认在 1
-	- Enqueue 时， 在  加入 job
-	- Dequeue 时，删去  的 job，
+	- Enqueue 时，`rear++` 在 `rear` 加入 job
+	- Dequeue 时，删去 `front` 的 job，`front++`
 	- Rear 和 Front 差 2 认为是满栈，差 1 认为是空栈
 
 # HW

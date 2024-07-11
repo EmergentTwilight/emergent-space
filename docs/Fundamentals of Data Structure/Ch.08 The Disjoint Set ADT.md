@@ -47,15 +47,20 @@ updated: 2024-07-07T10:47:26
 
 ### Implementation 2
 
-- 数组表示 ，每个 index 对应的 value 是父母的值，根节点 value 为 -1
+- 数组表示 `S[element] = the element's parent`，每个 index 对应的 value 是父母的值，根节点 value 为 -1
 	- 事实上，对于从 1 到 N 命名的元素，元素就是下标
 - 合并的时候，只需要将一个集合的根节点的值写成另一个集合的根节点
 
-
+```c
+void SetUnion( DisjSet S, SetType Rt1, SetType Rt2)
+{
+	S[Rt2] = Rt1;    // 这个元素的组长设置为Rt1
+}
+```
 
 ## Find(i)
 
-- ，找到元素 i 所在的等价类
+- `Find(i)`，找到元素 i 所在的等价类
 
 ### Implementation 1
 
@@ -63,7 +68,13 @@ updated: 2024-07-07T10:47:26
 
 ### Implementation 2
 
-
+```c
+int Find( int i , DisjSet S)
+{
+	while(S[i] != 0) i = S[i];
+	return i;
+}
+```
 
 # Analysis
 
@@ -81,7 +92,7 @@ updated: 2024-07-07T10:47:26
 
 ## Union by size - Always change the smaller tree
 
-- 如何标记一个树的大小？
+- 如何标记一个树的大小？`S[Root] = -size`
 - Let T be a tree created by union-by-size with N nodes, then
 	- $height(T) \le \lfloor \log_2N\rfloor +1$
 	- proof: Each element can have its set name changed at most $\log_2N$ times
@@ -92,7 +103,7 @@ updated: 2024-07-07T10:47:26
 ## Union by height
 
 - 总是把矮的树指向高的树
-- 同样使用  来表示高度
+- 同样使用 `S[Root] = -height` 来表示高度
 
 # Path Compression 路径压缩
 
@@ -101,7 +112,13 @@ updated: 2024-07-07T10:47:26
 - 所有的 member 都直接和组长联系，只有两层
 - 在查找的同时指向 root  
 
-
+```c
+SetType Find (int X, int* S)
+{
+	if(S[X] <= 0) return X;  // this is root
+	else return S[X] = Find(S[X], S);  // function "Find" will return the root, and set the parent of this element directly to root
+}
+```
 
 - **Path compression 和 union-by-height 不可以同时使用**
 - 如果 find 多的话，就可以使用 path compression，减少之后的 find 的时间复杂度

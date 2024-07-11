@@ -16,6 +16,10 @@
 #  - 微观经济学:
 #      -
 
+#nav:
+#  - Home:
+#    - Trst: HPC101/Lec.07-OpenMP,MPI-并行计算基础.md
+
 # site metadata
 site_name: Emergent Space
 site_author: Emergent Twilight
@@ -69,8 +73,6 @@ markdown_extensions:
       baselevel: 2
       title: On this page
       slugify: !!python/name:markdown.extensions.toc.slugify_unicode
-#      slugify: !!python/name:slugify.slugify
-#      anchorlink: true
   # with latex
   - pymdownx.arithmatex:
       generic: true
@@ -104,6 +106,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - md_in_html
+  - pymdownx.inlinehilite
 #  - pymdownx.keys
 #  - attr_list
 #  - pymdownx.emoji:
@@ -113,7 +116,6 @@ markdown_extensions:
 #      anchor_linenums: true
 #  - pymdownx.tabbed:
 #      alternate_style: true
-  - pymdownx.inlinehilite
 #  - pymdownx.snippets
 #  - footnotes
 #  - codehilite
@@ -140,7 +142,7 @@ extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css # with latex
   - _srcs/CSS/md_color_custom.css
   - _srcs/CSS/font.css
-  - _srcs/CSS/width.css
+  - _srcs/CSS/new.css
 
 
 extra:

@@ -20,28 +20,41 @@ updated: 2024-07-07T10:44:51
 
 ## NumPy 基础
 
+```python
+np.array([1, 2, 3])
+```
 
-
-创建的是  类型。不同于 python  是树状结构， 更像是 c 中的连续内存地址，由于 CPU 可能有 precache 操作，所以访问速度更快。
+创建的是 `ndarray` 类型。不同于 python `list` 是树状结构，`ndarray` 更像是 c 中的连续内存地址，由于 CPU 可能有 precache 操作，所以访问速度更快。
 
 ### Indexing
 
-
+```python
+array[2:4, -2:, 0]
+array[[1, 3, 4]]
+```
 
 > [!attention] Title
 > 切片获得的数组是一个指向原数组的指针，操作切片数组会改变原来数组的值
 
-
+```python
+any(a > 5 for a in array)
+all(a > 5 for a in array)
+```
 
 ### Axis
 
+```python
+any(array, axis = 0)
+```
 
-
- 指的是 most significant 方向，比如说是**列方向**。
+`axis = 0` 指的是 most significant 方向，比如说是**列方向**。
 
 ### 运算
 
-
+```python
+A * B  # 按位乘
+A @ B  # 矩阵乘法
+```
 
 - **广播机制的条件**
 	- 两个向量维度相同
@@ -54,7 +67,13 @@ updated: 2024-07-07T10:44:51
 
 给定一个矩阵，新的矩阵是原有矩阵每个值与它右上、右下的值的和，非法地址的值为 0
 
-
+```python
+def func(A):
+	a = A.reshape(3, 3)
+	b = np.pad(a[:-1, 1:], ((1, 0), (0, 1)))
+	c = np.pad(a[1:, 1:], ((0, 1), (0, 1)))
+	return a + b + c
+```
 
 # 手写 SIMD 向量化
 
@@ -84,9 +103,26 @@ updated: 2024-07-07T10:44:51
 	- Store 回内存
 
 > [!example] 手写一个循环
-> 
+> ```c
+> for(int i = 0; i < MAXN; i++){
+> 	c[i] += a[i] * b[i];
+> }
+> ```
 > 然后用 SIMD 手写一遍：
+> ```c
+> #include <immintrin.h>
 > 
+> for(int i = 0; i < MAXN; i += 16){  // 因为 AVX512 一次处理16个数据
+>     __m512 a_vec = _mm512_load_ps(&a[i]);
+>     __m512 b_vec = _mm512_load_ps(&b[i]);
+>     __m512 c_vec = _mm512_load_ps(&c[i]);
+>     
+>     __m512 mul_vec = _mm512_mul_ps(a_vec, b_vec);
+>     __m512 c_vec_new = _mm512_add_ps(c_vec, mul_vec);
+>     
+>     _mm512_store_ps(&c[i], c_vec_new);
+> }
+> ```
 
 ## 常见问题
 

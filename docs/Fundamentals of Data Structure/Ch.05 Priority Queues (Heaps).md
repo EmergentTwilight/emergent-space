@@ -14,7 +14,12 @@ updated: 2024-07-10T12:33:37
 - Objects: A finite ordered list with zero or more elements
 - Operations
 
-
+```c
+PriorityQueue Initialize( int MaxElements );
+void Insert( ElementType X, PriorityQueue H );
+ElementType DeleteMin( PriorityQueue H );
+ElementType FindMin( PriorityQueue H );
+```
 
 # Simple Implementations
 
@@ -82,7 +87,22 @@ updated: 2024-07-10T12:33:37
 		- $right\_child(i)=\,2i+1(2i+1\le n),\space None(2i+1>n)$
 - 初始化的时候，在第零个 index 设置一个最小的值，称为 sentinel *哨兵*
 
-
+```c
+PriorityQueue Initialize( int MaxElements )
+{
+	PriorityQueue H;
+	if(MaxElements < MinPQSize) return Error("Priority queue size is too small");  // too small size, no need for a queue
+	H = malloc(sizeof(struct HeapStruct));
+	if(H == NULL) return FatalError("Out of space!!");
+	/*allocate the array plus one extra for sentinel*/
+	H->Elements = malloc((MaxElements + 1)*sizeof(ElememtType));
+	if(H->ELements == Null) return FatalError("Out of space!!");
+	H->capacity = MaxElements;	// max allowed num of elements
+	H->Size = 0;	// current, no elements
+	H->Elements[0] = MinData;  // sentinel
+	return H;
+}
+```
 
 ## Heap Order Property
 
@@ -97,7 +117,22 @@ updated: 2024-07-10T12:33:37
 - 插入之后树的结构是一定的，因为要保持 index 连续
 - 插入到新开的节点，如果比父节点大，就互换，并递归比较互换 **Percolate Up**
 
-
+```c
+void insert( ElementType X, PriorityQueue H )
+{
+	int i;  // node ptr
+	if(isFull(H)){
+		Error("Priority queue is full!!");
+		return;
+	}
+	
+	for(i = ++H->size; H->Element[i/2] > x; i/=2){    // 零号有哨兵，不需要判断是否为根节点
+		H->Elements[i] = H->Elements[i/2];    // Procolete up, dont swap!!!
+	}
+	
+	H->Elements[i] = x;
+}
+```
 
 ### DeleteMin
 
@@ -106,7 +141,27 @@ updated: 2024-07-10T12:33:37
 - 递归调用
 - $O(logn)$
 
-
+```c
+ElementType DeleteMin( Priority Queue H)
+{
+	int i, Child;  // ptrs
+	ElementType MinElement, LastElement;
+	if(IsEmpty(H)){
+		Error("Priority queue is empty");
+		return H->Elements[0];    // return the sential
+	}
+	MinElement = H->Elements[1];    // save the smallest
+	LastElement = H->Elements[H->Size--];    // take last and reset szie
+	for(i = 1; i*2 <= H->Size; i = Child){    // find smaller child
+		Child = i*2;    // find left child
+		if(Child != H->Size && H->ELements[Child+1] < H->Elements[Child]) Child++;    // if there is smaller right child, jump to it
+		if(LastElement > H->Elements[Child]) H->Elements[i] = H->Elements[Child];    // percolate down one level
+		else break;    // proper postion found
+	}
+	H->Elements[i] = LastElement;   // put it there
+	return MinElement;
+}
+```
 
 ### Other Heap Operations
 
@@ -159,14 +214,14 @@ updated: 2024-07-10T12:33:37
 
 - 什么是 *linear algorithm* ?
 	- 先将元素写成堆的样子
-	- 然后从最后一个父节点开始 
+	- 然后从最后一个父节点开始 `PercolateDown`
 
 ### Complete Binary Search Tree
 
 - sort the input array
 - inorder write into the CBT
 - print
-- 仍然要注意  的问题
+- 仍然要注意 `(*p)++` 的问题
 
 ## Midterm
 

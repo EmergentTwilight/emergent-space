@@ -51,7 +51,7 @@ aliases:
 
 ### Adjacency Matrix 邻接矩阵
 
--  
+-  `adj_mat[i][j] = exist(i,j)? 1:0`
 	- UDG: symmetric	
 		- array: $adj\_mat[n(n+1)/2]=\{a_{11}, a_{12}, \dots , a_{1n}, a_{22}, \dots ,a_{2n}, \dots, a_{nn}\}$
 	- DG: all needed
@@ -78,7 +78,7 @@ aliases:
 
 - 构建 **inverse adjacency list** 表示哪些节点指向了本节点![Pasted image 20240422211604.png](Pasted-image-20240422211604.png)
 
-#### Multilist representation for 
+#### Multilist representation for `adj_mat[i][j]`
 
 > [!hint]- 回忆 [Ch.03 List](Ch.03 List.md)
 > ### Multilists
@@ -89,15 +89,15 @@ aliases:
 > 
 > - 每个节点表示一个 pair relationship，节点内要存储学生编号和课程编号
 
-- 每个节点有 ![Pasted image 20240422211644.png](Pasted-image-20240422211644.png)
+- 每个节点有 `head list, tail list`![Pasted image 20240422211644.png](Pasted-image-20240422211644.png)
 
 ### Adjacency Multilists
 
 - 使用 node 表示一条边
 - $\{mark, v_1, v_2\}$
 - 构造方法
-	- 遍历所有 nodes 
-		- 对于一个节点，找到第一个被引用的边 ，从节点指向这个边
+	- 遍历所有 nodes `graph[i]`
+		- 对于一个节点，找到第一个被引用的边 `adj_mul[j]`，从节点指向这个边
 	- 将边从前往后进行指向被引用的位置
 
 ![Pasted image 20240420173718.png](Pasted-image-20240420173718.png)
@@ -111,9 +111,9 @@ aliases:
 
 ### Weighted Edges
 
-- 
+- `adj_mat[i][j]=weight`
 	- 用的更多，因为有稀疏优化，实际使用矩阵多 *tensor*
--  add a weight
+- `adj_lists/multilists` add a weight
 
 # 2 Topological Sort 拓扑排序
 
@@ -141,7 +141,21 @@ aliases:
 
 - 使用一个 Counter 表示 visit 的节点数
 
-
+```c
+void Topsort( Graph G )
+{
+	int Counter;
+	Vertex V,W;
+	for(Counter = 0; Counter < NumVertex; Counter++){
+		V = FindNewVertexOfDegreeZero();
+		if(V == NotAVertex){    // a cycle means no indegree 0
+			Error("Graph has a cycle"); break;
+		}
+		TopNum[V] = Counter; // out put in a array with value as the order
+		for(each W adjacent from V) indegree[W]--; // notice that "from"
+	}
+}
+```
 
 - Time complexity $O(|V|^2)$
 - **Improvement**
@@ -149,7 +163,26 @@ aliases:
 
 ### Solution 2
 
-
+```c
+void Topsort( Graph G )
+{
+	Queue Q;
+	int Counter = 0;
+	Vertex V, W;
+	Q = CreateQueue(NumVertex); MakeEmpty(Q);
+	for( each vertex V )
+		if(indegree[V] == 0) Enqueue(V, Q);
+	while(!isEmpty(Q)){
+		V = Dequeue(Q);
+		TopNum[V] = ++Counter; // assign next
+		for(each W adjacent from V)
+			if(--indegree[W] == 0) Enqueue(W,Q);
+	}
+	if(Counter != NumVertex)
+		Error("Graph has a cycle");
+	disposeQueue(Q);
+}
+```
 
 - Time Complexity: $O(|V|+|E|)$
 	- worst case: 退化成 $O(|V|^2)$
@@ -176,20 +209,53 @@ aliases:
 
 #### Implementation
 
-- 
-- 
--  指向上一个顶点的指针，可以逆向找出路径
+- `Table[i].Dist ::= distance from s to v_i`
+- `Table[i].Known[i] ::= 1 if visited, 0 if not`
+- `Table[i].Path ::= for tracking the path` 指向上一个顶点的指针，可以逆向找出路径
 
 ##### imp 1
 
-
+```c
+void Unweighted ( Table T )
+{
+	int CurrDist;
+	Vertex B, W;
+	for(CurrDist = 0; CurrDist < NumVertex; CurrDist++){
+		for(each vertex V) if(!T[V].Known && T[V].Dist == CurrDist){  // add another |V|, too slow
+			T[V].Known = ture;
+			for(each W adjacent to V) if(T[W].Dist == Infinity){
+				T[W].Dist = CurrDist + 1;
+				T[W].Path = V;
+			}
+		}
+	}
+}
+```
 
 - worst case, linear graph
 - $T=O(|V|^2)$
 
 ##### imp 2
 
-
+```c
+void Unweighted( Teble T )
+{
+	Queue Q;
+	Vertex V, W;
+	Q = CreateQueue(NumVertex); MakeEmpty(Q);
+	Enqueue(S, Q);  // Enqueue the source vertex
+	while(!IsEmpty(Q)){
+		V = Dequeue(Q);
+		T[V].Known = true;  // not really necessary
+		for(each W adjacent to V) if(T[W].Dist == Infinity){  // infty means not searched yet
+			T[W].Dist = T.[V].Dist + 1;
+			T[W].Path = V;
+			Enqueue(W, Q);
+		}
+	}
+	DisposeQueue(Q);
+}
+```
 
 - 所有顶点都进行的 queue 操作
 - 所有的边都走了一遍 
@@ -202,9 +268,25 @@ aliases:
 - If the paths are generated in *non-decreasing order*, then
 	- the shortest path must go through **ONLY** $v_i\in S$
 	- 每次找到 S 距离最小的顶点，放入 S *Greedy Method*
-	- 如果 ，把  放入 S，随后的  可能会变
+	- 如果 `distance[u_1]<distance[u_2]`，把 `u_1` 放入 S，随后的 `distance[u_2]` 可能会变
 
-
+```c
+void Dijkstra( Table T )
+{
+	Vertex V, W;
+	for(;;){ // O(|V|)
+		V = smallest unknown distance vertex;
+		if(V == NotAVertex) break;  // search done
+		T[V].Known = ture;  // only visit the smallest dist vertex
+		for(each W adjacent to V)  // update W
+			if(!T[W].Known)
+				if(T[V].Dist + Cvw < T[W].Dist){
+					Decrease(T[W].Dist to T[V].Dist + Cvw);
+					T[W].Path = V;
+				}
+	}
+}
+```
 
 #### Implementation 1 直接遍历 ==Good if the graph is dense==
 
@@ -215,7 +297,7 @@ aliases:
 
 - V = smallest unknown distance vertex
 	- **Keep distances in a priority queue and call DeleteMin $O(\log |V|)$**
-- 
+- `Decrease(T[W].Dist to T[V].Dist + Cvw)`
 	- Method 1: DecreaseKey $O(\log |V|)$
 		- $T=O(|V|\log|V|+|E|\log|V|)=O(|E|\log|V|)$
 	- Method 2: insert W with updated Dist into the priority queue
@@ -226,10 +308,29 @@ aliases:
 
 ### Graphs with Negative Edge Costs
 
-
+```c
+void  WeightedNegative( Table T )
+{   /* T is initialized by Figure 9.30 on p.303 */
+    Queue  Q;
+    Vertex  V, W;
+    Q = CreateQueue (NumVertex );  MakeEmpty( Q );
+    Enqueue( S, Q ); /* Enqueue the source vertex */
+    while ( !IsEmpty( Q ) ) { /*each vertex can dequeue at most |V| times*/
+        V = Dequeue( Q );
+        for ( each W adjacent to V )
+  			if ( T[ V ].Dist + Cvw < T[ W ].Dist ) { /* no longer once per edge */
+      			T[ W ].Dist = T[ V ].Dist + Cvw;
+      			T[ W ].Path = V;
+      			if ( W is not already in Q )
+          			Enqueue( W, Q );
+  } /* end-if update */
+    } /* end-while */
+    DisposeQueue( Q ); /* free memory */
+}  /* negative-cost cycle will cause indefinite loop*/
+```
 
 -  $T=O(|V|*|E|)$
-- 可以设置一个 ，如果一条边已经遍历超过这么多次，那么就认为是死循环，程序退出
+- 可以设置一个 `treshold`，如果一条边已经遍历超过这么多次，那么就认为是死循环，程序退出
 
 ### Acyclic Graphs *无环图*
 
@@ -332,7 +433,20 @@ For all pairs of $v_i$ and $v_j$ $(i\ne j)$ , find the shortest path between.
 - 如果不形成 cycle，那么将树连接，删除这条边
 - 如果形成 cycle，那么放弃这条边
 
-
+```c
+void Kruskal ( Graph G )
+{
+	T = {};
+	while ( T contains less than |V|-1 edges && E is not empty ) {
+		choose a least cost edge(V, w) from E;   // deleteMin
+		delete (v, w) from E;
+		if((v, w) does not create a cycle in T)
+			add (v, w) to T;   // union and find
+	}
+	if(T contains fewer than |V|-1 edges)
+		Error("No spanning tree");
+}
+```
 
 > [!note] Time Complexity
 > - 初始化一个空的边集 $O(1)$
@@ -347,7 +461,15 @@ For all pairs of $v_i$ and $v_j$ $(i\ne j)$ , find the shortest path between.
 
 *a generalization of preorder traversal*
 
-
+```c
+void DFS ( Vertex V )
+{
+	visited[V] = true;
+	for(each W adjacent to V)
+		if(!visited[W])
+			DFS(W);
+}
+```
 
 - $T=O(|E|+|V|)$
 - BFS: 每次找一层*队列，while 循环* **VS** DFS: 每次先找到所有的*递归*
@@ -356,7 +478,16 @@ For all pairs of $v_i$ and $v_j$ $(i\ne j)$ , find the shortest path between.
 
 - DFS 能够访问的所有节点，**构成一个 component**
 
-
+```c
+void ListComponents( Graph G )
+{
+	for(each V in G)
+		if(!visited[V]){
+			DFS(V);
+			printf("\n");	
+		}   // 每次访问打印节点index，每两个component之间换行
+}
+```
 
 ## Biconnectivity
 
@@ -433,8 +564,8 @@ For all pairs of $v_i$ and $v_j$ $(i\ne j)$ , find the shortest path between.
 
 #### idea 1
 
-- 遍历，建立  保存入度，**记得初始化为**
-- 遍历输入，对于每个输入，如果对应  是 0，则正确
+- 遍历，建立 `cntIndegree[num]` 保存入度，**记得初始化为**
+- 遍历输入，对于每个输入，如果对应 `cntIndegree` 是 0，则正确
 	- 并将 successor 的入度减一
 - 如果入度还不是 0 的节点被 visit，则不正确，退出 false
 
@@ -456,13 +587,13 @@ For all pairs of $v_i$ and $v_j$ $(i\ne j)$ , find the shortest path between.
 	- 再次检查是否都可以连通
 
 > [!attention] 关于循环控制语句
-> C 语言中没有能够直接  或者  上层循环的用法，需要用一个  来传递循环控制操作！
+> C 语言中没有能够直接 `break` 或者 `continue` 上层循环的用法，需要用一个 `flag` 来传递循环控制操作！
 
 ## HW 9
 
-- In a weighted undirected graph, if the length of the shortest path from  to  is 12, and there exists an edge of weight 2 between  and , then the length of the shortest path from  to  must be no less than 10.
+- In a weighted undirected graph, if the length of the shortest path from `b` to `a` is 12, and there exists an edge of weight 2 between `c` and `b`, then the length of the shortest path from `c` to `a` must be no less than 10.
 	- **T**
-	- 如果 less than 10 的话， to  的最短就比 12 还小了
+	- 如果 less than 10 的话，`b` to `a` 的最短就比 12 还小了
 
 ## HW 10
 
@@ -524,14 +655,14 @@ For all pairs of $v_i$ and $v_j$ $(i\ne j)$ , find the shortest path between.
 
 - for all V in G
 	- if not visited
-		- find the SCC it is in 
+		- find the SCC it is in `getStronglyConnectedComponent()`
 		- print(\n)
-- 
+- `getSCC(Graph G, Vertex V)`
 	- V 出发能找到的节点构成集合 From
 	- 能找到 V 的节点构成集合 To
 	- 取交集，加上 V 本身，就是 V 所在的最大 SCC
-- **使用  利用 Warshall 算法可以更加方便地解决**
-	- 对于  使用 Warshall 算法，得到目标矩阵
+- **使用 `adj_mat` 利用 Warshall 算法可以更加方便地解决**
+	- 对于 `adj_mat` 使用 Warshall 算法，得到目标矩阵
 	- 对于每个 unvisited 的顶点 V
 		- **取矩阵里第 V 行和第 V 列的 AND**
 			- 这个结果就是 V 所在的 SCC

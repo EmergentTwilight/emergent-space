@@ -29,25 +29,49 @@ updated: 2024-07-07T10:48:43
 >    - 定义：完全二叉树是一棵二叉树，其中所有层（除了可能的最后一层）都是满的，且所有节点尽可能地靠左排列。
 >    - 特点：在完全二叉树中，每一层的节点都是从左到右填满的，但最后一层的节点不一定填满。
 >    - 例子：
->      
+>      ```
+>            1
+>          /   \
+>         2     3
+>        / \   /
+>       4   5 6
+>      ```
 > 
 > 2. **满二叉树（Full Binary Tree）**：
 >    - 定义：满二叉树是一棵二叉树，其中每个节点要么有两个子节点，要么没有子节点。
 >    - 特点：每个节点要么是叶子节点，要么有两个子节点。
 >    - 例子：
->      
+>      ```
+>            1
+>          /   \
+>         2     3
+>        / \   / \
+>       4   5 6   7
+>      ```
 > 
 > 3. **完美二叉树（Perfect Binary Tree）**：
 >    - 定义：完美二叉树是一棵二叉树，其中所有内节点都有两个子节点，且所有叶子节点都在同一层。
 >    - 特点：完美二叉树既是满二叉树又是完全二叉树。它的所有叶子节点在同一层，并且所有内节点都有两个子节点。
 >    - 例子：
->      
+>      ```
+>            1
+>          /   \
+>         2     3
+>        / \   / \
+>       4   5 6   7
+>      ```
 > 
 > 4. **平衡二叉树（Balanced Binary Tree）**：
 >    - 定义：平衡二叉树是一棵二叉树，其中任何节点的两个子树的高度差不超过 1。
 >    - 特点：为了保证查询操作的效率，树的高度尽量保持在最低水平。常见的平衡二叉树有 AVL 树和红黑树。
 >    - 例子：
->      
+>      ```
+>            3
+>          /   \
+>         2     4
+>        /       \
+>       1         5
+>      ```
 > 
 > ### 总结
 > - **完全二叉树**：从左到右逐层填满，可能最后一层不完全。
@@ -81,10 +105,10 @@ updated: 2024-07-07T10:48:43
 		- Infix to Postfix Conversion *优先级>=当前元素，出栈*，**注意括号**
 - **Queue ADT***
 	- 循环队列实现
-	-  和  差 2 是满，差 1 是空
-	- 最大容量是 
-	-  在  放入元素
-	-  在  删除元素
+	- `rear` 和 `front` 差 2 是满，差 1 是空
+	- 最大容量是 `n-1`
+	- `Enqueue` 在 `++rear` 放入元素
+	- `Dequeue` 在 `fornt++` 删除元素
 	- 需要执行满/空检查
 
 ## [Ch.04 Trees](Ch.04 Trees.md)
@@ -104,11 +128,11 @@ updated: 2024-07-07T10:48:43
 		- Expression Tree (syntax trees)
 	- Traversals
 		- preorder postorder inorder *levelorder (需要队列)*
-			-  **使用一个栈完成非递归遍历**
+			- `iter_inorder` **使用一个栈完成非递归遍历**
 		- expression tree 不同的遍历方式就能得到不同的表达式
 		- print directory 使用 **preorder**，因为先打印父目录
 		- 计算文件夹大小，使用 **postorder**，因为要向父节点返回值
-	- 线索二叉树（几乎不考） *如果  为空，换成中序遍历的前驱，如果  为空，换成中序遍历的后继，只是方便查找而已*
+	- 线索二叉树（几乎不考） *如果 `left` 为空，换成中序遍历的前驱，如果 `right` 为空，换成中序遍历的后继，只是方便查找而已*
 	- 其他二叉树
 		- 斜树 skewed binary tree，退化成线性结构
 		- 完全 complete binary tree **除了最后一层，全部填满** *很像堆*
@@ -116,22 +140,22 @@ updated: 2024-07-07T10:48:43
 		- 叶子节点数比二度节点数多 1 $n_0=n_2+1$
 - **The Search Tree ADT**
 	- Imp
-		-  尾递归优化为循环的例子
-		-  的递归操作需要返回 
-		- 
-			- **如果是二度节点，替换为左子树最大或右子树最小**，对被换过来的节点递归进行 
+		- `find` 尾递归优化为循环的例子
+		- `insert` 的递归操作需要返回 
+		- `Delete`
+			- **如果是二度节点，替换为左子树最大或右子树最小**，对被换过来的节点递归进行 `delete`
 			- lazy deletion
 	- $height(bst)\in[h-1,\lceil\log_2(n+1)\rceil-1]$
 
 ## [Ch.05 Priority Queues (Heaps)](Ch.05 Priority Queues (Heaps).md)
 
 - sentinel value 是不可能出现的最小/最大值
--  放到末尾，
--  末尾放到开头，
--  直接 
--  直接 
--  删除某个位置的元素：  然后进行 
--  直接放，然后堆每个父节点 
+- `insert` 放到末尾，`PercolateUp`
+- `DeleteMin` 末尾放到开头，`PercolateDown`
+- `DecreaseKey` 直接 `PercolateUp`
+- `IncreaseKey` 直接 `PercolateDown`
+- `Delete` 删除某个位置的元素： `DecreaseKey \infty` 然后进行 `DeleteMin`
+- `BuildHeap` 直接放，然后堆每个父节点 `PercolateDown`
 	- 也称为 **Linear Algorithm** $T(N)=O(N)$
 
 ## [Ch.06 Sorting](Ch.06 Sorting.md)
@@ -151,18 +175,18 @@ updated: 2024-07-07T10:48:43
 	- 平均比较次数 $2N\log N-O(N \log \log N)$
 	- 使用不经济，常数比较大
 - **Mergesort** 归并排序 ***Mergesort is stable***
-	- 递归外部定义 
+	- 递归外部定义 `TmpArray`
 		- 如果内部定义 $S=O(N\log N)$
 		- 如果外部定义 $S=O(N)$
 	- 进行划分
-	- 每一次归并，从  读取，放到  中，然后再复写到 
+	- 每一次归并，从 `A` 读取，放到 `TmpArray` 中，然后再复写到 `A`
 - **Quicksort** 快速排序 ***unstable***
 	- 复杂度
 		- Time: *best/average case* $O(N\log N)$ *worst case* $O(N^2)$
 		- Space: *best* $O(\log N)$ *worst* $O(N)$
 	- Strategy
-		-  使用  来获取
-		- 在 partition 中，如果  都停下俩进行 ，这样能够保证 partition 大小相近，时间还是 $O(N\log N)$
+		- `pivot` 使用 `Medium3` 来获取
+		- 在 partition 中，如果 `key == pivot` 都停下俩进行 `swap`，这样能够保证 partition 大小相近，时间还是 $O(N\log N)$
 	- ***Quicksort is slower than insertion sort for small $N\le 20$**
 - **Table Sort**
 	- 创建 pointer 来处理大型结构，pointer 就是 key，然后堆
@@ -171,7 +195,7 @@ updated: 2024-07-07T10:48:43
 	- $T=O(mN)$ where $m$ is the size of the structure
 - A general lower bound for sorting based on comparisons $O(N\log N)$
 - **Bucket Sort** ***stable***
-	- 设计所有可能的 ，直接放入
+	- 设计所有可能的 `slot`，直接放入
 - **Radix Sort** ***stable***
 	- 进行多轮排序，每次排一个数位，**Least Significant Digit First**
 	- $T=O(P(N+B))$
@@ -215,9 +239,9 @@ updated: 2024-07-07T10:48:43
 	- DAG: 有向无环图
 	- Strongly/Weekly connected
 - Representation
-	- 
-	- 
-	- ，每一个节点是一条边，存着起点和终点以及 ，两个出指针指向各自 vertex 连接的下一条边
+	- `adj_mat`
+	- `adj_lists`
+	- `adj_multilists`，每一个节点是一条边，存着起点和终点以及 `mark`，两个出指针指向各自 vertex 连接的下一条边
 - **Topological Sort** 拓扑排序
 	- 使用一个队列
 	- $T=O(|V|+|E|)$
@@ -230,7 +254,7 @@ updated: 2024-07-07T10:48:43
 			- $T=O(|E|\log |V|)$
 		- 建立 MinHeap，better if graph is sparse
 			- $T=O(|E|\log|V|)$
-			- 但是需要额外的 $S=O(|E|)$，以及需要执行 
+			- 但是需要额外的 $S=O(|E|)$，以及需要执行 `deleteMin`
 	- *graph with negative costs*: 可能存在解，可能死循环
 - **AOE Networks**
 	- **EC**: earliest completion ***从头到尾取最大***
@@ -268,17 +292,30 @@ updated: 2024-07-07T10:48:43
 ## [15-16秋冬期末模拟.pdf](15-16秋冬期末模拟.pdf) 二叉树检查
 
 - binary search tree 要求每一个根节点大于左子树最大的，小于右子树最小的
-- 使用递归，同时进行判断和深度计算 
-- 使用全局变量 
-- 使用  中的 ，可以很方便找到 K 小的元素
+- 使用递归，同时进行判断和深度计算 `cbst(BinTree T, int height, int max, int min)`
+- 使用全局变量 `int in_seq[1000] = {0}, top = -1, mheight = 0, valid = 1;`
+- 使用 `stdlib.h` 中的 `qsort`，可以很方便找到 K 小的元素
 
-> [!hint]  使用示例
+> [!hint] `qsort` 使用示例
+> ```c
+> int cmp(const void *a, const void *b){
+>     return *(int*)a - *(int*)b;
+> }
 > 
+> int main(void)
+> {
+>     int seq[1000];
+>     for(int i = 0; i < 1000; i++) seq[i] = rand();
+>     qsort(seq, 1000, sizeof(int), cmp);
+>     for(int i = 0; i < 1000; i++) printf("%d\n", seq[i]);
+>     return 0;
+> }
+> ```
 
 ## [16-17秋冬期末模拟.pdf](16-17秋冬期末模拟.pdf) 最小共同祖先问题
 
 - 先确定最小祖先，只需要找到第一个分叉点即可，也就是与子树根节点比较发现一个大一个小，或者出现一个等于的时候
-- 然后验证合理性，从这个公共顶点开始搜两个值，如果都搜到了，说明有效，返回公共祖先的 ；如果有一个没搜到，都返回 
+- 然后验证合理性，从这个公共顶点开始搜两个值，如果都搜到了，说明有效，返回公共祖先的 `key`；如果有一个没搜到，都返回 `ERROR`
 
 ## [19-20秋冬期末模拟.pdf](19-20秋冬期末模拟.pdf) Complete Binary Search Tree
 
@@ -289,8 +326,8 @@ updated: 2024-07-07T10:48:43
 > [!hint] 思路
 > - 首先，如何表示树的结构？
 > 	- 使用数组进行表示，根的下标取 0
-> 	- 注意将数组初始化成  表示未占用
-> - 然后，进行  递归操作
+> 	- 注意将数组初始化成 `-1` 表示未占用
+> - 然后，进行 `insert` 递归操作
 
 [标准Kruskal算法及时间复杂度分析_kruskal算法时间复杂度分析-CSDN博客](https://blog.csdn.net/weixin_40673608/article/details/85308236)
 

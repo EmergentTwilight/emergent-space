@@ -76,8 +76,8 @@ def find_file_in_directory_relative(filenameOrPath, directory, basepath):
 
 
 def convert_wikilinks(md_content, md_filename, md_dir):
-    md_content = md_ignore_codes(md_content)
-    wikilinks = re.findall(r'\[\[(.*?)\]\]', md_content)
+    md_content_ignored = md_ignore_codes(md_content)
+    wikilinks = re.findall(r'\[\[(.*?)\]\]', md_content_ignored)
     for wikilink in wikilinks:
         link_path, link_anchor, link_title = extract_wikilink_components(wikilink)
         # handle attachments
@@ -139,5 +139,3 @@ def process_directory(directory):
                 process_md_file(root, file)
 
 process_directory(processing_directory)
-
-# print(process_anchor("#07-08\ 冬\ A\ 有答案"))

@@ -8,14 +8,14 @@ updated: 2024-07-07T10:47:30
 ---
 # Interpolation Search
 
-Find **Key** from a sorted list 
+Find **Key** from a sorted list `f[l].key, f[l+1].key, ..., f[u].key`
 
 $$
 \frac{f[u].key-f[l].key}{n}=\frac{key-f[l].key}{i-l}\quad \rightarrow i=l+\frac{(key-f[l].key)*n}{f[u].key-f[l].key}
 $$
 
-- 如果是凹函数，i 在右半部分 ， 继续找
-- 如果是凸函数，i 在左半部分  ，继续找
+- 如果是凹函数，i 在右半部分 `l=i`， 继续找
+- 如果是凸函数，i 在左半部分  `u=i`，继续找
 
 # General Idea
 
@@ -29,7 +29,13 @@ $$
 - **Objedcts**: name-attribute pairs, names are unique
 - **Operations**
 
-
+```c
+SybTab Create(TableSize);
+Boolean Isin(symbtab, name);
+Attribute Find(symtab, name);
+SymTab Insert(symtab, namne, attr);
+SymTab Delete(symtab, name);
+```
 
 ## Hash Tables
 
@@ -57,7 +63,14 @@ $$
 	1. 事实上三个字母出现的组合数没有这么大
 4. $f(x)=(\sum x[N-i-1]*32^i)\%TableSize$
 
-
+```c
+Index Hash3(const char* x, int TableSize)
+{
+	unsigned int HashVal = 0;
+	while(*x) HashVal = (HashVal << 5) | *x++;
+	return HashVal % TableSize
+}
+```
 
 - 如果字符串太长，可能要选择 unique 的一部分
 
@@ -70,19 +83,84 @@ $$
 > - Separate Chaining 可以使用头插法，也就是往每个链表的头节点后插入，不需要放在链表的尾部，所以 $T_{insert}=O(1)$
 > - 但是在 Find 的时候，还是需要一个一个去找，worst case $T_{find}=T_{delete}=O(N)$
 
+```c
+struct ListNode;
+typedef struct LIstNode *Position;
+struct HasTbl;
+typedef struct HashTbl *HashTable;
 
+struct ListNode {
+    ElementType Element;
+    Position Next;
+};
+typedef Position List;
+
+struct HashTbl {
+	int TableSize;
+	List *TheLIsts;
+};
+```
 
 ## Create an empty table
 
-
+```c
+HashTable InitializeTable( int TableSize )
+{
+	HashTable H;
+	int i;
+	if(TalbeSize < MinTableSize){
+	    Error("Table size too small"); return NULL;
+	}
+	H = malloc(sizeof(struct HashTbl));
+	if(H == NULL) FatafError("Out of space!!!");
+	H->TableSize = NextPrime(TableSize); // better be a prime
+	H->TheLists = malloc(sizeof(List) * H->TableSize);
+	if(H->TheLists == NULL) FatalError("Out of space!!!");
+	for(i = 0; i < H->TableSize; i++){
+	    H->TheLists[i] == malloc(sizeof(struct ListNode)); // SLOW!!!!!!
+	    if(H->TheLists[i] == NULL) FatalError("Out of space!!!");
+	    else H->TheLists[i]->Next = NULL;
+	}
+	return H;
+}
+```
 
 ## Find a key from a hash table
 
+```c
+Position Find( ElementType Key, HashTable H )
+{
+    Position P;
+    List L;
 
+    L = H->TheLists[Hash(Key, H->TableSize)];
+
+    P = L->Next;
+    whiel(P != NULL && P->Element != Key) P = P->Next;
+    return P;
+}
+```
 
 ## Insert a key into a hash table
 
-
+```c
+void Insert( ElementType Key, HashTable H )
+{
+	Position Pos, NewCell;
+	List L;
+	Pos = Find(Key, H);
+	if(Pos == NULL){
+	    NewCell = malloc(sizeof(struct ListNode));
+	    if(NewCell == NULL) FatalError("Out of space!!!");
+	    else{
+	        L = H->TheLists[Hash(Key, H->TableSize)]; // Find 做过的哈希可以缓存起来
+	        NewCell->Next = L->Next;
+	        NewCell->Element = Key; // Probably need strcpy!
+	        L->Next = NewCell;
+	    }
+	}
+}
+```
 
 **Tip**: TableSize 应该和预期要存的 Key 的数量差不多
 
@@ -90,7 +168,20 @@ $$
 
 -- find **another empty cell** to solve collision (avoid pointers)
 
-
+```c
+Algorithm: insert key into an array of hash table
+{
+	index = hash(key);
+	initialize i = 0;
+	while(collision at index){
+	    index = (hash(key) + f(i)) % TableSize; // f(0) = 0
+	    if(table is full) break;
+	    else i++;
+	}
+	if(table is full) ERROR("No space left");
+	else insert Key at index;
+}
+```
 
 **Tip**: 一般 $\lambda < 0.5$，才能尽量避免发生冲突
 
@@ -113,7 +204,17 @@ $$
 
 ### Find
 
-
+```c
+Postion Find( ElementType Key, HashTable H )
+{
+	Position CurrentPos = Hash(Key, H->TableSize);
+	int CollisionNum = 0;
+	while(H->TheCells[CurrentPos].Info != Empty && H->TheCells[CurrentPos].Element != Key){ // 避免段错误
+	    CurrentPos += 2 * (++CollisionNum) - 1;
+	    if(CurrentPos >= H->TableSize) CurrentPos -= H->TableSize; // 可能有问题，如果比tablesize的两倍还大
+	}
+}
+```
 
 - **Note**
 	- while 里面用递增来加上每个平方数，使用*位运算*，*效率提高*
@@ -124,12 +225,21 @@ $$
 
 ### Insert
 
-
+```c
+void Insert( ElementType Key, HashTable H )
+{
+	Position Pos = Find(Key, H);
+	if(H->TheCells[Pos].Info != Legitimate){ // ok to insert here
+	    H->TheCells[Pos].Info = Legitimate;
+	    H->TheCells[Pos].Element = Key; // probably need strcpy
+	}
+}
+```
 
 - **Note**
-	- 这里的  代表着  的状态
-		- ，代表空
-		- ，代表被占用
+	- 这里的 `info` 代表着 `cell` 的状态
+		- `Empty`，代表空
+		- `Legitimate`，代表被占用
 		- 这样方便管理
 
 ## Double Hashing
@@ -137,8 +247,8 @@ $$
 -  $f(i)=i*hash_2(x)$ 第二个哈希函数
 	- easy to compute
 	- $hash_2(x) \not\equiv 0$
-	- 确保每个  都能探测到
-	- $hash_2(x)=R-(x\%R)$ 是比较好的函数，其中 $R$ 是小于  的**质数**
+	- 确保每个 `cell` 都能探测到
+	- $hash_2(x)=R-(x\%R)$ 是比较好的函数，其中 $R$ 是小于 `TableSize` 的**质数**
 - **Note**
 	- 如果实现的好，那么平均的查找时间基本上等于 *random collision resolution strategy*
 	- Quadratic Probing 不需要第二个哈希函数，因此*更快更简单*

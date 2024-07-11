@@ -8,7 +8,7 @@ updated: 2024-07-07T10:47:25
 ---
 # Preliminaries
 
-
+`void X_Sort ( ElementType A[], int N )`
 
 - N must be a legal integer
 - Assume integer array for the sake of simplicity
@@ -17,7 +17,20 @@ updated: 2024-07-07T10:47:25
 
 # Insertion Sort
 
+```c
+void InsertionSort( ElementType A[], int N)
+{
+	int j, P;
+	ElementType Tmp;
 
+	for(P = 1; P < N; P++){
+		Tmp = A[P];
+		for(j = P; j > 0 && A[j-1] > Tmp; j--)
+			A[j] = A[j-1];   // move backwards
+		A[j] = Tmp;
+	}
+}
+```
 
 - worst case, decending sequence, $T=O(N^2)$
 - best case, $T=O(N)$
@@ -47,7 +60,19 @@ updated: 2024-07-07T10:47:25
 
 $h_t=\lfloor N/2\rfloor,\,h_k=\lfloor h_{k+1}/2\rfloor$
 
- 
+ ```c
+void Shellsort( ElementType A[], int N )
+{
+	int i, j, increment;
+	ElementType Tmp;
+	for(increment = N / 2; increment > 0; increment /= 2)
+		/*h sequence*/
+		for(i = increment; i < N; i++){
+			Tmp = A[i];
+			for(j = i; j >= increment; j -= increment)
+		}
+}
+```
 
 ### Worst-Case Analysis
 
@@ -70,18 +95,38 @@ $h_t=\lfloor N/2\rfloor,\,h_k=\lfloor h_{k+1}/2\rfloor$
 
 ## Algorithm 1
 
-
+```c
+Algorithm1
+{
+	BuildHeap( H );   /*O(N)*/
+	for(i = 0; i < N; i++)
+		TmpH[i] = DeleteMin( H );   /*O( log N )*/
+	for(i = 0; i < N; i++)
+		H[i] = TmpH[i];   /*O(1)*/
+}
+```
 
 -  $T(N)=O(N\log N)$
 - con: The *space requirement* is doubled.
 
 ## Algorithm 2
 
-- 不如直接将  的结果写道数组的后面去
+- 不如直接将 `deleteMax` 的结果写道数组的后面去
 
+```c
+void Heapsort( ElementType A[], int N )
+{
+	int i;
+	for(i = N / 2; i >= 0; i--) /*Build Heap*/
+		PercDown(A, i, N);
+	for(i = N - 1; i > 0; i--){
+		Swap(&A[0], &A[i]); /*DeleteMax*/
+		PercDown(A, 0, i);
+	}
+}
+```
 
-
-- $Note$ that  is a valid entry *第零个也是要排序的有效元素*
+- $Note$ that `A[0]` is a valid entry *第零个也是要排序的有效元素*
 - 对于任意的数组，平均比较次数 $2N\log N-O(N\log\log N)$
 - $Note$ Although Heapsort gives the *best average time*, in practice it is slower than a version of Shellsort that uses Sedgewick's increment sequence *因为常数比较大*
 
@@ -94,13 +139,55 @@ $h_t=\lfloor N/2\rfloor,\,h_k=\lfloor h_{k+1}/2\rfloor$
 
 ## Mergesort
 
+```c
+void MSort( ElementType A[], ElementType TmpArray[], int Left, int Right )
+{
+	int Center;
+	if(Left < Right){  // if there are elements to e sorted
+		Center = (Left + Right) / 2;
+		MSort(A, TmpArray, Left, Center);   // T(N/2)
+		MSort(A, TmpArray, Center + 1, Right);   // T(N/2)
+		Merge(A, TmpArray, Left, Center + 1, Right);   // O(N)
+	}
+}
 
+void Mergesort( ElementType A[], int N )
+{
+	ElementType *TmpArray;   // need O(N) extra space
+	TmpArray = malloc(N * sizeof(ElementType));
+	if(TmpArray != NULL){
+		Msort(A, TmpArray, 0, N-1);
+		free(TmpArray);
+	}
+	else FatalError("No space for tmp array!!");
+}
+```
 
-- 为什么要在外部定义 
+- 为什么要在外部定义 `TmpArray`
 	- **减少**内存申请和释放
 	- 减少空间开销，递归深度 $\log N$，每层都要 $N$ 长度数组，$S(N)=O(N\log N)$
 
-
+```c
+void Merge( ElementType A[], ElementType TmpArray[], int Lpos, int Rpos, int RightEnd )
+{
+	int i, LeftEnd, NumElements, TmpPos;
+	LeftEnd = Rpos - 1;
+	TmpPos = Lpos;
+	NumElements = RightEnd - Lpos + 1;
+	while(Lpos <= LeftEnd && Rpos <= RightEnd)  // main loop
+		if(A[Lpos] <= A[Rpos])
+			TmpArray[TmpPos++] = A[Lpos++];
+		else
+			TmpArray[TmpPos++] = A[Rpos++];
+	while(Lpos <= LeftEnd)   // copy rest of first half
+		TmpArray[TmpPos++] = A[Lpos++];
+	while(Rpos <= RightEnd)   // copy rest of second half
+		TmpArray[TmpPos++] = A[Rpos++];
+	for(i = 0; i < NumElements; i++, RightEnd--)
+		// copy TmpArray back
+		A[RightEnd] = TmpArray[RightEnd];
+}
+```
 
 $$
 \begin{aligned}
@@ -121,31 +208,40 @@ $$
 
 ## The Algorithm
 
-
+```c
+void Quicksort ( ElementType A[], int N)
+{
+	if(N < 2) return;
+	pivot = pick any element in A[];
+	Partition S = {A[] \ pivot} into two disjoint sets:
+	    A1 = { a \in S | a <= pivot} and A2 = { a \in S | a >= pivot};
+	A = Quicksort(A1, N1) \union { pivot } \union Quicksort(A2, N2);
+}
+```
 
 - Complexity
 	- Best case:  $T(N)=O(N\log N)$
-		- 每次  的选择都是中位数
+		- 每次 `pivot` 的选择都是中位数
 	- Average case: $T(N)=O(N\log N)$
 - Property
-	- 每次的  在后续的排序中**位置不会变化**，*快的原因*
-	-  选择和  是容易错的地方
+	- 每次的 `pivot` 在后续的排序中**位置不会变化**，*快的原因*
+	- `pivot` 选择和 `partition` 是容易错的地方
 
 ## Picking the Pivot
 
-- *A Wrong Way* 
-	- Worst case: if  is **presorted**, $O(N^2)$
-- *A Safe Maneuver* 
+- *A Wrong Way* `pivot = A[0]`
+	- Worst case: if `A[]` is **presorted**, $O(N^2)$
+- *A Safe Maneuver* `pivot = random select from A[]`
 	- 随机数产生浪费资源
 - **Median-of-Three Partitioning**
-	-  取其中的中位数
+	- `pivot = median(left, center, right)` 取其中的中位数
 
 ## Partition Strategy
 
 - Double Pointer
-	-  和 ，从两边往内走，直到一个
-- **如果 **
-	-  和  都停下来进行 
+	- `i` 和 `j`，从两边往内走，直到一个
+- **如果 `pivot = key`**
+	- `i` 和 `j` 都停下来进行 `swap`
 		- 虽然可能存在不必要的交换 $\{1,1,1,1,1,1,1,1\}$
 		- 但是至少保证了划分的两部分大小相近
 			- 否则 $T(N)=O(N^2)$
@@ -153,13 +249,47 @@ $$
 ## Small Arrays
 
 - **Problem**: Quicksort is slower than insertion sort for small $N\le 20$
-- **Solution**: N 比较小时，就调用 
+- **Solution**: N 比较小时，就调用 `insertionSort`
 
 ## Implementation
 
+```c
+ElementType Median3( ElementType A[], int left, int right )
+{
+	int center = (left + right) / 2;
+	if(A[left] > A[center]) Swap(&A[left], &A[center]);
+	if(A[left] > A[right]) Swap(&A[left], &A[right]);
+	if(A[center] > A[right]) Swap(&A[center], &A[right]);
+	Swap(&A[center], &A[right-1]); // hide pivot
+	return A[right-1];
+}
 
+void Qsort( ElementType A[], int left, int right )
+{
+	int i, j;
+	ElementType pivot;
+	if(left + CUTOFF <= right){
+	    pivot = Median3(A, left, right); // select pivot
+	    i = left; j = right - 1;
+	    for(;;){
+	        while(A[++i] < pivot);
+	        while(A[--j] > pivot); // stop at invalid element
+	        if(i < j) Swap(&A[i], &A[j]); // adjust partition
+	        else break; // partion done
+	    }
+		Swap(&A[i], &A[right - 1]); // restore pivot
+		Qsort(A, left, i-1);
+		Qsort(A, i+1, right);
+	}else InsertionSort(A + left, right - left + 1)
+}
 
-- **Note**:  调用后，左中右的三个元素已经排好了，但是由于  ，实际上跳过了这来哥哥元素。
+void Quicksort( ElementType A[], int N )
+{
+	Qsort(A, 0, N-1);
+}
+```
+
+- **Note**: `Median3` 调用后，左中右的三个元素已经排好了，但是由于 `++i` `--j`，实际上跳过了这来哥哥元素。
 
 ## Analysis
 
@@ -181,16 +311,16 @@ $$
 
 - **Solution**: Add a *pointer field* to the structure and swap ptrs instead
 - **Table Sort**
-	- 对于所有的 key，先创建一个 ，用来存储目标的 index
+	- 对于所有的 key，先创建一个 `table[]`，用来存储目标的 index
 		- 构成了 cycle，也就是通过 list index 和 table 目标位置构成的需要交换的 cycle!![Pasted image 20240525092423.png](Pasted-image-20240525092423.png)
 		- 具体操作时
 			- 先进行 tablesort
-				- table 初始化为 
-				- 依据  对 table 中的 index 进行排序
-			- 然后交换 
-				- 遍历 list，只要出现了 ，那么就进行 
-					- 记录这个  以及这个 
-					- 进行轮换，直到遇到一个元素的  结束
+				- table 初始化为 `[0, 1, 2, 3, 4, 5]`
+				- 依据 `key` 对 table 中的 index 进行排序
+			- 然后交换 `key`
+				- 遍历 list，只要出现了 `list index != table element`，那么就进行 `cycle exchange`
+					- 记录这个 `entry` 以及这个 `key`
+					- 进行轮换，直到遇到一个元素的 `table element == entry` 结束
 	- **Note**: Every permutation is made up of disjoint cycles
 - **Analysis**
 	- worst case, $\lfloor N/2\rfloor$ cycles and $\lfloor 3N/2\rfloor$ record moves
