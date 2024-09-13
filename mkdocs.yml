@@ -1,36 +1,37 @@
 # navigation
 nav:
-  - Home:
-      - Welcome to my blog !: index.md
-      - 建站记录: Setup Log.md
-  - FDS:
-      - Fundamentals of Data Structure/index.md
-      - Fundamentals of Data Structure/Ch.02 Algorithm Analysis.md
-      - Fundamentals of Data Structure/Ch.03 List.md
-      - Fundamentals of Data Structure/Ch.04 Trees.md
-      - Fundamentals of Data Structure/Ch.05 Priority Queues (Heaps).md
-      - Fundamentals of Data Structure/Ch.06 Sorting.md
-      - Fundamentals of Data Structure/Ch.07 Hashing.md
-      - Fundamentals of Data Structure/Ch.08 The Disjoint Set ADT.md
-      - Fundamentals of Data Structure/Ch.09 Graph Algorithms.md
-      - Fundamentals of Data Structure/Final Map.md
-  - 微观经济学（甲）:
-      - 微观经济学/index.md
-      - 微观经济学/Chap.00 微观经济学（甲） Learning Guide.md
-      - 微观经济学/Chap.01 需求、供给和均衡价格.md
-      - 微观经济学/Chap.02 消费者选择.md
-      - 微观经济学/Chap.03 生产者行为理论.md
-      - 微观经济学/Chap.04 完全竞争产品市场.md
-      - 微观经济学/Chap.05 完全垄断市场.md
-      - 微观经济学/Chap.06 垄断竞争.md
-      - 期末复习笔记: 微观经济学/Final Map.md
-  - HPC101:
-      - HPC101/Lec.02-体系结构与高性能基础.md
-      - HPC101/Lec.03-高性能计算方法学.md
-      - HPC101/Lec.04-集群软硬件及运维基础.md
-      - HPC101/Lec.05-向量化计算.md
-      - HPC101/Lec.06-CUDA-C-编程基础.md
-      - HPC101/Lec.07-OpenMP,MPI-并行计算基础.md
+    - Home:
+        - Welcome to my blog !: index.md
+        - 建站记录: Setup Log.md
+    - ZJU Courses:
+        - FDS:
+            - Fundamentals of Data Structure/index.md
+            - Fundamentals of Data Structure/Ch.02 Algorithm Analysis.md
+            - Fundamentals of Data Structure/Ch.03 List.md
+            - Fundamentals of Data Structure/Ch.04 Trees.md
+            - Fundamentals of Data Structure/Ch.05 Priority Queues (Heaps).md
+            - Fundamentals of Data Structure/Ch.06 Sorting.md
+            - Fundamentals of Data Structure/Ch.07 Hashing.md
+            - Fundamentals of Data Structure/Ch.08 The Disjoint Set ADT.md
+            - Fundamentals of Data Structure/Ch.09 Graph Algorithms.md
+            - Fundamentals of Data Structure/Final Map.md
+        - 微观经济学（甲）:
+            - 微观经济学/index.md
+            - 微观经济学/Chap.00 微观经济学（甲） Learning Guide.md
+            - 微观经济学/Chap.01 需求、供给和均衡价格.md
+            - 微观经济学/Chap.02 消费者选择.md
+            - 微观经济学/Chap.03 生产者行为理论.md
+            - 微观经济学/Chap.04 完全竞争产品市场.md
+            - 微观经济学/Chap.05 完全垄断市场.md
+            - 微观经济学/Chap.06 垄断竞争.md
+            - 期末复习笔记: 微观经济学/Final Map.md
+        - HPC101:
+            - HPC101/Lec.02-体系结构与高性能基础.md
+            - HPC101/Lec.03-高性能计算方法学.md
+            - HPC101/Lec.04-集群软硬件及运维基础.md
+            - HPC101/Lec.05-向量化计算.md
+            - HPC101/Lec.06-CUDA-C-编程基础.md
+            - HPC101/Lec.07-OpenMP,MPI-并行计算基础.md
 
 
 # site metadata
@@ -46,85 +47,91 @@ site_dir: "site"
 
 # theme: material for mkdocs
 theme:
-  name: material
-  language: en
-  # material for mkdocs features
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.top
-    - navigation.indexes
-    - navigation.tracking
-    - navigation.prune
-#    - toc.integrate # toc integrated with catalogue
-    - search.suggest
-    - search.highlight
-    - content.code.copy
-    - content.code.annotation
-    - content.tabs.link
-  palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default # light mode
-      toggle:
-        icon: material/brightness-7
-        name: Switch to colorful dark mode
-      primary: white
-      accent: cyan
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate # dark mode
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-      primary: black
-      accent: cyan
+# logo: blog_banner.jpeg
+# favicon: icon.jpg
+    name: material
+    language: en
+    # material for mkdocs features
+    features:
+        - navigation.tabs
+        - navigation.sections
+        - navigation.top
+        - navigation.indexes
+        - navigation.tracking
+        - navigation.prune
+    #    - toc.integrate # toc integrated with catalogue
+        - search.suggest
+        - search.highlight
+        - content.code.copy
+        - content.code.annotation
+        - content.tabs.link
+    palette:
+        - media: "(prefers-color-scheme: light)"
+          scheme: default # light mode
+          toggle:
+              icon: material/brightness-7
+              name: Switch to colorful dark mode
+          primary: white
+          accent: cyan
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate # dark mode
+          toggle:
+              icon: material/brightness-4
+              name: Switch to light mode
+          primary: black
+          accent: cyan
 
+
+# more md support
 markdown_extensions:
-  - toc:
-      permalink: true
-      toc_depth: 4
-      baselevel: 2
-      title: On this page
-      slugify: !!python/name:markdown.extensions.toc.slugify_unicode
-  - pymdownx.arithmatex:  # latex to matex
-      generic: true
-  - admonition
-  - footnotes # [^1]: content
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-          # code line highlight
-  - pymdownx.highlight:
-      anchor_linenums: true
-      use_pygments: true
-      pygments_lang_class: true
-      auto_title: false
-      linenums: true
-      linenums_style: pymdownx-inline
-      line_spans: __span
-  - pymdownx.betterem # improves the detection of Markup
-  # allowing ==, ^^, ~~
-  - pymdownx.caret
-  - pymdownx.mark
-  - pymdownx.tilde
-  - pymdownx.critic # highlighting changes? {--deleted--} {++added++} {~~one~>a single~~} {==Highlighting==} {>>and comments can be added inline<<}.
-  - pymdownx.details # collapsible callout
-  # use emoji
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - md_in_html
+    - toc:
+        permalink: true
+        toc_depth: 3
+        baselevel: 2
+        title: On this page
+        slugify: !!python/name:markdown.extensions.toc.slugify_unicode
+    - pymdownx.arithmatex:  # latex to matex
+        generic: true
+    - admonition
+    - footnotes # [^1]: content
+    - pymdownx.superfences:
+        custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+            # code line highlight
+    - pymdownx.highlight:
+        anchor_linenums: true
+        use_pygments: true
+        pygments_lang_class: true
+        auto_title: false
+        linenums: true
+        linenums_style: pymdownx-inline
+        line_spans: __span
+    - pymdownx.betterem # improves the detection of Markup
+    # allowing ==, ^^, ~~
+    - pymdownx.caret
+    - pymdownx.mark
+    - pymdownx.tilde
+    - pymdownx.critic # highlighting changes? {--deleted--} {++added++} {~~one~>a single~~} {==Highlighting==} {>>and comments can be added inline<<}.
+    - pymdownx.details # collapsible callout
+    # use emoji
+    - pymdownx.emoji:
+        emoji_index: !!python/name:material.extensions.emoji.twemoji
+        emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - md_in_html
+    - attr_list
 
 
+# mkdocs plugin
 plugins:
-  - callouts
-  - search
-  - statistics:
-      page_template: _srcs/html/stat.html
-      words_per_minute: 400
+    - callouts
+    - search
+    - statistics:
+        page_template: _srcs/html/stat.html
+        words_per_minute: 400
 
 
 extra_javascript:
@@ -133,14 +140,13 @@ extra_javascript:
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
-
 extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css # with latex
   - _srcs/CSS/md_color_custom.css
   - _srcs/CSS/font.css
-
+#  - _srcs/CSS/show_heading_level.css
 
 extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/emergenttwilight
+    social:
+        - icon: fontawesome/brands/github
+          link: https://github.com/emergenttwilight

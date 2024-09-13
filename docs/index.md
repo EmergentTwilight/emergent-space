@@ -2,11 +2,9 @@
 created: 2024-07-02T03:09:57
 updated: 2024-07-11T08:28:43
 ---
-# Welcome to my blog ~
+# 建站于 2024 年 6 月 30 日 ......
 
-![blog_banner.jpg](blog_banner.jpg)
-
-建站于 2024 年 6 月 30 日。
+![拍摄于2024年7月20日](blog_banner.jpeg)
 
 # 使用指南
 
