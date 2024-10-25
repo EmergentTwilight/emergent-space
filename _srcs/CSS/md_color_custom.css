@@ -10,31 +10,31 @@
     --md-strong-color: #f8b286;
 }
 
-[data-md-color-scheme="slate"] .md-typeset h1 {
-  color: var(--md-h1-color);
-}
+/*[data-md-color-scheme="slate"] .md-typeset h1 {*/
+/*  color: var(--md-h1-color);*/
+/*}*/
 
-[data-md-color-scheme="slate"] .md-typeset h2 {
-  color: var(--md-h2-color);
-  border-bottom: 1px dashed var(--md-h2-color);
-  padding-bottom: 0.1em;
-}
+/*[data-md-color-scheme="slate"] .md-typeset h2 {*/
+/*  color: var(--md-h2-color);*/
+/*  border-bottom: 1px dashed var(--md-h2-color);*/
+/*  padding-bottom: 0.1em;*/
+/*}*/
 
-[data-md-color-scheme="slate"] .md-typeset h3 {
-  color: var(--md-h3-color);
-}
+/*[data-md-color-scheme="slate"] .md-typeset h3 {*/
+/*  color: var(--md-h3-color);*/
+/*}*/
 
-[data-md-color-scheme="slate"] .md-typeset h4 {
-  color: var(--md-h4-color);
-}
+/*[data-md-color-scheme="slate"] .md-typeset h4 {*/
+/*  color: var(--md-h4-color);*/
+/*}*/
 
-[data-md-color-scheme="slate"] .md-typeset h5 {
-  color: var(--md-h5-color);
-}
+/*[data-md-color-scheme="slate"] .md-typeset h5 {*/
+/*  color: var(--md-h5-color);*/
+/*}*/
 
-[data-md-color-scheme="slate"] .md-typeset h6 {
-  color: var(--md-h6-color);
-}
+/*[data-md-color-scheme="slate"] .md-typeset h6 {*/
+/*  color: var(--md-h6-color);*/
+/*}*/
 
 [data-md-color-scheme="slate"] .md-typeset em {
   color: var(--md-em-color);
