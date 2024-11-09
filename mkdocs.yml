@@ -48,7 +48,7 @@ site_dir: "site"
 # theme: material for mkdocs
 theme:
 # logo: blog_banner.jpeg
-# favicon: icon.jpg
+    favicon: icon.jpg
     name: material
     language: en
     # material for mkdocs features
@@ -70,7 +70,7 @@ theme:
           scheme: default # light mode
           toggle:
               icon: material/brightness-7
-              name: Switch to colorful dark mode
+              name: Switch to dark mode
           primary: white
           accent: cyan
         - media: "(prefers-color-scheme: dark)"
@@ -144,7 +144,6 @@ extra_css:
   - https://unpkg.com/katex@0/dist/katex.min.css # with latex
   - _srcs/CSS/md_color_custom.css
   - _srcs/CSS/font.css
-  - _srcs/CSS/show_heading_level.css
 
 extra:
     social:

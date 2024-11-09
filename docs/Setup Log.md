@@ -78,9 +78,8 @@ git config --global https.proxy 127.0.0.1:7890  # 修复代理设置的问题
 - [ ] 评论区
 - [ ] 访问量统计？
 
-# Sketch
+# Python Scripts
 
-## 关于链接
-
-- 需求：实现所有的 wikilink 转换
-- 
+- 实现 wikilink 转换为 markdown link
+- 实现敏感内容标记和自动删除
+- 实现附件自动抓取和链接更新

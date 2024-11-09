@@ -6,6 +6,8 @@ updated: 2024-07-11T08:28:43
 
 ![拍摄于2024年7月20日](blog_banner.jpeg)
 
-# 使用指南
+> 拍摄于 2024 年 7 月 20 日，湖南省醴陵市
 
-- 深色模式配置了 **markup** 颜色，可以辅助你更高效地阅读
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6MKZdIsK146WQexodIPOvs?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+*本站维护中...*
