@@ -1,0 +1,12 @@
+.md-grid {
+    max-width: 1400px;
+}
+
+.md-typeset .admonition, .md-typeset details {
+    font-size: inherit;
+}
+
+.md-content img:not([src$=".svg"]) {
+    border-radius: 10pt;
+    box-shadow: var(--md-shadow-z2);
+}
