@@ -1,0 +1,2509 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Emergent Space">
+      
+      
+        <meta name="author" content="Emergent Twilight">
+      
+      
+        <link rel="canonical" href="https://emergenttwilight.github.io/Emergent-Space/ZJU-Advanced%20Data%20Structure%20%26%20Algorithm%20Analysis/ADS%20Cheat%20Sheet.html">
+      
+      
+        <link rel="prev" href="ADS%2015%20External%20Sorting.html">
+      
+      
+        <link rel="next" href="ADS%20Cheat%20Sheet%20Dynamic%20Programming.html">
+      
+      
+      <link rel="icon" href="../__srcs/icon/logo-E.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>Final Cheat Sheet - Emergent Space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/banner.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/right-sidebar.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/content.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-data-structures" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Emergent Space" class="md-header__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/icon/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Emergent Space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Final Cheat Sheet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  ZJU
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Emergent Space" class="md-nav__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/icon/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    Emergent Space
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ZJU
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Fundamentals of Data Structures
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-HPC101/Lec.02%20%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%8E%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    HPC101
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advanced Data Structure & Algorithm Analysis
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Data Structure & Algorithm Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2001%20AVL%20Trees%2C%20Splay%20Trees%20and%20Amortized%20Analysis.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 AVL Trees, Splay Trees and Amortized Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2002%20Red-Black%20Trees%20and%20B%2B%20Trees.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 Red-Black Trees and B+ Trees
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2003%20Inverted%20File%20Index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 Inverted File Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 Leftistf Heaps and Skew Heaps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2005%20Binomial%20Queue.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 Binomial Queue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2006%20Backtracking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06 Backtracking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2007%20Divide%20and%20Conquer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 Divide and Conquer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2008%20Dynamic%20Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 Dynamic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2009%20Greedy%20Algorithm.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09 Greedy Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2010%20NP-Completeness.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 NP-Completeness
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2011%20Approximation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11 Approximation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2012%20Local%20Search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12 Local Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2013%20Randomized%20Algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13 Randomized Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2014%20Parallel%20Algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14 Parallel Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2015%20External%20Sorting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15 External Sorting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Final Cheat Sheet
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ADS%20Cheat%20Sheet.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Final Cheat Sheet
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 Data Structures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Data Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-balanced-bst" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Balanced BST
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Balanced BST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-avl-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1 AVL Trees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-splay-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2 Splay Trees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-red-black-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.3 Red-Black Trees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-b-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.4 B+ Trees
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-priority-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Priority Queues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Priority Queues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-leftist-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1 Leftist Heaps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-skew-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2 Skew Heaps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-binomial-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.3 Binomial Queue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-fib-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.4 Fib Heap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Amortized Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 Algorithm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-inverted-file-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Inverted File Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-backtracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Backtracking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-divide-and-conquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Divide and Conquer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-dynamic-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Dynamic Programming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-greedy-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Greedy Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-algorithm-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 Algorithm Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Algorithm Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-complexity-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Complexity Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Approximation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-local-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Local Search
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Cheat%20Sheet%20Dynamic%20Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final DP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Final%20Questions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final Questions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 Data Structures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Data Structures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-balanced-bst" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Balanced BST
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Balanced BST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-avl-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1 AVL Trees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-splay-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2 Splay Trees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-red-black-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.3 Red-Black Trees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-b-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.4 B+ Trees
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-priority-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Priority Queues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 Priority Queues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-leftist-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1 Leftist Heaps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-skew-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2 Skew Heaps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-binomial-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.3 Binomial Queue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-fib-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.4 Fib Heap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Amortized Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 Algorithm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-inverted-file-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Inverted File Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-backtracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Backtracking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-divide-and-conquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Divide and Conquer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-dynamic-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Dynamic Programming
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-greedy-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Greedy Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-algorithm-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 Algorithm Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Algorithm Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-complexity-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Complexity Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Approximation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-local-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Local Search
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/edit/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS Cheat Sheet.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/raw/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS Cheat Sheet.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>Final Cheat Sheet</h1>
+
+<h2 id="1-data-structures">1 Data Structures<a class="headerlink" href="#1-data-structures" title="Locate to heading">#</a></h2>
+<h3 id="11-balanced-bst">1.1 Balanced BST<a class="headerlink" href="#11-balanced-bst" title="Locate to heading">#</a></h3>
+<h4 id="111-avl-trees">1.1.1 AVL Trees<a class="headerlink" href="#111-avl-trees" title="Locate to heading">#</a></h4>
+<ul>
+<li><span class="arithmatex">\(n_{h}=F_{h+3}-1\)</span>，<strong>假如空树高度是 -1，或者说边才能提供高度？</strong></li>
+<li><span class="arithmatex">\(BF\)</span> balance factor 可以是 1, -1, 0</li>
+<li>LL, RR 都是单次旋转，LR, RL 都要转两次</li>
+<li>Trouble maker 是产生不平衡时插入的节点，Trouble finder 是插入操作后 <span class="arithmatex">\(BF\)</span> 发生不平衡的节点</li>
+<li>记录 height 而不是 bf 能够减少更新次数</li>
+<li>删除操作<ul>
+<li>找到要删的节点<ul>
+<li>如果是叶子，删除</li>
+<li>如果是 2 度，试图删除前驱或后继</li>
+<li>如果是 1 度，删除并提升子节点</li>
+</ul>
+</li>
+<li>bottom-up 回去进行高度更新和旋转平衡调整</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Insert</th>
+<th>Find</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(O(\log N)\)</span></td>
+<td><span class="arithmatex">\(O(\log N)\)</span></td>
+<td><span class="arithmatex">\(O(\log N)\)</span></td>
+</tr>
+<tr>
+<td>先插入 BST，在递归中完成局部检查和调整</td>
+<td></td>
+<td>递归删除并检查调整</td>
+</tr>
+</tbody>
+</table>
+<h4 id="112-splay-trees">1.1.2 Splay Trees<a class="headerlink" href="#112-splay-trees" title="Locate to heading">#</a></h4>
+<ul>
+<li>zig, zig-zig 都算 single rotation，zig-zag 才算 double<ul>
+<li>在 AVL 中，zig-zig 也算两次</li>
+</ul>
+</li>
+<li>优点是存储空间小</li>
+<li>删除的时候，splay 到根，删根，左子树 splay max，然后让右子树成为左子树的右孩子</li>
+<li><strong>roughly halves the depth of most nodes on the path</strong></li>
+<li>势能函数 <span class="arithmatex">\(\Phi(T)=\sum_{i \in T}\log S(i)\)</span>，其中 <span class="arithmatex">\(S(i)\)</span> 表示节点 <span class="arithmatex">\(i\)</span> 为根的子树的节点数量，约等于 height<ul>
+<li>可以证明单次 rotate 的均摊开销是常数的，</li>
+<li>The amortized time to splay a tree with root <span class="arithmatex">\(T\)</span> at node <span class="arithmatex">\(X\)</span> is at most <span class="arithmatex">\(3(R(T)-R(X))+1=O(\log N)\)</span></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Insert</th>
+<th>Find</th>
+<th>Delete</th>
+<th>势能函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(O(\log N)\)</span>*</td>
+<td><span class="arithmatex">\(O(\log N)\)</span>*</td>
+<td><span class="arithmatex">\(O(\log N)\)</span>*</td>
+<td><span class="arithmatex">\(\Phi(T)=\sum_{i \in T}\log S(i)\)</span></td>
+</tr>
+<tr>
+<td>先插入 BST，再 splay 到根节点</td>
+<td>找到并 Splay</td>
+<td>找到，splay，删除，左子树 splay max，右子树接上</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="113-red-black-trees">1.1.3 Red-Black Trees<a class="headerlink" href="#113-red-black-trees" title="Locate to heading">#</a></h4>
+<ul>
+<li>定义<ul>
+<li>根是黑色</li>
+<li><code>NIL</code> 是共享叶子，是黑色，除了 nil 都是 internal node</li>
+<li>没有连续的红色节点</li>
+<li><strong>每个</strong>节点的黑高相同<ul>
+<li>black height 不算自己，算 <code>NIL</code> <em>类比 2-3-4 tree</em></li>
+</ul>
+</li>
+<li>! 红色一度节点出现就非法</li>
+</ul>
+</li>
+<li>平衡性证明<ul>
+<li><span class="arithmatex">\(bh(x)\geq h(x)/2\)</span> 因为没有红色连续</li>
+<li><span class="arithmatex">\(sizeof(x)\geq 2^{bh(x)}-1\)</span> 递推</li>
+<li><span class="arithmatex">\(h\leq 2\ln(N+1)\)</span> 平衡性 <strong>记住这个式子</strong></li>
+</ul>
+</li>
+<li>插入的情况<ul>
+<li>bottom-up<ul>
+<li>叔叔红色则染色</li>
+<li>叔叔黑色保证红色同侧，并换色旋转</li>
+</ul>
+</li>
+<li>top-down<ul>
+<li>向下遍历的时候，将有两个红色孩子的黑色节点染红，其孩子染黑</li>
+<li>这样就保证父亲为红色时，叔叔不可能是红色，直接进入最后情况</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>删除的处理<ul>
+<li>删除黑色叶子的时候才需要进行下面的操作 <a href="ADS%2002%20Red-Black%20Trees%20and%20B%2B%20Trees.html#1412-step-2-调整-black-height">ADS 02 Red-Black Trees and B+ Trees#1.4.1.2 Step 2. 调整 Black Height</a></li>
+<li>当成 2-3-4 树来操作</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Number of rotations</th>
+<th>AVL</th>
+<th>RBT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insertion</td>
+<td><span class="arithmatex">\(\le 2\)</span></td>
+<td><span class="arithmatex">\(\le 2\)</span></td>
+</tr>
+<tr>
+<td>Deletion</td>
+<td><span class="arithmatex">\(O(\log N)\)</span></td>
+<td><span class="arithmatex">\(\le 3\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Insert</th>
+<th>Find</th>
+<th>Delete</th>
+<th>FindMax(FindMin)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(O(\log N)\)</span></td>
+<td><span class="arithmatex">\(O(\log N)\)</span></td>
+<td><span class="arithmatex">\(O(\log N)\)</span></td>
+<td><span class="arithmatex">\(O(\log N)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="114-b-trees">1.1.4 B+ Trees<a class="headerlink" href="#114-b-trees" title="Locate to heading">#</a></h4>
+<ul>
+<li>定义<ol>
+<li>根是叶子或有 <span class="arithmatex">\([2, M]\)</span> 个孩子</li>
+<li>所有非叶子节点（除了根）都有 <span class="arithmatex">\([\lceil M/2\rceil, M]\)</span> 个孩子，强调这个 M/2</li>
+<li>所有叶子的<strong>深度相同</strong></li>
+</ol>
+</li>
+<li>复杂度分析<ul>
+<li><span class="arithmatex">\(T_{find}=Depth(M,N)\times O(\log M)=O(\lceil \log_{\lceil M/2 \rceil}N \rceil)\times O(\log M)=O(\log N)\)</span></li>
+<li><span class="arithmatex">\(T_{insert}(M,N)=O((M/\log M)\log N)\)</span> 这里考虑的是顺序遍历索引，但其实可以二分查找</li>
+</ul>
+</li>
+</ul>
+<h3 id="12-priority-queues">1.2 Priority Queues<a class="headerlink" href="#12-priority-queues" title="Locate to heading">#</a></h3>
+<h4 id="121-leftist-heaps">1.2.1 Leftist Heaps<a class="headerlink" href="#121-leftist-heaps" title="Locate to heading">#</a></h4>
+<ul>
+<li>NPL, <span class="arithmatex">\(Npl(left)\geq Npl(right)\)</span></li>
+<li>property<ul>
+<li>右路经节点数 <span class="arithmatex">\(\leq \lfloor \log(N+1) \rfloor\)</span><ul>
+<li><span class="arithmatex">\(\leftrightarrow\)</span> 若右路经上有 <span class="arithmatex">\(r\)</span> 个节点，则 <span class="arithmatex">\(N\geq 2^r-1\)</span></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(Npl(root)=r\)</span>，那么 <span class="arithmatex">\(N\geq 2^{r+1}-1\)</span></li>
+</ul>
+</li>
+<li>Operations<ul>
+<li>merge<ul>
+<li>如果其中一个堆已经没有左孩子了，那么根据 <span class="arithmatex">\(Npl\)</span>，它一定没有右孩子，这时候为了维护 <span class="arithmatex">\(Npl\)</span> 只需要将另一个堆当作其左孩子</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>FindMin</th>
+<th>DeleteMin</th>
+<th>Insert</th>
+<th>DecreaseKey</th>
+<th>Merge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binary</td>
+<td><span class="arithmatex">\(\Theta(1)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td>BuildHeap in <span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(n)\)</span></td>
+</tr>
+<tr>
+<td>Leftist Heap</td>
+<td><span class="arithmatex">\(\Theta(1)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="122-skew-heaps">1.2.2 Skew Heaps<a class="headerlink" href="#122-skew-heaps" title="Locate to heading">#</a></h4>
+<ul>
+<li><strong>Always</strong> swap the left and right children except that the largest of all the nodes on the right paths does not have its children swapped. <strong>始终</strong>交换左子树和右子树，除了在右路径上最大的节点不交换其子节点。<ul>
+<li>必须完整遍历右路径，即使一个堆已经空了也需要遍历另一个堆余下的右路经，以此保证进行交换</li>
+<li>最后一个合并的节点，其<strong>一定没有右孩子</strong>，且<strong>不进行子树交换</strong></li>
+</ul>
+</li>
+<li>Amortized Analysis <a href="ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.html#32-amortized-analysis-for-skew-heaps">ADS 04 Leftist Heaps and Skew Heaps#3.2 Amortized Analysis for Skew Heaps</a><ul>
+<li><span class="arithmatex">\(definition\)</span>: 某一节点的后代（包括自己）中，其右子树内的大于等于一半，则其为 <em>heavy node</em>，反之为 <em>light</em>。也就是 <span class="arithmatex">\(R\geq \frac{L+R+1}{2}\)</span></li>
+<li>merge 之后，heavy 一定变成 light，light 可能变成 heavy</li>
+</ul>
+</li>
+<li>顺序插入 <span class="arithmatex">\(2^k-1\)</span> 个自然数，形成满树</li>
+<li>right path can be arbitrarily long</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>FindMin</th>
+<th>DeleteMin</th>
+<th>Insert</th>
+<th>DecreaseKey</th>
+<th>Merge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binary</td>
+<td><span class="arithmatex">\(\Theta(1)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td>BuildHeap in <span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(n)\)</span></td>
+</tr>
+<tr>
+<td>Skew Heap</td>
+<td><span class="arithmatex">\(\Theta(1)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span> *</td>
+<td><span class="arithmatex">\(O(\log n)\)</span>*</td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span>*</td>
+</tr>
+</tbody>
+</table>
+<h4 id="123-binomial-queue">1.2.3 Binomial Queue<a class="headerlink" href="#123-binomial-queue" title="Locate to heading">#</a></h4>
+<ul>
+<li><span class="arithmatex">\(\Phi=\text{number of trees}\)</span></li>
+<li><span class="arithmatex">\(\hat{c}=2\)</span> for each insertion</li>
+</ul>
+<h4 id="124-fib-heap">1.2.4 Fib Heap<a class="headerlink" href="#124-fib-heap" title="Locate to heading">#</a></h4>
+<ul>
+<li>只有 deletemin 需要进行根链表合并，所以是 <span class="arithmatex">\(O(\log N)\)</span> 的，其他都是常数</li>
+</ul>
+<h3 id="13-amortized-analysis">1.3 Amortized Analysis<a class="headerlink" href="#13-amortized-analysis" title="Locate to heading">#</a></h3>
+<blockquote>
+<p>只要摊还开销大于总开销，都算是合理的摊还分析</p>
+</blockquote>
+<ul>
+<li>势能函数的选择<ul>
+<li>开始的时候最小 <strong>assume its minimum</strong></li>
+<li>非负的</li>
+<li>摊还，也就是<em>简单操作会导致势能增大，复杂操作会导致势能减小，从而二者的复杂度一致</em></li>
+<li>初始值可以不是 0</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-algorithm">2 Algorithm<a class="headerlink" href="#2-algorithm" title="Locate to heading">#</a></h2>
+<h3 id="21-inverted-file-index">2.1 Inverted File Index<a class="headerlink" href="#21-inverted-file-index" title="Locate to heading">#</a></h3>
+<ul>
+<li>terms<ul>
+<li>term dict, posting list</li>
+<li>word stemming</li>
+<li>stop words</li>
+<li>distributed indexing<ul>
+<li>term-partitioned index</li>
+<li>document-partitioned index</li>
+</ul>
+</li>
+<li>dynamic indexing<ul>
+<li>auxiliary index = cache</li>
+</ul>
+</li>
+<li>compression<ul>
+<li>term dict -&gt; a single str</li>
+<li>posting list -&gt; 差分存储词首 char 的 index</li>
+</ul>
+</li>
+<li>measures<ul>
+<li>relevance measurement</li>
+<li>precision</li>
+<li>recall</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>交集查找从 frequency 最小的词开始</li>
+<li>hash 查找更快，但是无法范围查找</li>
+<li>term-partition 也不是没有用的</li>
+<li>thresholding<ul>
+<li>document-thresholding<ul>
+<li>不方便布尔操作</li>
+<li>可能由于截断错过重要文件</li>
+</ul>
+</li>
+<li>query 只考虑部分 query</li>
+</ul>
+</li>
+</ul>
+<h3 id="22-backtracking">2.2 Backtracking<a class="headerlink" href="#22-backtracking" title="Locate to heading">#</a></h3>
+<blockquote>
+<p>backtracking 本身就有 eliminate 的含义</p>
+</blockquote>
+<ul>
+<li>8-Queens<ul>
+<li><span class="arithmatex">\(N!\)</span> solutions</li>
+</ul>
+</li>
+<li>alpha-beta 剪枝<ul>
+<li>如果有 N 个节点，可以减少到 <span class="arithmatex">\(O(\sqrt{ N })\)</span></li>
+</ul>
+</li>
+</ul>
+<h3 id="23-divide-and-conquer">2.3 Divide and Conquer<a class="headerlink" href="#23-divide-and-conquer" title="Locate to heading">#</a></h3>
+<ul>
+<li>method<ul>
+<li>替代法</li>
+<li>递归树</li>
+<li>主方法</li>
+</ul>
+</li>
+</ul>
+<p>当 <span class="arithmatex">\(a\ge 1,b\geq 1, p\geq 0\)</span> 时，对于递推式：</p>
+<div class="arithmatex">\[T(N)=aT(N/b)+\Theta(N^k \log^p N)\]</div>
+<ol>
+<li>if <span class="arithmatex">\(a&gt;b^k\)</span>, <span class="arithmatex">\(T(N)=O(N^{\log_{b}a})\)</span></li>
+<li>if <span class="arithmatex">\(a=b^k\)</span>, <span class="arithmatex">\(T(N)=O(N^k \log^{p+1}N)\)</span></li>
+<li>if <span class="arithmatex">\(a&lt;b^k\)</span>, <span class="arithmatex">\(T(N)=O(N^k \log^p N)\)</span></li>
+</ol>
+<h3 id="24-dynamic-programming">2.4 Dynamic Programming<a class="headerlink" href="#24-dynamic-programming" title="Locate to heading">#</a></h3>
+<p><img alt="__assets/ADS Cheat Sheet.md/IMG-ADS Cheat Sheet-20250102222911289.png" src="__assets/ADS%20Cheat%20Sheet.md/IMG-ADS%20Cheat%20Sheet-20250102222911289.png" /></p>
+<ul>
+<li>floyd warshall 算法可以有负权，但是不能有负数圈</li>
+</ul>
+<h3 id="25-greedy-algorithm">2.5 Greedy Algorithm<a class="headerlink" href="#25-greedy-algorithm" title="Locate to heading">#</a></h3>
+<ul>
+<li>Elements<ul>
+<li>做出选择，剩下一个子问题需要解决</li>
+<li>greedy choice property: 总有一个最优解是贪心选择得到的，参数交换法</li>
+<li>optimal substructure property: 做出贪心选择后，总能得到最优子结构，即将贪心选择和子问题的最优解组合起来总是全局最优解</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-algorithm-analysis">3 Algorithm Analysis<a class="headerlink" href="#3-algorithm-analysis" title="Locate to heading">#</a></h2>
+<h3 id="31-complexity-class">3.1 Complexity Class<a class="headerlink" href="#31-complexity-class" title="Locate to heading">#</a></h3>
+<ul>
+<li>最难的问题是不可判定问题</li>
+<li>对于 NTM 来说，不可判定问题还是不可判定</li>
+<li>co-NP: 其补问题是 NP 问题的问题，四种情况中，反正 P 属于 co-NP 和 NP 的交集</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>复杂度类</th>
+<th>判定含义</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set Cover</td>
+<td>NP-C</td>
+<td>判定是否存在大小为 <span class="arithmatex">\(k\)</span> 的 set cover</td>
+<td></td>
+</tr>
+<tr>
+<td>Circuit-SAT</td>
+<td>NP-C</td>
+<td>对于一个布尔表达式，判定是否存在一组赋值使其为 1</td>
+<td>最早被证明是 NP-C 的问题</td>
+</tr>
+<tr>
+<td>SAT</td>
+<td>NP-C</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Hamiltonian Cycle</td>
+<td>NP-C</td>
+<td>判定一张图是否存在哈密顿回路</td>
+<td>判定一个图是否<strong>没有</strong>哈密顿回路的问题不是 NP 的</td>
+</tr>
+<tr>
+<td>Clique</td>
+<td>NP-C</td>
+<td>判定一张图是否存在大小至少为 k 的团</td>
+<td></td>
+</tr>
+<tr>
+<td>Knapsack</td>
+<td>NP-C</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Bin Packing</td>
+<td>NP-C</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Domination Set</td>
+<td>NP-C</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DNF-SAT</td>
+<td>P</td>
+<td>给定 DNF，判定是否能够满足</td>
+<td>甚至是线性的复杂度</td>
+</tr>
+<tr>
+<td>Longest Distance in Acyclic DAG</td>
+<td>P</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSP</td>
+<td>NP-C</td>
+<td>判定一张图是否存在 cost 不超过 k 的路线</td>
+<td>要证明 TSP 是 NP-C，需要证明它是 NP，并且可以由哈密顿回路归约得到</td>
+</tr>
+<tr>
+<td>Vertex Cover Problem</td>
+<td>NP-C</td>
+<td>判定一张图是否存在大小至多为 k 的顶点覆盖</td>
+<td>首先是 NP 的，其次可以由一支 NP-C 的 Clique 问题归约得到<br>这是用补图来证明的，规约算法复杂度为 <span class="arithmatex">\(O(N^2)\)</span></td>
+</tr>
+<tr>
+<td>3-CNF SAT</td>
+<td>NP-C</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Subset Problem</td>
+<td>NP-C</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Partition Problem</td>
+<td>NP-C</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Domination Set</td>
+<td>NP-C</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-approximation">3.2 Approximation<a class="headerlink" href="#32-approximation" title="Locate to heading">#</a></h3>
+<ul>
+<li>FPTAS 就是 n 的指数和 epsilon 无关了</li>
+<li>binpacking<ul>
+<li>NF(2): 1, epsilon, 1, epsilon, 1 epsilon</li>
+<li>FF(1.7): 如果删掉一个，可能结果会更差</li>
+</ul>
+</li>
+</ul>
+<p><img alt="__assets/ADS Cheat Sheet.md/IMG-ADS Cheat Sheet-20250102232014723.png" src="__assets/ADS%20Cheat%20Sheet.md/IMG-ADS%20Cheat%20Sheet-20250102232014723.png" /></p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>优化含义</th>
+<th>算法</th>
+<th>近似比</th>
+<th>停止复杂度</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bin Packing</td>
+<td>general online</td>
+<td><strong>online lwb</strong></td>
+<td>1.67</td>
+<td></td>
+<td>课件给的，存在一种输入，能让所有 online 都无法低于 1.67</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>FF</td>
+<td>2</td>
+<td></td>
+<td><span class="arithmatex">\(O(\|L\|)\)</span></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>NF</td>
+<td>1.7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>BF</td>
+<td>1.7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Refined Harmonic</td>
+<td>1.63597 (asmy)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Modified Harmonic 2</td>
+<td>1.61217 (asmy)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><strong>online asym lwb</strong></td>
+<td>1.5407</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>general offline</td>
+<td><strong>lwb</strong></td>
+<td>1.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>AnyFit</td>
+<td>11/9(1.22) ~ 1.25 <em>asym</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>FFD</td>
+<td>11/9 OPT + 6/9 (tight) <em>asym</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>NFD</td>
+<td>仅仅略微小于 1.7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>2 item sizes</td>
+<td>FF</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>NF/BF</td>
+<td>1.5 (not tight)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Knapsack</td>
+<td></td>
+<td>EnumerateGreedy<br>贪心枚举</td>
+<td><span class="arithmatex">\(1+\varepsilon\)</span><br><span class="arithmatex">\(K=\varepsilon \frac{p_{\max}}{n}\)</span></td>
+<td></td>
+<td>FPTAS</td>
+</tr>
+<tr>
+<td>K-center</td>
+<td>general</td>
+<td></td>
+<td><span class="arithmatex">\(\infty\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>metric distance<br>最小化最大距离</td>
+<td>greedy 第一个点选择最中心的位置</td>
+<td><span class="arithmatex">\(\infty\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>greedy 2-r</td>
+<td>?</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>greedy 2-r far away</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>LWB</td>
+<td>2</td>
+<td></td>
+<td>除非 P=NP，因为小于 2 的近似比可以归约到 dominating set 问题的多项式时间算法；<br><em>如果 r(C*)=1，则 dominating set 有 size K 的解</em></td>
+</tr>
+<tr>
+<td>Max-Cut</td>
+<td></td>
+<td>state-slipping</td>
+<td>2</td>
+<td><strong>可能无法多项式时间</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>如果使用 <span class="arithmatex">\(\frac{2\varepsilon}{\|V\|}w(A,B)\)</span> 梯度更新，就是 <span class="arithmatex">\(2+\varepsilon\)</span></td>
+<td><span class="arithmatex">\(O(\frac{n}{\varepsilon}\log W)\)</span><br>yes! 实现了多项式时间</td>
+<td>W 是所有权重之和<br>这个翻转次数是因为初始最小为 1，每翻转 <span class="arithmatex">\(n/\varepsilon\)</span> 后权重一定翻倍，最大到 <span class="arithmatex">\(W\)</span></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>best</td>
+<td>1.1382</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>P=NP</td>
+<td><span class="arithmatex">\(17/16\approx1.0625\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>只有 1 2 两种边长</td>
+<td></td>
+<td><span class="arithmatex">\(8/7\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>最长回路</td>
+<td>确定算法</td>
+<td><span class="arithmatex">\(4/3\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>随机算法</td>
+<td><span class="arithmatex">\((33+\varepsilon)/25\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Set Cover</td>
+<td>unweighted</td>
+<td>greedy，每次挑选具有最多未覆盖元素的集合</td>
+<td><span class="arithmatex">\(\ln n-\ln \ln n+\Theta(1)\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>weighted</td>
+<td></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Vertex Cover</td>
+<td>找到最小的顶点覆盖，可以规约到最大独立集</td>
+<td>每次找一条边，然后删除两个顶点</td>
+<td><span class="arithmatex">\(2-\Theta(1/\sqrt{ \log\|V\| })\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>每次找最大度数的顶点删除</td>
+<td><span class="arithmatex">\(\Omega(\log n)\)</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td><span class="arithmatex">\(2/(1+\delta)\)</span> in <span class="arithmatex">\(\delta\)</span>-dense graph</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Independent Set</td>
+<td>general</td>
+<td></td>
+<td>不存在常数近似比</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>planar graph</td>
+<td></td>
+<td>任意接近 1 但不等于</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>bounded degree</td>
+<td></td>
+<td><span class="arithmatex">\((\Delta+2)/3\)</span></td>
+<td></td>
+<td><span class="arithmatex">\(\Delta\)</span> 是最大度数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-local-search">3.3 Local Search<a class="headerlink" href="#33-local-search" title="Locate to heading">#</a></h3>
+<ul>
+<li>metropolis</li>
+<li>simulated annealing</li>
+<li>hopfield neural networks<ul>
+<li>definition<ul>
+<li>good edge: 如果边权重和两个顶点赋值乘积是负数</li>
+<li>satisfied vertex: 如果这个顶点的 good edge 的总权重大于 bad edge 的总权重</li>
+<li>stable config: 如果所有的顶点都是 satisfied 的</li>
+<li>不一定存在 stable config</li>
+<li>找到一个稳定 config，或者是能量足够小的 config</li>
+</ul>
+</li>
+<li>state-flipping<ul>
+<li>随便找一个不满意的点，然后翻转其赋值</li>
+<li><strong>最多 <span class="arithmatex">\(W=\sum_{e}|w_{e}|\)</span> 次迭代</strong></li>
+<li>势能函数 <span class="arithmatex">\(\Phi(S)=\sum_{e\text{ is good}} |w_{e}|\)</span><ul>
+<li>每次翻转至少增加 1</li>
+<li><span class="arithmatex">\(0\leq \Phi\leq W\)</span></li>
+</ul>
+</li>
+<li>任何局部最优解都是稳定的 config</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>max-cut</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="ADS%2015%20External%20Sorting.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 15 External Sorting">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                15 External Sorting
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="ADS%20Cheat%20Sheet%20Dynamic%20Programming.html" class="md-footer__link md-footer__link--next" aria-label="Next: Final DP">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Final DP
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 EmergentTwilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/EmergentTwilight" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:emergentshores@outlook.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../__srcs/javascript/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../__srcs/javascript/toc.js"></script>
+      
+    
+  </body>
+</html>

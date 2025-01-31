@@ -1,0 +1,48 @@
+/* 自动折叠，与 toc.js 搭配使用 by @TonyCrane，注意与 navigation.instant 不兼容 */
+.md-sidebar--secondary .md-nav > .md-nav__list > li > a + .md-nav {
+  display: none;
+}
+
+.md-sidebar--secondary .md-nav > .md-nav__list > li > a.is-active + .md-nav {
+  display: block;
+}
+
+
+
+/* 当前路径高亮显示 #待修改：配色方案 */
+.md-sidebar--secondary .md-nav__list a.is-active {
+  color: var(--md-accent-fg-color);
+}
+  
+/* [data-md-color-scheme="slate"] .md-nav__list a.is-active {
+  color: #969696;
+} */
+
+
+
+/* 目录辅助线 #待修改：配色方案 */
+.md-nav--secondary .md-nav__list {
+  position: relative;
+}
+
+.md-nav--secondary .md-nav__item .md-nav__list .md-nav__item {
+  position: relative;
+  padding-left: 8px;
+}
+  
+.md-nav--secondary .md-nav__item .md-nav__list .md-nav__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -8px;
+  bottom: -1px;
+  width: 1px;
+  background-color: var(--md-accent-fg-color);
+}
+
+
+
+/* 调节目录字体大小 */
+.md-nav--secondary .md-nav__link {
+  font-size: 0.9em;
+}

@@ -1,0 +1,2828 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Emergent Space">
+      
+      
+        <meta name="author" content="Emergent Twilight">
+      
+      
+        <link rel="canonical" href="https://emergenttwilight.github.io/Emergent-Space/ZJU-Advanced%20Data%20Structure%20%26%20Algorithm%20Analysis/ADS%2005%20Binomial%20Queue.html">
+      
+      
+        <link rel="prev" href="ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.html">
+      
+      
+        <link rel="next" href="ADS%2006%20Backtracking.html">
+      
+      
+      <link rel="icon" href="../__srcs/icon/logo-E.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>05 Binomial Queue - Emergent Space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/banner.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/right-sidebar.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/content.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-structure" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Emergent Space" class="md-header__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/icon/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Emergent Space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              05 Binomial Queue
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  ZJU
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Emergent Space" class="md-nav__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/icon/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    Emergent Space
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ZJU
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Fundamentals of Data Structures
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-HPC101/Lec.02%20%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%8E%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    HPC101
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advanced Data Structure & Algorithm Analysis
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Data Structure & Algorithm Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2001%20AVL%20Trees%2C%20Splay%20Trees%20and%20Amortized%20Analysis.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 AVL Trees, Splay Trees and Amortized Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2002%20Red-Black%20Trees%20and%20B%2B%20Trees.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 Red-Black Trees and B+ Trees
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2003%20Inverted%20File%20Index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 Inverted File Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 Leftistf Heaps and Skew Heaps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    05 Binomial Queue
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ADS%2005%20Binomial%20Queue.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    05 Binomial Queue
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-findmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 FindMin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Merge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Insert
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-deletemin" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 DeleteMin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Conclusion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-combine-2-treesmerge-fold" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Combine 2 Trees/Merge %% fold %%
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-deletemin" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 DeleteMin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 Amortized Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 Amortized Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-aggregate-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Aggregate Method
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Aggregate Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-推导方式-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.1 推导方式 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-推导方式-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2 推导方式 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-potential-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Potential Method
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-more-about-heapsextened-reading-fold" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 More about heaps/Extened reading %% fold %%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 More about heaps/Extened reading %% fold %%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-fibonacci-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Fibonacci Heap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ifndef-fibonacci_heap_h" class="md-nav__link">
+    <span class="md-ellipsis">
+      ifndef FIBONACCI_HEAP_H
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-fibonacci_heap_h" class="md-nav__link">
+    <span class="md-ellipsis">
+      define FIBONACCI_HEAP_H
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include-heaphpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      include "Heap.hpp"
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include" class="md-nav__link">
+    <span class="md-ellipsis">
+      include
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      include
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      include
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      include
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endif-fibonacci_heap_h" class="md-nav__link">
+    <span class="md-ellipsis">
+      endif // FIBONACCI_HEAP_H
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="endif // FIBONACCI_HEAP_H">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-data-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 Data Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-getmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 GetMin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.3 Insert
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514-decreasekey" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.4 DecreaseKey
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#515-extractmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.5 ExtractMin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Q5
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Q5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-deletemin-时间复杂度" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 DeleteMin 时间复杂度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-children-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 Children order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-ex5" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Ex5
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Ex5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-node-count-at-oddeven-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1 Node count at odd/even depth
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2006%20Backtracking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06 Backtracking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2007%20Divide%20and%20Conquer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 Divide and Conquer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2008%20Dynamic%20Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 Dynamic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2009%20Greedy%20Algorithm.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09 Greedy Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2010%20NP-Completeness.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 NP-Completeness
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2011%20Approximation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11 Approximation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2012%20Local%20Search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12 Local Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2013%20Randomized%20Algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13 Randomized Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2014%20Parallel%20Algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14 Parallel Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2015%20External%20Sorting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15 External Sorting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Cheat%20Sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Cheat%20Sheet%20Dynamic%20Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final DP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Final%20Questions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final Questions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Definition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 Operations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-findmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 FindMin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Merge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Insert
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-deletemin" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 DeleteMin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 Conclusion
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-combine-2-treesmerge-fold" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Combine 2 Trees/Merge %% fold %%
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-deletemin" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 DeleteMin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 Amortized Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 Amortized Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-aggregate-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Aggregate Method
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Aggregate Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-推导方式-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.1 推导方式 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-推导方式-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2 推导方式 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-potential-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Potential Method
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-more-about-heapsextened-reading-fold" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 More about heaps/Extened reading %% fold %%
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 More about heaps/Extened reading %% fold %%">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-fibonacci-heap" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Fibonacci Heap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ifndef-fibonacci_heap_h" class="md-nav__link">
+    <span class="md-ellipsis">
+      ifndef FIBONACCI_HEAP_H
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#define-fibonacci_heap_h" class="md-nav__link">
+    <span class="md-ellipsis">
+      define FIBONACCI_HEAP_H
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include-heaphpp" class="md-nav__link">
+    <span class="md-ellipsis">
+      include "Heap.hpp"
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include" class="md-nav__link">
+    <span class="md-ellipsis">
+      include
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      include
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      include
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#include_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      include
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endif-fibonacci_heap_h" class="md-nav__link">
+    <span class="md-ellipsis">
+      endif // FIBONACCI_HEAP_H
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="endif // FIBONACCI_HEAP_H">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-data-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1 Data Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-getmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2 GetMin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-insert" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.3 Insert
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514-decreasekey" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.4 DecreaseKey
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#515-extractmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.5 ExtractMin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Q5
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Q5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-deletemin-时间复杂度" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 DeleteMin 时间复杂度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-children-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 Children order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-ex5" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Ex5
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Ex5">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-node-count-at-oddeven-depth" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1 Node count at odd/even depth
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/edit/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 05 Binomial Queue.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/raw/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 05 Binomial Queue.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>05 Binomial Queue</h1>
+
+<h2 id="1-structure">1 Structure<a class="headerlink" href="#1-structure" title="Locate to heading">#</a></h2>
+<ul>
+<li>Not a heap-ordered tree, but rather a <strong>colloction</strong> of heap-ordered trees, <strong>forest</strong></li>
+</ul>
+<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028013906675.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028013906675.png" /></p>
+<ul>
+<li><span class="arithmatex">\(B_k\)</span> properties<ul>
+<li><span class="arithmatex">\(k\)</span> children, which are <span class="arithmatex">\(B_0, B_1, B_2, \dots, B_{k-1}\)</span></li>
+<li>由两个 <span class="arithmatex">\(B_{k-1}\)</span> 构成，一个接在另一个的根上</li>
+<li>有 <span class="arithmatex">\(2^k\)</span> 个节点</li>
+<li>深度为 <span class="arithmatex">\(d\)</span> 的节点有 <span class="arithmatex">\(C^d_k\)</span> 个，<em>Binomial coefficient</em></li>
+</ul>
+</li>
+</ul>
+<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028013928477.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028013928477.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A priority queue of <em>any size</em> can be uniquely represented by a collection of binomial trees.</p>
+</div>
+<h3 id="11-definition">1.1 Definition<a class="headerlink" href="#11-definition" title="Locate to heading">#</a></h3>
+<ul>
+<li><strong>Binomial Tree</strong> <em>(recursive definition)</em> <span class="arithmatex">\(B_i\)</span>: 两个 <span class="arithmatex">\(B_{i-1}\)</span>，让其中一个是另一个的根节点的孩子</li>
+<li><strong>Binomial Queue</strong>: <span class="arithmatex">\(B_i\)</span> 的列表，实际是一个 <strong>forest</strong></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>我们不使用 <strong>binomial heap</strong> 这个词，否则可能指代不清</p>
+</div>
+<h2 id="2-operations">2 Operations<a class="headerlink" href="#2-operations" title="Locate to heading">#</a></h2>
+<h3 id="21-findmin">2.1 FindMin<a class="headerlink" href="#21-findmin" title="Locate to heading">#</a></h3>
+<ul>
+<li>at most <span class="arithmatex">\(\lceil \log N \rceil\)</span> roots, so <span class="arithmatex">\(O(\log N)\)</span></li>
+<li>keep record of the min, update whenever the tree is changed, then <span class="arithmatex">\(O(1)\)</span></li>
+</ul>
+<h3 id="22-merge">2.2 Merge<a class="headerlink" href="#22-merge" title="Locate to heading">#</a></h3>
+<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028013941261.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028013941261.png" /></p>
+<ul>
+<li>使用二进制加法得到目标森林的结构</li>
+<li>直接将同阶的数组合成一颗更大的树，完成合并</li>
+<li><span class="arithmatex">\(T(N)=O(\log N)\)</span></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>keep trees in the bq <em>sorted by height</em>, so that one traversal is enough</p>
+</div>
+<h3 id="23-insert">2.3 Insert<a class="headerlink" href="#23-insert" title="Locate to heading">#</a></h3>
+<blockquote>
+<p>也就是二进制加 1</p>
+</blockquote>
+<ul>
+<li>单次插入<ul>
+<li><span class="arithmatex">\(T_{worst}=O(\log N)\)</span></li>
+<li><span class="arithmatex">\(T_{avg}=O(1)\)</span></li>
+</ul>
+</li>
+<li>均摊开销 <span class="arithmatex">\(T_{amortized}=\Theta(1)\)</span></li>
+</ul>
+<h3 id="24-deletemin">2.4 DeleteMin<a class="headerlink" href="#24-deletemin" title="Locate to heading">#</a></h3>
+<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028013951646.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028013951646.png" /></p>
+<ol>
+<li>找最小 <span class="arithmatex">\(O(\log N)\)</span> or <span class="arithmatex">\(\Theta(1)\)</span>，取决于是否保存了最小元素的指针</li>
+<li>将这棵树拆散放到新的队列中 <span class="arithmatex">\(O(\log N)\)</span></li>
+<li>加法 <span class="arithmatex">\(O(\log N)\)</span></li>
+</ol>
+<h3 id="25-conclusion">2.5 Conclusion<a class="headerlink" href="#25-conclusion" title="Locate to heading">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>FindMin</th>
+<th>DeleteMin</th>
+<th>Insert</th>
+<th>DecreaseKey</th>
+<th>Merge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Binary</td>
+<td><span class="arithmatex">\(\Theta(1)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td>BuildHeap in <span class="arithmatex">\(O(n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(n)\)</span></td>
+</tr>
+<tr>
+<td>Leftist Heap</td>
+<td><span class="arithmatex">\(\Theta(1)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+</tr>
+<tr>
+<td>Skew Heap</td>
+<td><span class="arithmatex">\(\Theta(1)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span> *</td>
+<td><span class="arithmatex">\(O(\log n)\)</span>*</td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span>*</td>
+</tr>
+<tr>
+<td>Binomial Queue</td>
+<td><span class="arithmatex">\(\Theta(1)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(1)\)</span>*</td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+</tr>
+<tr>
+<td>Skew Binomial</td>
+<td><span class="arithmatex">\(\Theta(1)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td><span class="arithmatex">\(\Theta(1)\)</span></td>
+<td><span class="arithmatex">\(\Theta(\log n)\)</span></td>
+<td><span class="arithmatex">\(O(\log n)\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>*</code> is amortized time.</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Skew Binomial Queue</p>
+<p>第 <span class="arithmatex">\(k\)</span> 个树的容量为 <span class="arithmatex">\(2^{k+1}-1\)</span>，而不是 <span class="arithmatex">\(2^k\)</span>。这样带来的最大好处就是，每次 insert 一个节点时，最多只需要 carry 一次，能做到 <span class="arithmatex">\(\Theta(1)\)</span> 的 worst-case insert 时间。</p>
+<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028014012921.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028014012921.png" /></p>
+<p>For example, 60 is represented as 11200 in skew binary (31 + 15 + 7 + 7), and adding 1 produces 12000 (31 + 15 + 15). Since the next higher digit is guaranteed not to be 2, a carry is performed at most once.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+</div>
+<h2 id="3-implementation">3 Implementation<a class="headerlink" href="#3-implementation" title="Locate to heading">#</a></h2>
+<blockquote>
+<p>Binomial queue = <strong>array</strong> of binomial trees</p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">从需求侧入手</p>
+<ul>
+<li>DeleteMin 要拆树，需要能快速找到所有子树 -&gt; 使用 First-child-next-sibling</li>
+<li>Merge 需要孩子按照 size 大小进行排序 -&gt; 按照 <strong>decreasing order</strong> 存储子树</li>
+<li>为什么不用数组？占用空间较大，而且不好扩容</li>
+</ul>
+</div>
+<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028014033907.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028014033907.png" /></p>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Data Structure of Binomial Queue</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">BinNode</span><span class="w"> </span><span class="o">*</span><span class="n">Position</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Collection</span><span class="w"> </span><span class="o">*</span><span class="n">BinQueue</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">tyepdef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">BinNode</span><span class="w"> </span><span class="o">*</span><span class="n">BenTree</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">struct</span><span class="w"> </span><span class="nc">BinNode</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="n">ElementType</span><span class="w"> </span><span class="n">Element</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="n">LeftChild</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="n">NextSibling</span><span class="p">;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="p">};</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Collection</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="p">{</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">CurrentSize</span><span class="p">;</span><span class="w">  </span><span class="c1">// total number of nodes</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="n">BinTree</span><span class="w"> </span><span class="n">TheTrees</span><span class="p">[</span><span class="w"> </span><span class="n">MaxTrees</span><span class="w"> </span><span class="p">];</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="31-combine-2-treesmerge-fold">3.1 Combine 2 Trees/Merge %% fold %%<a class="headerlink" href="#31-combine-2-treesmerge-fold" title="Locate to heading">#</a></h3>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Combine 2 Trees</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span>
+<span class="normal"><a href="#__codelineno-1-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">BinTree</span><span class="w"> </span><span class="nf">CombineTrees</span><span class="p">(</span><span class="w"> </span><span class="n">BinTree</span><span class="w"> </span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">BinTree</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">T1</span><span class="o">-&gt;</span><span class="n">Element</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">T2</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">CombineTrees</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span><span class="w"> </span><span class="n">T1</span><span class="p">);</span><span class="w">  </span><span class="c1">// attach the larger one to the smaller one</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// insert T2 to be the leftmost child of T1</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="n">T2</span><span class="o">-&gt;</span><span class="n">NextSibling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T1</span><span class="o">-&gt;</span><span class="n">LeftChild</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="n">T1</span><span class="o">-&gt;</span><span class="n">LeftChild</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T2</span><span class="p">;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">T1</span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">Hint</p>
+<p>从这里就能发现为什么 <code>LeftChild</code> 是最大的孩子了，这样方便树的合并操作；在合并时将根节点较大的一棵树直接当作 <code>LeftChild</code>，就不需要遍历所有 children。</p>
+</div>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Binomial Queue Merge</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span>
+<span class="normal"><a href="#__codelineno-2-31">31</a></span>
+<span class="normal"><a href="#__codelineno-2-32">32</a></span>
+<span class="normal"><a href="#__codelineno-2-33">33</a></span>
+<span class="normal"><a href="#__codelineno-2-34">34</a></span>
+<span class="normal"><a href="#__codelineno-2-35">35</a></span>
+<span class="normal"><a href="#__codelineno-2-36">36</a></span>
+<span class="normal"><a href="#__codelineno-2-37">37</a></span>
+<span class="normal"><a href="#__codelineno-2-38">38</a></span>
+<span class="normal"><a href="#__codelineno-2-39">39</a></span>
+<span class="normal"><a href="#__codelineno-2-40">40</a></span>
+<span class="normal"><a href="#__codelineno-2-41">41</a></span>
+<span class="normal"><a href="#__codelineno-2-42">42</a></span>
+<span class="normal"><a href="#__codelineno-2-43">43</a></span>
+<span class="normal"><a href="#__codelineno-2-44">44</a></span>
+<span class="normal"><a href="#__codelineno-2-45">45</a></span>
+<span class="normal"><a href="#__codelineno-2-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">BinQueue</span><span class="w"> </span><span class="nf">Merge</span><span class="p">(</span><span class="w"> </span><span class="n">BinQueue</span><span class="w"> </span><span class="n">H1</span><span class="p">,</span><span class="w"> </span><span class="n">BinQueue</span><span class="w"> </span><span class="n">H2</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">BinTree</span><span class="w"> </span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="p">,</span><span class="w"> </span><span class="n">Carry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">CurrentSize</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">H2</span><span class="o">-&gt;</span><span class="n">CurrentSize</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Capacity</span><span class="p">)</span><span class="w"> </span><span class="n">ErrorMessage</span><span class="p">();</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">CurrentSize</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">H2</span><span class="o">-&gt;</span><span class="n">CurrentSize</span><span class="p">;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">CurrentSize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">        </span><span class="n">T1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="n">T2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H2</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Carry</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">T2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w">  </span><span class="c1">// do nothing</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">T1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">                    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T2</span><span class="p">;</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">                    </span><span class="n">H2</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">                    </span><span class="n">Carry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CombineTrees</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="p">);</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">                    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H2</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">T2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">T1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">                    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Carry</span><span class="p">;</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">                    </span><span class="n">Carry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">                    </span><span class="n">Carry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CombineTrees</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">Carry</span><span class="p">);</span>
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">                    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span>
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">T1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">                    </span><span class="n">Carry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CombineTrees</span><span class="p">(</span><span class="n">T2</span><span class="p">,</span><span class="w"> </span><span class="n">Carry</span><span class="p">);</span>
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">                    </span><span class="n">H2</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="w">                    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Carry</span><span class="p">;</span>
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38"></a><span class="w">                    </span><span class="n">Carry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CombineTrees</span><span class="p">(</span><span class="n">T1</span><span class="p">,</span><span class="w"> </span><span class="n">T2</span><span class="p">);</span>
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="w">                    </span><span class="n">H2</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44"></a>
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">H1</span><span class="p">;</span>
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="32-deletemin">3.2 DeleteMin<a class="headerlink" href="#32-deletemin" title="Locate to heading">#</a></h3>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">DeleteMin</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span>
+<span class="normal"><a href="#__codelineno-3-33">33</a></span>
+<span class="normal"><a href="#__codelineno-3-34">34</a></span>
+<span class="normal"><a href="#__codelineno-3-35">35</a></span>
+<span class="normal"><a href="#__codelineno-3-36">36</a></span>
+<span class="normal"><a href="#__codelineno-3-37">37</a></span>
+<span class="normal"><a href="#__codelineno-3-38">38</a></span>
+<span class="normal"><a href="#__codelineno-3-39">39</a></span>
+<span class="normal"><a href="#__codelineno-3-40">40</a></span>
+<span class="normal"><a href="#__codelineno-3-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">DeleteMin</span><span class="p">(</span><span class="w"> </span><span class="n">BinQueue</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">BinQueue</span><span class="w"> </span><span class="n">DeletedQueue</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="n">DeletedTree</span><span class="p">,</span><span class="w"> </span><span class="n">OldRoot</span><span class="p">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="n">ElementType</span><span class="w"> </span><span class="n">MinItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Infinity</span><span class="p">;</span><span class="w">  </span><span class="c1">// the min item to be returned</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">MinTree</span><span class="p">;</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsEmpty</span><span class="p">(</span><span class="n">H</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">PrintErrorMessage</span><span class="p">();</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">Infinity</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="cm">/* Step 1: find the minimum item */</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MaxTrees</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">Element</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MinItem</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">            </span><span class="n">MinItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">;</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">            </span><span class="n">MinTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span><span class="c1">// this can be optimized by maintaining a ptr to minterm in queue</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="n">DeletedTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">MinTree</span><span class="p">];</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18"></a>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">    </span><span class="cm">/* Step 2: remove MinTree from H, creating H&#39; */</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">MinTree</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">    </span><span class="cm">/* Step 3.1: remove the root */</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="n">OldRoot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeletedTree</span><span class="p">;</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">    </span><span class="n">DeletedTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeletedTree</span><span class="o">-&gt;</span><span class="n">LeftChild</span><span class="p">;</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">OldRoot</span><span class="p">);</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26"></a>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">    </span><span class="cm">/* Step 3.2: create H&#39;&#39; */</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">    </span><span class="n">DeletedQueue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntializeBinQueue</span><span class="p">();</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="w">    </span><span class="n">DeletedQueue</span><span class="o">-&gt;</span><span class="n">CurrentSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">MinTree</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MinTree</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">        </span><span class="n">DeletedQueue</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeletedTree</span><span class="p">;</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">        </span><span class="n">DeletedTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeletedTree</span><span class="o">-&gt;</span><span class="n">NextSibling</span><span class="p">;</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="w">        </span><span class="n">DeletedQueue</span><span class="o">-&gt;</span><span class="n">TheTrees</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">NextSibling</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">CurrentSize</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">DeletedQueue</span><span class="o">-&gt;</span><span class="n">CurrentSize</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36"></a>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="w">    </span><span class="cm">/* Step 4: merge H&#39; and H&#39;&#39; */</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="w">    </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">merge</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">DeletedQueue</span><span class="p">);</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39"></a>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">MinItem</span><span class="p">;</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="4-amortized-analysis">4 Amortized Analysis<a class="headerlink" href="#4-amortized-analysis" title="Locate to heading">#</a></h2>
+<blockquote>
+<p><span class="arithmatex">\(Claim\)</span>: A binomial queue of <span class="arithmatex">\(N\)</span> elements can be built by <span class="arithmatex">\(N\)</span> successive insertions in <span class="arithmatex">\(O(N)\)</span> time.</p>
+</blockquote>
+<h3 id="41-aggregate-method">4.1 Aggregate Method<a class="headerlink" href="#41-aggregate-method" title="Locate to heading">#</a></h3>
+<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028014045974.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028014045974.png" /></p>
+<h4 id="411-推导方式-1">4.1.1 推导方式 1<a class="headerlink" href="#411-推导方式-1" title="Locate to heading">#</a></h4>
+<ul>
+<li>进行二进制 counting 时，进位操作发生的频率为 <span class="arithmatex">\(\frac{1}{2^i}\)</span>，每次进位都算一次操作，<em>包括创建 <span class="arithmatex">\(B_{0}\)</span></em></li>
+<li>进行求和 <span class="arithmatex">\(N\left( 1+\frac{1}{2}+\frac{1}{4}+\dots+\frac{1}{2^{\log N}} \right) \leq 2N=O(N)\)</span></li>
+</ul>
+<h4 id="412-推导方式-2">4.1.2 推导方式 2<a class="headerlink" href="#412-推导方式-2" title="Locate to heading">#</a></h4>
+<ul>
+<li>如上图，<code>link=1</code> 每 4 次发生，<code>link=2</code> 每 8 次发生，......，<code>link=i</code> 每 <span class="arithmatex">\(2^{i+1}\)</span> 次发生</li>
+<li>进行求和 <span class="arithmatex">\(N+N\left( \frac{1}{4}+2\times \frac{1}{8} +3\times \frac{1}{16} + \dots\right) \leq 2N=O(N)\)</span></li>
+</ul>
+<h3 id="42-potential-method">4.2 Potential Method<a class="headerlink" href="#42-potential-method" title="Locate to heading">#</a></h3>
+<p>根据上面的例子已经能够看出，势能函数可以定义为 <span class="arithmatex">\(\Phi(H)=\)</span> # of binomial trees。</p>
+<p>一次插入，如果开销为 <span class="arithmatex">\(c\)</span>，那么 # of binomial trees 会增加 <span class="arithmatex">\(2-c\)</span>，因此，每次操作的均摊开销 <span class="arithmatex">\(\hat{c_{i}}=c_{i}+(\Phi_{i}-\Phi_{i-1})=2\)</span>。</p>
+<div class="arithmatex">\[
+\sum_{i=1}^\hat{N}c_{i}+\Phi_{N}-\Phi_{0}=2N \Rightarrow \sum_{i=1}^N c_{i}=2N-\Phi_{N}\leq{2}N=O(N)
+\]</div>
+<p>Thus, <span class="arithmatex">\(T_{worst}=O(\log N)\)</span>, but <span class="arithmatex">\(T_{amortized}=2\)</span></p>
+<h2 id="5-more-about-heapsextened-reading-fold">5 More about heaps/Extened reading %% fold %%<a class="headerlink" href="#5-more-about-heapsextened-reading-fold" title="Locate to heading">#</a></h2>
+<ol>
+<li><a href="https://arxiv.org/abs/1403.0252">[1403.0252] A Back-to-Basics Empirical Study of Priority Queues (arxiv.org)</a> 这篇论文的测试方法、数学推导和分析都非常值得学习</li>
+<li><a href="https://www.bilibili.com/video/BV1x54y1w7Y6/">Fibonacci heaps 斐波那契堆_哔哩哔哩_bilibili</a> Fibonacci Heaps 融合了很多数据结构的思想</li>
+</ol>
+<h3 id="51-fibonacci-heap">5.1 Fibonacci Heap<a class="headerlink" href="#51-fibonacci-heap" title="Locate to heading">#</a></h3>
+<p><img alt="Fibonacci heaps 斐波那契堆_哔哩哔哩_bilibili" src="https://www.bilibili.com/video/BV1x54y1w7Y6/" /></p>
+<p>```cpp title="a possible implementation" fold</p>
+<h2 id="ifndef-fibonacci_heap_h">ifndef FIBONACCI_HEAP_H<a class="headerlink" href="#ifndef-fibonacci_heap_h" title="Locate to heading">#</a></h2>
+<h2 id="define-fibonacci_heap_h">define FIBONACCI_HEAP_H<a class="headerlink" href="#define-fibonacci_heap_h" title="Locate to heading">#</a></h2>
+<h2 id="include-heaphpp">include "Heap.hpp"<a class="headerlink" href="#include-heaphpp" title="Locate to heading">#</a></h2>
+<h2 id="include">include <cmath><a class="headerlink" href="#include" title="Locate to heading">#</a></h2>
+<h2 id="include_1">include <list><a class="headerlink" href="#include_1" title="Locate to heading">#</a></h2>
+<h2 id="include_2">include <unordered_map><a class="headerlink" href="#include_2" title="Locate to heading">#</a></h2>
+<h2 id="include_3">include <vector><a class="headerlink" href="#include_3" title="Locate to heading">#</a></h2>
+<p>using namespace std;</p>
+<p>template <typename ValueType>
+class FibonacciHeap : public Heap<ValueType>
+{
+private:
+    // Node structure for the Fibonacci heap
+    struct Node
+    {
+        ValueType value;
+        int key;
+        int degree;
+        bool mark;
+        Node *parent;
+        list<Node *> children;</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span></pre></div></td><td class="code"><div><pre><span></span><code>    // Constructor for the Node structure
+    Node(ValueType value, int key)
+        : value(value), key(key), degree(0), mark(false), parent(nullptr) {}
+};
+
+// Pointer to the minimum node in the heap
+Node *min_node;
+// List of root nodes in the heap
+list&lt;Node *&gt; root_list;
+unordered_map&lt;ValueType, Node *&gt; value_to_node;
+int node_count;
+
+// Consolidate the trees of the same degree
+void consolidate()
+{
+    int max_degree = static_cast&lt;int&gt;(log2(node_count)) + 1;
+    vector&lt;Node *&gt; degree_table(max_degree, nullptr);
+
+    // iterate root list to consolidate trees of the same degree
+    for (auto it = root_list.begin(); it != root_list.end(); it++)
+    {
+        Node *x = *it;
+        int degree = x-&gt;degree;
+
+        while (degree_table[degree] != nullptr)
+        {
+            Node *y = degree_table[degree];
+            if (y-&gt;key &lt; x-&gt;key)
+                swap(x, y);
+            attach(y, x); // attach y to x
+            degree_table[degree] = nullptr;
+            degree++;
+        }
+
+        degree_table[degree] = x;
+    }
+
+    // rebuild root list
+    min_node = nullptr;
+    root_list.clear();
+    for (Node *node : degree_table)
+    {
+        if (node)
+        {
+            root_list.push_back(node);
+            if (!min_node || node-&gt;key &lt; min_node-&gt;key)
+                min_node = node;
+        }
+    }
+}
+
+// Attach a child node to a parent node
+void attach(Node *target_child, Node *target_parent)
+{
+    root_list.remove(target_child);
+    target_parent-&gt;children.push_back(target_child);
+    target_child-&gt;parent = target_parent;
+    target_parent-&gt;mark = false;
+    target_parent-&gt;degree++;
+}
+
+// Cut a child node from its parent node
+void cut(Node *child, Node *parent)
+{
+    parent-&gt;children.remove(child);
+    parent-&gt;degree--;
+    root_list.push_back(child);
+    child-&gt;parent = nullptr;
+    child-&gt;mark = false;
+}
+
+// Perform cascading cut on a node
+void cascadingCut(Node *node)
+{
+    Node *parent = node-&gt;parent;
+    if (parent)
+    {
+        if (!parent-&gt;mark)
+            parent-&gt;mark = true;
+        else
+        {
+            cut(node, parent);
+            cascadingCut(parent);
+        }
+    }
+}
+</code></pre></div></td></tr></table></div>
+<p>public:
+    // Constructor for the Fibonacci heap
+    FibonacciHeap() : min_node(nullptr), node_count(0) {}</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code>// Insert a new node into the heap
+void insert(ValueType value, int key) override
+{
+    Node *new_node = new Node(value, key);
+    root_list.push_back(new_node); // lazy insertion
+    if (!min_node || key &lt; min_node-&gt;key)
+        min_node = new_node;
+    value_to_node[value] = new_node;
+    ++node_count;
+}
+
+// Extract the minimum node from the heap
+pair&lt;ValueType, int&gt; extractMin() override
+{
+    if (!min_node)
+        throw &quot;Heap is empty&quot;;
+
+    Node *old_min_node = min_node;
+    pair&lt;ValueType, int&gt; result = {old_min_node-&gt;value, old_min_node-&gt;key};
+
+    // add children of the minimun node to root list
+    for (auto child : old_min_node-&gt;children)
+    {
+        child-&gt;parent = nullptr;
+        root_list.push_back(child);
+    }
+
+    // remove the min node
+    root_list.remove(old_min_node);
+    value_to_node.erase(old_min_node-&gt;value);
+    delete old_min_node;
+
+    if (root_list.empty())
+        min_node = nullptr;
+    else
+    {
+        min_node = *root_list.begin();
+        consolidate();
+    }
+
+    --node_count;
+    return result;
+}
+
+// Decrease the key of a node
+void decreaseKey(ValueType value, int new_key) override
+{
+    if (value_to_node.find(value) == value_to_node.end())
+        throw &quot;Value not found in heap&quot;;
+
+    Node *node = value_to_node[value];
+    if (new_key &gt; node-&gt;key)
+        throw &quot;New key is greater than current key&quot;;
+
+    node-&gt;key = new_key;
+    Node *parent = node-&gt;parent;
+
+    if (parent &amp;&amp; node-&gt;key &lt; parent-&gt;key)
+    {
+        cut(node, parent);
+        cascadingCut(parent);
+    }
+
+    if (node-&gt;key &lt; min_node-&gt;key)
+        min_node = node;
+}
+
+// Check if the heap is empty
+bool isEmpty() override
+{
+    return root_list.empty();
+}
+</code></pre></div></td></tr></table></div>
+<p>};</p>
+<h2 id="endif-fibonacci_heap_h">endif // FIBONACCI_HEAP_H<a class="headerlink" href="#endif-fibonacci_heap_h" title="Locate to heading">#</a></h2>
+<p>```</p>
+<h4 id="511-data-structure">5.1.1 Data Structure<a class="headerlink" href="#511-data-structure" title="Locate to heading">#</a></h4>
+<ul>
+<li><code>root_list</code> 所有树的根节点列表</li>
+<li><code>min_node*</code> 维护一个指向最小 key 节点的指针</li>
+<li>每一棵树用 <code>list</code> 存孩子，每个节点存父节点指针，方便快捷访问</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Data Structure</p>
+<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028014738550.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028014738550.png" />
+<img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028014756607.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028014756607.png" /></p>
+</div>
+<h4 id="512-getmin">5.1.2 GetMin<a class="headerlink" href="#512-getmin" title="Locate to heading">#</a></h4>
+<p>维护指针 <code>Node* min_node</code>，所以 <span class="arithmatex">\(O(1)\)</span></p>
+<h4 id="513-insert">5.1.3 Insert<a class="headerlink" href="#513-insert" title="Locate to heading">#</a></h4>
+<ul>
+<li>直接添加到 <code>root_list</code> 作为一个根节点，所以 <span class="arithmatex">\(O(1)\)</span></li>
+<li>均摊分析，每次会在 <code>ExtractMin</code> 的时候进行树的合并操作，<span class="arithmatex">\(O(N)\)</span>，其中 <span class="arithmatex">\(N\)</span> 是插入节点的数量，所以单次插入的均摊时间为 <span class="arithmatex">\(T_{amortized}=O(1)\)</span></li>
+</ul>
+<h4 id="514-decreasekey">5.1.4 DecreaseKey<a class="headerlink" href="#514-decreasekey" title="Locate to heading">#</a></h4>
+<ol>
+<li>根据 <code>unordered_map</code> 访问位置，<span class="arithmatex">\(O(1)\)</span></li>
+<li>进行 <code>cut</code> 和 <code>cascadingCut</code> 操作，可能有递归 <span class="arithmatex">\(O(d)\)</span>，期中 <span class="arithmatex">\(d\)</span> 是节点的深度</li>
+</ol>
+<h4 id="515-extractmin">5.1.5 ExtractMin<a class="headerlink" href="#515-extractmin" title="Locate to heading">#</a></h4>
+<ol>
+<li>找到 <code>min_node</code>，<span class="arithmatex">\(O(1)\)</span></li>
+<li>进行 <code>attach</code>，保证没有两棵树的 degree 相等，和 Binomial Queue 的二进制进位操作类似，<span class="arithmatex">\(O(T)\)</span>，其中 <span class="arithmatex">\(T\)</span> 是树的数量</li>
+</ol>
+<h2 id="6-questions">6 Questions<a class="headerlink" href="#6-questions" title="Locate to heading">#</a></h2>
+<h3 id="61-q5">6.1 Q5<a class="headerlink" href="#61-q5" title="Locate to heading">#</a></h3>
+<h4 id="611-deletemin-时间复杂度">6.1.1 DeleteMin 时间复杂度<a class="headerlink" href="#611-deletemin-时间复杂度" title="Locate to heading">#</a></h4>
+<p>For a binomial queue, delete-min takes a constant time on average. (T/F)</p>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>F</strong> 是 <span class="arithmatex">\(\Theta(\log n)\)</span></p>
+</details>
+<h4 id="612-children-order">6.1.2 Children order<a class="headerlink" href="#612-children-order" title="Locate to heading">#</a></h4>
+<p>To implement a binomial queue, the subtrees of a binomial tree are linked in increasing sizes. (T/F)</p>
+<details class="tip">
+<summary>Answer</summary>
+<p>为了使得合并时能快速找到根节点较大的一棵树的插入位置，应该从大到小保存孩子链表，使用<strong>头插法</strong>避免遍历链表</p>
+</details>
+<h3 id="62-ex5">6.2 Ex5<a class="headerlink" href="#62-ex5" title="Locate to heading">#</a></h3>
+<h4 id="621-node-count-at-oddeven-depth">6.2.1 Node count at odd/even depth<a class="headerlink" href="#621-node-count-at-oddeven-depth" title="Locate to heading">#</a></h4>
+<p>In a binomial queue, the total number of the nodes at even depth is always ___ than that of the nodes at odd depth (the root is defined to be at the depth 0).</p>
+<details class="tip">
+<summary>Answer</summary>
+<p><span class="arithmatex">\(\geq\)</span> 注意根节点深度是 0，所以 even 的更大</p>
+</details>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Example taken from <a href="https://en.wikipedia.org/wiki/Skew_binomial_heap">Skew binomial heap - Wikipedia</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 04 Leftistf Heaps and Skew Heaps">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                04 Leftistf Heaps and Skew Heaps
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="ADS%2006%20Backtracking.html" class="md-footer__link md-footer__link--next" aria-label="Next: 06 Backtracking">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                06 Backtracking
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 EmergentTwilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/EmergentTwilight" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:emergentshores@outlook.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../__srcs/javascript/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../__srcs/javascript/toc.js"></script>
+      
+    
+  </body>
+</html>

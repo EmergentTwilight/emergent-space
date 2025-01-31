@@ -1,0 +1,24 @@
+/* 增加中间内容宽度 */
+.md-grid {
+  max-width: 1450px;
+}
+
+/* 增大 admonition 内的字体大小 by @Nought0 */
+.md-typeset .admonition, .md-typeset details {
+  font-size: inherit;  /* 会继承 .md-typeset */
+}
+
+/* 调整正文 */
+.md-typeset {
+  font-size: .75rem;
+  line-height: 1.2rem;  /* 行高 */
+}
+
+/* 图片圆角和阴影 by @Nought0 */
+.md-content img:not([src$=".svg"]):not(.banner img) {
+  border-radius: 10px;
+  box-shadow: var(--md-shadow-z1);
+  max-width: 80%;
+  display: block;
+  margin: 12px auto;
+}

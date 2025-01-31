@@ -1,0 +1,2791 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Emergent Space">
+      
+      
+        <meta name="author" content="Emergent Twilight">
+      
+      
+        <link rel="canonical" href="https://emergenttwilight.github.io/Emergent-Space/ZJU-Advanced%20Data%20Structure%20%26%20Algorithm%20Analysis/ADS%2010%20NP-Completeness.html">
+      
+      
+        <link rel="prev" href="ADS%2009%20Greedy%20Algorithm.html">
+      
+      
+        <link rel="next" href="ADS%2011%20Approximation.html">
+      
+      
+      <link rel="icon" href="../__srcs/icon/logo-E.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>10 NP-Completeness - Emergent Space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/banner.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/right-sidebar.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/content.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-intro" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Emergent Space" class="md-header__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/icon/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Emergent Space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              10 NP-Completeness
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  ZJU
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Emergent Space" class="md-nav__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/icon/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    Emergent Space
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ZJU
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Fundamentals of Data Structures
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-HPC101/Lec.02%20%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%8E%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    HPC101
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advanced Data Structure & Algorithm Analysis
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Data Structure & Algorithm Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2001%20AVL%20Trees%2C%20Splay%20Trees%20and%20Amortized%20Analysis.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 AVL Trees, Splay Trees and Amortized Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2002%20Red-Black%20Trees%20and%20B%2B%20Trees.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 Red-Black Trees and B+ Trees
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2003%20Inverted%20File%20Index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 Inverted File Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 Leftistf Heaps and Skew Heaps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2005%20Binomial%20Queue.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 Binomial Queue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2006%20Backtracking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06 Backtracking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2007%20Divide%20and%20Conquer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 Divide and Conquer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2008%20Dynamic%20Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 Dynamic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2009%20Greedy%20Algorithm.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09 Greedy Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    10 NP-Completeness
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ADS%2010%20NP-Completeness.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    10 NP-Completeness
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 Intro
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Intro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-recall-fds" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Recall: FDS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-formalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Formalization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-np-p-np-h-np-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 NP, P, NP-H, NP-C
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 NP, P, NP-H, NP-C">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-turing-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Turing Machine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-np-nondeterministic-polynomial-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 NP: Nondeterministic Polynomial-time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Reduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-np-h-np-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 NP-H: NP-Hard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-np-c-np-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 NP-C: NP-Complete
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 NP-C: NP-Complete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-complexity-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1 Complexity Graph
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-example-hamiltonian-cycle-leq_p-tsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2 Example: Hamiltonian Cycle \(\leq_{p}\) TSP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-np-c-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.3 NP-C Problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-formal-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 Formal Language
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Formal Language">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-abstract-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Abstract Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Abstract Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-formal-language-theory-for-decision-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Formal-language Theory -for decision problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Formal-language Theory -for decision problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-符号表示" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 符号表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-判定问题" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 判定问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-验证算法-verification-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.3 验证算法 Verification Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-co-np" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 co-NP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-reduction-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Reduction Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-example-证明-vertex-cover-problem-是-np-c-问题" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Example: 证明 Vertex Cover Problem 是 NP-C 问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 Example: 证明 Vertex Cover Problem 是 NP-C 问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-抽象问题表述" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.1 抽象问题表述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-证明过程" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2 证明过程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-concousion-of-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 Concousion of Problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 Discussion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-midterm-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Midterm Review
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Midterm Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-np-completeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 NP-Completeness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-decidable-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 Decidable languages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-ex10" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Ex10
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Ex10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-lanuage-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1 Lanuage Reduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-np-c-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.2 NP-C Problems?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#选项-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      选项 A
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#选项-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      选项 B
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#选项-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      选项 C
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#选项-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      选项 D
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#最终答案" class="md-nav__link">
+    <span class="md-ellipsis">
+      最终答案
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-q11" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Q11
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Q11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-all-np-problems-are-decidable" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.1 All NP problems are decidable.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-proof-of-np-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.2 Proof of NP-C
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2011%20Approximation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11 Approximation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2012%20Local%20Search.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12 Local Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2013%20Randomized%20Algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13 Randomized Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2014%20Parallel%20Algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14 Parallel Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2015%20External%20Sorting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15 External Sorting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Cheat%20Sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Cheat%20Sheet%20Dynamic%20Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final DP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Final%20Questions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final Questions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 Intro
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 Intro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-recall-fds" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Recall: FDS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-formalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Formalization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-np-p-np-h-np-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 NP, P, NP-H, NP-C
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 NP, P, NP-H, NP-C">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-turing-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Turing Machine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-np-nondeterministic-polynomial-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 NP: Nondeterministic Polynomial-time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Reduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-np-h-np-hard" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 NP-H: NP-Hard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-np-c-np-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 NP-C: NP-Complete
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 NP-C: NP-Complete">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-complexity-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1 Complexity Graph
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-example-hamiltonian-cycle-leq_p-tsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2 Example: Hamiltonian Cycle \(\leq_{p}\) TSP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-np-c-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.3 NP-C Problems
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-formal-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 Formal Language
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 Formal Language">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-abstract-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Abstract Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Abstract Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 Examples
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-formal-language-theory-for-decision-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Formal-language Theory -for decision problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Formal-language Theory -for decision problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-符号表示" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1 符号表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-判定问题" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2 判定问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-验证算法-verification-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.3 验证算法 Verification Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-co-np" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 co-NP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-reduction-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Reduction Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-example-证明-vertex-cover-problem-是-np-c-问题" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Example: 证明 Vertex Cover Problem 是 NP-C 问题
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 Example: 证明 Vertex Cover Problem 是 NP-C 问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-抽象问题表述" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.1 抽象问题表述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-证明过程" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2 证明过程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-concousion-of-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 Concousion of Problems
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 Discussion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-midterm-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Midterm Review
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Midterm Review">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-np-completeness" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 NP-Completeness
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-decidable-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 Decidable languages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-ex10" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Ex10
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Ex10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-lanuage-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1 Lanuage Reduction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-np-c-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.2 NP-C Problems?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#选项-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      选项 A
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#选项-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      选项 B
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#选项-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      选项 C
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#选项-d" class="md-nav__link">
+    <span class="md-ellipsis">
+      选项 D
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#最终答案" class="md-nav__link">
+    <span class="md-ellipsis">
+      最终答案
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-q11" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Q11
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Q11">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-all-np-problems-are-decidable" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.1 All NP problems are decidable.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-proof-of-np-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3.2 Proof of NP-C
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 Reference
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/edit/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 10 NP-Completeness.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/raw/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 10 NP-Completeness.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>10 NP-Completeness</h1>
+
+<h2 id="1-intro">1 Intro<a class="headerlink" href="#1-intro" title="Locate to heading">#</a></h2>
+<h3 id="11-recall-fds">1.1 Recall: FDS<a class="headerlink" href="#11-recall-fds" title="Locate to heading">#</a></h3>
+<ul>
+<li>欧拉回路问题</li>
+<li><em>哈密顿回路问题</em></li>
+<li>单源无权最短路问题</li>
+<li><em>单源无权最长路问题</em></li>
+</ul>
+<p>其中，第一个和第三个比较容易解决，但是<em>第二个和第四个</em>没有已知的多项式时间算法</p>
+<h3 id="12-formalization">1.2 Formalization<a class="headerlink" href="#12-formalization" title="Locate to heading">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Target</p>
+<p>让不同问题的复杂度有一个统一的衡量标准</p>
+</div>
+<ul>
+<li>inputs: binary 将所有类型的输入都统一成比特串，有利于统一时间复杂度表达和比较</li>
+<li>algo: Turing Machine</li>
+<li>outputs: True/False 所有的问题都可以转换成一连串的判定问题</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>最简单的问题可以是 <span class="arithmatex">\(O(N)\)</span> 的，因为至少也需要读入 input
+最复杂的问题是<strong>不可判定问题 (undecidable problem)</strong>，无法用渐进符号描述</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Undecidable Problem: Halting Problem</p>
+<div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">():</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="k">if</span> <span class="n">halts</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>        <span class="n">loop_forever</span><span class="p">()</span>          
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>如果 <code>halts()</code> 判定 <code>g()</code> 会停机，那么 <code>g()</code> 进入死循环</li>
+<li>如果 <code>halts()</code> 判定 <code>g()</code> 不会停机，那么 <code>g()</code> 返回</li>
+<li>这样就构造了一组矛盾，所以停机问题是不可判定的</li>
+</ul>
+</div>
+<h2 id="2-np-p-np-h-np-c">2 NP, P, NP-H, NP-C<a class="headerlink" href="#2-np-p-np-h-np-c" title="Locate to heading">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>简称</th>
+<th>全称</th>
+<th>翻译</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P</td>
+<td><strong>P</strong>olynomial-time</td>
+<td>多项式时间</td>
+<td>能够在多项式时间 <strong>SOLVE</strong> 的问题</td>
+</tr>
+<tr>
+<td>NP</td>
+<td><strong>N</strong>ondeterministic <strong>P</strong>olynomial-time</td>
+<td>非确定性多项式时间</td>
+<td>能够在多项式时间内 <strong>VERIFY</strong> 的问题</td>
+</tr>
+<tr>
+<td>NP-C</td>
+<td><strong>NP</strong>-<strong>C</strong>omplete</td>
+<td>NP 完全问题</td>
+<td>最难的一类 NP 问题<br>任何 NP 问题都能在多项式时间内归约到 NP-C<br><span class="arithmatex">\(\forall L \in\text{NP}, L\leq_{p}L' \in\text{NP-C}\)</span></td>
+</tr>
+<tr>
+<td>NP-H</td>
+<td><strong>NP</strong>-<strong>H</strong>ard</td>
+<td>NP 困难问题</td>
+<td>如果一个 NP 问题 <span class="arithmatex">\(A\)</span> 能够被归约到问题 <span class="arithmatex">\(B\)</span>，<br>那么 <span class="arithmatex">\(B\)</span> 比 <span class="arithmatex">\(A\)</span> 更难且 <span class="arithmatex">\(B\)</span> 是 NP-H 问题</td>
+</tr>
+<tr>
+<td>Undecidable</td>
+<td></td>
+<td>不可判定问题</td>
+<td>不存在<strong>有限时间</strong>算法的问题<br>不属于任何上述 complexity class</td>
+</tr>
+</tbody>
+</table>
+<h3 id="21-turing-machine">2.1 Turing Machine<a class="headerlink" href="#21-turing-machine" title="Locate to heading">#</a></h3>
+<ul>
+<li>Infinite Memory</li>
+<li>随机读写的 Scanner</li>
+<li>
+<p>控制 Scanner 移动和读写行为的 Rules</p>
+</li>
+<li>
+<p><strong>Deterministic</strong> Turing Machine: 每一步的操作都由当前的指令唯一确定</p>
+</li>
+<li><strong>Deterministic</strong> Turing Machine: 每一步的操作可以从 finite set 中选择，总是选择能得到解的操作，lucky machine</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p><strong>Solvable</strong> 不一定意味着 <strong>decidable</strong></p>
+</div>
+<details class="note">
+<summary>#Algorithm/Problem/Post-Correspondence-Problem</summary>
+<blockquote>
+<p>一个有趣的 <strong>solvable</strong> yet <strong>undecidable</strong> 问题 <a href="https://en.wikipedia.org/wiki/Post_correspondence_problem#Proof_sketch_of_undecidability">Post correspondence problem - Wikipedia</a>，通过将问题规约成 Turing Machine 来证明不可判定</p>
+</blockquote>
+<p>和停机问题一样，PCP 是一个 undecidable 问题。</p>
+<p>有一些 dominos，top 和 bottom 有不同的字符串，每个 domino 可以使用多次。</p>
+<p><img alt="__assets/ADS 10 NP-Completeness.md/IMG-ADS 10 NP-Completeness-20241219230238924.png" src="__assets/ADS%2010%20NP-Completeness.md/IMG-ADS%2010%20NP-Completeness-20241219230238924.png" /></p>
+<p>找到一种排列方式，使得 top string 和 bottom string 完全相同。</p>
+<h5 id="solvability">Solvability<a class="headerlink" href="#solvability" title="Locate to heading">#</a></h5>
+<ul>
+<li>找到一个 top bottom 第一个字母一样的 domino</li>
+<li>以此类推，如果某个部分解 top bottom 不等长，找缺失的字母；如果部分解已经对齐，就得到了答案</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">但是可以找到这样的例子：</p>
+<p><img alt="__assets/ADS 10 NP-Completeness.md/IMG-ADS 10 NP-Completeness-20241219231145031.png" src="__assets/ADS%2010%20NP-Completeness.md/IMG-ADS%2010%20NP-Completeness-20241219231145031.png" />
+其中，如果一直尝试配对，将一直放 3 号 domino 而不会停止</p>
+</div>
+<h5 id="undecidability">Undecidability<a class="headerlink" href="#undecidability" title="Locate to heading">#</a></h5>
+<blockquote>
+<p>如果能将一个 undecidable problem 规约到 PCP，那么 PCP 肯定也是 undecidable 的
+<a href="https://www.youtube.com/watch?v=7w9elZjJ9Ko">Undecidability of the Post Correspondence Problem</a> 介绍了如何将 Acceptance Problem of a Turing Machine (命题接受问题，undecidable) 规约到 PCP 来完成证明</p>
+</blockquote>
+</details>
+<h3 id="22-np-nondeterministic-polynomial-time">2.2 NP: <strong>N</strong>ondeterministic <strong>P</strong>olynomial-time<a class="headerlink" href="#22-np-nondeterministic-polynomial-time" title="Locate to heading">#</a></h3>
+<ul>
+<li>能在<strong>多项式时间</strong>内验证任何解是否正确的问题</li>
+<li>e.g. #Algorithm/Problem/Hamiltonian-Cycle</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>不是所有 <strong>decicable</strong> problem 都是 NP 问题
+例如判定一个图是否有 Hamiltonian cycle，这个问题可以在多项式时间内解决；但是要 <strong>verify</strong> 就必须找出一个 Hamilton cycle，没有多项式时间算法能做到</p>
+<blockquote>
+<p>但是 NP 问题全都是 <strong>decidable</strong> 的</p>
+</blockquote>
+</div>
+<h3 id="23-reduction">2.3 Reduction<a class="headerlink" href="#23-reduction" title="Locate to heading">#</a></h3>
+<p><span class="arithmatex">\(A\)</span> 类问题的一个实例是 <span class="arithmatex">\(\alpha\)</span>，如果存在一个程序能够在多项式时间内完成 <span class="arithmatex">\(R(\alpha)\to \beta \in\text{Problem }B\)</span>，也就是将待解决的 <span class="arithmatex">\(\alpha\)</span> 转换成了 <span class="arithmatex">\(B\)</span> 类问题的实例 <span class="arithmatex">\(\beta\)</span>，且对于 <span class="arithmatex">\(\beta\)</span> 的解等价于对于 <span class="arithmatex">\(\alpha\)</span> 的解，那么就完成了一次从 <span class="arithmatex">\(A\)</span> 到 <span class="arithmatex">\(B\)</span> 的规约，记作 <span class="arithmatex">\(A\leq_{p}B\)</span>。</p>
+<h3 id="24-np-h-np-hard">2.4 NP-H: <strong>NP</strong>-<strong>H</strong>ard<a class="headerlink" href="#24-np-h-np-hard" title="Locate to heading">#</a></h3>
+<ul>
+<li>如果一个问题具有这样的性质：所有的 NP 问题都能在多项式时间内归约到它，那么这个问题就是一个 <strong>NP-H</strong> 问题</li>
+<li><strong>NP-H</strong> 问题不一定是一个 <strong>NP</strong> 问题，它可能是无法在多项式时间内得到验证的<ul>
+<li>例如 Halting Problem、优化版本的 TSP 问题（找到一条最短路而不是给出一条长度 <span class="arithmatex">\(\leq K\)</span> 的哈密顿环）</li>
+</ul>
+</li>
+</ul>
+<h3 id="25-np-c-np-complete">2.5 NP-C: <strong>NP</strong>-<strong>C</strong>omplete<a class="headerlink" href="#25-np-c-np-complete" title="Locate to heading">#</a></h3>
+<ul>
+<li><span class="arithmatex">\(\text{NP-C}=\text{NP}\cap\text{NP-H}\)</span></li>
+<li>NPC 问题继承了 NP-H 问题的性质：所有的 NP 问题都能够在多项式时间内归约到它
+  <span class="arithmatex">\(\forall L \in\text{NP}, L\leq_{p}L' \in\text{NP-C}\)</span></li>
+<li>NPC 问题是 NP 中最难的问题，如果某个 NPC 问题能够在多项式时间内求解（<span class="arithmatex">\(\text{P}=\text{NP}\)</span>），则所有 NP 问题都能在多项式时间内求解</li>
+</ul>
+<h4 id="251-complexity-graph">2.5.1 Complexity Graph<a class="headerlink" href="#251-complexity-graph" title="Locate to heading">#</a></h4>
+<p><img alt="__assets/ADS 10 NP-Completeness.md/IMG-ADS 10 NP-Completeness-20241218211925159.png" src="__assets/ADS%2010%20NP-Completeness.md/IMG-ADS%2010%20NP-Completeness-20241218211925159.png" /></p>
+<h4 id="252-example-hamiltonian-cycle-leq_p-tsp">2.5.2 Example: Hamiltonian Cycle <span class="arithmatex">\(\leq_{p}\)</span> TSP<a class="headerlink" href="#252-example-hamiltonian-cycle-leq_p-tsp" title="Locate to heading">#</a></h4>
+<ul>
+<li>TSP: 对于给定的有权完全图，是否存在一个哈密顿环，使得其总权重 <span class="arithmatex">\(\leq K\)</span></li>
+<li>只需要将 Hamiltonian Cycle 问题中存在的边赋为 1，不存在的边赋为 2，然后问 <span class="arithmatex">\(K=|V|\)</span> 的 TSP 就好</li>
+</ul>
+<h4 id="253-np-c-problems">2.5.3 NP-C Problems<a class="headerlink" href="#253-np-c-problems" title="Locate to heading">#</a></h4>
+<ul>
+<li>第一个被证明是 NP-C 的问题是 Circuit-SAT 问题，对于一个给定的布尔表达式，问是否存在一种赋值方式能够使得表达式为真</li>
+</ul>
+<p><img alt="__assets/ADS 10 NP-Completeness.md/IMG-ADS 10 NP-Completeness-20241220134615294.png" src="__assets/ADS%2010%20NP-Completeness.md/IMG-ADS%2010%20NP-Completeness-20241220134615294.png" /></p>
+<h2 id="3-formal-language">3 Formal Language<a class="headerlink" href="#3-formal-language" title="Locate to heading">#</a></h2>
+<h3 id="31-abstract-problem">3.1 Abstract Problem<a class="headerlink" href="#31-abstract-problem" title="Locate to heading">#</a></h3>
+<p>形式语言中，将问题分为 <em>Abstract Problem</em> 和 <em>Concrete Problem</em>，分别是抽象问题和具体问题
+- 抽象问题 <span class="arithmatex">\(Q\)</span> 是问题实例集合 <span class="arithmatex">\(I\)</span> 和问题解集合 <span class="arithmatex">\(S\)</span> 的二元对应关系
+- 具体问题是对抽象问题的一种编码，将 <span class="arithmatex">\(I\)</span> 映射到一个 bitstring 上，<span class="arithmatex">\(Q\)</span> 就变成了具体问题</p>
+<h4 id="311-examples">3.1.1 Examples<a class="headerlink" href="#311-examples" title="Locate to heading">#</a></h4>
+<ul>
+<li><span class="arithmatex">\(\text{SHORTEST-PATH}\)</span><ul>
+<li><span class="arithmatex">\(I=\{&lt;G,u,v&gt;:G=(V,E)\text{ is an undirected graph; }u,v\in V\}\)</span></li>
+<li><span class="arithmatex">\(S=\{&lt;u, w_{1},w_{2},\dots,w_{k},v&gt;:&lt;u,w_{1}&gt;,\dots,&lt;w_{k},v&gt;\,\in E\}\)</span></li>
+<li><span class="arithmatex">\(\forall i\in I,\text{SHORTEST-PATH(i)}=s\in S\)</span></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(\text{PATH}\)</span> <em>判定版本</em><ul>
+<li><span class="arithmatex">\(I=\{&lt;G,u,v,k&gt;:G=(V,E)\text{ is an undirected graph; }u,v\in V\text{; }k\in N\}\)</span></li>
+<li><span class="arithmatex">\(S=\{0,1\}\)</span></li>
+<li><span class="arithmatex">\(\forall i\in I,\text{PATH(i)}=1\text{ or }0\)</span></li>
+</ul>
+</li>
+<li>Encoding<ul>
+<li>Map <span class="arithmatex">\(I\)</span> into a binary string <span class="arithmatex">\(\{0,1\}^*\)</span>，则 <span class="arithmatex">\(Q\)</span> 是一个具体问题</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-formal-language-theory-for-decision-problem">3.2 Formal-language Theory <em>-for decision problem</em><a class="headerlink" href="#32-formal-language-theory-for-decision-problem" title="Locate to heading">#</a></h3>
+<blockquote>
+<p>使用形式语言来统一描述</p>
+</blockquote>
+<h4 id="321-符号表示">3.2.1 符号表示<a class="headerlink" href="#321-符号表示" title="Locate to heading">#</a></h4>
+<ul>
+<li>字母表 <span class="arithmatex">\(\Sigma\)</span> 是一个有限符号集 e.g. <span class="arithmatex">\(\{0,1\}\)</span></li>
+<li>语言 <span class="arithmatex">\(L\)</span> 表示由 <span class="arithmatex">\(\Sigma\)</span> 中的字符构成的字符串的集合</li>
+<li>空字符串为 <span class="arithmatex">\(\epsilon\)</span>，空语言为 <span class="arithmatex">\(\emptyset\)</span></li>
+<li>包含所有从 <span class="arithmatex">\(\Sigma\)</span> 得到的字符串的语言记为 <span class="arithmatex">\(\Sigma^*\)</span></li>
+<li><span class="arithmatex">\(L\)</span> 的补记为 <span class="arithmatex">\(\bar{L}=\Sigma^*-L\)</span></li>
+<li>两种语言的拼接 (concatation) 记为 <span class="arithmatex">\(L=\{x_{1}x_{2}:x_{1}x_{2}:x_{1}\in L_{1}\land x_{2}\in L_{2}\}\)</span></li>
+<li><span class="arithmatex">\(L\)</span> 的克莱尼闭包 (Kleene closure) 为 <span class="arithmatex">\(L^*=\{\epsilon\}\cup L\cup L^2\cup L^3\cup\dots\)</span></li>
+</ul>
+<h4 id="322-判定问题">3.2.2 判定问题<a class="headerlink" href="#322-判定问题" title="Locate to heading">#</a></h4>
+<ul>
+<li><strong>接受和拒绝</strong>：如果 <span class="arithmatex">\(A(x)=1\)</span> 则算法 <span class="arithmatex">\(A\)</span> 接受 (accept) bitstring <span class="arithmatex">\(x\in\{0,1\}^*\)</span>；如果 <span class="arithmatex">\(A(x)=0\)</span>，算法 <span class="arithmatex">\(A\)</span> 拒绝 (reject) 了 bitstring <span class="arithmatex">\(x\)</span></li>
+<li><strong>判定</strong>：如果 <span class="arithmatex">\(L\)</span> 的每一个 bitstring <span class="arithmatex">\(x\)</span> 都能够被 <span class="arithmatex">\(A\)</span> 接受或拒绝，那么称 <span class="arithmatex">\(L\)</span> 能够被算法 <span class="arithmatex">\(A\)</span> 判定</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">P 类问题的描述</p>
+<p><span class="arithmatex">\(\text{P}=\{L\subseteq\{0,1\}^*: \text{there exists an algorithm }A\text{ that decides }L\text{ in polynomial time}\}\)</span>
+所有存在能在多项式时间内得到判定的算法的语言</p>
+</div>
+<h4 id="323-验证算法-verification-algorithm">3.2.3 验证算法 Verification Algorithm<a class="headerlink" href="#323-验证算法-verification-algorithm" title="Locate to heading">#</a></h4>
+<blockquote>
+<p><span class="arithmatex">\(A(x,y)\)</span>，其中 <span class="arithmatex">\(x\)</span> 是输入 bitstring，<span class="arithmatex">\(y\)</span> 是证书 (certificate)，其实也就是另一个 bitstring</p>
+</blockquote>
+<ul>
+<li>如果对于 <span class="arithmatex">\(x\)</span>，存在 <span class="arithmatex">\(y\)</span> 使得 <span class="arithmatex">\(A(x,y)=1\)</span> 成立，那么 <span class="arithmatex">\(A\)</span> 能够验证 <span class="arithmatex">\(x\)</span></li>
+<li>如果对于所有 <span class="arithmatex">\(L\)</span> 中的 <span class="arithmatex">\(x\)</span> 都满足上述条件，那么 <span class="arithmatex">\(A\)</span> 能够验证 <span class="arithmatex">\(L\)</span></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title"><span class="arithmatex">\(L\)</span> 为 NP 问题的充要条件</p>
+<p>存在一个多项式时间的双参数验证算法 <span class="arithmatex">\(A\)</span> 和一个常数 <span class="arithmatex">\(c\)</span>，使得</p>
+<p><span class="arithmatex">\(L=\{x\in\{0,1\}^*:\text{there exists a certificate }y\text{ with }|y|=O(|x|^c)\text{ such that }A(x,y)=1\}\)</span></p>
+<blockquote>
+<p>其中的 <span class="arithmatex">\(|y|=O(|x|^c)\)</span> 只是为了让解的长度不至于直接影响时间复杂度</p>
+</blockquote>
+<p>这样，就能说算法 <span class="arithmatex">\(A\)</span> 能在多项式时间内验证 <span class="arithmatex">\(L\)</span> 的解的正确性</p>
+</div>
+<h3 id="33-co-np">3.3 co-NP<a class="headerlink" href="#33-co-np" title="Locate to heading">#</a></h3>
+<blockquote>
+<p>如果已知 <span class="arithmatex">\(L\in\text{NP}\)</span>，那么 <span class="arithmatex">\(\bar{L}\in\text{NP}\)</span> 是否正确？</p>
+</blockquote>
+<p><strong>co-NP</strong> definition: 如果 <span class="arithmatex">\(\bar{L}\in\text{NP}\)</span>，那么 <span class="arithmatex">\(L\in\text{co-NP}\)</span></p>
+<p><img alt="__assets/ADS 10 NP-Completeness.md/IMG-ADS 10 NP-Completeness-20241220145642110.png" src="__assets/ADS%2010%20NP-Completeness.md/IMG-ADS%2010%20NP-Completeness-20241220145642110.png" /></p>
+<h3 id="34-reduction-function">3.4 Reduction Function<a class="headerlink" href="#34-reduction-function" title="Locate to heading">#</a></h3>
+<ul>
+<li>如果存在多项式时间可计算的函数 <span class="arithmatex">\(f:\{0,1\}^*\to\{0,1\}^*\)</span> 能够实现 <span class="arithmatex">\(\forall x\in\{0,1\}^*, x\in L_{1}\Leftrightarrow f(x)\in L_{2}\)</span>，那么 <span class="arithmatex">\(L_{1}\leq_{p}L_{2}\)</span></li>
+<li>这样的函数 <span class="arithmatex">\(f\)</span> 称为<strong>规约函数 (Reduction Function)</strong></li>
+<li>能够在多项式时间内计算出 <span class="arithmatex">\(f\)</span> 的算法 <span class="arithmatex">\(F\)</span> 称为<strong>规约算法 (Reduction Algorithm)</strong></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">NP-C 的形式语言描述</p>
+<p><span class="arithmatex">\(L\in\text{NP}\)</span> 且 <span class="arithmatex">\(\forall L'\in\text{NP},L'\leq_{p}L\)</span></p>
+</div>
+<h3 id="35-example-证明-vertex-cover-problem-是-np-c-问题">3.5 Example: 证明 Vertex Cover Problem 是 NP-C 问题<a class="headerlink" href="#35-example-证明-vertex-cover-problem-是-np-c-问题" title="Locate to heading">#</a></h3>
+<blockquote>
+<p>已知 Clique Problem 是 NP-C 问题，证明 Vertex Cover Problem 也是 NP-C 问题。
+思路是将 Clique 归约到 Vertex Cover</p>
+</blockquote>
+<h4 id="351-抽象问题表述">3.5.1 抽象问题表述<a class="headerlink" href="#351-抽象问题表述" title="Locate to heading">#</a></h4>
+<ul>
+<li><span class="arithmatex">\(\text{CLIQUE}=\{&lt;G,K&gt;:G\text{ is a graph with a clique of size }K\}\)</span> #Algorithm/Problem/Clique </li>
+<li><span class="arithmatex">\(\text{VERTEX-COVER}=\{&lt;G,K&gt;:G\text{ has a vertex cover of size }K\}\)</span> #Algorithm/Problem/Vertex-Cover </li>
+</ul>
+<h4 id="352-证明过程">3.5.2 证明过程<a class="headerlink" href="#352-证明过程" title="Locate to heading">#</a></h4>
+<ol>
+<li>证明 <span class="arithmatex">\(\text{VERTEX-COVER}\in\text{NP}\)</span><ul>
+<li>对于 certificate <span class="arithmatex">\(y\)</span>，检查一个图中所有的边是否都被 <span class="arithmatex">\(y\)</span> 中的顶点覆盖</li>
+<li>遍历所有边，每次检查两个顶点中是否有一个在 <span class="arithmatex">\(y\)</span> 中，最差的复杂度是 <span class="arithmatex">\(O(|E||V|)=O(|V|^3)\)</span></li>
+<li>所以 <span class="arithmatex">\(\text{VERTEX-COVER}\)</span> 可以在多项式时间内验证，是 NP</li>
+</ul>
+</li>
+<li>证明 <span class="arithmatex">\(\text{CLIQUE}\leq_{p}\text{VERTEX-COVER}\)</span>，也就是一个大小为 <span class="arithmatex">\(K\)</span> 的团的充要条件是 <span class="arithmatex">\(\bar{G}\)</span> 有一个大小为 <span class="arithmatex">\(|V|-K\)</span> 的顶点覆盖<ul>
+<li>充分：取补图，则团内的顶点之间没有边；对于每条边，总有一个顶点是团外的顶点，所以取大小为 <span class="arithmatex">\(|V|-K\)</span> 的团外所有顶点，一定构成一个顶点覆盖</li>
+<li>必要：没有被选择的 <span class="arithmatex">\(K\)</span> 个顶点之间一定没有边，于是补图中能够构成大小为 <span class="arithmatex">\(K\)</span> 的团</li>
+</ul>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>由于都是判定问题，只需要证明存在性即可，在充分性证明中不需要去讨论 <span class="arithmatex">\(|V|-K\)</span> 是否为最小的顶点覆盖，在必要性证明中不需要去讨论 <span class="arithmatex">\(K\)</span> 是否为最大的团</p>
+</div>
+<h2 id="4-concousion-of-problems">4 Concousion of Problems<a class="headerlink" href="#4-concousion-of-problems" title="Locate to heading">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Type</th>
+<th>Complexity Class</th>
+<th>Meaning</th>
+<th>Reduction</th>
+<th>Solvability</th>
+<th>Decidability</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SAT</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Satisfiability of Boolean formulas</td>
+<td>Reduced to/from other NP problems</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Basis of NP-completeness proofs</td>
+</tr>
+<tr>
+<td>Circuit-SAT</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Satisfiability of Boolean circuits</td>
+<td>Reduced to/from SAT</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>First NP-complete problem</td>
+</tr>
+<tr>
+<td>3-CNF SAT</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>SAT for 3-CNF formulas</td>
+<td>Reduced to/from SAT</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Special case of SAT</td>
+</tr>
+<tr>
+<td>Clique</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Existence of a k-clique in a graph</td>
+<td>Reduced to/from Vertex Cover</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Graph theory problem</td>
+</tr>
+<tr>
+<td>Subset</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Subset sum equals a target</td>
+<td>Reduced to/from Knapsack</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Equivalent to special cases of Knapsack</td>
+</tr>
+<tr>
+<td>Vertex Cover</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Covers all edges in a graph</td>
+<td>Reduced to/from Clique</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Dual problem to Clique</td>
+</tr>
+<tr>
+<td>Hamiltonian Cycle</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Cycle visits all vertices exactly once</td>
+<td>Reduced to/from TSP</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Graph traversal problem</td>
+</tr>
+<tr>
+<td>TSP</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Visits all cities with minimal cost</td>
+<td>Reduced to/from Hamiltonian Cycle</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Optimization problem</td>
+</tr>
+<tr>
+<td>Euler Cycle</td>
+<td>Decision</td>
+<td>P</td>
+<td>Cycle visits every edge exactly once</td>
+<td>Reduced to/from degree condition</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Can be solved in polynomial time</td>
+</tr>
+<tr>
+<td>Single-Source Longest Path</td>
+<td>Decision</td>
+<td>NP-H</td>
+<td>Longest path in a weighted DAG</td>
+<td>Reduced to/from other NP problems</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Hard for NP, no known poly-time solution</td>
+</tr>
+<tr>
+<td>Halting Problem</td>
+<td>Decision</td>
+<td>Undecidable</td>
+<td>Program halts on input or not</td>
+<td>Not reducible</td>
+<td>Unsolvable</td>
+<td>Undecidable</td>
+<td>Fundamental undecidable problem</td>
+</tr>
+<tr>
+<td>Knapsack</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Subset with target weight/value</td>
+<td>Reduced to/from Subset</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Basis for many cryptographic systems</td>
+</tr>
+<tr>
+<td>Bin Packing</td>
+<td>Optimization</td>
+<td>NP-H</td>
+<td>Pack items into minimum bins</td>
+<td>Reduced to/from other NP problems</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Approximation algorithms available</td>
+</tr>
+<tr>
+<td>Domination Set</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Minimum dominating set in a graph</td>
+<td>Reduced to/from Vertex Cover</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Graph theory problem</td>
+</tr>
+<tr>
+<td>Minimum Spanning Tree</td>
+<td>Optimization</td>
+<td>P</td>
+<td>Minimum weight spanning tree</td>
+<td>Reduced to/from Graph Connectivity</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Solvable in polynomial time</td>
+</tr>
+<tr>
+<td>Maximum Flow</td>
+<td>Optimization</td>
+<td>P</td>
+<td>Max flow in a flow network</td>
+<td>Reduced to/from Flow Conservation</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Solvable in polynomial time</td>
+</tr>
+<tr>
+<td>Bipartite Matching</td>
+<td>Optimization</td>
+<td>P</td>
+<td>Maximum matching in bipartite graph</td>
+<td>Reduced to/from Flow Problems</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Solvable using Ford-Fulkerson or similar</td>
+</tr>
+<tr>
+<td>K-Center</td>
+<td>Optimization</td>
+<td>NP-H</td>
+<td>Partition vertices into k clusters</td>
+<td>Reduced to/from Facility Location</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Common in clustering problems</td>
+</tr>
+<tr>
+<td>Graph Coloring</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Assign colors to vertices</td>
+<td>Reduced to/from SAT</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Classic graph problem</td>
+</tr>
+<tr>
+<td>Set Cover</td>
+<td>Optimization</td>
+<td>NP-C</td>
+<td>Cover all elements with subsets</td>
+<td>Reduced to/from Vertex Cover</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Basis for many optimization problems</td>
+</tr>
+<tr>
+<td>Traveling Salesman Problem</td>
+<td>Optimization</td>
+<td>NP-C</td>
+<td>Shortest tour visiting all vertices</td>
+<td>Reduced to/from Hamiltonian Cycle</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Different variants include approximation</td>
+</tr>
+<tr>
+<td>Steiner Tree</td>
+<td>Optimization</td>
+<td>NP-H</td>
+<td>Minimum tree connecting specified nodes</td>
+<td>Reduced to/from MST</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Harder version of MST</td>
+</tr>
+<tr>
+<td>Partition Problem</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Split set into equal sum subsets</td>
+<td>Reduced to/from Subset Sum</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Special case of Subset Sum</td>
+</tr>
+<tr>
+<td>Independent Set</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td>Maximum independent vertex set</td>
+<td>Reduced to/from Vertex Cover</td>
+<td>Solvable</td>
+<td>Decidable</td>
+<td>Related to Clique and Vertex Cover</td>
+</tr>
+<tr>
+<td>Minimum Degree Spanning Tree</td>
+<td>Decision</td>
+<td>NP-C</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Load Balancing Problem</td>
+<td>Optimizatino</td>
+<td>NP-H</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-discussion">5 Discussion<a class="headerlink" href="#5-discussion" title="Locate to heading">#</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>A knapsack with a capacity <span class="arithmatex">\(M\)</span> is to be packed. Given <span class="arithmatex">\(N\)</span> items. Each item <span class="arithmatex">\(i\)</span> has a weight <span class="arithmatex">\(w_i\)</span> and a profit <span class="arithmatex">\(p_{i}\)</span>​. An <strong>optimal packing</strong> is a feasible one with maximum profit.</p>
+<p>This problem is NP-hard.</p>
+<p>However, if no items have a size larger than <span class="arithmatex">\(N^2\)</span>, is it still NP-hard? Explain your answer.</p>
+</div>
+<p>给出一种 dp 算法，遍历所有物品，遍历所有 <span class="arithmatex">\(w=1,2,3,\dots,M\)</span>，这样时间复杂度为 <span class="arithmatex">\(O(NM)\)</span> 或 <span class="arithmatex">\(O(N^2W_{max})\)</span>。</p>
+<p>如果 <span class="arithmatex">\(\forall w, w\leq N^2\)</span>，那么 <span class="arithmatex">\(W_{max}\leq N^3\)</span>，所以变为多项式时间复杂度。</p>
+<h2 id="6-questions">6 Questions<a class="headerlink" href="#6-questions" title="Locate to heading">#</a></h2>
+<h3 id="61-midterm-review">6.1 Midterm Review<a class="headerlink" href="#61-midterm-review" title="Locate to heading">#</a></h3>
+<h4 id="611-np-completeness">6.1.1 NP-Completeness<a class="headerlink" href="#611-np-completeness" title="Locate to heading">#</a></h4>
+<p>Given that problem A is NP-complete. If problem B is in NP and can be polynomially reduced to problem A, then problem B is NP-complete. (T/F)</p>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>F</strong> 只能推导出 B is in NP，B 不一定能由其他所有 NP 问题在多项式时间内归化得到</p>
+</details>
+<h4 id="612-decidable-languages">6.1.2 Decidable languages<a class="headerlink" href="#612-decidable-languages" title="Locate to heading">#</a></h4>
+<p>All the languages can be decided by a non-deterministic machine. (T/F)</p>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>F</strong>，存在不可判定问题</p>
+</details>
+<h3 id="62-ex10">6.2 Ex10<a class="headerlink" href="#62-ex10" title="Locate to heading">#</a></h3>
+<h4 id="621-lanuage-reduction">6.2.1 Lanuage Reduction<a class="headerlink" href="#621-lanuage-reduction" title="Locate to heading">#</a></h4>
+<p>Which one of the following statements is FALSE?</p>
+<ul>
+<li>A. A language <span class="arithmatex">\(L_1\)</span> is polynomial time transformable to <span class="arithmatex">\(L_2\)</span> if there exists a polynomial time function <span class="arithmatex">\(f\)</span> such that <span class="arithmatex">\(w\in L_1\)</span> if <span class="arithmatex">\(f(w)\in L_2\)</span></li>
+<li>D. If language <span class="arithmatex">\(L_{1}​\)</span> has a polynomial reduction to language <span class="arithmatex">\(L_2\)</span>​, then the complement of <span class="arithmatex">\(L_1\)</span>​ has a polynomial reduction to the complement of <span class="arithmatex">\(L_2\)</span>​.</li>
+</ul>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>A</strong>
+A 不是 if 是 iff
+D 将 <span class="arithmatex">\(f\)</span> 取反，如果 <span class="arithmatex">\(x\not\in L_{1}\)</span>，那么 <span class="arithmatex">\(f(x)\not\in L_{2}\)</span>？</p>
+</details>
+<h4 id="622-np-c-problems">6.2.2 NP-C Problems?<a class="headerlink" href="#622-np-c-problems" title="Locate to heading">#</a></h4>
+<p>Which one of the following statements is FALSE?</p>
+<ul>
+<li>A. SAT, Vertex Cover, Hamiltonian Cycle, Clique, Knapsack, Bin Packing, and Domination Set problems are all NP-completeness problems.</li>
+<li>B. If there is a polynomial time <span class="arithmatex">\((1+\frac{1}{2n})\)</span>-approximation algorithm for Vertex Cover with n being the total number of vertices in the graph, then P=NP.</li>
+<li>C. If there is a polynomial time 3/2-approximation algorithm for K-Center, then P=NP.</li>
+<li>D. Given a weighted directed acyclic graph (DAG) <span class="arithmatex">\(G\)</span> and a source vertex <span class="arithmatex">\(s\)</span> in <span class="arithmatex">\(G\)</span>, it is NP-hard to find the longest distances from s to all other vertices in <span class="arithmatex">\(G\)</span></li>
+</ul>
+<details class="tip">
+<summary>Answer</summary>
+<p>让我们逐一分析每个选项，找出其中的 <strong>FALSE</strong> 陈述。</p>
+<hr />
+<h4 id="选项-a"><strong>选项 A</strong><a class="headerlink" href="#选项-a" title="Locate to heading">#</a></h4>
+<p><strong>陈述</strong>：SAT, Vertex Cover, Hamiltonian Cycle, Clique, Knapsack, Bin Packing, and Domination Set 问题都是 NP- 完全问题。</p>
+<p><strong>分析</strong>：</p>
+<ul>
+<li><strong>SAT</strong>（布尔可满足性问题）是第一个被证明的 NP- 完全问题。</li>
+<li><strong>Vertex Cover</strong>（顶点覆盖问题）、<strong>Hamiltonian Cycle</strong>（哈密顿回路问题）、<strong>Clique</strong>（团问题）、<strong>Knapsack</strong>（背包问题）、<strong>Bin Packing</strong>（装箱问题）和 <strong>Domination Set</strong>（支配集问题）都是经典的 NP- 完全问题。</li>
+</ul>
+<p><strong>结论</strong>：该陈述是 <strong>TRUE</strong>。</p>
+<hr />
+<h4 id="选项-b"><strong>选项 B</strong><a class="headerlink" href="#选项-b" title="Locate to heading">#</a></h4>
+<p><strong>陈述</strong>：如果存在一个多项式时间的 <span class="arithmatex">\((1+\frac{1}{2n})\)</span>- 近似算法（其中 <span class="arithmatex">\(n\)</span> 是图中顶点的总数）来解决 Vertex Cover 问题，则 P=NP。</p>
+<p><strong>分析</strong>：</p>
+<ul>
+<li>Vertex Cover 是一个 NP- 完全问题。</li>
+<li>已知 Vertex Cover 的近似算法的最小近似比为 <span class="arithmatex">\(2\)</span>（即 2- 近似算法）。</li>
+<li>如果存在一个比 <span class="arithmatex">\(2\)</span> 更优的近似算法（例如 <span class="arithmatex">\((1+\frac{1}{2n})\)</span>- 近似算法），则意味着可以在多项式时间内精确解决 Vertex Cover 问题，从而 P=NP。</li>
+</ul>
+<p><strong>结论</strong>：该陈述是 <strong>TRUE</strong>。</p>
+<hr />
+<h4 id="选项-c"><strong>选项 C</strong><a class="headerlink" href="#选项-c" title="Locate to heading">#</a></h4>
+<p><strong>陈述</strong>：如果存在一个多项式时间的 <span class="arithmatex">\(3/2\)</span>- 近似算法来解决 K-Center 问题，则 P=NP。</p>
+<p><strong>分析</strong>：</p>
+<ul>
+<li>K-Center 是一个 NP- 完全问题。</li>
+<li>已知 K-Center 的近似算法的最小近似比为 <span class="arithmatex">\(2\)</span>（即 2- 近似算法）。</li>
+<li>如果存在一个比 <span class="arithmatex">\(2\)</span> 更优的近似算法（例如 <span class="arithmatex">\(3/2\)</span>- 近似算法），则意味着可以在多项式时间内精确解决 K-Center 问题，从而 P=NP。</li>
+</ul>
+<p><strong>结论</strong>：该陈述是 <strong>TRUE</strong>。</p>
+<hr />
+<h4 id="选项-d"><strong>选项 D</strong><a class="headerlink" href="#选项-d" title="Locate to heading">#</a></h4>
+<p><strong>陈述</strong>：给定一个加权有向无环图（DAG）<span class="arithmatex">\(G\)</span> 和一个源顶点 <span class="arithmatex">\(s\)</span>，找到从 <span class="arithmatex">\(s\)</span> 到所有其他顶点的最长距离是 NP- 难的。</p>
+<p><strong>分析</strong>：</p>
+<ul>
+<li>在 <strong>DAG</strong> 中，最长路径问题（Longest Path Problem）可以在多项式时间内解决。</li>
+<li>具体方法：对 DAG 进行拓扑排序，然后使用动态规划计算从 <span class="arithmatex">\(s\)</span> 到每个顶点的最长距离。</li>
+<li>因此，该问题不是 NP- 难的。</li>
+</ul>
+<p><strong>结论</strong>：该陈述是 <strong>FALSE</strong>。</p>
+<hr />
+<h4 id="最终答案"><strong>最终答案</strong><a class="headerlink" href="#最终答案" title="Locate to heading">#</a></h4>
+<p><strong>选项 D</strong> 是 <strong>FALSE</strong>。</p>
+</details>
+<h3 id="63-q11">6.3 Q11<a class="headerlink" href="#63-q11" title="Locate to heading">#</a></h3>
+<h4 id="631-all-np-problems-are-decidable">6.3.1 All NP problems are decidable.<a class="headerlink" href="#631-all-np-problems-are-decidable" title="Locate to heading">#</a></h4>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>T</strong> 所有的 NP 问题都是可判定的，<strong>不可判定问题不存在 complexity class</strong></p>
+<blockquote>
+<p><strong>Undecidable</strong> 不存在算法能够在有限的时间内解决的问题。</p>
+</blockquote>
+</details>
+<h4 id="632-proof-of-np-c">6.3.2 Proof of NP-C<a class="headerlink" href="#632-proof-of-np-c" title="Locate to heading">#</a></h4>
+<p>To prove problem B is NP-complete, we can use a NP-complete problem A and use a polynomial-time reduction algorithm to transform an instance of problem B to an instance of problem A.</p>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>F</strong> 要证明的不止这些</p>
+<ol>
+<li>B 是一个 NP 问题</li>
+<li>存在一个 reduction function <span class="arithmatex">\(f\)</span>，能够将 A 中的任意实例转化为 B 中的实例，实现 <span class="arithmatex">\(A\leq_{p}B\)</span></li>
+</ol>
+</details>
+<h2 id="7-reference">7 Reference<a class="headerlink" href="#7-reference" title="Locate to heading">#</a></h2>
+<ul>
+<li><a href="https://blog.csdn.net/qq_50860232/article/details/139870701">高级算法入门必看—21个NPC问题及其证明-CSDN博客</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="ADS%2009%20Greedy%20Algorithm.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 09 Greedy Algorithm">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                09 Greedy Algorithm
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="ADS%2011%20Approximation.html" class="md-footer__link md-footer__link--next" aria-label="Next: 11 Approximation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                11 Approximation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 EmergentTwilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/EmergentTwilight" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:emergentshores@outlook.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../__srcs/javascript/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../__srcs/javascript/toc.js"></script>
+      
+    
+  </body>
+</html>

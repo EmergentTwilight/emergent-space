@@ -1,0 +1,2019 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Emergent Space">
+      
+      
+        <meta name="author" content="Emergent Twilight">
+      
+      
+        <link rel="canonical" href="https://emergenttwilight.github.io/Emergent-Space/ZJU-Advanced%20Data%20Structure%20%26%20Algorithm%20Analysis/ADS%2012%20Local%20Search.html">
+      
+      
+        <link rel="prev" href="ADS%2011%20Approximation.html">
+      
+      
+        <link rel="next" href="ADS%2013%20Randomized%20Algorithms.html">
+      
+      
+      <link rel="icon" href="../__srcs/icon/logo-E.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>12 Local Search - Emergent Space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/banner.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/right-sidebar.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/content.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intro" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Emergent Space" class="md-header__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/icon/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Emergent Space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              12 Local Search
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="cyan" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  ZJU
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Emergent Space" class="md-nav__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/icon/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    Emergent Space
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ZJU
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Fundamentals of Data Structures
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-HPC101/Lec.02%20%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%8E%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    HPC101
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Advanced Data Structure & Algorithm Analysis
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Data Structure & Algorithm Analysis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2001%20AVL%20Trees%2C%20Splay%20Trees%20and%20Amortized%20Analysis.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 AVL Trees, Splay Trees and Amortized Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2002%20Red-Black%20Trees%20and%20B%2B%20Trees.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 Red-Black Trees and B+ Trees
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2003%20Inverted%20File%20Index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 Inverted File Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 Leftistf Heaps and Skew Heaps
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2005%20Binomial%20Queue.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 Binomial Queue
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2006%20Backtracking.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06 Backtracking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2007%20Divide%20and%20Conquer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 Divide and Conquer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2008%20Dynamic%20Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 Dynamic Programming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2009%20Greedy%20Algorithm.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09 Greedy Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2010%20NP-Completeness.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 NP-Completeness
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2011%20Approximation.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11 Approximation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    12 Local Search
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ADS%2012%20Local%20Search.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    12 Local Search
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Intro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neighbor-relation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neighbor Relation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertex-cover-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vertex Cover Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vertex Cover Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metropolis-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metropolis Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hopfield-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hopfield Neural Networks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hopfield Neural Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-flipping-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      State-flipping Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maximum-cut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Cut
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maximum Cut">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-approx" class="md-nav__link">
+    <span class="md-ellipsis">
+      2-approx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#相关研究" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关研究
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#终止策略" class="md-nav__link">
+    <span class="md-ellipsis">
+      终止策略
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#更好的-local-定义" class="md-nav__link">
+    <span class="md-ellipsis">
+      更好的 local 定义？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussion-maximum-bipartite-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discussion: Maximum Bipartite Matching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hw12" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW12
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HW12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flpfacility-location-problem-center-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      FLP(Facility Location Problem) - center problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partition-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partition Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sat-and-n-queen-in-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      SAT and N-Queen in approximation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ex12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ex12
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ex12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#判断题" class="md-nav__link">
+    <span class="md-ellipsis">
+      判断题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimum-degree-spanning-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Degree Spanning Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minimum Degree Spanning Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facility-location-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Facility Location Problem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q13
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2013%20Randomized%20Algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13 Randomized Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2014%20Parallel%20Algorithms.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14 Parallel Algorithms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%2015%20External%20Sorting.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15 External Sorting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Cheat%20Sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Cheat%20Sheet%20Dynamic%20Programming.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final DP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ADS%20Final%20Questions.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final Questions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Intro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#neighbor-relation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neighbor Relation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertex-cover-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vertex Cover Problem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vertex Cover Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metropolis-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metropolis Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hopfield-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hopfield Neural Networks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hopfield Neural Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-flipping-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      State-flipping Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maximum-cut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Cut
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maximum Cut">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2-approx" class="md-nav__link">
+    <span class="md-ellipsis">
+      2-approx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#相关研究" class="md-nav__link">
+    <span class="md-ellipsis">
+      相关研究
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#终止策略" class="md-nav__link">
+    <span class="md-ellipsis">
+      终止策略
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#更好的-local-定义" class="md-nav__link">
+    <span class="md-ellipsis">
+      更好的 local 定义？
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discussion-maximum-bipartite-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discussion: Maximum Bipartite Matching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hw12" class="md-nav__link">
+    <span class="md-ellipsis">
+      HW12
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HW12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flpfacility-location-problem-center-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      FLP(Facility Location Problem) - center problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partition-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partition Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sat-and-n-queen-in-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      SAT and N-Queen in approximation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ex12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ex12
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ex12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#判断题" class="md-nav__link">
+    <span class="md-ellipsis">
+      判断题
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimum-degree-spanning-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minimum Degree Spanning Tree
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minimum Degree Spanning Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#facility-location-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Facility Location Problem
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Q13
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/edit/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 12 Local Search.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/raw/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 12 Local Search.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>12 Local Search</h1>
+
+<h2 id="intro">Intro<a class="headerlink" href="#intro" title="Locate to heading">#</a></h2>
+<ul>
+<li>Guess</li>
+<li>Neighborhood</li>
+<li>Global Minimum</li>
+</ul>
+<h3 id="framework">Framework<a class="headerlink" href="#framework" title="Locate to heading">#</a></h3>
+<ul>
+<li>Local<ul>
+<li>定义邻域</li>
+<li>局部最优解 local optimum</li>
+</ul>
+</li>
+<li>Search<ul>
+<li>初始猜测解，search for a better one</li>
+</ul>
+</li>
+</ul>
+<h3 id="neighbor-relation">Neighbor Relation<a class="headerlink" href="#neighbor-relation" title="Locate to heading">#</a></h3>
+<ul>
+<li><strong>邻居解</strong> <span class="arithmatex">\(S\sim S'\)</span>: <span class="arithmatex">\(S'\)</span> is a <em>neighboring solution</em> of <span class="arithmatex">\(S-S'\)</span> can be obtained by a <em>samll modification</em> of S.</li>
+<li><strong>邻域</strong> <span class="arithmatex">\(N(S)\)</span>: <em>neighborhood</em> of <span class="arithmatex">\(S-\{S':S\sim S'\}\)</span></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Greedy Algorithm 不是 Local Search 的一种特殊情况</p>
+</div>
+<h2 id="vertex-cover-problem">Vertex Cover Problem<a class="headerlink" href="#vertex-cover-problem" title="Locate to heading">#</a></h2>
+<ul>
+<li>可行解 <span class="arithmatex">\(FS\)</span>: all vertex covers</li>
+<li>cost = <span class="arithmatex">\(|S|\)</span></li>
+<li><strong>梯度下降法</strong>：每次看看删除一个点是否可行，操作不可撤销</li>
+</ul>
+<h3 id="metropolis-algorithm">Metropolis Algorithm<a class="headerlink" href="#metropolis-algorithm" title="Locate to heading">#</a></h3>
+<ul>
+<li>如果新的 cost 更好，则更新</li>
+<li>如果新的 cost 更坏，则按照 <span class="arithmatex">\(e^{-\Delta \text{cost}/(kT)}\)</span> 的概率更新</li>
+<li>如何执行和返回<ul>
+<li>固定迭代 10000 次</li>
+<li>动态调整 <span class="arithmatex">\(T\)</span> 的大小 <em>模拟退火</em></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">补充：二分图上的顶点覆盖和匹配问题</p>
+<ul>
+<li>匹配问题：找到最大的边的子集，其中任意两边没有共同顶点</li>
+<li>柯尼希定理：二分图中的<em>最大匹配边数</em>等于<em>最小顶点覆盖</em>顶点数</li>
+</ul>
+</div>
+<h2 id="hopfield-neural-networks">Hopfield Neural Networks<a class="headerlink" href="#hopfield-neural-networks" title="Locate to heading">#</a></h2>
+<p><img alt="__assets/ADS 12 Local Search.md/IMG-ADS 12 Local Search-20241125150840662.png" src="__assets/ADS%2012%20Local%20Search.md/IMG-ADS%2012%20Local%20Search-20241125150840662.png" /></p>
+<h3 id="intro_1">Intro<a class="headerlink" href="#intro_1" title="Locate to heading">#</a></h3>
+<ul>
+<li>目标是找到一种足够好的布局 (configuration)<ul>
+<li>如果一条边能使 <span class="arithmatex">\(w_{e}s_{u}s_{v}&lt;0\)</span>，则为 <strong>good</strong>，反之 <strong>bad</strong></li>
+<li>如果一个顶点能满足 <span class="arithmatex">\(\sum_{v:e=(u,v)\in E}w_{e}s_{u}s_{v}\leq 0\)</span>，也就是所有关联边的权重和 <span class="arithmatex">\(&lt;=0\)</span>，则称为<strong>满意点</strong>(satisfied)</li>
+<li>如果一张图所有点都是满意点，那么这个 configuration 是 stable 的</li>
+</ul>
+</li>
+</ul>
+<h3 id="state-flipping-algorithm">State-flipping Algorithm<a class="headerlink" href="#state-flipping-algorithm" title="Locate to heading">#</a></h3>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span>
+<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">ConfigType</span><span class="w"> </span><span class="nf">State_flipping</span><span class="p">()</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="n">Start</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">arbitrary</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">S</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">IsStable</span><span class="p">(</span><span class="n">S</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetUnsatisfied</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="n">state</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">state</span><span class="p">[</span><span class="n">u</span><span class="p">];</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">S</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition abstract">
+<p class="admonition-title">算法操作</p>
+<ul>
+<li>如果 unstable，找到 unsatisfied vertex 并翻转其状态，将其变为 satisfied</li>
+</ul>
+</div>
+<ul>
+<li>The state-flipping algorithm terminates at a stable config after <strong>at most</strong> <span class="arithmatex">\(W=\sum_{e}|w_{e}|\)</span> 一定会在所有边权重和的绝对值次循环前停止</li>
+<li>通俗理解：一定会停止，因为每次的操作一定带来优化。</li>
+</ul>
+<h2 id="maximum-cut">Maximum Cut<a class="headerlink" href="#maximum-cut" title="Locate to heading">#</a></h2>
+<blockquote>
+<p>最大化两个顶点集 <span class="arithmatex">\(A,B\)</span> 之间所有边的权重和</p>
+</blockquote>
+<h3 id="2-approx">2-approx<a class="headerlink" href="#2-approx" title="Locate to heading">#</a></h3>
+<ul>
+<li>局部最优解能够达到 <span class="arithmatex">\(w(A,B)\geq \frac{1}{2}w(A^*,B^*)\)</span></li>
+<li>证明的关键在于子集内的距离和 <span class="arithmatex">\(2\sum_{\{u,n\}\subseteq A}w_{uv}&lt;w(A,B)\)</span></li>
+<li>所以 <strong>2-approx</strong></li>
+</ul>
+<h3 id="相关研究">相关研究<a class="headerlink" href="#相关研究" title="Locate to heading">#</a></h3>
+<ul>
+<li>存在一种 <strong>1.1382-approx</strong> 算法</li>
+<li>如果 <span class="arithmatex">\(\text{P}=\text{NP}\)</span>，那么存在一种 <span class="arithmatex">\(\frac{17}{16}\)</span>-approx 算法</li>
+</ul>
+<h3 id="终止策略">终止策略<a class="headerlink" href="#终止策略" title="Locate to heading">#</a></h3>
+<ul>
+<li><strong>大提升翻转 (big-improvement-flip)</strong>: 如果找不到一个能达到 <span class="arithmatex">\(\frac{2\varepsilon}{|V|}w(A,B)\)</span> 提升的翻转，就终止</li>
+<li>终止的时候，满足 <span class="arithmatex">\((2+\varepsilon) w(A,B)\geq w(A^*,B^*)\)</span></li>
+<li>最多在 <span class="arithmatex">\(O(\frac{n}{\varepsilon}\log W)\)</span> 后终止</li>
+</ul>
+<h3 id="更好的-local-定义">更好的 local 定义？<a class="headerlink" href="#更好的-local-定义" title="Locate to heading">#</a></h3>
+<ul>
+<li>解的邻域足够大，避免陷入局部最优</li>
+<li>也不能太大，否则效率更低</li>
+<li><strong>k-flip</strong>: 启发式算法，时间复杂度 <span class="arithmatex">\(\Theta(n^k)\)</span><ol>
+<li>第一步，对整个顶点集使用 state-flip</li>
+<li>后面每一步，只对尚未 flip 过的顶点进行翻转</li>
+<li>第 <span class="arithmatex">\(n\)</span> 步，得到 <span class="arithmatex">\((A_{n},B_{n})=(A,B)\)</span></li>
+</ol>
+</li>
+</ul>
+<h2 id="discussion-maximum-bipartite-matching">Discussion: Maximum Bipartite Matching<a class="headerlink" href="#discussion-maximum-bipartite-matching" title="Locate to heading">#</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>A bipartite graph <span class="arithmatex">\(G\)</span> is one whose vertex set can be partitioned into two sets <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>, such that each edge in the graph goes between a vertex in <span class="arithmatex">\(A\)</span> and a vertex in <span class="arithmatex">\(B\)</span>. Matching <span class="arithmatex">\(M\)</span> in <span class="arithmatex">\(G\)</span> is a set of edges that have no end points in common. Maximum Bipartite Matching Problem finds a matching with the greatest number of edges (over all matchings).</p>
+<p>Consider the following <strong>Gradient Ascent Algorithm</strong>:</p>
+<p><em>As long as there is an edge whose endpoints are unmatched, add it to the current matching. When there is no longer such an edge, terminate with a locally optimal.</em></p>
+<p>(a) Give an example of a bipartite graph <span class="arithmatex">\(G\)</span> for which this gradient ascent algorithm does <strong>not</strong> return the maximum matching.</p>
+<p>(b) Let <span class="arithmatex">\(M\)</span> and <span class="arithmatex">\(M'\)</span> be matchings in a bipartite graph <span class="arithmatex">\(G\)</span>. Suppose that <span class="arithmatex">\(|M'|&gt;2|M|\)</span>. Show that there is an edge <span class="arithmatex">\(e'\)</span> in <span class="arithmatex">\(M'\)</span> such that (<span class="arithmatex">\(M \cup e'\)</span>) is a matching in <span class="arithmatex">\(G\)</span>.</p>
+<p>&copy; Use (b) to conclude that any locally optimal matching returned by the gradient ascent algorithm in a bipartite graph <span class="arithmatex">\(G\)</span> is at least half as large as a maximum matching in <span class="arithmatex">\(G\)</span>.</p>
+</div>
+<p>(a) Graph <span class="arithmatex">\(A-B-C-D\)</span>, which can be partitioned into <span class="arithmatex">\(\{A,C\}\)</span> and <span class="arithmatex">\(\{B,D\}\)</span>. The optimal result is <span class="arithmatex">\(\{(A,B),(C,D)\}\)</span>, while if edge <span class="arithmatex">\((B,C)\)</span> is added first, the algorithm <strong>does not</strong> return the maximum matching.</p>
+<p>(b) <span class="arithmatex">\(2|M|\)</span> vertices <span class="arithmatex">\(S_M\)</span> are matched in <span class="arithmatex">\(M\)</span>, since <span class="arithmatex">\(|M'|&gt;2|M|\)</span>, there exist an edge <span class="arithmatex">\(e'\)</span> that are not incident with any vertex in <span class="arithmatex">\(S_M\)</span>. Then <span class="arithmatex">\(M \cup e'\)</span> is a matching in <span class="arithmatex">\(G\)</span>.</p>
+<p>&copy; Suppose <span class="arithmatex">\(M^*\)</span> is the maximum matching, <span class="arithmatex">\(M\)</span> is the current solution generated by Gradient Ascent Algorithm. If <span class="arithmatex">\(|M|&lt;\frac{1}{2}|M^*|\)</span>, by (b), there exists an <span class="arithmatex">\(e'\)</span> that can be added to <span class="arithmatex">\(M\)</span>. Thus, the algorithm must return a <span class="arithmatex">\(M\)</span> such that <span class="arithmatex">\(|M|\geq |M'|\)</span>.</p>
+<h2 id="questions">Questions<a class="headerlink" href="#questions" title="Locate to heading">#</a></h2>
+<h3 id="hw12">HW12<a class="headerlink" href="#hw12" title="Locate to heading">#</a></h3>
+<h4 id="flpfacility-location-problem-center-problem">FLP(Facility Location Problem) - center problem<a class="headerlink" href="#flpfacility-location-problem-center-problem" title="Locate to heading">#</a></h4>
+<p>We are given a set of sites <span class="arithmatex">\(S = \{s_1, s_2, \cdots, s_n\}\)</span> in the plane, and we want to choose a set of <span class="arithmatex">\(k\)</span> centers <span class="arithmatex">\(C = \{c_1, c_2, \cdots, c_k\}\)</span> so that the maximum distance from a site to the nearest center is minimized. Here <span class="arithmatex">\(c_i\)</span> can be an arbitrary point in the plane.</p>
+<p>A local search algorithm arbitrarily chooses <span class="arithmatex">\(k\)</span> points in the plane to be the centers, then</p>
+<ol>
+<li>divide <span class="arithmatex">\(S\)</span> into <span class="arithmatex">\(k\)</span> sets, where <span class="arithmatex">\(S_i\)</span> is the set of all sites for which <span class="arithmatex">\(c_i\)</span> is the nearest center; and</li>
+<li>for each <span class="arithmatex">\(S_i\)</span>, compute the central position as a new center for all the sites in <span class="arithmatex">\(S_i\)</span>.</li>
+</ol>
+<p>If steps (1) and (2) cause the covering radius to strictly decrease, we perform another iteration, otherwise the algorithm stops.</p>
+<p>When the above local search algorithm terminates, the covering radius of its solution is at most 2 times the optimal covering radius. (T/F)</p>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>F</strong>，存在例外，参考 <a href="https://zhoutimemachine.github.io/note/courses/ads-hw-review/#hw12">Homework - Jianjun Zhou's Notebook</a>
+可以构造无限差的情况，如果有四个点排成长方形，长边接近无限长，短边比较长，若 <span class="arithmatex">\(k=2\)</span>，初始选择了长边的端点，那么近似比可以是无限大</p>
+</details>
+<h4 id="partition-problem">Partition Problem<a class="headerlink" href="#partition-problem" title="Locate to heading">#</a></h4>
+<p>There are <span class="arithmatex">\(n\)</span> jobs, and each job <span class="arithmatex">\(j\)</span> has a processing time <span class="arithmatex">\(t_j\)</span>​. We will use a local search algorithm to partition the jobs into two groups <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(B\)</span>, where set <span class="arithmatex">\(A\)</span> is assigned to machine <span class="arithmatex">\(M_1\)</span>​ and set <span class="arithmatex">\(B\)</span> to <span class="arithmatex">\(M_2\)</span>​. The time needed to process all of the jobs on the two machines is <span class="arithmatex">\(T_1​=\sum_{j\in A} ​t_j\)</span>​, <span class="arithmatex">\(T_2​=\sum_{j \in B} ​t_j\)</span>​. The problem is to minimize <span class="arithmatex">\(|T_1​−T_2​|\)</span>.</p>
+<p>Local search: Start by assigning jobs <span class="arithmatex">\(1,\cdots,n/2\)</span> to <span class="arithmatex">\(M_1\)</span>​, and the rest to <span class="arithmatex">\(M_2\)</span>​.<br />
+The local moves are to move a single job from one machine to the other, and we only move a job if the move decreases the absolute difference in the processing times. Which of the following statement is true?</p>
+<p>A. The problem is NP-hard and the local search algorithm will not terminate.
+B. When there are many candidate jobs that can be moved to reduce the absolute difference, if we always move the job <span class="arithmatex">\(j\)</span> with maximum <span class="arithmatex">\(t_j\)</span>​, then the local search terminates in at most <span class="arithmatex">\(n\)</span> moves.
+C. The local search algorithm always returns an optimal solution.
+D. The local search algorithm always returns a local solution with <span class="arithmatex">\(2/1​T_1​\le T_2​\le 2T_1\)</span>​.</p>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>B</strong>
+A. 错误，由于进行操作一定会导致 cost 降低，一定会停止<br>
+B. 正确，之前移动的之后都不可能再次移动<br>
+C. 明显错误<br>
+D. 如果只有两个 job，就可以不对<br></p>
+</details>
+<h4 id="sat-and-n-queen-in-approximation">SAT and N-Queen in approximation<a class="headerlink" href="#sat-and-n-queen-in-approximation" title="Locate to heading">#</a></h4>
+<p>Local search algorithm can be used to solve lots of classic problems, such as SAT and <span class="arithmatex">\(N\)</span>-Queen problems. Define the configuration of SAT to be <span class="arithmatex">\(X =\)</span> vector of assignments of <span class="arithmatex">\(N\)</span> boolean variables, and that of <span class="arithmatex">\(N\)</span>-Queen to be <span class="arithmatex">\(Y =\)</span> positions of the <span class="arithmatex">\(N\)</span> queens in each column. The sizes of the search spaces of SAT and <span class="arithmatex">\(N\)</span>-Queen are O(<span class="arithmatex">\(2^N\)</span>) and O(<span class="arithmatex">\(N^N\)</span>), respectively.</p>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>T</strong>，虽然 <span class="arithmatex">\(N\)</span>-Queen 实际上不用搜索这么大的空间，但是表述成 <span class="arithmatex">\(O(N^N)\)</span> 是没有任何问题的</p>
+</details>
+<h3 id="ex12">Ex12<a class="headerlink" href="#ex12" title="Locate to heading">#</a></h3>
+<h4 id="判断题">判断题<a class="headerlink" href="#判断题" title="Locate to heading">#</a></h4>
+<ol>
+<li>For an optimization problem, given a neighborhood, if its local optimum is also a global optimum, one can reach an optimal solution with just one step of local improvements.</li>
+</ol>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>F</strong>，这里的 local improvement 指的是一个状态改变，但是 neighborhood 的步长可能大于 1</p>
+</details>
+<ol>
+<li>Consider a state-flipping algorithm for the Maximum-Cut problem. We say that partitions (A,B) and (A′,B′) are neighbors under the k-flip rule if (A′,B′) can be obtained from (A,B) by moving at most k nodes from one side of the partition to the other. If (A,B) is a local optimum under the p-flip rule, it is also a local optimum under the k-flip rule for every k&lt;p.</li>
+</ol>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>T</strong>，这里虽然可能最终得到的解不一样，但是对于第 <span class="arithmatex">\(k\)</span> 次 flip 来说是一样的，因为第 <span class="arithmatex">\(k\)</span> 次 flip 只关注一个状态</p>
+</details>
+<ol>
+<li>Without any assumptions on the distances, if P <span class="arithmatex">\(\neq\)</span> NP, there is no ρ-approximation for TSP (Travelling Salesman Problem) for any ρ≥1.</li>
+</ol>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>T</strong>，这里的 assumptions 指的是图论距离可能不满足现实的几何关系，例如不满足三角不等式。
+如果没有这样的 assumptions，TSP 的近似算法可以任意差，例如构建非常长的一条边
+但如果满足了三角不等式，那么存在很多种 <span class="arithmatex">\(\rho\)</span>-approx 算法，例如 Christofides 算法就是 1.5-approx 的.</p>
+</details>
+<h3 id="minimum-degree-spanning-tree">Minimum Degree Spanning Tree<a class="headerlink" href="#minimum-degree-spanning-tree" title="Locate to heading">#</a></h3>
+<p><img alt="__assets/ADS 12 Local Search.md/IMG-ADS 12 Local Search-20241223103933667.png" src="__assets/ADS%2012%20Local%20Search.md/IMG-ADS%2012%20Local%20Search-20241223103933667.png" /></p>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>D</strong>
+A 显然错误，无环图的 degree 总和是 <span class="arithmatex">\(2|V|-2\)</span>
+B 也有问题，进行一次操作后，删除的边 <span class="arithmatex">\(-(\geq d(w))\)</span>，但是增加了一条 <span class="arithmatex">\(d(u)+1\)</span> 的边（假设 <span class="arithmatex">\(d(u)&gt;d(v)\)</span>），并且还有两条边可能 <span class="arithmatex">\(+2\)</span>，无法保证递减
+C 有问题，对于操作中的 <span class="arithmatex">\(u,v,w\)</span> 是满足的，实现了 <span class="arithmatex">\(-1\)</span>，但是可能导致其他很多点对的值变大
+ D 正确，进行一次操作，考虑 <span class="arithmatex">\(w\)</span> 减少 <span class="arithmatex">\(-(\geq 2 \cdot 3^{d(w)-1})\)</span>，考虑 <span class="arithmatex">\(u,v\)</span> 增加 <span class="arithmatex">\((2\cdot 3^{d(u)}+2\cdot 3^{d(v)})\)</span>。假设 <span class="arithmatex">\(d(u)\geq d(v)\)</span>，存在 <span class="arithmatex">\(d(w)-1\geq d(u)+1\)</span>，所以整体递减，满足题意</p>
+</details>
+<h4 id="load-balancing-problem">Load Balancing Problem<a class="headerlink" href="#load-balancing-problem" title="Locate to heading">#</a></h4>
+<p><img alt="__assets/ADS 12 Local Search.md/IMG-ADS 12 Local Search-20241223103954502.png" src="__assets/ADS%2012%20Local%20Search.md/IMG-ADS%2012%20Local%20Search-20241223103954502.png" /></p>
+<details class="tip">
+<summary>Answer</summary>
+<ol>
+<li>显然正确</li>
+<li>显然正确，因为如果是两台机器，就变成了 partition 问题</li>
+<li>不正确，对于 makespan 问题，如果有 <span class="arithmatex">\(m\)</span> 台机器，简单贪心可以达到 <span class="arithmatex">\(2-\frac{1}{m}\)</span> 的近似比</li>
+<li>显然正确</li>
+</ol>
+</details>
+<h4 id="facility-location-problem">Facility Location Problem<a class="headerlink" href="#facility-location-problem" title="Locate to heading">#</a></h4>
+<p><img alt="__assets/ADS 12 Local Search.md/IMG-ADS 12 Local Search-20241223104337745.png" src="__assets/ADS%2012%20Local%20Search.md/IMG-ADS%2012%20Local%20Search-20241223104337745.png" /></p>
+<details class="tip">
+<summary>Answer</summary>
+</details>
+<h3 id="q13">Q13<a class="headerlink" href="#q13" title="Locate to heading">#</a></h3>
+<p>Since finding a locally optimal solution is presumably easier than finding an optimal solution, we can claim that for any local search algorithm, one step of searching in neighborhoods can always be done in polynomial time.</p>
+<details class="tip">
+<summary>Answer</summary>
+<p><strong>F</strong>，显然有些 local search 在 neighbor 空间里的搜索也可以是指数级的（例如 TSP 的一些局部 permute 搜索）</p>
+<blockquote>
+<p>关键在于不能和 divide and conquer 中的<strong>假设子问题的时间复杂度为常数</strong>搞混了</p>
+</blockquote>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="ADS%2011%20Approximation.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 11 Approximation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                11 Approximation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="ADS%2013%20Randomized%20Algorithms.html" class="md-footer__link md-footer__link--next" aria-label="Next: 13 Randomized Algorithms">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                13 Randomized Algorithms
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 EmergentTwilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/EmergentTwilight" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:emergentshores@outlook.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../__srcs/javascript/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../__srcs/javascript/toc.js"></script>
+      
+    
+  </body>
+</html>
