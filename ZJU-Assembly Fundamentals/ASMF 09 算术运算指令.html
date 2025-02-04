@@ -1,0 +1,2588 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Emergent Space">
+      
+      
+        <meta name="author" content="Emergent Twilight">
+      
+      
+        <link rel="canonical" href="https://emergenttwilight.github.io/Emergent-Space/ZJU-Assembly%20Fundamentals/ASMF%2009%20%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4.html">
+      
+      
+        <link rel="prev" href="ASMF%2008%20%E8%BD%AC%E6%8D%A2%E6%8C%87%E4%BB%A4.html">
+      
+      
+        <link rel="next" href="ASMF%2010%20%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E5%92%8C%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4.html">
+      
+      
+      <link rel="icon" href="../__srcs/images/logo-E.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>09 算术运算指令 - Emergent Space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/banner.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/right-sidebar.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/left-sidebar.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/content.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-算术运算指令格式以加法为例" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Emergent Space" class="md-header__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/images/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Emergent Space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              09 算术运算指令
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  ZJU
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Emergent Space" class="md-nav__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/images/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    Emergent Space
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ZJU
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Fundamentals of Data Structures
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-HPC101/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    HPC101
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-Advanced%20Data%20Structure%20%26%20Algorithm%20Analysis/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Advanced Data Structure & Algorithm Analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    汇编语言程序设计基础
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            汇编语言程序设计基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2001%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 数据类型和变量
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2002%20%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E6%BA%90%E7%A8%8B%E5%BA%8F%E6%A0%BC%E5%BC%8F.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 汇编语言源程序格式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2003%20%E5%86%85%E5%AD%98%E4%B8%8E%E5%AF%BB%E5%9D%80.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03 内存与寻址
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2004%20%E5%AF%84%E5%AD%98%E5%99%A8.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 寄存器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2005%20%E6%AE%B5%E5%92%8C%E5%A0%86%E6%A0%88.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 段和堆栈
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2006%20%E4%B8%AD%E6%96%AD%E5%92%8C%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06 中断和函数调用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2007%20%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 数据传送指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2008%20%E8%BD%AC%E6%8D%A2%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 转换指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    09 算术运算指令
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ASMF%2009%20%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    09 算术运算指令
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-算术运算指令格式以加法为例" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 算术运算指令格式（以加法为例）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 算术运算指令格式（以加法为例）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-add-reg-reg" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 add reg, reg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-add-var-constant" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 add var, constant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-不存在-add-var-var" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 不存在 add var, var
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 不存在 add var, var">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-编译器如何处理变量相加" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1 编译器如何处理变量相加
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-加法和减法" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 加法和减法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 加法和减法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-inc-自增" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 inc 自增
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-adc-带进位加法" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 adc 带进位加法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 adc 带进位加法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-用-adc-实现更大的加法" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 用 adc 实现更大的加法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-sbb-带借位减法-subtract-with-borrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 sbb 带借位减法 (subtract with borrow)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-neg-相反数" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 neg 相反数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-cmp-减法比较" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 cmp 减法比较
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-乘法和除法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 乘法和除法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 乘法和除法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-mul-无符号乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 mul 无符号乘法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 mul 无符号乘法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-8-位乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 8 位乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-16-位乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.2 16 位乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-32-位乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.3 32 位乘法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-imul-符号数乘法指令" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 imul 符号数乘法指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-div-无符号数除法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 div 无符号数除法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 div 无符号数除法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-16-位除-8-位得-8-位" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 16 位除 8 位得 8 位
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-32-位除-16-位得-16-位" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 32 位除 16 位得 16 位
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-64-位除-32-位得-32-位" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 64 位除 32 位得 32 位
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-除法溢出" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.4 除法溢出
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335-example-二进制转十进制输出" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.5 Example: 二进制转十进制输出
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-idiv-符号数除法指令" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 idiv 符号数除法指令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-浮点数运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 浮点数运算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 浮点数运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-fp-指令" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 FP 指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-fp-寄存器" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 FP 寄存器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2010%20%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E5%92%8C%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 逻辑运算和移位指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2011%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11 字符串操作指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2012%20%E6%8E%A7%E5%88%B6%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12 控制转移指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%20Cheat%20Sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-算术运算指令格式以加法为例" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 算术运算指令格式（以加法为例）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 算术运算指令格式（以加法为例）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-add-reg-reg" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 add reg, reg
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-add-var-constant" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 add var, constant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-不存在-add-var-var" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 不存在 add var, var
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 不存在 add var, var">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-编译器如何处理变量相加" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1 编译器如何处理变量相加
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-加法和减法" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 加法和减法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 加法和减法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-inc-自增" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 inc 自增
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-adc-带进位加法" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 adc 带进位加法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 adc 带进位加法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-用-adc-实现更大的加法" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 用 adc 实现更大的加法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-sbb-带借位减法-subtract-with-borrow" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 sbb 带借位减法 (subtract with borrow)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-neg-相反数" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 neg 相反数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-cmp-减法比较" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 cmp 减法比较
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-乘法和除法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 乘法和除法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 乘法和除法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-mul-无符号乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 mul 无符号乘法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 mul 无符号乘法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-8-位乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.1 8 位乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-16-位乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.2 16 位乘法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-32-位乘法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1.3 32 位乘法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-imul-符号数乘法指令" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 imul 符号数乘法指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-div-无符号数除法" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 div 无符号数除法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 div 无符号数除法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-16-位除-8-位得-8-位" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1 16 位除 8 位得 8 位
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-32-位除-16-位得-16-位" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.2 32 位除 16 位得 16 位
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-64-位除-32-位得-32-位" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.3 64 位除 32 位得 32 位
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-除法溢出" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.4 除法溢出
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335-example-二进制转十进制输出" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.5 Example: 二进制转十进制输出
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-idiv-符号数除法指令" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 idiv 符号数除法指令
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-浮点数运算" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 浮点数运算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 浮点数运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-fp-指令" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 FP 指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-fp-寄存器" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 FP 寄存器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/edit/master/docs/ZJU-Assembly Fundamentals/ASMF 09 算术运算指令.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/raw/master/docs/ZJU-Assembly Fundamentals/ASMF 09 算术运算指令.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>09 算术运算指令</h1>
+
+<h2 id="1-算术运算指令格式以加法为例">1 算术运算指令格式（以加法为例）<a class="headerlink" href="#1-算术运算指令格式以加法为例" title="Locate to heading">#</a></h2>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">add 语句的几种用法</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">add</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">bx</span><span class="w">                       </span><span class="c1">; reg, reg </span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nf">add</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w">                        </span><span class="c1">; reg, constant</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nf">add</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">1000</span><span class="no">h</span><span class="p">]</span><span class="w">               </span><span class="c1">; reg, variable</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="nf">add</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">1000</span><span class="no">h</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="w">       </span><span class="c1">; varible, constant</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="nf">add</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">1000</span><span class="no">h</span><span class="p">],</span><span class="w"> </span><span class="no">ah</span><span class="w">               </span><span class="c1">; varible, reg</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="11-add-reg-reg">1.1 <code>add reg, reg</code><a class="headerlink" href="#11-add-reg-reg" title="Locate to heading">#</a></h3>
+<blockquote>
+<p>寄存器必须等宽！</p>
+</blockquote>
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nf">add</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">bh</span><span class="w">  </span><span class="c1">; wrong</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nf">add</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="no">bx</span><span class="w">  </span><span class="c1">; wrong</span>
+</span></code></pre></div></td></tr></table></div>
+<p>上面的加法中，使用的寄存器有 8 位和 16 位的，所以不能直接相加。</p>
+<div class="admonition example">
+<p class="admonition-title">Solution</p>
+<p>如果一定要相加，则必须将较短的进行扩展： 
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">bl</span><span class="p">,</span><span class="w"> </span><span class="no">bh</span><span class="w">  </span><span class="c1">; let bh = 12h, then bl = 12h</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">bh</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1">; bx = 0012h</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="nf">add</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">bx</span>
+</span></code></pre></div></td></tr></table></div></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">寄存器的关系</p>
+<p><code>mov eax, 12345678h</code>
+则 <code>ax=5678h</code>，<code>ah=56h</code>，<code>al=78h</code>，也就是</p>
+</div>
+<h3 id="12-add-var-constant">1.2 <code>add var, constant</code><a class="headerlink" href="#12-add-var-constant" title="Locate to heading">#</a></h3>
+<blockquote>
+<p>必须手动声明变量宽度！</p>
+</blockquote>
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nf">add</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">1000</span><span class="no">h</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>汇编语言中<strong>常数没有宽度</strong>。上面的例子中，编译器无法自动确定变量宽度，<strong>必须手动确定变量宽度</strong>为 <code>byte ptr</code></p>
+</div>
+<p>设 <code>ds=2000h</code>，且从地址 <code>2000h:1000h</code> 起存放了下面四个字节：</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>2000:1000 0FFh
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>2000:1001 0FFh
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>2000:1002 0FFh
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>2000:1003 0FFh
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>汇编语言中，由于使用后缀 <code>h</code> 来声明 16 进制数，当这个 16 进制数开头恰好是字母时，编译器无法识别这是一个变量还是一个数。<br>
+所以，<strong>增加一个前缀 <code>0</code></strong> 来说明这是一个数而不是一个变量。</p>
+</div>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">同一个地址可以指向宽度不同的对象</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nf">add</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">1000</span><span class="no">h</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1">; 此时指的是 0FFh，进行加一后变成了 00h</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="nf">add</span><span class="w"> </span><span class="no">word</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">1000</span><span class="no">h</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="c1">; 此时是 0FFFFh + 1 = 0000h</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="nf">add</span><span class="w"> </span><span class="no">dword</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">1000</span><span class="no">h</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="c1">; 此时是 0FFFFFFFFh + 1 = 00000000h</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="13-不存在-add-var-var">1.3 不存在 <code>add var, var</code><a class="headerlink" href="#13-不存在-add-var-var" title="Locate to heading">#</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">Hint</p>
+<p>由于 Intel CPU 的硬件限制，一个 step 中只能访问一个地址的内存，因此无法直接将两个 var 相加</p>
+</div>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">错误和对应的修正</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1">; wrong</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="nf">add</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">1000</span><span class="no">h</span><span class="p">],</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">2000</span><span class="no">h</span><span class="p">]</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1">; correct</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">2000</span><span class="no">h</span><span class="p">]</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="nf">add</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">1000</span><span class="no">h</span><span class="p">],</span><span class="w"> </span><span class="no">ah</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="131-编译器如何处理变量相加">1.3.1 编译器如何处理变量相加<a class="headerlink" href="#131-编译器如何处理变量相加" title="Locate to heading">#</a></h4>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">visual c++ 无优化</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="err">00401028</span><span class="w">    </span><span class="nf">mov</span><span class="w">        </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">00424</span><span class="no">a30</span><span class="p">]</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="err">0040102</span><span class="nf">D</span><span class="w">    </span><span class="no">add</span><span class="w">        </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">dword</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="p">[</span><span class="mi">00424</span><span class="no">a34</span><span class="p">]</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="err">00401033</span><span class="w">    </span><span class="nf">mov</span><span class="w">        </span><span class="p">[</span><span class="mi">00424</span><span class="no">a30</span><span class="p">],</span><span class="w"> </span><span class="no">eax</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>上述的汇编语言其实可以压缩到两步</li>
+<li><code>[00424a30]</code> 这里相当于省略了 <code>ds:</code></li>
+</ul>
+</div>
+<h2 id="2-加法和减法">2 加法和减法<a class="headerlink" href="#2-加法和减法" title="Locate to heading">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>加法指令</th>
+<th><code>add</code></th>
+<th><code>inc</code></th>
+<th><code>adc</code></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>含义</td>
+<td>加法</td>
+<td>自增</td>
+<td>带进位加法</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>备注</td>
+<td></td>
+<td>不影响 <code>CF</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>减法指令</td>
+<td><code>sub</code></td>
+<td><code>dec</code></td>
+<td><code>sbb</code></td>
+<td><code>neg</code></td>
+<td><code>cmp</code></td>
+</tr>
+<tr>
+<td>含义</td>
+<td>减法</td>
+<td>自减</td>
+<td>带借位减法</td>
+<td>符号相反数</td>
+<td>减法比较</td>
+</tr>
+<tr>
+<td>备注</td>
+<td></td>
+<td>不影响 <code>CF</code></td>
+<td></td>
+<td>相当于普通减法</td>
+<td>不保存计算结果结果</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>乘除法的语法比较复杂，本次课不会涉及</p>
+</blockquote>
+<h3 id="21-inc-自增">2.1 <code>inc</code> 自增<a class="headerlink" href="#21-inc-自增" title="Locate to heading">#</a></h3>
+<ul>
+<li>比 <code>add ax, 1</code> 机器码更短，执行速度更快</li>
+<li><strong>不会导致 <code>CF</code> 的改变</strong>，但是会影响别的标志位</li>
+</ul>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">更短的代码</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="nl">again:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">cx</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="nf">jc</span><span class="w"> </span><span class="no">done</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">cx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="nf">jmp</span><span class="w"> </span><span class="no">again</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="nl">done:</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="nl">again:</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">cx</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="hll"><span class="w">    </span><span class="nf">inc</span><span class="w"> </span><span class="no">cx</span>
+</span></span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="hll"><span class="w">    </span><span class="nf">jnc</span><span class="w"> </span><span class="no">again</span>
+</span></span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="nl">done:</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>上面的代码中，先使用 <code>inc cx</code> 对下一次循环做准备，然后再进行跳转判断，减少了跳转语句</li>
+</ul>
+<blockquote>
+<p><code>dec</code> 同理</p>
+</blockquote>
+<h3 id="22-adc-带进位加法">2.2 <code>adc</code> 带进位加法<a class="headerlink" href="#22-adc-带进位加法" title="Locate to heading">#</a></h3>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">不使用 32 位寄存器完成大数加法 12345678h+5678FFFFh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="mi">1234</span><span class="no">h</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">5678</span><span class="no">h</span><span class="w">  </span><span class="c1">; dx:ax</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nf">add</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">FFFFh</span><span class="w">  </span><span class="c1">; CF=1</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="nf">adc</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="mi">5678</span><span class="no">h</span><span class="w">  </span><span class="c1">; dx + 5678h + CF</span>
+</span></code></pre></div></td></tr></table></div>
+<blockquote>
+<p><code>adc a, b ==&gt; a = a + b + CF</code></p>
+</blockquote>
+<h4 id="221-用-adc-实现更大的加法">2.2.1 用 <code>adc</code> 实现更大的加法<a class="headerlink" href="#221-用-adc-实现更大的加法" title="Locate to heading">#</a></h4>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">使用数组表示的大数加法</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="nf">x</span><span class="w"> </span><span class="no">db</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="no">dup</span><span class="p">(</span><span class="mi">88</span><span class="no">h</span><span class="p">)</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nf">y</span><span class="w"> </span><span class="no">db</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="no">dup</span><span class="p">(</span><span class="mi">89</span><span class="no">h</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="nf">z</span><span class="w"> </span><span class="no">db</span><span class="w"> </span><span class="mi">101</span><span class="w"> </span><span class="no">dup</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="nl">main:</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">cx</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">si</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">x</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">di</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">y</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">z</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">    </span><span class="nf">clc</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="nl">again:</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">si</span><span class="p">]</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">    </span><span class="nf">adc</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">di</span><span class="p">]</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="p">[</span><span class="no">bx</span><span class="p">],</span><span class="w"> </span><span class="no">al</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">    </span><span class="nf">inc</span><span class="w"> </span><span class="no">si</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">    </span><span class="nf">inc</span><span class="w"> </span><span class="no">di</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">    </span><span class="nf">inc</span><span class="w"> </span><span class="no">bx</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">    </span><span class="nf">dec</span><span class="w"> </span><span class="no">cx</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="w">    </span><span class="nf">jnz</span><span class="w"> </span><span class="no">again</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>每次都直接使用 <code>adc</code>，类似<strong>接力</strong>的方法</li>
+</ul>
+<h3 id="23-sbb-带借位减法-subtract-with-borrow">2.3 <code>sbb</code> 带借位减法 (subtract with borrow)<a class="headerlink" href="#23-sbb-带借位减法-subtract-with-borrow" title="Locate to heading">#</a></h3>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">sbb: 56781234h-1111FFFFh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">1234</span><span class="no">h</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="nf">sub</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">FFFFh</span><span class="w">  </span><span class="c1">; CF=1</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="nf">mov</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="mi">5678</span><span class="no">h</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="nf">sbb</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="mi">1111</span><span class="no">h</span><span class="w">  </span><span class="c1">; DX=5678h-1111h-CF</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li><code>sbb a, b ==&gt; a = a - b - CF</code></li>
+<li>运算时应该先算低位产生借位，然后再用 <code>sbb</code> 得到高位考虑借位的结果</li>
+</ul>
+<h3 id="24-neg-相反数">2.4 <code>neg</code> 相反数<a class="headerlink" href="#24-neg-相反数" title="Locate to heading">#</a></h3>
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nf">neg</span><span class="w"> </span><span class="no">ax</span><span class="w">  </span><span class="c1">; ax = 0 - ax</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="c1">; neg ax = ~ax + 1</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>应当当作普通的减法指令来看待，<strong>会影响标志位</strong></p>
+</div>
+<h3 id="25-cmp-减法比较">2.5 <code>cmp</code> 减法比较<a class="headerlink" href="#25-cmp-减法比较" title="Locate to heading">#</a></h3>
+<blockquote>
+<p><code>cmp</code> 和 <code>sub</code> 的区别在于，进行了减法，保留了<strong>对标志位的影响</strong>，但是丢弃了结果</p>
+</blockquote>
+<ul>
+<li><code>jg, jl, jge, jle</code> 是<strong>有符号数</strong>比较相关跳转指令<ul>
+<li><code>jg: SF==OF &amp;&amp; ZF==0</code></li>
+<li><code>jge: SF==OF</code></li>
+<li><code>jl: SF!=OF</code></li>
+<li><code>jle: SF!=OF || ZF==1</code></li>
+</ul>
+</li>
+<li><code>ja, jb, jae, jbe</code> 是<strong>无符号数</strong>比较相关跳转指令<ul>
+<li><code>jb: CF=1</code> (jump if below)</li>
+<li><code>ja: CF=0 &amp; ZF=0</code> (jump if above)</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">FFh</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">01</span><span class="no">h</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="nf">cmp</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="no">al</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="nf">ja</span><span class="w"> </span><span class="no">jump1</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="nf">jg</span><span class="w"> </span><span class="no">jump2</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>上述 <code>ah</code> 是有符号数 <code>-1</code>，所以 <code>ja</code> 会跳转而 <code>jg</code> 不会跳转</li>
+</ul>
+</div>
+<h2 id="3-乘法和除法">3 乘法和除法<a class="headerlink" href="#3-乘法和除法" title="Locate to heading">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th><code>mul</code></th>
+<th><code>imul</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>含义</td>
+<td>无符号乘法</td>
+<td>符号数乘法</td>
+</tr>
+<tr>
+<td>指令</td>
+<td><code>div</code></td>
+<td><code>idiv</code></td>
+</tr>
+<tr>
+<td>含义</td>
+<td>无符号整除</td>
+<td>符号数除法</td>
+</tr>
+</tbody>
+</table>
+<h3 id="31-mul-无符号乘法">3.1 <code>mul</code> 无符号乘法<a class="headerlink" href="#31-mul-无符号乘法" title="Locate to heading">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>位宽</th>
+<th><code>8 * 8 -&gt; 16</code></th>
+<th><code>16 * 16 -&gt; 32</code></th>
+<th><code>32 * 32 -&gt; 64</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>指令</td>
+<td><code>mul src(r/m[8])</code></td>
+<td><code>mul src(r/m[16])</code></td>
+<td><code>mul src(r/m[32])</code></td>
+</tr>
+<tr>
+<td>隐含被乘数</td>
+<td><code>AL</code></td>
+<td><code>AX</code></td>
+<td><code>EAX</code></td>
+</tr>
+<tr>
+<td>含义</td>
+<td><code>AX = AL * SRC</code></td>
+<td><code>DX:AX = AX * SRC</code></td>
+<td><code>EDX:EAX = EAX * SRC</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="311-8-位乘法">3.1.1 8 位乘法<a class="headerlink" href="#311-8-位乘法" title="Locate to heading">#</a></h4>
+<ul>
+<li>另一个乘数一定是 AL</li>
+<li>乘积一定是 AX</li>
+</ul>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">8-bit mul example</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="no">h</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">bl</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="no">h</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="nf">mul</span><span class="w"> </span><span class="no">bl</span><span class="c1">;  AX=AL*BL=0120h</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="312-16-位乘法">3.1.2 16 位乘法<a class="headerlink" href="#312-16-位乘法" title="Locate to heading">#</a></h4>
+<ul>
+<li>被乘数一定是 AX</li>
+<li>乘积一定是 DX:AX</li>
+</ul>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">16-bit mul example</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">1234</span><span class="no">h</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="no">h</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="nf">mul</span><span class="w"> </span><span class="no">bx</span><span class="w">  </span><span class="c1">; dx=0012h, ax=3400h</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="313-32-位乘法">3.1.3 32 位乘法<a class="headerlink" href="#313-32-位乘法" title="Locate to heading">#</a></h4>
+<ul>
+<li>被乘数一定是 EAX</li>
+<li>乘积一定是 EDX:EAX</li>
+</ul>
+<p><code>mul ebx  ; edx:eax=eax*ebx</code></p>
+<h5 id="3131-example-十进制数字符串转-int32">3.1.3.1 Example: 十进制数字符串转 int32<a class="headerlink" href="#3131-example-十进制数字符串转-int32" title="Locate to heading">#</a></h5>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">dec2int32</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span>
+<span class="normal"><a href="#__codelineno-17-20">20</a></span>
+<span class="normal"><a href="#__codelineno-17-21">21</a></span>
+<span class="normal"><a href="#__codelineno-17-22">22</a></span>
+<span class="normal"><a href="#__codelineno-17-23">23</a></span>
+<span class="normal"><a href="#__codelineno-17-24">24</a></span>
+<span class="normal"><a href="#__codelineno-17-25">25</a></span>
+<span class="normal"><a href="#__codelineno-17-26">26</a></span>
+<span class="normal"><a href="#__codelineno-17-27">27</a></span>
+<span class="normal"><a href="#__codelineno-17-28">28</a></span>
+<span class="normal"><a href="#__codelineno-17-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nf">.386</span><span class="w">  </span><span class="c1">; 启用 32 位寄存器</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="nf">data</span><span class="w"> </span><span class="no">segment</span><span class="w"> </span><span class="no">use16</span><span class="w">  </span><span class="c1">; 段内偏移地址都是用的 16 位</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="nf">s</span><span class="w"> </span><span class="no">db</span><span class="w"> </span><span class="err">&quot;</span><span class="mi">2147483647</span><span class="err">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1">; 7FFF FFFFh</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="nf">abc</span><span class="w"> </span><span class="no">dd</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nf">data</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="nf">code</span><span class="w"> </span><span class="no">segment</span><span class="w"> </span><span class="no">use16</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="nl">main:</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1">; 答案存放的位置</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">si</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1">; index</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14"></a><span class="nl">again:</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="no">s</span><span class="p">[</span><span class="no">si</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16"></a><span class="w">    </span><span class="nf">je</span><span class="w"> </span><span class="no">done</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ebx</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="w">    </span><span class="nf">mul</span><span class="w"> </span><span class="no">ebx</span><span class="w">  </span><span class="c1">; eax = eax * 10</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">edx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1">; 保证 edx 清空，只有 dl 有值，避免加法出错</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="no">s</span><span class="p">[</span><span class="no">si</span><span class="p">]</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21"></a><span class="w">    </span><span class="nf">sub</span><span class="w"> </span><span class="no">dl</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">0</span><span class="err">&#39;</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22"></a><span class="w">    </span><span class="nf">inc</span><span class="w"> </span><span class="no">si</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">edx</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24"></a><span class="nl">done:</span>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">abc</span><span class="p">,</span><span class="w"> </span><span class="no">eax</span>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="no">Ch</span>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27"></a><span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28"></a><span class="nf">code</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29"></a><span class="nf">end</span><span class="w"> </span><span class="no">main</span>
+</span></code></pre></div></td></tr></table></div>
+<blockquote>
+<p>每读出一个字符，转换成数字，将原来的值乘以十加上这个数</p>
+</blockquote>
+<h3 id="32-imul-符号数乘法指令">3.2 <code>imul</code> 符号数乘法指令<a class="headerlink" href="#32-imul-符号数乘法指令" title="Locate to heading">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th><code>imul src(r/m[8/16/32])</code></th>
+<th><code>imul src1(r[16/32]), src2(r/m[16/32])</code></th>
+<th><code>imul src1(r[16]), src2(r/m[16]), constant(imm[16])</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>隐含被乘数</td>
+<td><code>AL/AX/EAX</code></td>
+<td>无</td>
+<td>无</td>
+</tr>
+<tr>
+<td>含义</td>
+<td><code>AX = AL * SRC</code>/<br><code>DX:AX = AX * SRC</code>/<br><code>EDX:EAX = EAX * SRC</code></td>
+<td><code>SRC1 = SRC1 * SRC2</code></td>
+<td><code>SRC1 = SRC2 * CONSTANT</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">imul 可以包含 2 个或者 3 个操作数</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="nf">imul</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">ebx</span><span class="w">  </span><span class="c1">; eax = eax * ebx</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="nf">imul</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">ebx</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w">  </span><span class="c1">; eax = ebx * 3，这种用法中第三个参数只能是常数</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">规范</p>
+<ul>
+<li>第二个操作数可以是寄存器或变量</li>
+<li>第三个操作数必须是常数</li>
+</ul>
+</div>
+<div class="admonition bug">
+<p class="admonition-title">Bug</p>
+<ul>
+<li>可能会造成乘法溢出，不像除法溢出那样，CPU 不会中断处理乘法溢出</li>
+<li><code>idiv</code> 没有类似的使用方法</li>
+</ul>
+</div>
+<h3 id="33-div-无符号数除法">3.3 <code>div</code> 无符号数除法<a class="headerlink" href="#33-div-无符号数除法" title="Locate to heading">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>位宽</th>
+<th><code>16 / 8 -&gt; 8</code></th>
+<th><code>32 / 16 -&gt; 16</code></th>
+<th><code>64 / 32 -&gt; 32</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>指令</td>
+<td><code>div src(r/m[8])</code></td>
+<td><code>div src(r/m[16])</code></td>
+<td><code>div src(r/m[32])</code></td>
+</tr>
+<tr>
+<td>隐含被除数</td>
+<td><code>AX</code></td>
+<td><code>DX:AX</code></td>
+<td><code>EDX:EAX</code></td>
+</tr>
+<tr>
+<td>含义</td>
+<td><code>AX / SRC = AL ... AH</code></td>
+<td><code>DX:AX / SRC = AX ... DX</code></td>
+<td><code>EDX:EAX / SRC = EAX ... EDX</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="331-16-位除-8-位得-8-位">3.3.1 16 位除 8 位得 8 位<a class="headerlink" href="#331-16-位除-8-位得-8-位" title="Locate to heading">#</a></h4>
+<p><code>ax / 除数 = al..ah</code></p>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">16/8 example</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">123</span><span class="no">h</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">bh</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="no">h</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="nf">div</span><span class="w"> </span><span class="no">bh</span><span class="w">  </span><span class="c1">; AL=12h, AH=03h</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="332-32-位除-16-位得-16-位">3.3.2 32 位除 16 位得 16 位<a class="headerlink" href="#332-32-位除-16-位得-16-位" title="Locate to heading">#</a></h4>
+<p><code>dx:ax / 除数 = ax..dx</code></p>
+<h4 id="333-64-位除-32-位得-32-位">3.3.3 64 位除 32 位得 32 位<a class="headerlink" href="#333-64-位除-32-位得-32-位" title="Locate to heading">#</a></h4>
+<p><code>edx:eax / 除数 = eax..edx</code></p>
+<h4 id="334-除法溢出">3.3.4 除法溢出<a class="headerlink" href="#334-除法溢出" title="Locate to heading">#</a></h4>
+<ul>
+<li>除以 0 会发生溢出，但有时候除以 1 也会导致商太大而无法保存到商寄存器中</li>
+</ul>
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">123</span><span class="no">h</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">bh</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="c1">; int 00h  ; 会自动插入这一条，停止程序</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="nf">div</span><span class="w"> </span><span class="no">bh</span><span class="w">  </span><span class="c1">; 商会溢出</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="335-example-二进制转十进制输出">3.3.5 Example: 二进制转十进制输出<a class="headerlink" href="#335-example-二进制转十进制输出" title="Locate to heading">#</a></h4>
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-21-10">10</a></span>
+<span class="normal"><a href="#__codelineno-21-11">11</a></span>
+<span class="normal"><a href="#__codelineno-21-12">12</a></span>
+<span class="normal"><a href="#__codelineno-21-13">13</a></span>
+<span class="normal"><a href="#__codelineno-21-14">14</a></span>
+<span class="normal"><a href="#__codelineno-21-15">15</a></span>
+<span class="normal"><a href="#__codelineno-21-16">16</a></span>
+<span class="normal"><a href="#__codelineno-21-17">17</a></span>
+<span class="normal"><a href="#__codelineno-21-18">18</a></span>
+<span class="normal"><a href="#__codelineno-21-19">19</a></span>
+<span class="normal"><a href="#__codelineno-21-20">20</a></span>
+<span class="normal"><a href="#__codelineno-21-21">21</a></span>
+<span class="normal"><a href="#__codelineno-21-22">22</a></span>
+<span class="normal"><a href="#__codelineno-21-23">23</a></span>
+<span class="normal"><a href="#__codelineno-21-24">24</a></span>
+<span class="normal"><a href="#__codelineno-21-25">25</a></span>
+<span class="normal"><a href="#__codelineno-21-26">26</a></span>
+<span class="normal"><a href="#__codelineno-21-27">27</a></span>
+<span class="normal"><a href="#__codelineno-21-28">28</a></span>
+<span class="normal"><a href="#__codelineno-21-29">29</a></span>
+<span class="normal"><a href="#__codelineno-21-30">30</a></span>
+<span class="normal"><a href="#__codelineno-21-31">31</a></span>
+<span class="normal"><a href="#__codelineno-21-32">32</a></span>
+<span class="normal"><a href="#__codelineno-21-33">33</a></span>
+<span class="normal"><a href="#__codelineno-21-34">34</a></span>
+<span class="normal"><a href="#__codelineno-21-35">35</a></span>
+<span class="normal"><a href="#__codelineno-21-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="nf">.386</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="nf">data</span><span class="w"> </span><span class="no">segment</span><span class="w"> </span><span class="no">use16</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="nf">abc</span><span class="w"> </span><span class="no">dd</span><span class="w"> </span><span class="mi">7</span><span class="no">FFFFFFFh</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="nf">s</span><span class="w"> </span><span class="no">db</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="no">dup</span><span class="p">(</span><span class="err">&#39;</span><span class="w"> </span><span class="err">&#39;</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="no">Dh</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Ah</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="no">$</span><span class="err">&#39;</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="nf">data</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="nf">code</span><span class="w"> </span><span class="no">segment</span><span class="w"> </span><span class="no">use16</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="nl">main:</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">di</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="c1">; 数组s的下标</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">abc</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">cx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="c1">; 统计push的次数</span>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="nl">again:</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">edx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="c1">; 被除数为EDX:EAX</span>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ebx</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="w">   </span><span class="nf">div</span><span class="w"> </span><span class="no">ebx</span><span class="c1">; EAX=商, EDX=余数</span>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">dl</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">0</span><span class="err">&#39;</span>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">dx</span>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="w">   </span><span class="nf">inc</span><span class="w"> </span><span class="no">cx</span><span class="c1">; 相当于add cx, 1</span>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="w">   </span><span class="nf">jne</span><span class="w"> </span><span class="no">again</span>
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="nl">pop_again:</span>
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">dx</span>
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">s</span><span class="p">[</span><span class="no">di</span><span class="p">],</span><span class="w"> </span><span class="no">dl</span>
+</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26"></a><span class="w">   </span><span class="nf">inc</span><span class="w"> </span><span class="no">di</span>
+</span><span id="__span-21-27"><a id="__codelineno-21-27" name="__codelineno-21-27"></a><span class="w">   </span><span class="nf">dec</span><span class="w"> </span><span class="no">cx</span><span class="c1">; 相当于sub cx, 1</span>
+</span><span id="__span-21-28"><a id="__codelineno-21-28" name="__codelineno-21-28"></a><span class="w">   </span><span class="nf">jnz</span><span class="w"> </span><span class="no">pop_again</span>
+</span><span id="__span-21-29"><a id="__codelineno-21-29" name="__codelineno-21-29"></a>
+</span><span id="__span-21-30"><a id="__codelineno-21-30" name="__codelineno-21-30"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span>
+</span><span id="__span-21-31"><a id="__codelineno-21-31" name="__codelineno-21-31"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">s</span>
+</span><span id="__span-21-32"><a id="__codelineno-21-32" name="__codelineno-21-32"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-21-33"><a id="__codelineno-21-33" name="__codelineno-21-33"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="no">Ch</span>
+</span><span id="__span-21-34"><a id="__codelineno-21-34" name="__codelineno-21-34"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-21-35"><a id="__codelineno-21-35" name="__codelineno-21-35"></a><span class="nf">code</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-21-36"><a id="__codelineno-21-36" name="__codelineno-21-36"></a><span class="nf">end</span><span class="w"> </span><span class="no">main</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<ul>
+<li>要使用 64 位除 32 位才行，否则会溢出</li>
+<li>使用栈先入后出的性质，来将余数按照正确的顺序输出</li>
+<li>堆栈只能进行 16 位或 32 位操作，所以即使 <code>dl</code> 是需要的 <code>char</code>，也要 <code>push dx</code></li>
+<li><code>edx</code> 在进行除法前必须清零！</li>
+</ul>
+</div>
+<h3 id="34-idiv-符号数除法指令">3.4 <code>idiv</code> 符号数除法指令<a class="headerlink" href="#34-idiv-符号数除法指令" title="Locate to heading">#</a></h3>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">计算 -2/2</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span>
+<span class="normal"><a href="#__codelineno-22-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">bl</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="nf">idiv</span><span class="w"> </span><span class="no">bl</span><span class="w">  </span><span class="c1">; idiv 是有符号数除法指令，AL=0FFh，AH=0</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="w">         </span><span class="c1">; 使用 div 无符号数除法，会导致溢出，65534/2</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>除法中，如果<strong>除数为零</strong>或者<strong>商寄存器放不下</strong>都会发生<strong>除法溢出</strong>，此时 CPU 会在除法指令上面插入 <code>int 00h</code> 中断</p>
+</div>
+<h2 id="4-浮点数运算">4 浮点数运算<a class="headerlink" href="#4-浮点数运算" title="Locate to heading">#</a></h2>
+<h3 id="41-fp-指令">4.1 FP 指令<a class="headerlink" href="#41-fp-指令" title="Locate to heading">#</a></h3>
+<ul>
+<li><code>fadd, fsub, fmul, fdiv</code> 是加减乘除指令</li>
+<li><code>fld</code> 将小数类型变量从内存载入 CPU 中的小数寄存器</li>
+<li><code>fild</code> 将整数类型转化为小数并载入小数寄存器</li>
+<li><code>fst</code> 将小数寄存器 <code>st(0)</code> 保存到变量中</li>
+<li><code>fstp</code> 将小数寄存器 <code>st(0)</code> 保存到变量中并弹出 <code>st(0)</code></li>
+</ul>
+<blockquote>
+<p>最早的 8086 不支持浮点数计算，而是由单独的配套 FPU 8087 进行计算</p>
+</blockquote>
+<h3 id="42-fp-寄存器">4.2 FP 寄存器<a class="headerlink" href="#42-fp-寄存器" title="Locate to heading">#</a></h3>
+<ul>
+<li><code>st(0), st(1), ..., st(7)</code> 形成堆栈的形式<ul>
+<li>在 <code>fld/fild</code> 的时候会将 <code>st(0)</code> 往后 <code>push</code> 到 <code>st(1)</code></li>
+</ul>
+</li>
+<li>宽度均为 80-bit 的 <code>long double</code> 类型</li>
+</ul>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">float</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-23-10">10</a></span>
+<span class="normal"><a href="#__codelineno-23-11">11</a></span>
+<span class="normal"><a href="#__codelineno-23-12">12</a></span>
+<span class="normal"><a href="#__codelineno-23-13">13</a></span>
+<span class="normal"><a href="#__codelineno-23-14">14</a></span>
+<span class="normal"><a href="#__codelineno-23-15">15</a></span>
+<span class="normal"><a href="#__codelineno-23-16">16</a></span>
+<span class="normal"><a href="#__codelineno-23-17">17</a></span>
+<span class="normal"><a href="#__codelineno-23-18">18</a></span>
+<span class="normal"><a href="#__codelineno-23-19">19</a></span>
+<span class="normal"><a href="#__codelineno-23-20">20</a></span>
+<span class="normal"><a href="#__codelineno-23-21">21</a></span>
+<span class="normal"><a href="#__codelineno-23-22">22</a></span>
+<span class="normal"><a href="#__codelineno-23-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="nf">data</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="nf">x</span><span class="w"> </span><span class="no">dt</span><span class="w"> </span><span class="mi">3</span><span class="no">.1415926535897932</span><span class="w">  </span><span class="c1">; long double x</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="nf">y</span><span class="w"> </span><span class="no">dq</span><span class="w"> </span><span class="mi">9</span><span class="no">.3759765625</span><span class="w">        </span><span class="c1">; double y</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="nf">z</span><span class="w"> </span><span class="no">dd</span><span class="w"> </span><span class="mi">2</span><span class="no">.71828</span><span class="w">             </span><span class="c1">; float z</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="nf">i</span><span class="w"> </span><span class="no">dd</span><span class="w"> </span><span class="mi">2</span><span class="w">                   </span><span class="c1">; long int i</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="nf">r</span><span class="w"> </span><span class="no">dt</span><span class="w"> </span><span class="mi">0</span><span class="w">                   </span><span class="c1">; short int r</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="nf">data</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8"></a>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="nf">code</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="nl">main:</span>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14"></a>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15"></a><span class="w">    </span><span class="nf">fild</span><span class="w"> </span><span class="p">[</span><span class="no">i</span><span class="p">]</span><span class="w">            </span><span class="c1">; st(0)=2</span>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16"></a><span class="w">    </span><span class="nf">fld</span><span class="w"> </span><span class="p">[</span><span class="no">x</span><span class="p">]</span><span class="w">             </span><span class="c1">; st(0)=3.14...., st(1)=2</span>
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17"></a><span class="w">    </span><span class="nf">fmul</span><span class="w"> </span><span class="no">st</span><span class="p">,</span><span class="w"> </span><span class="no">st</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">      </span><span class="c1">; st 是 st(0) 的简写</span>
+</span><span id="__span-23-18"><a id="__codelineno-23-18" name="__codelineno-23-18"></a><span class="w">                        </span><span class="c1">; 乘法的结果放回 st(0)</span>
+</span><span id="__span-23-19"><a id="__codelineno-23-19" name="__codelineno-23-19"></a><span class="w">    </span><span class="nf">fstp</span><span class="w"> </span><span class="p">[</span><span class="no">i</span><span class="p">]</span>
+</span><span id="__span-23-20"><a id="__codelineno-23-20" name="__codelineno-23-20"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="no">Ch</span>
+</span><span id="__span-23-21"><a id="__codelineno-23-21" name="__codelineno-23-21"></a><span class="w">    </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-23-22"><a id="__codelineno-23-22" name="__codelineno-23-22"></a><span class="nf">code</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-23-23"><a id="__codelineno-23-23" name="__codelineno-23-23"></a><span class="nf">end</span><span class="w"> </span><span class="no">main</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<ul>
+<li>编译器会在任何 float 指令前后插入 <code>wait</code>，因为 8086 需要等待 8087 计算完成</li>
+<li><code>td</code> 中观察 FP 寄存器需要打开 <code>View/Numeric Processor</code> 窗口</li>
+<li>运行完可以在数据窗中看到 <code>i</code>，以 IEEE754 格式表示</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="ASMF%2008%20%E8%BD%AC%E6%8D%A2%E6%8C%87%E4%BB%A4.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 08 转换指令">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                08 转换指令
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="ASMF%2010%20%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E5%92%8C%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4.html" class="md-footer__link md-footer__link--next" aria-label="Next: 10 逻辑运算和移位指令">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                10 逻辑运算和移位指令
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 EmergentTwilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/EmergentTwilight" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:emergentshores@outlook.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../__srcs/javascript/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../__srcs/javascript/toc.js"></script>
+      
+    
+  </body>
+</html>

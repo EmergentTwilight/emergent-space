@@ -11,7 +11,7 @@
 
 /* 当前路径高亮显示 #待修改：配色方案 */
 .md-sidebar--secondary .md-nav__list a.is-active {
-  color: var(--md-accent-fg-color);
+  color: var(--md-primary-fg-color);
 }
   
 /* [data-md-color-scheme="slate"] .md-nav__list a.is-active {
@@ -38,14 +38,23 @@
     top: -8px;
     bottom: -1px;
     width: 1px;
-    background-color: var(--md-accent-fg-color);
+    background-color: var(--md-primary-fg-color);
   }
 }
 
 
 /* 调节目录字体大小 */
 @media (min-width: 960px) {
-  .md-nav--secondary .md-nav__link {
+  .md-nav--secondary .md-nav {
     font-size: 0.9em;
+  }
+}
+
+
+/* 去除 title 背景 */
+@media (min-width: 960px) {
+  .md-nav--secondary .md-nav__title {
+    background: none;
+    box-shadow: none;
   }
 }

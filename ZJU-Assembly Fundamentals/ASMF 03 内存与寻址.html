@@ -1,0 +1,3048 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Emergent Space">
+      
+      
+        <meta name="author" content="Emergent Twilight">
+      
+      
+        <link rel="canonical" href="https://emergenttwilight.github.io/Emergent-Space/ZJU-Assembly%20Fundamentals/ASMF%2003%20%E5%86%85%E5%AD%98%E4%B8%8E%E5%AF%BB%E5%9D%80.html">
+      
+      
+        <link rel="prev" href="ASMF%2002%20%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E6%BA%90%E7%A8%8B%E5%BA%8F%E6%A0%BC%E5%BC%8F.html">
+      
+      
+        <link rel="next" href="ASMF%2004%20%E5%AF%84%E5%AD%98%E5%99%A8.html">
+      
+      
+      <link rel="icon" href="../__srcs/images/logo-E.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>03 内存与寻址 - Emergent Space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Serif SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/banner.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/right-sidebar.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/left-sidebar.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/content.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-内存" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Emergent Space" class="md-header__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/images/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Emergent Space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03 内存与寻址
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  ZJU
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Emergent Space" class="md-nav__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/images/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    Emergent Space
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Emergent-Space
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ZJU
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-Fundamentals%20of%20Data%20Structures/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Fundamentals of Data Structures
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-HPC101/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    HPC101
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-Advanced%20Data%20Structure%20%26%20Algorithm%20Analysis/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Advanced Data Structure & Algorithm Analysis
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    汇编语言程序设计基础
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            汇编语言程序设计基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2001%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%8F%98%E9%87%8F.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01 数据类型和变量
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2002%20%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E6%BA%90%E7%A8%8B%E5%BA%8F%E6%A0%BC%E5%BC%8F.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02 汇编语言源程序格式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    03 内存与寻址
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ASMF%2003%20%E5%86%85%E5%AD%98%E4%B8%8E%E5%AF%BB%E5%9D%80.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    03 内存与寻址
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-内存" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 内存
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-段地址偏移地址" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 段地址、偏移地址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 段地址、偏移地址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-直接寻址和间接寻址" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 直接寻址和间接寻址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 直接寻址和间接寻址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-直接寻址使用常数来表示偏移地址" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1 直接寻址：使用常数来表示偏移地址
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-间接寻址-使用寄存器或寄存器-常数来表示偏移地址" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 间接寻址: 使用寄存器或寄存器 + 常数来表示偏移地址
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-段缺省和段覆盖" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 段缺省和段覆盖
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 段缺省和段覆盖">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-段缺省的三个原则" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 段缺省的三个原则
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-段覆盖" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 段覆盖
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-assume-的作用" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Assume 的作用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-1m-内存空间的划分" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 1M 内存空间的划分
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-寄存器总结" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 寄存器总结
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 寄存器总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-16-位-cpu-中共有-14-个寄存器" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 16 位 CPU 中共有 14 个寄存器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-堆栈的简单操作" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 堆栈的简单操作
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-远指针近指针" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 远指针、近指针
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 远指针、近指针">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-lea-加载偏移地址" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 lea 加载偏移地址
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-远指针-far-ptr" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 远指针 (Far Ptr)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-les-lds-加载段地址" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 les, lds 加载段地址
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-补充32-位寻址方式" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 补充：32 位寻址方式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-显卡地址映射" class="md-nav__link">
+    <span class="md-ellipsis">
+      8 显卡地址映射
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8 显卡地址映射">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-文本模式操作文本内容和颜色" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 文本模式：操作文本内容和颜色
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 文本模式：操作文本内容和颜色">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#811-数据格式" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.1 数据格式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#812-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.2 Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-图形模式操作像素点" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 图形模式：操作像素点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 图形模式：操作像素点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821-坐标转换" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1 坐标转换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-数据格式" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.2 数据格式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-端口" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 端口
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9 端口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-example-读取键盘输入值" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Example: 读取键盘输入值
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1 Example: 读取键盘输入值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#911-code-fold" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.1 Code %% fold %%
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#912-explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.2 Explain
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-example-读取-cmos-时钟" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Example: 读取 CMOS 时钟
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 Example: 读取 CMOS 时钟">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#921-code-fold" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.1 Code %% fold %%
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-几种读取键盘方式总结" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 几种读取键盘方式总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2004%20%E5%AF%84%E5%AD%98%E5%99%A8.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04 寄存器
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2005%20%E6%AE%B5%E5%92%8C%E5%A0%86%E6%A0%88.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05 段和堆栈
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2006%20%E4%B8%AD%E6%96%AD%E5%92%8C%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06 中断和函数调用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2007%20%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07 数据传送指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2008%20%E8%BD%AC%E6%8D%A2%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08 转换指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2009%20%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09 算术运算指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2010%20%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E5%92%8C%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 逻辑运算和移位指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2011%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11 字符串操作指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%2012%20%E6%8E%A7%E5%88%B6%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12 控制转移指令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ASMF%20Cheat%20Sheet.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheat Sheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-内存" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 内存
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-段地址偏移地址" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 段地址、偏移地址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 段地址、偏移地址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-直接寻址和间接寻址" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 直接寻址和间接寻址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 直接寻址和间接寻址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-直接寻址使用常数来表示偏移地址" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1 直接寻址：使用常数来表示偏移地址
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-间接寻址-使用寄存器或寄存器-常数来表示偏移地址" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 间接寻址: 使用寄存器或寄存器 + 常数来表示偏移地址
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-段缺省和段覆盖" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 段缺省和段覆盖
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 段缺省和段覆盖">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-段缺省的三个原则" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 段缺省的三个原则
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-段覆盖" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 段覆盖
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-assume-的作用" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Assume 的作用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-1m-内存空间的划分" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 1M 内存空间的划分
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-寄存器总结" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 寄存器总结
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 寄存器总结">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-16-位-cpu-中共有-14-个寄存器" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 16 位 CPU 中共有 14 个寄存器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-堆栈的简单操作" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 堆栈的简单操作
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-远指针近指针" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 远指针、近指针
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 远指针、近指针">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-lea-加载偏移地址" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 lea 加载偏移地址
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-远指针-far-ptr" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 远指针 (Far Ptr)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-les-lds-加载段地址" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 les, lds 加载段地址
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-补充32-位寻址方式" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 补充：32 位寻址方式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-显卡地址映射" class="md-nav__link">
+    <span class="md-ellipsis">
+      8 显卡地址映射
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8 显卡地址映射">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-文本模式操作文本内容和颜色" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 文本模式：操作文本内容和颜色
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 文本模式：操作文本内容和颜色">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#811-数据格式" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.1 数据格式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#812-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.2 Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-图形模式操作像素点" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 图形模式：操作像素点
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 图形模式：操作像素点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821-坐标转换" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1 坐标转换
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-数据格式" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.2 数据格式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-端口" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 端口
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9 端口">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-example-读取键盘输入值" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Example: 读取键盘输入值
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.1 Example: 读取键盘输入值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#911-code-fold" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.1 Code %% fold %%
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#912-explain" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1.2 Explain
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-example-读取-cmos-时钟" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Example: 读取 CMOS 时钟
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 Example: 读取 CMOS 时钟">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#921-code-fold" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2.1 Code %% fold %%
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-几种读取键盘方式总结" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3 几种读取键盘方式总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/edit/master/docs/ZJU-Assembly Fundamentals/ASMF 03 内存与寻址.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/EmergentTwilight/Emergent-Space/raw/master/docs/ZJU-Assembly Fundamentals/ASMF 03 内存与寻址.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>03 内存与寻址</h1>
+
+<h2 id="1-内存">1 内存<a class="headerlink" href="#1-内存" title="Locate to heading">#</a></h2>
+<ul>
+<li>DOS 系统在实模式下，能够访问 <code>[00000h, 0FFFFFh]</code> 共 1MB 的内存空间，这里的 <code>12345h</code> 称为物理地址，寄存器放不下，所以需要<strong>段地址</strong>和<strong>偏移地址</strong></li>
+<li>一个段的最大长度位 <code>0FFFFh</code>，也就是 64kB</li>
+</ul>
+<h2 id="2-段地址偏移地址">2 段地址、偏移地址<a class="headerlink" href="#2-段地址偏移地址" title="Locate to heading">#</a></h2>
+<ul>
+<li>段地址的 16 进制个位必须是 0</li>
+<li>段的长度为 <code>2233Fh-12340h+1=10000h=64k</code></li>
+<li>一个物理地址可以表示为多个逻辑地址<ul>
+<li><code>12398h</code></li>
+<li><code>1230:0098</code></li>
+<li><code>1239:0008</code></li>
+<li><code>1234:0058</code></li>
+<li>$ 总之就是段地址只管到十位，偏移地址能更深入一位</li>
+<li>$ 段地址 <code>+1</code> 等效于偏移地址 <code>+10h</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="21-直接寻址和间接寻址">2.1 直接寻址和间接寻址<a class="headerlink" href="#21-直接寻址和间接寻址" title="Locate to heading">#</a></h3>
+<h4 id="211-直接寻址使用常数来表示偏移地址">2.1.1 直接寻址：使用常数来表示偏移地址<a class="headerlink" href="#211-直接寻址使用常数来表示偏移地址" title="Locate to heading">#</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>段地址只能用寄存器来表示</p>
+</div>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">间接寻址</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">2000</span><span class="no">h</span><span class="p">]</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">2000</span><span class="no">h</span><span class="p">]</span><span class="w">  </span><span class="c1">; 声明类型是字节指针</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">                             </span><span class="c1">; 但其实可以省略，因为 al 就是一个字节</span>
+</span></code></pre></div></td></tr></table></div>
+<p>上面的操作等价于：</p>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">间接寻址</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">byte</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">al</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">byte</span><span class="w"> </span><span class="o">*</span><span class="p">)(</span><span class="n">ds</span><span class="o">:</span><span class="mi">2000</span><span class="n">h</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="22-间接寻址-使用寄存器或寄存器-常数来表示偏移地址">2.2 间接寻址: 使用寄存器或寄存器 + 常数来表示偏移地址<a class="headerlink" href="#22-间接寻址-使用寄存器或寄存器-常数来表示偏移地址" title="Locate to heading">#</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<p>用于间接寻址的寄存器<strong>仅限</strong> <code>bx, bp, si, di</code>，而且一定是 <code>bx, bp</code> 中的一个能和 <code>si, di</code> 中的一个相加</p>
+</div>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">间接寻址</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">2000</span><span class="no">h</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="p">]</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="p">]</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="c1">; 语法错误！！</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="nf">mov</span><span class="w"> </span><span class="no">bypt</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="nf">mov</span><span class="w"> </span><span class="no">word</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="nf">mov</span><span class="w"> </span><span class="no">dword</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>当源操作数是<strong>常数</strong>，目标操作数是<strong>变量</strong>时，无法确定宽度，必须指定 ptr</p>
+</div>
+<h2 id="3-段缺省和段覆盖">3 段缺省和段覆盖<a class="headerlink" href="#3-段缺省和段覆盖" title="Locate to heading">#</a></h2>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">引用数组元素</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">abc</span><span class="p">]</span><span class="w">  </span><span class="c1">; 直接操作 abc 地址指向的对象</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">               </span><span class="c1">; 默认指定了 byte ptr</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">               </span><span class="c1">; 默认段地址就是 ds</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1">; 其完整形式为</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">abc</span><span class="p">]</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="31-段缺省的三个原则">3.1 段缺省的三个原则<a class="headerlink" href="#31-段缺省的三个原则" title="Locate to heading">#</a></h3>
+<ol>
+<li>直接寻址，则缺省 <code>ds</code></li>
+<li>间接寻址，含有 <code>bp</code> 时，缺省 <code>ss</code></li>
+<li>间接寻址，不含 <code>bp</code> 时，缺省 <code>ds</code></li>
+</ol>
+<h3 id="32-段覆盖">3.2 段覆盖<a class="headerlink" href="#32-段覆盖" title="Locate to heading">#</a></h3>
+<ul>
+<li>强制使用类似 <code>cs:[1000h]</code> 的形式覆盖段缺省的默认值</li>
+</ul>
+<h3 id="33-assume-的作用">3.3 Assume 的作用<a class="headerlink" href="#33-assume-的作用" title="Locate to heading">#</a></h3>
+<p>帮助编译器建立寄存器与段的关联，当源程序引用了某个段内的变量时，编译器会自动将段地址替换为关联的段地址寄存器</p>
+<h2 id="4-1m-内存空间的划分">4 1M 内存空间的划分<a class="headerlink" href="#4-1m-内存空间的划分" title="Locate to heading">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>地址范围</th>
+<th>用途</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[0000:0000, 9000:0000]</code></td>
+<td>操作系统和用户程序</td>
+<td>640K</td>
+</tr>
+<tr>
+<td><code>[A000:0000, A000:FFFF]</code></td>
+<td>映射显卡内存 <strong>图形模式</strong></td>
+<td>64K</td>
+</tr>
+<tr>
+<td><code>[B000:0000, B000:7FFF]</code></td>
+<td>映射显卡内存</td>
+<td>32K</td>
+</tr>
+<tr>
+<td><code>[B800:0000, B800:7FFF]</code></td>
+<td>映射显卡内存 <strong>文本模式</strong></td>
+<td>32K</td>
+</tr>
+<tr>
+<td><code>[C000:0000, F000:FFFF]</code></td>
+<td>映射 ROM</td>
+<td>320K</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-寄存器总结">5 寄存器总结<a class="headerlink" href="#5-寄存器总结" title="Locate to heading">#</a></h2>
+<h3 id="51-16-位-cpu-中共有-14-个寄存器">5.1 16 位 CPU 中共有 14 个寄存器<a class="headerlink" href="#51-16-位-cpu-中共有-14-个寄存器" title="Locate to heading">#</a></h3>
+<ul>
+<li><code>ax, bx, cx, dx, sp, bp, si, di</code><ul>
+<li><code>bx, bp, si, di</code> 用来表示<strong>偏移地址</strong>，可以放在 <code>[]</code> 内</li>
+<li><code>ax, bx, cx, dx</code> 称为<strong>通用寄存器</strong>，常用于算数、逻辑运算</li>
+</ul>
+</li>
+<li><code>cs, ds, es, ss</code> 用来表示<strong>段地址</strong><ul>
+<li><code>cs:ip</code> 指向当前将要执行的指令，<code>ip</code> 是指令指针（instruction pointer），<code>cs</code> 是代码段寄存器</li>
+<li><code>ss:sp</code> 指向堆栈顶端，其中 <code>sp</code> 是堆栈指针（stack pointer），<code>ss</code> 是堆栈段寄存器</li>
+<li><code>es</code> 附加段寄存器，和 <code>ds</code> 一样，可以表示一个数据段的地址</li>
+</ul>
+</li>
+<li><code>ip, fl</code></li>
+</ul>
+<h3 id="52-堆栈的简单操作">5.2 堆栈的简单操作<a class="headerlink" href="#52-堆栈的简单操作" title="Locate to heading">#</a></h3>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">push and pop</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nf">stk</span><span class="w"> </span><span class="no">segment</span><span class="w"> </span><span class="no">stack</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nf">db</span><span class="w"> </span><span class="mi">100</span><span class="no">h</span><span class="w"> </span><span class="no">dup</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nf">stk</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="nf">code</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="nl">main:</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">1234</span><span class="no">h</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">5678</span><span class="no">h</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="no">bx</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="nf">pop</span><span class="w"> </span><span class="no">bx</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">    </span><span class="nf">pop</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="nf">code</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="nf">end</span><span class="w"> </span><span class="no">main</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="6-远指针近指针">6 远指针、近指针<a class="headerlink" href="#6-远指针近指针" title="Locate to heading">#</a></h2>
+<h3 id="61-lea-加载偏移地址">6.1 <code>lea</code> 加载偏移地址<a class="headerlink" href="#61-lea-加载偏移地址" title="Locate to heading">#</a></h3>
+<blockquote>
+<p>加载偏移地址，load effective address</p>
+</blockquote>
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nf">lea</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="p">]</span><span class="w">  </span><span class="c1">; 相当于 mov dx, bx，并没有简化</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nf">lea</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="err">+</span><span class="no">si</span><span class="err">+</span><span class="mi">3</span><span class="p">]</span><span class="w">  </span><span class="c1">; 相当于一次计算了两个加法，其他指令无法做到，有用</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="nf">lea</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">eax</span><span class="err">+</span><span class="no">eax</span><span class="p">*</span><span class="mi">4</span><span class="p">]</span><span class="w">  </span><span class="c1">; EAX=EAX*5，用 lea 作乘法</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="62-远指针-far-ptr">6.2 远指针 (Far Ptr)<a class="headerlink" href="#62-远指针-far-ptr" title="Locate to heading">#</a></h3>
+<ul>
+<li>16 位汇编，<code>xxxx:xxxx</code>，即 <strong>16</strong> 位段地址 + <strong>16</strong> 位偏移地址，<code>dword ptr</code></li>
+<li>32 位汇编，<code>xxxx:xxxxx</code>，即 <strong>16</strong> 位段地址 + <strong>32</strong> 位偏移地址，<code>fword ptr</code></li>
+</ul>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>; &amp;p = 1234:5678
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>1000:0000  78
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>1000:0001  56
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>1000:0002  34
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a>1000:0003  12
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Attention</p>
+<ul>
+<li>小端规则</li>
+<li>远指针和 int 无法区分，需要由使用者定义</li>
+</ul>
+</div>
+<h3 id="63-les-lds-加载段地址">6.3 <code>les</code>, <code>lds</code> 加载段地址<a class="headerlink" href="#63-les-lds-加载段地址" title="Locate to heading">#</a></h3>
+<blockquote>
+<p>将段地址加载到 <code>es</code> 或者 <code>ds</code> 中，将偏移地址加载到指定寄存器中，Load segment address to Extra Segment reg / Data Segment reg</p>
+</blockquote>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">取用远指针</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1">; bx=0, ds=1000h</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">di</span><span class="p">:</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="p">]</span><span class="w">  </span><span class="c1">; di=5678h</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="nf">mov</span><span class="w"> </span><span class="no">es</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="err">+</span><span class="mi">2</span><span class="p">]</span><span class="w">  </span><span class="c1">; es=1234h</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="nf">lds</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="p">]</span><span class="w">  </span><span class="c1">; ds=1234h, bx=5678h</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="nf">les</span><span class="w"> </span><span class="no">di</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">bx</span><span class="p">]</span><span class="w">  </span><span class="c1">; es=[31:16]=1234h, di=[15:0]=5678h</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>常用 <code>les</code>，因为 <code>ds</code> 寄存器代表代码段，一般不修改</p>
+</div>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Example: 使用变量保存远指针</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span>
+<span class="normal"><a href="#__codelineno-8-24">24</a></span>
+<span class="normal"><a href="#__codelineno-8-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nf">data</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nf">video_addr</span><span class="w"> </span><span class="no">dw</span><span class="w"> </span><span class="mi">0000</span><span class="no">h</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">B800h</span><span class="p">,</span><span class="w"> </span><span class="mi">160</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">B800h</span><span class="w">  </span><span class="c1">; 上述定义也可以写成:</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">                                          </span><span class="c1">; video_addr dd 0B8000000h, 0B80000A0h</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">                                          </span><span class="c1">; video_addr db 00, 00, 00, 0B8h, 0A0h, 00, 00, 00, 0B8h</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="nf">data</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="nf">code</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="nl">main:</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">cx</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="nl">next:</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">   </span><span class="nf">les</span><span class="w"> </span><span class="no">di</span><span class="p">,</span><span class="w"> </span><span class="no">dword</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">video_addr</span><span class="p">[</span><span class="no">bx</span><span class="p">]</span><span class="w">  </span><span class="c1">; es:di=B800:[0000]</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">word</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">es</span><span class="p">:[</span><span class="no">di</span><span class="p">],</span><span class="w"> </span><span class="mi">1741</span><span class="no">h</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">   </span><span class="nf">sub</span><span class="w"> </span><span class="no">cx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="w">   </span><span class="nf">jnz</span><span class="w"> </span><span class="no">next</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="no">Ch</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24"></a><span class="nf">code</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="nf">end</span><span class="w"> </span><span class="no">main</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="7-补充32-位寻址方式">7 补充：32 位寻址方式<a class="headerlink" href="#7-补充32-位寻址方式" title="Locate to heading">#</a></h2>
+<ul>
+<li><code>[寄存器 + 寄存器*n + 常数]</code><ul>
+<li><code>n=1,2,4,8</code></li>
+<li>寄存器为 <code>eax, ebx, ecx, edx, esi, edi, esp, ebp</code> 从中任选一个，可以同名 <em>限制更少了</em></li>
+</ul>
+</li>
+</ul>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">遍历数组</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1">; long int a[3]={10,20,30};</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="c1">; assume ds=seg a, ebx=offset a, esi=0</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ecx</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="nl">again:</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">eax</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="no">ebx</span><span class="err">+</span><span class="no">esi</span><span class="p">*</span><span class="mi">4</span><span class="p">]</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="p">[</span><span class="no">sum</span><span class="p">],</span><span class="w"> </span><span class="no">eax</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">esi</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">    </span><span class="nf">sub</span><span class="w"> </span><span class="no">ecx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">    </span><span class="nf">jnz</span><span class="w"> </span><span class="no">again</span>
+</span></code></pre></div></td></tr></table></div>
+<h2 id="8-显卡地址映射">8 显卡地址映射<a class="headerlink" href="#8-显卡地址映射" title="Locate to heading">#</a></h2>
+<h3 id="81-文本模式操作文本内容和颜色">8.1 文本模式：操作文本内容和颜色<a class="headerlink" href="#81-文本模式操作文本内容和颜色" title="Locate to heading">#</a></h3>
+<ul>
+<li>屏幕的左上角为原点，横向为 <span class="arithmatex">\(x\)</span> 轴，纵向为 <span class="arithmatex">\(y\)</span> 轴，右下角的坐标为 <span class="arithmatex">\((79, 24)\)</span>，也就是 80 格宽，25 格高</li>
+<li><code>offset = (y * 80 + x) * 2</code></li>
+<li>可以指定字符输出的位置和颜色</li>
+</ul>
+<h4 id="811-数据格式">8.1.1 数据格式<a class="headerlink" href="#811-数据格式" title="Locate to heading">#</a></h4>
+<ul>
+<li>每 2 byte 决定屏幕上的一个字符，分别对应 <code>[ASCII Code, Color]</code>，颜色的高 4 位是背景色，低 4 位是前景色</li>
+<li>颜色对照表如下，红绿蓝可以合成其他颜色</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>背景</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>前景</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>位</td>
+<td>7</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+<td></td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>对应颜色元素</td>
+<td>闪烁</td>
+<td>红</td>
+<td>绿</td>
+<td>蓝</td>
+<td></td>
+<td>高亮</td>
+<td>红</td>
+<td>绿</td>
+<td>蓝</td>
+</tr>
+</tbody>
+</table>
+<h4 id="812-example">8.1.2 Example<a class="headerlink" href="#812-example" title="Locate to heading">#</a></h4>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">左上角显示红色的 A 和绿色的 B</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">B800h</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nf">mov</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="err">&#39;</span><span class="no">A</span><span class="err">&#39;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="nf">mov</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="mi">74</span><span class="no">h</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="nf">mov</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="err">&#39;</span><span class="no">B</span><span class="err">&#39;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="nf">mov</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">ds</span><span class="p">:[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="mi">72</span><span class="no">h</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition tip">
+<p class="admonition-title">Hint</p>
+<ul>
+<li><code>0B800h</code> 可以认为是显卡的地址，往显卡写入字符就可以显示在屏幕上</li>
+<li><code>74h</code> 中，<code>7</code> 表示背景色是白色，<code>4</code> 用来表示前景色是红色</li>
+</ul>
+</div>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">文本模式下用 * 显示汉字“我”</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span>
+<span class="normal"><a href="#__codelineno-11-21">21</a></span>
+<span class="normal"><a href="#__codelineno-11-22">22</a></span>
+<span class="normal"><a href="#__codelineno-11-23">23</a></span>
+<span class="normal"><a href="#__codelineno-11-24">24</a></span>
+<span class="normal"><a href="#__codelineno-11-25">25</a></span>
+<span class="normal"><a href="#__codelineno-11-26">26</a></span>
+<span class="normal"><a href="#__codelineno-11-27">27</a></span>
+<span class="normal"><a href="#__codelineno-11-28">28</a></span>
+<span class="normal"><a href="#__codelineno-11-29">29</a></span>
+<span class="normal"><a href="#__codelineno-11-30">30</a></span>
+<span class="normal"><a href="#__codelineno-11-31">31</a></span>
+<span class="normal"><a href="#__codelineno-11-32">32</a></span>
+<span class="normal"><a href="#__codelineno-11-33">33</a></span>
+<span class="normal"><a href="#__codelineno-11-34">34</a></span>
+<span class="normal"><a href="#__codelineno-11-35">35</a></span>
+<span class="normal"><a href="#__codelineno-11-36">36</a></span>
+<span class="normal"><a href="#__codelineno-11-37">37</a></span>
+<span class="normal"><a href="#__codelineno-11-38">38</a></span>
+<span class="normal"><a href="#__codelineno-11-39">39</a></span>
+<span class="normal"><a href="#__codelineno-11-40">40</a></span>
+<span class="normal"><a href="#__codelineno-11-41">41</a></span>
+<span class="normal"><a href="#__codelineno-11-42">42</a></span>
+<span class="normal"><a href="#__codelineno-11-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="nf">data</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="nf">hz</span><span class="w"> </span><span class="no">db</span><span class="w"> </span><span class="mi">04</span><span class="no">h</span><span class="p">,</span><span class="mi">80</span><span class="no">h</span><span class="p">,</span><span class="mi">0</span><span class="no">Eh</span><span class="p">,</span><span class="mi">0</span><span class="no">A0h</span><span class="p">,</span><span class="mi">78</span><span class="no">h</span><span class="p">,</span><span class="mi">90</span><span class="no">h</span><span class="p">,</span><span class="mi">08</span><span class="no">h</span><span class="p">,</span><span class="mi">90</span><span class="no">h</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">   </span><span class="nf">db</span><span class="w"> </span><span class="mi">08</span><span class="no">h</span><span class="p">,</span><span class="mi">84</span><span class="no">h</span><span class="p">,</span><span class="mi">0</span><span class="no">FFh</span><span class="p">,</span><span class="mi">0</span><span class="no">FEh</span><span class="p">,</span><span class="mi">08</span><span class="no">h</span><span class="p">,</span><span class="mi">80</span><span class="no">h</span><span class="p">,</span><span class="mi">08</span><span class="no">h</span><span class="p">,</span><span class="mi">90</span><span class="no">h</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">   </span><span class="nf">db</span><span class="w"> </span><span class="mi">0</span><span class="no">Ah</span><span class="p">,</span><span class="mi">90</span><span class="no">h</span><span class="p">,</span><span class="mi">0</span><span class="no">Ch</span><span class="p">,</span><span class="mi">60</span><span class="no">h</span><span class="p">,</span><span class="mi">18</span><span class="no">h</span><span class="p">,</span><span class="mi">40</span><span class="no">h</span><span class="p">,</span><span class="mi">68</span><span class="no">h</span><span class="p">,</span><span class="mi">0</span><span class="no">A0h</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">   </span><span class="nf">db</span><span class="w"> </span><span class="mi">09</span><span class="no">h</span><span class="p">,</span><span class="mi">20</span><span class="no">h</span><span class="p">,</span><span class="mi">0</span><span class="no">Ah</span><span class="p">,</span><span class="mi">14</span><span class="no">h</span><span class="p">,</span><span class="mi">28</span><span class="no">h</span><span class="p">,</span><span class="mi">14</span><span class="no">h</span><span class="p">,</span><span class="mi">10</span><span class="no">h</span><span class="p">,</span><span class="mi">0</span><span class="no">Ch</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="nf">data</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="nf">code</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="nl">main:</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">B800h</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">es</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">0003</span><span class="no">h</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">10</span><span class="no">h</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">di</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">si</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="nl">next_row:</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="no">hz</span><span class="p">[</span><span class="no">si</span><span class="p">]</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="no">hz</span><span class="p">[</span><span class="no">si</span><span class="err">+</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22"></a><span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">si</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">cx</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24"></a><span class="nl">check_next_dot:</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25"></a><span class="w">   </span><span class="nf">shl</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26"></a><span class="w">   </span><span class="nf">jnc</span><span class="w"> </span><span class="no">no_dot</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27"></a><span class="nl">is_dot:</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">es</span><span class="p">:[</span><span class="no">di</span><span class="p">],</span><span class="w"> </span><span class="err">&#39;</span><span class="p">*</span><span class="err">&#39;</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">byte</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">es</span><span class="p">:[</span><span class="no">di</span><span class="err">+</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="no">Ch</span>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30"></a><span class="nl">no_dot:</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31"></a><span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">di</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32"></a><span class="w">   </span><span class="nf">sub</span><span class="w"> </span><span class="no">cx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33"></a><span class="w">   </span><span class="nf">jnz</span><span class="w"> </span><span class="no">check_next_dot</span>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34"></a><span class="w">   </span><span class="nf">sub</span><span class="w"> </span><span class="no">di</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span>
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35"></a><span class="w">   </span><span class="nf">add</span><span class="w"> </span><span class="no">di</span><span class="p">,</span><span class="w"> </span><span class="mi">160</span>
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36"></a><span class="w">   </span><span class="nf">sub</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37"></a><span class="w">   </span><span class="nf">jnz</span><span class="w"> </span><span class="no">next_row</span>
+</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-11-40"><a id="__codelineno-11-40" name="__codelineno-11-40"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="no">Ch</span>
+</span><span id="__span-11-41"><a id="__codelineno-11-41" name="__codelineno-11-41"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-11-42"><a id="__codelineno-11-42" name="__codelineno-11-42"></a><span class="nf">code</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-11-43"><a id="__codelineno-11-43" name="__codelineno-11-43"></a><span class="nf">end</span><span class="w"> </span><span class="no">main</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="82-图形模式操作像素点">8.2 图形模式：操作像素点<a class="headerlink" href="#82-图形模式操作像素点" title="Locate to heading">#</a></h3>
+<p>调用 <code>int 10h</code> 中断，将显卡切换到 320*200，256 色的图形模式</p>
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span><span class="c1">; 调用 int 10h 的 0 号子功能</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="no">h</span><span class="w">  </span><span class="c1">; 代表图形模式编号</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="nf">int</span><span class="w"> </span><span class="mi">10</span><span class="no">h</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="821-坐标转换">8.2.1 坐标转换<a class="headerlink" href="#821-坐标转换" title="Locate to heading">#</a></h4>
+<p><code>(x, y) -&gt; y*320+x</code></p>
+<h4 id="822-数据格式">8.2.2 数据格式<a class="headerlink" href="#822-数据格式" title="Locate to heading">#</a></h4>
+<ul>
+<li>显卡内存中一个字节表示一个点</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>黑</td>
+<td>蓝</td>
+<td>绿</td>
+<td>青</td>
+<td>红</td>
+<td>洋红</td>
+<td>棕</td>
+<td>白</td>
+</tr>
+<tr>
+<td>8</td>
+<td>9</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+</tr>
+<tr>
+<td>灰</td>
+<td>亮蓝</td>
+<td>亮绿</td>
+<td>亮青</td>
+<td>亮红</td>
+<td>紫</td>
+<td>黄</td>
+<td>亮白</td>
+</tr>
+</tbody>
+</table>
+<p>```asm title="进入图形模式并显示红色方块" hl=
+code segment
+assume cs:code; cs不需要赋值会自动等于code
+main:
+   jmp begin
+i  dw 0
+begin:
+   mov ax, 0013h
+   int 10h
+   mov ax, 0A000h
+   mov es, ax
+   ;(320/2, 200/2)
+   mov di, (100-20)<em>320+(160-20); (160-20,100-20)
+   ;mov cx, 41; rows=41
+   mov i, 41
+next_row:
+   ;push cx
+   push di
+   mov al, 4; color=red
+   mov cx, 41; dots=41
+next_dot:
+   mov es:[di], al
+   add di, 1
+   sub cx, 1
+   jnz next_dot
+   pop di; 左上角(x,y)对应的地址
+   ;pop cx; cx=41
+   add di, 320; 下一行的起点的地址
+   ;sub cx, 1; 行数-1
+   sub i, 1
+   jnz next_row
+   mov ah,0
+   int 16h;bios键盘输入,类似int 21h的01h功能
+   mov ax, 0003h
+   int 10h; 切换到80</em>25文本模式
+   mov ah, 4Ch
+   int 21h
+code ends
+end main
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span>
+<span class="normal"><a href="#__codelineno-13-18">18</a></span>
+<span class="normal"><a href="#__codelineno-13-19">19</a></span>
+<span class="normal"><a href="#__codelineno-13-20">20</a></span>
+<span class="normal"><a href="#__codelineno-13-21">21</a></span>
+<span class="normal"><a href="#__codelineno-13-22">22</a></span>
+<span class="normal"><a href="#__codelineno-13-23">23</a></span>
+<span class="normal"><a href="#__codelineno-13-24">24</a></span>
+<span class="normal"><a href="#__codelineno-13-25">25</a></span>
+<span class="normal"><a href="#__codelineno-13-26">26</a></span>
+<span class="normal"><a href="#__codelineno-13-27">27</a></span>
+<span class="normal"><a href="#__codelineno-13-28">28</a></span>
+<span class="normal"><a href="#__codelineno-13-29">29</a></span>
+<span class="normal"><a href="#__codelineno-13-30">30</a></span>
+<span class="normal"><a href="#__codelineno-13-31">31</a></span>
+<span class="normal"><a href="#__codelineno-13-32">32</a></span>
+<span class="normal"><a href="#__codelineno-13-33">33</a></span>
+<span class="normal"><a href="#__codelineno-13-34">34</a></span>
+<span class="normal"><a href="#__codelineno-13-35">35</a></span>
+<span class="normal"><a href="#__codelineno-13-36">36</a></span>
+<span class="normal"><a href="#__codelineno-13-37">37</a></span>
+<span class="normal"><a href="#__codelineno-13-38">38</a></span>
+<span class="normal"><a href="#__codelineno-13-39">39</a></span>
+<span class="normal"><a href="#__codelineno-13-40">40</a></span>
+<span class="normal"><a href="#__codelineno-13-41">41</a></span>
+<span class="normal"><a href="#__codelineno-13-42">42</a></span>
+<span class="normal"><a href="#__codelineno-13-43">43</a></span>
+<span class="normal"><a href="#__codelineno-13-44">44</a></span>
+<span class="normal"><a href="#__codelineno-13-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a>```asm title=&quot;用图像模式显示汉字&quot;我&quot;&quot;
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a>data segment
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a>hz db 04h,80h,0Eh,0A0h,78h,90h,08h,90h
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a>   db 08h,84h,0FFh,0FEh,08h,80h,08h,90h
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a>   db 0Ah,90h,0Ch,60h,18h,40h,68h,0A0h
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a>   db 09h,20h,0Ah,14h,28h,14h,10h,0Ch
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a>data ends
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a>code segment
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a>assume cs:code, ds:data
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a>main:
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a>   mov ax, data
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a>   mov ds, ax
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13"></a>   mov ax, 0A000h
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14"></a>   mov es, ax
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15"></a>   mov di, 0
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16"></a>   mov ax, 0013h
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17"></a>   int 10h
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18"></a>   mov dx, 16
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19"></a>   mov si, 0
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20"></a>next_row:
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21"></a>   mov ah, hz[si]
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22"></a>   mov al, hz[si+1]
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23"></a>   add si, 2
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24"></a>   mov cx, 16
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25"></a>check_next_dot:
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26"></a>   shl ax, 1; 刚移出的位会自动进入CF(进位标志)
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27"></a>   jnc no_dot; 若没有进位即CF=0则跳到no_dot
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28"></a>is_dot:
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29"></a>   mov byte ptr es:[di], 0Ch
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30"></a>no_dot:
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31"></a>   add di, 1
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32"></a>   sub cx, 1
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33"></a>   jnz check_next_dot
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34"></a>   sub di, 16
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35"></a>   add di, 320
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36"></a>   sub dx, 1
+</span><span id="__span-13-37"><a id="__codelineno-13-37" name="__codelineno-13-37"></a>   jnz next_row
+</span><span id="__span-13-38"><a id="__codelineno-13-38" name="__codelineno-13-38"></a>   mov ah, 1
+</span><span id="__span-13-39"><a id="__codelineno-13-39" name="__codelineno-13-39"></a>   int 21h
+</span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40"></a>   mov ax, 0003h
+</span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41"></a>   int 10h
+</span><span id="__span-13-42"><a id="__codelineno-13-42" name="__codelineno-13-42"></a>   mov ah, 4Ch
+</span><span id="__span-13-43"><a id="__codelineno-13-43" name="__codelineno-13-43"></a>   int 21h
+</span><span id="__span-13-44"><a id="__codelineno-13-44" name="__codelineno-13-44"></a>code ends
+</span><span id="__span-13-45"><a id="__codelineno-13-45" name="__codelineno-13-45"></a>end main
+</span></code></pre></div></td></tr></table></div></p>
+<h2 id="9-端口">9 端口<a class="headerlink" href="#9-端口" title="Locate to heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CPU &lt;-&gt; 端口 (port) &lt;-&gt; I/O 设备</p>
+</div>
+<p>端口编号就是端口地址，<code>[0000h, 0FFFFh]</code> 一共有 65536 个端口</p>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">port operation</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nf">in</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="no">h</span><span class="w">  </span><span class="c1">; 从 60h 端口获得输入</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="nf">out</span><span class="w"> </span><span class="mi">60</span><span class="no">h</span><span class="p">,</span><span class="w"> </span><span class="no">al</span><span class="w">  </span><span class="c1">; 将 al 的值输出到 60h 端口 </span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="91-example-读取键盘输入值">9.1 Example: 读取键盘输入值<a class="headerlink" href="#91-example-读取键盘输入值" title="Locate to heading">#</a></h3>
+<p><code>60h</code> 端口是键盘的输入端口，通过修改硬件断点 <code>int 9h</code> 函数指针，让程序在键盘敲击时读取键盘输入值</p>
+<h4 id="911-code-fold">9.1.1 Code %% fold %%<a class="headerlink" href="#911-code-fold" title="Locate to heading">#</a></h4>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">key</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-15-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-15-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-15-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-15-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-15-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-15-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-15-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-15-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-15-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-15-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-15-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-15-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-15-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-15-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-15-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-15-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-15-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-15-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-15-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-15-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-15-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-15-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-15-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-15-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-15-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-15-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-15-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-15-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-15-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-15-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-15-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-15-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-15-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-15-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-15-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-15-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-15-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-15-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-15-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-15-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-15-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-15-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-15-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-15-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-15-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-15-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-15-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-15-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-15-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-15-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-15-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-15-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-15-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-15-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-15-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-15-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-15-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-15-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-15-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-15-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-15-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-15-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-15-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-15-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-15-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-15-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-15-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-15-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-15-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-15-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-15-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-15-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-15-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-15-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-15-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-15-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-15-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-15-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-15-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-15-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-15-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-15-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-15-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-15-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-15-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-15-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-15-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-15-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-15-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-15-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-15-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-15-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-15-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-15-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-15-100">100</a></span>
+<span class="normal"><a href="#__codelineno-15-101">101</a></span>
+<span class="normal"><a href="#__codelineno-15-102">102</a></span>
+<span class="normal"><a href="#__codelineno-15-103">103</a></span>
+<span class="normal"><a href="#__codelineno-15-104">104</a></span>
+<span class="normal"><a href="#__codelineno-15-105">105</a></span>
+<span class="normal"><a href="#__codelineno-15-106">106</a></span>
+<span class="normal"><a href="#__codelineno-15-107">107</a></span>
+<span class="normal"><a href="#__codelineno-15-108">108</a></span>
+<span class="normal"><a href="#__codelineno-15-109">109</a></span>
+<span class="normal"><a href="#__codelineno-15-110">110</a></span>
+<span class="normal"><a href="#__codelineno-15-111">111</a></span>
+<span class="normal"><a href="#__codelineno-15-112">112</a></span>
+<span class="normal"><a href="#__codelineno-15-113">113</a></span>
+<span class="normal"><a href="#__codelineno-15-114">114</a></span>
+<span class="normal"><a href="#__codelineno-15-115">115</a></span>
+<span class="normal"><a href="#__codelineno-15-116">116</a></span>
+<span class="normal"><a href="#__codelineno-15-117">117</a></span>
+<span class="normal"><a href="#__codelineno-15-118">118</a></span>
+<span class="normal"><a href="#__codelineno-15-119">119</a></span>
+<span class="normal"><a href="#__codelineno-15-120">120</a></span>
+<span class="normal"><a href="#__codelineno-15-121">121</a></span>
+<span class="normal"><a href="#__codelineno-15-122">122</a></span>
+<span class="normal"><a href="#__codelineno-15-123">123</a></span>
+<span class="normal"><a href="#__codelineno-15-124">124</a></span>
+<span class="normal"><a href="#__codelineno-15-125">125</a></span>
+<span class="normal"><a href="#__codelineno-15-126">126</a></span>
+<span class="normal"><a href="#__codelineno-15-127">127</a></span>
+<span class="normal"><a href="#__codelineno-15-128">128</a></span>
+<span class="normal"><a href="#__codelineno-15-129">129</a></span>
+<span class="normal"><a href="#__codelineno-15-130">130</a></span>
+<span class="normal"><a href="#__codelineno-15-131">131</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1">;---------------------------------------</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="c1">;PrtSc/SysRq: E0 2A E0 37 E0 B7 E0 AA  ;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1">;Pause/Break: E1 1D 45 E1 9D C5        ;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="c1">;---------------------------------------</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="nf">data</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="nf">old_9h</span><span class="w"> </span><span class="no">dw</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="nf">stop</span><span class="w">   </span><span class="no">db</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="nf">key</span><span class="w">    </span><span class="no">db</span><span class="w"> </span><span class="mi">0</span><span class="c1">; key=31h</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="nf">phead</span><span class="w">  </span><span class="no">dw</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="nf">key_extend</span><span class="w">  </span><span class="no">db</span><span class="w"> </span><span class="err">&#39;</span><span class="no">KeyExtend</span><span class="err">=&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="nf">key_up</span><span class="w">      </span><span class="no">db</span><span class="w"> </span><span class="err">&#39;</span><span class="no">KeyUp</span><span class="err">=&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="nf">key_down</span><span class="w">    </span><span class="no">db</span><span class="w"> </span><span class="err">&#39;</span><span class="no">KeyDown</span><span class="err">=&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="nf">key_code</span><span class="w">    </span><span class="no">db</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">00</span><span class="no">h</span><span class="w"> </span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="nf">hex_tbl</span><span class="w">     </span><span class="no">db</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">0123456789</span><span class="no">ABCDEF</span><span class="err">&#39;</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="nf">cr</span><span class="w">          </span><span class="no">db</span><span class="w">  </span><span class="mi">0</span><span class="no">Dh</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Ah</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="nf">data</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17"></a>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="nf">code</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20"></a><span class="nl">main:</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="w">   </span><span class="nf">xor</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">es</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">*</span><span class="mi">4</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">es</span><span class="p">:[</span><span class="no">bx</span><span class="p">]</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">old_9h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">es</span><span class="p">:[</span><span class="no">bx</span><span class="err">+</span><span class="mi">2</span><span class="p">]</span>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">old_9h</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w">    </span><span class="c1">; 保存int 9h的中断向量</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30"></a><span class="w">   </span><span class="nf">cli</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">word</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">es</span><span class="p">:[</span><span class="no">bx</span><span class="p">],</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">int_9h</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">es</span><span class="p">:[</span><span class="no">bx</span><span class="err">+</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="no">cs</span><span class="c1">; 修改int 9h的中断向量</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33"></a><span class="w">   </span><span class="nf">sti</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34"></a><span class="nl">again:</span>
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35"></a><span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="p">[</span><span class="no">stop</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36"></a><span class="w">   </span><span class="nf">jne</span><span class="w"> </span><span class="no">again</span><span class="w">        </span><span class="c1">; 主程序在此循环等待</span>
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">old_9h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">es</span><span class="p">:[</span><span class="no">bx</span><span class="p">]</span>
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">old_9h</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">es</span><span class="p">:[</span><span class="no">bx</span><span class="err">+</span><span class="mi">2</span><span class="p">]</span><span class="w">    </span><span class="c1">; 恢复int 9h的中断向量</span>
+</span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="no">Ch</span>
+</span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43"></a>
+</span><span id="__span-15-44"><a id="__codelineno-15-44" name="__codelineno-15-44"></a><span class="nl">int_9h:</span>
+</span><span id="__span-15-45"><a id="__codelineno-15-45" name="__codelineno-15-45"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-15-46"><a id="__codelineno-15-46" name="__codelineno-15-46"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">bx</span>
+</span><span id="__span-15-47"><a id="__codelineno-15-47" name="__codelineno-15-47"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">cx</span>
+</span><span id="__span-15-48"><a id="__codelineno-15-48" name="__codelineno-15-48"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">ds</span>
+</span><span id="__span-15-49"><a id="__codelineno-15-49" name="__codelineno-15-49"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+</span><span id="__span-15-50"><a id="__codelineno-15-50" name="__codelineno-15-50"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span><span class="w">       </span><span class="c1">; 这里设置DS是因为被中断的不一定是我们自己的程序</span>
+</span><span id="__span-15-51"><a id="__codelineno-15-51" name="__codelineno-15-51"></a><span class="w">   </span><span class="nf">in</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="no">h</span><span class="w">       </span><span class="c1">; AL=key code</span>
+</span><span id="__span-15-52"><a id="__codelineno-15-52" name="__codelineno-15-52"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="p">[</span><span class="no">key</span><span class="p">],</span><span class="w"> </span><span class="no">al</span>
+</span><span id="__span-15-53"><a id="__codelineno-15-53" name="__codelineno-15-53"></a><span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">E0h</span>
+</span><span id="__span-15-54"><a id="__codelineno-15-54" name="__codelineno-15-54"></a><span class="w">   </span><span class="nf">je</span><span class="w">  </span><span class="no">extend</span>
+</span><span id="__span-15-55"><a id="__codelineno-15-55" name="__codelineno-15-55"></a><span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">E1h</span>
+</span><span id="__span-15-56"><a id="__codelineno-15-56" name="__codelineno-15-56"></a><span class="w">   </span><span class="nf">jne</span><span class="w"> </span><span class="no">up_or_down</span>
+</span><span id="__span-15-57"><a id="__codelineno-15-57" name="__codelineno-15-57"></a><span class="nl">extend:</span>
+</span><span id="__span-15-58"><a id="__codelineno-15-58" name="__codelineno-15-58"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="p">[</span><span class="no">phead</span><span class="p">],</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">key_extend</span>
+</span><span id="__span-15-59"><a id="__codelineno-15-59" name="__codelineno-15-59"></a><span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">output</span>
+</span><span id="__span-15-60"><a id="__codelineno-15-60" name="__codelineno-15-60"></a><span class="w">   </span><span class="nf">jmp</span><span class="w"> </span><span class="no">check_esc</span>
+</span><span id="__span-15-61"><a id="__codelineno-15-61" name="__codelineno-15-61"></a><span class="nl">up_or_down:</span>
+</span><span id="__span-15-62"><a id="__codelineno-15-62" name="__codelineno-15-62"></a><span class="w">   </span><span class="nf">test</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="no">h</span><span class="w">     </span><span class="c1">; 最高位==1时表示key up</span>
+</span><span id="__span-15-63"><a id="__codelineno-15-63" name="__codelineno-15-63"></a><span class="w">   </span><span class="nf">jz</span><span class="w"> </span><span class="no">down</span>
+</span><span id="__span-15-64"><a id="__codelineno-15-64" name="__codelineno-15-64"></a><span class="nl">up:</span>
+</span><span id="__span-15-65"><a id="__codelineno-15-65" name="__codelineno-15-65"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="p">[</span><span class="no">phead</span><span class="p">],</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">key_up</span>
+</span><span id="__span-15-66"><a id="__codelineno-15-66" name="__codelineno-15-66"></a><span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">output</span>
+</span><span id="__span-15-67"><a id="__codelineno-15-67" name="__codelineno-15-67"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">cr</span>
+</span><span id="__span-15-68"><a id="__codelineno-15-68" name="__codelineno-15-68"></a><span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">display</span><span class="w">     </span><span class="c1">; 输出回车换行</span>
+</span><span id="__span-15-69"><a id="__codelineno-15-69" name="__codelineno-15-69"></a><span class="w">   </span><span class="nf">jmp</span><span class="w"> </span><span class="no">check_esc</span>
+</span><span id="__span-15-70"><a id="__codelineno-15-70" name="__codelineno-15-70"></a><span class="nl">down:</span>
+</span><span id="__span-15-71"><a id="__codelineno-15-71" name="__codelineno-15-71"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="p">[</span><span class="no">phead</span><span class="p">],</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">key_down</span>
+</span><span id="__span-15-72"><a id="__codelineno-15-72" name="__codelineno-15-72"></a><span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">output</span>
+</span><span id="__span-15-73"><a id="__codelineno-15-73" name="__codelineno-15-73"></a><span class="nl">check_esc:</span><span class="w">   </span>
+</span><span id="__span-15-74"><a id="__codelineno-15-74" name="__codelineno-15-74"></a><span class="w">   </span><span class="nf">cmp</span><span class="w"> </span><span class="p">[</span><span class="no">key</span><span class="p">],</span><span class="w"> </span><span class="mi">81</span><span class="no">h</span><span class="w">   </span><span class="c1">; Esc键的key up码</span>
+</span><span id="__span-15-75"><a id="__codelineno-15-75" name="__codelineno-15-75"></a><span class="w">   </span><span class="nf">jne</span><span class="w"> </span><span class="no">int_9h_iret</span>
+</span><span id="__span-15-76"><a id="__codelineno-15-76" name="__codelineno-15-76"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="p">[</span><span class="no">stop</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-15-77"><a id="__codelineno-15-77" name="__codelineno-15-77"></a><span class="nl">int_9h_iret:</span>
+</span><span id="__span-15-78"><a id="__codelineno-15-78" name="__codelineno-15-78"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="no">h</span><span class="w">      </span><span class="c1">; 发EOI(End Of Interrupt)信号给中断控制器，</span>
+</span><span id="__span-15-79"><a id="__codelineno-15-79" name="__codelineno-15-79"></a><span class="w">   </span><span class="nf">out</span><span class="w"> </span><span class="mi">20</span><span class="no">h</span><span class="p">,</span><span class="w"> </span><span class="no">al</span><span class="w">      </span><span class="c1">; 表示我们已处理当前的硬件中断(硬件中断处理最后都要这2条指令)。</span>
+</span><span id="__span-15-80"><a id="__codelineno-15-80" name="__codelineno-15-80"></a><span class="w">                    </span><span class="c1">; 因为我们没有跳转到的old_9h，所以必须自己发EOI信号。</span>
+</span><span id="__span-15-81"><a id="__codelineno-15-81" name="__codelineno-15-81"></a><span class="w">                    </span><span class="c1">; 如果跳到old_9h的话，则old_9h里面有这2条指令，这里就不要写。</span>
+</span><span id="__span-15-82"><a id="__codelineno-15-82" name="__codelineno-15-82"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">ds</span>
+</span><span id="__span-15-83"><a id="__codelineno-15-83" name="__codelineno-15-83"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">cx</span>
+</span><span id="__span-15-84"><a id="__codelineno-15-84" name="__codelineno-15-84"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">bx</span>
+</span><span id="__span-15-85"><a id="__codelineno-15-85" name="__codelineno-15-85"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-15-86"><a id="__codelineno-15-86" name="__codelineno-15-86"></a><span class="w">   </span><span class="nf">iret</span><span class="w">             </span><span class="c1">; 中断返回指令。从堆栈中逐个弹出IP、CS、FL。</span>
+</span><span id="__span-15-87"><a id="__codelineno-15-87" name="__codelineno-15-87"></a>
+</span><span id="__span-15-88"><a id="__codelineno-15-88" name="__codelineno-15-88"></a><span class="nl">output:</span>
+</span><span id="__span-15-89"><a id="__codelineno-15-89" name="__codelineno-15-89"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-15-90"><a id="__codelineno-15-90" name="__codelineno-15-90"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">bx</span>
+</span><span id="__span-15-91"><a id="__codelineno-15-91" name="__codelineno-15-91"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">cx</span>
+</span><span id="__span-15-92"><a id="__codelineno-15-92" name="__codelineno-15-92"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">hex_tbl</span>
+</span><span id="__span-15-93"><a id="__codelineno-15-93" name="__codelineno-15-93"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">cl</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+</span><span id="__span-15-94"><a id="__codelineno-15-94" name="__codelineno-15-94"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">ax</span><span class="w">   </span><span class="c1">; 设AL=31h=0011 0001</span>
+</span><span id="__span-15-95"><a id="__codelineno-15-95" name="__codelineno-15-95"></a><span class="w">   </span><span class="nf">shr</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="no">cl</span><span class="c1">; AL=03h</span>
+</span><span id="__span-15-96"><a id="__codelineno-15-96" name="__codelineno-15-96"></a><span class="w">   </span><span class="nf">xlat</span><span class="w">      </span><span class="c1">; AL = DS:[BX+AL] = &#39;3&#39;</span>
+</span><span id="__span-15-97"><a id="__codelineno-15-97" name="__codelineno-15-97"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">key_code</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="no">al</span>
+</span><span id="__span-15-98"><a id="__codelineno-15-98" name="__codelineno-15-98"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-15-99"><a id="__codelineno-15-99" name="__codelineno-15-99"></a><span class="w">   </span><span class="nf">and</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Fh</span><span class="c1">; AL=01h</span>
+</span><span id="__span-15-100"><a id="__codelineno-15-100" name="__codelineno-15-100"></a><span class="w">   </span><span class="nf">xlat</span><span class="w">       </span><span class="c1">; AL=&#39;1&#39;</span>
+</span><span id="__span-15-101"><a id="__codelineno-15-101" name="__codelineno-15-101"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">key_code</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="no">al</span>
+</span><span id="__span-15-102"><a id="__codelineno-15-102" name="__codelineno-15-102"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">phead</span><span class="p">]</span>
+</span><span id="__span-15-103"><a id="__codelineno-15-103" name="__codelineno-15-103"></a><span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">display</span><span class="w">     </span><span class="c1">; 输出提示信息</span>
+</span><span id="__span-15-104"><a id="__codelineno-15-104" name="__codelineno-15-104"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">key_code</span>
+</span><span id="__span-15-105"><a id="__codelineno-15-105" name="__codelineno-15-105"></a><span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">display</span><span class="w">     </span><span class="c1">; 输出键码</span>
+</span><span id="__span-15-106"><a id="__codelineno-15-106" name="__codelineno-15-106"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">cx</span>
+</span><span id="__span-15-107"><a id="__codelineno-15-107" name="__codelineno-15-107"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">bx</span>
+</span><span id="__span-15-108"><a id="__codelineno-15-108" name="__codelineno-15-108"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-15-109"><a id="__codelineno-15-109" name="__codelineno-15-109"></a><span class="w">   </span><span class="nf">ret</span>
+</span><span id="__span-15-110"><a id="__codelineno-15-110" name="__codelineno-15-110"></a>
+</span><span id="__span-15-111"><a id="__codelineno-15-111" name="__codelineno-15-111"></a><span class="nl">display:</span>
+</span><span id="__span-15-112"><a id="__codelineno-15-112" name="__codelineno-15-112"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-15-113"><a id="__codelineno-15-113" name="__codelineno-15-113"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">bx</span>
+</span><span id="__span-15-114"><a id="__codelineno-15-114" name="__codelineno-15-114"></a><span class="w">   </span><span class="nf">push</span><span class="w"> </span><span class="no">si</span>
+</span><span id="__span-15-115"><a id="__codelineno-15-115" name="__codelineno-15-115"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">si</span><span class="p">,</span><span class="w"> </span><span class="no">bx</span>
+</span><span id="__span-15-116"><a id="__codelineno-15-116" name="__codelineno-15-116"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">bx</span><span class="p">,</span><span class="w"> </span><span class="mi">0007</span><span class="no">h</span><span class="w">    </span><span class="c1">; BL = color</span>
+</span><span id="__span-15-117"><a id="__codelineno-15-117" name="__codelineno-15-117"></a><span class="w">   </span><span class="nf">cld</span>
+</span><span id="__span-15-118"><a id="__codelineno-15-118" name="__codelineno-15-118"></a><span class="nl">display_next:</span>
+</span><span id="__span-15-119"><a id="__codelineno-15-119" name="__codelineno-15-119"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Eh</span><span class="w">      </span><span class="c1">; AH=0Eh, BIOS int 10h的子功能，具体请查中断大全</span>
+</span><span id="__span-15-120"><a id="__codelineno-15-120" name="__codelineno-15-120"></a><span class="w">   </span><span class="nf">lodsb</span>
+</span><span id="__span-15-121"><a id="__codelineno-15-121" name="__codelineno-15-121"></a><span class="w">   </span><span class="nf">or</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="no">al</span>
+</span><span id="__span-15-122"><a id="__codelineno-15-122" name="__codelineno-15-122"></a><span class="w">   </span><span class="nf">jz</span><span class="w"> </span><span class="no">display_done</span>
+</span><span id="__span-15-123"><a id="__codelineno-15-123" name="__codelineno-15-123"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">10</span><span class="no">h</span><span class="w">          </span><span class="c1">; 每次输出一个字符</span>
+</span><span id="__span-15-124"><a id="__codelineno-15-124" name="__codelineno-15-124"></a><span class="w">   </span><span class="nf">jmp</span><span class="w"> </span><span class="no">display_next</span>
+</span><span id="__span-15-125"><a id="__codelineno-15-125" name="__codelineno-15-125"></a><span class="nl">display_done:</span>
+</span><span id="__span-15-126"><a id="__codelineno-15-126" name="__codelineno-15-126"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">si</span>
+</span><span id="__span-15-127"><a id="__codelineno-15-127" name="__codelineno-15-127"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">bx</span>
+</span><span id="__span-15-128"><a id="__codelineno-15-128" name="__codelineno-15-128"></a><span class="w">   </span><span class="nf">pop</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-15-129"><a id="__codelineno-15-129" name="__codelineno-15-129"></a><span class="w">   </span><span class="nf">ret</span>
+</span><span id="__span-15-130"><a id="__codelineno-15-130" name="__codelineno-15-130"></a><span class="nf">code</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-15-131"><a id="__codelineno-15-131" name="__codelineno-15-131"></a><span class="nf">end</span><span class="w"> </span><span class="no">main</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="912-explain">9.1.2 Explain<a class="headerlink" href="#912-explain" title="Locate to heading">#</a></h4>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a>KeyDown=1Eh KeyUp=9Eh  # 按下和抬起 A
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a>KeyDown=1Dh KeyUp=9Dh  # left ctrl
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a>KeyExtend=E0h KeyDown=1Dh KeyExtend=E0h KeyUp=9Dh  # right ctrl
+</span></code></pre></div></td></tr></table></div>
+<h3 id="92-example-读取-cmos-时钟">9.2 Example: 读取 CMOS 时钟<a class="headerlink" href="#92-example-读取-cmos-时钟" title="Locate to heading">#</a></h3>
+<p><code>70h, 71h</code> 与 CMOS 时钟有关，其中的 4, 2, 0 分别表示当前的时分秒，使用 BCD 码</p>
+<div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="nf">out</span><span class="w"> </span><span class="mi">70</span><span class="no">h</span><span class="p">,</span><span class="w"> </span><span class="no">al</span><span class="w">  </span><span class="c1">; 70h 端口收到 2 号地址会将地址 2 和 71h 端口连通</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="no">h</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="nf">out</span><span class="w"> </span><span class="mi">71</span><span class="no">h</span><span class="p">,</span><span class="w"> </span><span class="no">al</span><span class="w">  </span><span class="c1">; 将 10h 写入 2 号地址</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="nf">in</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="no">h</span><span class="w">  </span><span class="c1">; 读取 2 号地址的值</span>
+</span></code></pre></div></td></tr></table></div>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">BCD to char</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span>
+<span class="normal"><a href="#__codelineno-18-6">6</a></span>
+<span class="normal"><a href="#__codelineno-18-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="nl">convert:</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="no">al</span><span class="w">  </span><span class="c1">; assume ah=al=19h</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="nf">and</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Fh</span><span class="w">  </span><span class="c1">; ah=9h</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="nf">shr</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="c1">; al=1h</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">0</span><span class="err">&#39;</span><span class="w">  </span><span class="c1">; ah=&#39;9&#39;</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">0</span><span class="err">&#39;</span><span class="w">  </span><span class="c1">; al=&#39;1&#39;</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="w">    </span><span class="nf">ret</span>
+</span></code></pre></div></td></tr></table></div>
+<h4 id="921-code-fold">9.2.1 Code %% fold %%<a class="headerlink" href="#921-code-fold" title="Locate to heading">#</a></h4>
+<div class="language-asm highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">readtime</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-19-10">10</a></span>
+<span class="normal"><a href="#__codelineno-19-11">11</a></span>
+<span class="normal"><a href="#__codelineno-19-12">12</a></span>
+<span class="normal"><a href="#__codelineno-19-13">13</a></span>
+<span class="normal"><a href="#__codelineno-19-14">14</a></span>
+<span class="normal"><a href="#__codelineno-19-15">15</a></span>
+<span class="normal"><a href="#__codelineno-19-16">16</a></span>
+<span class="normal"><a href="#__codelineno-19-17">17</a></span>
+<span class="normal"><a href="#__codelineno-19-18">18</a></span>
+<span class="normal"><a href="#__codelineno-19-19">19</a></span>
+<span class="normal"><a href="#__codelineno-19-20">20</a></span>
+<span class="normal"><a href="#__codelineno-19-21">21</a></span>
+<span class="normal"><a href="#__codelineno-19-22">22</a></span>
+<span class="normal"><a href="#__codelineno-19-23">23</a></span>
+<span class="normal"><a href="#__codelineno-19-24">24</a></span>
+<span class="normal"><a href="#__codelineno-19-25">25</a></span>
+<span class="normal"><a href="#__codelineno-19-26">26</a></span>
+<span class="normal"><a href="#__codelineno-19-27">27</a></span>
+<span class="normal"><a href="#__codelineno-19-28">28</a></span>
+<span class="normal"><a href="#__codelineno-19-29">29</a></span>
+<span class="normal"><a href="#__codelineno-19-30">30</a></span>
+<span class="normal"><a href="#__codelineno-19-31">31</a></span>
+<span class="normal"><a href="#__codelineno-19-32">32</a></span>
+<span class="normal"><a href="#__codelineno-19-33">33</a></span>
+<span class="normal"><a href="#__codelineno-19-34">34</a></span>
+<span class="normal"><a href="#__codelineno-19-35">35</a></span>
+<span class="normal"><a href="#__codelineno-19-36">36</a></span>
+<span class="normal"><a href="#__codelineno-19-37">37</a></span>
+<span class="normal"><a href="#__codelineno-19-38">38</a></span>
+<span class="normal"><a href="#__codelineno-19-39">39</a></span>
+<span class="normal"><a href="#__codelineno-19-40">40</a></span>
+<span class="normal"><a href="#__codelineno-19-41">41</a></span>
+<span class="normal"><a href="#__codelineno-19-42">42</a></span>
+<span class="normal"><a href="#__codelineno-19-43">43</a></span>
+<span class="normal"><a href="#__codelineno-19-44">44</a></span>
+<span class="normal"><a href="#__codelineno-19-45">45</a></span>
+<span class="normal"><a href="#__codelineno-19-46">46</a></span>
+<span class="normal"><a href="#__codelineno-19-47">47</a></span>
+<span class="normal"><a href="#__codelineno-19-48">48</a></span>
+<span class="normal"><a href="#__codelineno-19-49">49</a></span>
+<span class="normal"><a href="#__codelineno-19-50">50</a></span>
+<span class="normal"><a href="#__codelineno-19-51">51</a></span>
+<span class="normal"><a href="#__codelineno-19-52">52</a></span>
+<span class="normal"><a href="#__codelineno-19-53">53</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="nf">data</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="nf">current_time</span><span class="w"> </span><span class="no">db</span><span class="w"> </span><span class="err">&quot;</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="err">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Dh</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="no">Ah</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="no">$</span><span class="err">&#39;</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="nf">data</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="nf">code</span><span class="w"> </span><span class="no">segment</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="nf">assume</span><span class="w"> </span><span class="no">cs</span><span class="p">:</span><span class="no">code</span><span class="p">,</span><span class="w"> </span><span class="no">ds</span><span class="p">:</span><span class="no">data</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="nl">main:</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ax</span><span class="p">,</span><span class="w"> </span><span class="no">data</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ds</span><span class="p">,</span><span class="w"> </span><span class="no">ax</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="w">   </span><span class="nf">out</span><span class="w"> </span><span class="mi">70</span><span class="no">h</span><span class="p">,</span><span class="no">al</span><span class="c1">; index hour</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="w">   </span><span class="nf">in</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="mi">71</span><span class="no">h</span><span class="w"> </span><span class="c1">; AL=hour(e.g. 19h means 19 pm.)</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">convert</span><span class="c1">; AL=&#39;1&#39;, AH=&#39;9&#39;</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="w">   </span><span class="c1">;mov word ptr current_time[0],ax</span>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">current_time</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="no">al</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">current_time</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="no">ah</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="mi">2</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="w">   </span><span class="nf">out</span><span class="w"> </span><span class="mi">70</span><span class="no">h</span><span class="p">,</span><span class="no">al</span><span class="c1">; index minute</span>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18"></a><span class="w">   </span><span class="nf">in</span><span class="w">  </span><span class="no">al</span><span class="p">,</span><span class="mi">71</span><span class="no">h</span><span class="c1">; AL=minute</span>
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19"></a><span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">convert</span>
+</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">word</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">current_time</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="no">ax</span><span class="c1">;</span>
+</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21"></a><span class="w">   </span><span class="c1">;mov current_time[3], al</span>
+</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22"></a><span class="w">   </span><span class="c1">;mov current_time[4], ah</span>
+</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="mi">0</span><span class="w">  </span><span class="c1">; index second</span>
+</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24"></a><span class="w">   </span><span class="nf">out</span><span class="w"> </span><span class="mi">70</span><span class="no">h</span><span class="p">,</span><span class="no">al</span>
+</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25"></a><span class="w">   </span><span class="nf">in</span><span class="w">  </span><span class="no">al</span><span class="p">,</span><span class="mi">71</span><span class="no">h</span><span class="c1">; AL=second</span>
+</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26"></a><span class="w">   </span><span class="nf">call</span><span class="w"> </span><span class="no">convert</span>
+</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">word</span><span class="w"> </span><span class="no">ptr</span><span class="w"> </span><span class="no">current_time</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span><span class="no">ax</span>
+</span><span id="__span-19-28"><a id="__codelineno-19-28" name="__codelineno-19-28"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span>
+</span><span id="__span-19-29"><a id="__codelineno-19-29" name="__codelineno-19-29"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">dx</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">current_time</span>
+</span><span id="__span-19-30"><a id="__codelineno-19-30" name="__codelineno-19-30"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-19-31"><a id="__codelineno-19-31" name="__codelineno-19-31"></a><span class="w">   </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="no">Ch</span>
+</span><span id="__span-19-32"><a id="__codelineno-19-32" name="__codelineno-19-32"></a><span class="w">   </span><span class="nf">int</span><span class="w"> </span><span class="mi">21</span><span class="no">h</span>
+</span><span id="__span-19-33"><a id="__codelineno-19-33" name="__codelineno-19-33"></a><span class="c1">;---------Convert----------------</span>
+</span><span id="__span-19-34"><a id="__codelineno-19-34" name="__codelineno-19-34"></a><span class="c1">;Input:AL=hour or minute or second</span>
+</span><span id="__span-19-35"><a id="__codelineno-19-35" name="__codelineno-19-35"></a><span class="c1">;      format:e.g. hour   15h means 3 pm.</span>
+</span><span id="__span-19-36"><a id="__codelineno-19-36" name="__codelineno-19-36"></a><span class="c1">;                  second 56h means 56s</span>
+</span><span id="__span-19-37"><a id="__codelineno-19-37" name="__codelineno-19-37"></a><span class="c1">;Output: (e.g. AL=56h)</span>
+</span><span id="__span-19-38"><a id="__codelineno-19-38" name="__codelineno-19-38"></a><span class="c1">;     AL=&#39;5&#39;</span>
+</span><span id="__span-19-39"><a id="__codelineno-19-39" name="__codelineno-19-39"></a><span class="c1">;     AH=&#39;6&#39;</span>
+</span><span id="__span-19-40"><a id="__codelineno-19-40" name="__codelineno-19-40"></a><span class="nl">convert:</span>
+</span><span id="__span-19-41"><a id="__codelineno-19-41" name="__codelineno-19-41"></a><span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="no">cx</span>
+</span><span id="__span-19-42"><a id="__codelineno-19-42" name="__codelineno-19-42"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="no">al</span><span class="w"> </span><span class="c1">; e.g. assume AL=56h</span>
+</span><span id="__span-19-43"><a id="__codelineno-19-43" name="__codelineno-19-43"></a><span class="w">    </span><span class="nf">and</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="mi">0</span><span class="no">Fh</span><span class="c1">; AH=06h</span>
+</span><span id="__span-19-44"><a id="__codelineno-19-44" name="__codelineno-19-44"></a><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">cl</span><span class="p">,</span><span class="mi">4</span>
+</span><span id="__span-19-45"><a id="__codelineno-19-45" name="__codelineno-19-45"></a><span class="w">    </span><span class="nf">shr</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="no">cl</span><span class="w"> </span><span class="c1">; AL=05h</span>
+</span><span id="__span-19-46"><a id="__codelineno-19-46" name="__codelineno-19-46"></a><span class="w">    </span><span class="c1">; shr:shift right右移</span>
+</span><span id="__span-19-47"><a id="__codelineno-19-47" name="__codelineno-19-47"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">ah</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">0</span><span class="err">&#39;</span><span class="c1">; AH=&#39;6&#39;</span>
+</span><span id="__span-19-48"><a id="__codelineno-19-48" name="__codelineno-19-48"></a><span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">al</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">0</span><span class="err">&#39;</span><span class="c1">; AL=&#39;5&#39;</span>
+</span><span id="__span-19-49"><a id="__codelineno-19-49" name="__codelineno-19-49"></a><span class="w">    </span><span class="nf">pop</span><span class="w">  </span><span class="no">cx</span>
+</span><span id="__span-19-50"><a id="__codelineno-19-50" name="__codelineno-19-50"></a><span class="w">    </span><span class="nf">ret</span>
+</span><span id="__span-19-51"><a id="__codelineno-19-51" name="__codelineno-19-51"></a><span class="c1">;---------End of Convert---------</span>
+</span><span id="__span-19-52"><a id="__codelineno-19-52" name="__codelineno-19-52"></a><span class="nf">code</span><span class="w"> </span><span class="no">ends</span>
+</span><span id="__span-19-53"><a id="__codelineno-19-53" name="__codelineno-19-53"></a><span class="nf">end</span><span class="w"> </span><span class="no">main</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="93-几种读取键盘方式总结">9.3 几种读取键盘方式总结<a class="headerlink" href="#93-几种读取键盘方式总结" title="Locate to heading">#</a></h3>
+<ul>
+<li><code>mov ah, 1; int 21h</code> 相当于 <code>al = getchar()</code>，不能读取方向键 <strong>dos 中断调用</strong></li>
+<li><code>mov ah, 0; int 16h</code> 相当于 <code>ax = 键盘编码</code>，可以读取方向键、PgUp 等，但不能读取单独的方向键 <strong>bios (basic I/O system) 调用</strong><ul>
+<li>bios 封装在 ROM 芯片中，可以在没有操作系统的情况下调用</li>
+</ul>
+</li>
+<li><code>in al, 60h</code> 可以读取所有按键的编码 <strong>端口操作</strong></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="ASMF%2002%20%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E6%BA%90%E7%A8%8B%E5%BA%8F%E6%A0%BC%E5%BC%8F.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: 02 汇编语言源程序格式">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                02 汇编语言源程序格式
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="ASMF%2004%20%E5%AF%84%E5%AD%98%E5%99%A8.html" class="md-footer__link md-footer__link--next" aria-label="Next: 04 寄存器">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                04 寄存器
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 EmergentTwilight
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/EmergentTwilight" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:emergentshores@outlook.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../__srcs/javascript/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../__srcs/javascript/toc.js"></script>
+      
+    
+  </body>
+</html>
