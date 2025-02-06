@@ -1,0 +1,30 @@
+/*@font-face {*/
+/*    font-family: 'Source Han Serif SC';*/
+/*    src: url('./SourceHanSerifSC-VF.otf') format('opentype');*/
+/*    font-weight: 500;*/
+/*}*/
+/*@font-face {*/
+/*    font-family: 'Source Han Serif SC SC';*/
+/*    src: url('./SourceHanSerifSC-VF.otf') format('opentype');*/
+/*    font-weight: 800;*/
+/*}*/
+
+/* JetBrains Mono */
+@import url('https://fonts.loli.net/css?family=JetBrains Mono:400,500,600,700&display=swap');
+/* Noto Sans SC */
+/* @import url('https://fonts.loli.net/css2?family=Noto Sans SC&display=swap'); */
+/* 思源宋体 */
+@import url('https://fonts.googleapis.com/css2?family=Noto Serif SC&display=swap');
+/* Roboto Slab */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto Slab&display=swap'); */
+/* Roboto*/
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
+
+:root {
+  --md-text-font: "Noto Serif SC";
+  --md-code-font: "JetBrains Mono";
+}
+
+/*body, h1, h2, h3, h4, h5, h6 {*/
+/*    font-family: 'Noto Serif SC', sans-serif;*/
+/*}*/
