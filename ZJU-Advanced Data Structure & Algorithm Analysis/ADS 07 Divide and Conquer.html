@@ -1730,7 +1730,7 @@
 <p><span class="arithmatex">\(T(N)=2T(N/2)+O(N)=O(N\log N)\)</span></p>
 <div class="admonition note">
 <p class="admonition-title">优化前后时间复杂度推导和对比</p>
-<p><img alt="__assets/ADS 07 Divide and Conquer.md/IMG-ADS 07 Divide and Conquer-20241030193003208.png" src="__assets/ADS%2007%20Divide%20and%20Conquer.md/IMG-ADS%2007%20Divide%20and%20Conquer-20241030193003208.png" /></p>
+<p><img alt="__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241030193003208.webp" src="__assets/ADS%2007%20Divide%20and%20Conquer/IMG-ADS%2007%20Divide%20and%20Conquer-20241030193003208.webp" /></p>
 </div>
 <h2 id="2-solving-recurrences">2 Solving Recurrences<a class="headerlink" href="#2-solving-recurrences" title="Locate to heading">#</a></h2>
 <ul>
@@ -1772,7 +1772,7 @@ T(N)&amp;=2T(\lfloor N/2 \rfloor )+N \\
 </div>
 <div class="admonition warning">
 <p class="admonition-title"><strong>Exact form</strong></p>
-<p><img alt="__assets/ADS 07 Divide and Conquer.md/IMG-ADS 07 Divide and Conquer-20241030194050241.png" src="__assets/ADS%2007%20Divide%20and%20Conquer.md/IMG-ADS%2007%20Divide%20and%20Conquer-20241030194050241.png" />
+<p><img alt="__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241030194050241.webp" src="__assets/ADS%2007%20Divide%20and%20Conquer/IMG-ADS%2007%20Divide%20and%20Conquer-20241030194050241.webp" />
 放缩的时候必须确保<strong>常数不会变大</strong></p>
 </div>
 <h3 id="22-recursion-tree-method">2.2 Recursion-tree Method<a class="headerlink" href="#22-recursion-tree-method" title="Locate to heading">#</a></h3>
@@ -1780,15 +1780,15 @@ T(N)&amp;=2T(\lfloor N/2 \rfloor )+N \\
 <p class="admonition-title">Example</p>
 <div class="arithmatex">\[T(N)=3T(N/4)+\Theta(N^2)\]</div>
 </div>
-<p><img alt="__assets/ADS 07 Divide and Conquer.md/IMG-ADS 07 Divide and Conquer-20241030194254232.png" src="__assets/ADS%2007%20Divide%20and%20Conquer.md/IMG-ADS%2007%20Divide%20and%20Conquer-20241030194254232.png" /></p>
+<p><img alt="__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241030194254232.webp" src="__assets/ADS%2007%20Divide%20and%20Conquer/IMG-ADS%2007%20Divide%20and%20Conquer-20241030194254232.webp" /></p>
 <div class="admonition warning">
 <p class="admonition-title">不一定适用于所有情况！</p>
-<p><img alt="__assets/ADS 07 Divide and Conquer.md/IMG-ADS 07 Divide and Conquer-20241030194816146.png" src="__assets/ADS%2007%20Divide%20and%20Conquer.md/IMG-ADS%2007%20Divide%20and%20Conquer-20241030194816146.png" />
+<p><img alt="__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241030194816146.webp" src="__assets/ADS%2007%20Divide%20and%20Conquer/IMG-ADS%2007%20Divide%20and%20Conquer-20241030194816146.webp" />
 这里展开之后是斜树，可以计算但比较麻烦</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">比较新颖的一道题</p>
-<p><img alt="__assets/ADS 07 Divide and Conquer.md/IMG-ADS 07 Divide and Conquer-20241030195836096.png" src="__assets/ADS%2007%20Divide%20and%20Conquer.md/IMG-ADS%2007%20Divide%20and%20Conquer-20241030195836096.png" /></p>
+<p><img alt="__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241030195836096.webp" src="__assets/ADS%2007%20Divide%20and%20Conquer/IMG-ADS%2007%20Divide%20and%20Conquer-20241030195836096.webp" /></p>
 <ul>
 <li>核心思路是一样的，找出叶子的数量和分叉的数量，计算和比较开销</li>
 <li>这里不是每层开销不是一个单位时间，而是本层的节点数量，所以答案应该是 <span class="arithmatex">\(O(M \cdot 8^{\log_{2}n/\sqrt{ M }}+\frac{8^{\log_{2}n/\sqrt{ M }}-1}{8-1})=O(M \cdot 8^{\log_{2}n/\sqrt{ M }})=O(n^3/\sqrt{ M })\)</span></li>
@@ -1808,7 +1808,7 @@ T(N)&amp;=2T(\lfloor N/2 \rfloor )+N \\
 </div>
 <details class="note">
 <summary>Regularity Condition 的作用</summary>
-<p><img alt="__assets/ADS 07 Divide and Conquer.md/IMG-ADS 07 Divide and Conquer-20241109153027007.png" src="__assets/ADS%2007%20Divide%20and%20Conquer.md/IMG-ADS%2007%20Divide%20and%20Conquer-20241109153027007.png" /></p>
+<p><img alt="__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241109153027007.webp" src="__assets/ADS%2007%20Divide%20and%20Conquer/IMG-ADS%2007%20Divide%20and%20Conquer-20241109153027007.webp" /></p>
 <details class="note">
 <summary><strong>Polynomially smaller</strong></summary>
 <p><strong>Polynomially smaller</strong> 是指一个函数与另一个函数相比，在增长速率上相差一个多项式级别。</p>
@@ -1839,7 +1839,7 @@ T(N)&amp;=2T(\lfloor N/2 \rfloor )+N \\
 </details>
 </details>
 <h4 id="232-prove-by-recursion-tree">2.3.2 Prove by Recursion-tree<a class="headerlink" href="#232-prove-by-recursion-tree" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/ADS 07 Divide and Conquer.md/IMG-ADS 07 Divide and Conquer-20241030201243857.png" src="__assets/ADS%2007%20Divide%20and%20Conquer.md/IMG-ADS%2007%20Divide%20and%20Conquer-20241030201243857.png" /></p>
+<p><img alt="__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241030201243857.webp" src="__assets/ADS%2007%20Divide%20and%20Conquer/IMG-ADS%2007%20Divide%20and%20Conquer-20241030201243857.webp" /></p>
 <h4 id="233-form-2">2.3.3 form 2<a class="headerlink" href="#233-form-2" title="Locate to heading">#</a></h4>
 <ol>
 <li>如果存在常数 <span class="arithmatex">\(k&lt;1\)</span>，使得 <span class="arithmatex">\(af(N/b)=kf(N)\)</span>，那么 <span class="arithmatex">\(T(N)=\Theta(f(N))\)</span></li>
@@ -1849,7 +1849,7 @@ T(N)&amp;=2T(\lfloor N/2 \rfloor )+N \\
 <div class="admonition warning">
 <p class="admonition-title">Attention</p>
 <p>这种形式的适用范围没有前一种那么广，例如：
-<img alt="__assets/ADS 07 Divide and Conquer.md/IMG-ADS 07 Divide and Conquer-20241030202916999.png" src="__assets/ADS%2007%20Divide%20and%20Conquer.md/IMG-ADS%2007%20Divide%20and%20Conquer-20241030202916999.png" /></p>
+<img alt="__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241030202916999.webp" src="__assets/ADS%2007%20Divide%20and%20Conquer/IMG-ADS%2007%20Divide%20and%20Conquer-20241030202916999.webp" /></p>
 </div>
 <h4 id="234-form-3">2.3.4 form 3<a class="headerlink" href="#234-form-3" title="Locate to heading">#</a></h4>
 <p>当 <span class="arithmatex">\(a\ge 1,b\geq 1, p\geq 0\)</span> 时，对于递推式：</p>

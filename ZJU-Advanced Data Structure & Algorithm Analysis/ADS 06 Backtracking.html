@@ -1761,7 +1761,7 @@ x_{i}&amp;\neq x_{j}\quad \text{if}\,i\neq j \\
 <p>Step 1: Construct a game tree
 Step 2: DFS to examine all the paths</p>
 </blockquote>
-<p><img alt="__assets/ADS 06 Backtracking.md/IMG-ADS 06 Backtracking-20241028014837804.png" src="__assets/ADS%2006%20Backtracking.md/IMG-ADS%2006%20Backtracking-20241028014837804.png" /></p>
+<p><img alt="__assets/ADS 06 Backtracking/IMG-ADS 06 Backtracking-20241028014837804.webp" src="__assets/ADS%2006%20Backtracking/IMG-ADS%2006%20Backtracking-20241028014837804.webp" /></p>
 <h2 id="3-the-turnpike-reconstruction-problem">3 The Turnpike Reconstruction Problem<a class="headerlink" href="#3-the-turnpike-reconstruction-problem" title="Locate to heading">#</a></h2>
 <p>若 <span class="arithmatex">\(x\)</span> 轴上存在 <span class="arithmatex">\(N\)</span> 个点，坐标分别为 <span class="arithmatex">\(x_1&lt;x_2&lt;\dots&lt;x_{N}\)</span>，假设以 <span class="arithmatex">\(x_1=0\)</span> 为原点，一共有 <span class="arithmatex">\(\frac{N(N-1)}{2}\)</span> 个距离，现在的问题是，根据这些距离重建所有点的坐标。</p>
 <h3 id="31-solution">3.1 Solution<a class="headerlink" href="#31-solution" title="Locate to heading">#</a></h3>
@@ -1770,7 +1770,7 @@ Step 2: DFS to examine all the paths</p>
 Step 2: 找到两个端点 <span class="arithmatex">\(x_0, x_N\)</span>
 Step 3: 从大到小 check 距离，最终找到正确的解</p>
 </blockquote>
-<p><img alt="__assets/ADS 06 Backtracking.md/IMG-ADS 06 Backtracking-20241028014852286.png" src="__assets/ADS%2006%20Backtracking.md/IMG-ADS%2006%20Backtracking-20241028014852286.png" /></p>
+<p><img alt="__assets/ADS 06 Backtracking/IMG-ADS 06 Backtracking-20241028014852286.webp" src="__assets/ADS%2006%20Backtracking/IMG-ADS%2006%20Backtracking-20241028014852286.webp" /></p>
 <div class="admonition tip">
 <p class="admonition-title">为什么从大到小 check 距离？</p>
 <p>在已经确定的点集 <span class="arithmatex">\(S_m\)</span> 的基础上，想要新增一个点 <span class="arithmatex">\(x_{m+1}\)</span>，那么新产生的最大的距离一定是 <span class="arithmatex">\(|x_{m+1}-x_{0}|\)</span> 或 <span class="arithmatex">\(|x_{m+1}-x_{N}|\)</span></p>
@@ -1892,7 +1892,7 @@ Step 3: 从大到小 check 距离，最终找到正确的解</p>
 <div class="admonition tip">
 <p class="admonition-title">Catch</p>
 <p>关键在于从大到小枚举并 check 距离，这能够最大化剪枝效率
-<img alt="__assets/ADS 06 Backtracking.md/IMG-ADS 06 Backtracking-20241028014907403.png" src="__assets/ADS%2006%20Backtracking.md/IMG-ADS%2006%20Backtracking-20241028014907403.png" /></p>
+<img alt="__assets/ADS 06 Backtracking/IMG-ADS 06 Backtracking-20241028014907403.webp" src="__assets/ADS%2006%20Backtracking/IMG-ADS%2006%20Backtracking-20241028014907403.webp" /></p>
 </div>
 <h2 id="4-tic-tac-toe">4 Tic-tac-toe<a class="headerlink" href="#4-tic-tac-toe" title="Locate to heading">#</a></h2>
 <h3 id="41-minimax-strategy">4.1 Minimax Strategy<a class="headerlink" href="#41-minimax-strategy" title="Locate to heading">#</a></h3>
@@ -1900,7 +1900,7 @@ Step 3: 从大到小 check 距离，最终找到正确的解</p>
 <li>Evalution function: <span class="arithmatex">\(f(p)=W_{Computer}-W_{Human}\)</span>, where <span class="arithmatex">\(W\)</span> is the potential wins at <strong>position</strong> <span class="arithmatex">\(P\)</span></li>
 <li>The human is trying to <strong>minimize</strong> <span class="arithmatex">\(f(p)\)</span>, while the computer is trying to <strong>maximize</strong> it</li>
 </ul>
-<p><img alt="__assets/ADS 06 Backtracking.md/IMG-ADS 06 Backtracking-20241028014917981.png" src="__assets/ADS%2006%20Backtracking.md/IMG-ADS%2006%20Backtracking-20241028014917981.png" /></p>
+<p><img alt="__assets/ADS 06 Backtracking/IMG-ADS 06 Backtracking-20241028014917981.webp" src="__assets/ADS%2006%20Backtracking/IMG-ADS%2006%20Backtracking-20241028014917981.webp" /></p>
 <div class="admonition note">
 <p class="admonition-title">ply, re-ply</p>
 <ul>
@@ -1909,8 +1909,8 @@ Step 3: 从大到小 check 距离，最终找到正确的解</p>
 </ul>
 </div>
 <h3 id="42-alpha-beta-pruning">4.2 <span class="arithmatex">\(\alpha-\beta\)</span> Pruning<a class="headerlink" href="#42-alpha-beta-pruning" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/ADS 06 Backtracking.md/IMG-ADS 06 Backtracking-20241028014933987.png" src="__assets/ADS%2006%20Backtracking.md/IMG-ADS%2006%20Backtracking-20241028014933987.png" /></p>
-<p><img alt="__assets/ADS 06 Backtracking.md/IMG-ADS 06 Backtracking-20241028014946224.png" src="__assets/ADS%2006%20Backtracking.md/IMG-ADS%2006%20Backtracking-20241028014946224.png" /></p>
+<p><img alt="__assets/ADS 06 Backtracking/IMG-ADS 06 Backtracking-20241028014933987.webp" src="__assets/ADS%2006%20Backtracking/IMG-ADS%2006%20Backtracking-20241028014933987.webp" /></p>
+<p><img alt="__assets/ADS 06 Backtracking/IMG-ADS 06 Backtracking-20241028014946224.webp" src="__assets/ADS%2006%20Backtracking/IMG-ADS%2006%20Backtracking-20241028014946224.webp" /></p>
 <p>In practice, it limits the searching to only <span class="arithmatex">\(O(\sqrt{ N })\)</span> nodes, where <span class="arithmatex">\(N\)</span> is the size of full game tree.</p>
 <h4 id="421-discussion-best-case-complexity-for-alpha-beta-pruning">4.2.1 Discussion: best-case complexity for <span class="arithmatex">\(\alpha-\beta\)</span> pruning<a class="headerlink" href="#421-discussion-best-case-complexity-for-alpha-beta-pruning" title="Locate to heading">#</a></h4>
 <div class="admonition question">

@@ -1349,7 +1349,7 @@
 <h2 id="2-compare-the-algorithms">2 Compare the Algorithms<a class="headerlink" href="#2-compare-the-algorithms" title="Locate to heading">#</a></h2>
 <h3 id="21-maxsubsequencesum-problem">2.1 MaxSubsequenceSum problem<a class="headerlink" href="#21-maxsubsequencesum-problem" title="Locate to heading">#</a></h3>
 <h4 id="211-divide-and-conquer">2.1.1 Divide and Conquer<a class="headerlink" href="#211-divide-and-conquer" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/Ch.02 Algorithm Analysis.md/IMG-Ch.02 Algorithm Analysis-20250125003827264.png" src="__assets/Ch.02%20Algorithm%20Analysis.md/IMG-Ch.02%20Algorithm%20Analysis-20250125003827264.png" /></p>
+<p><img alt="__assets/Ch.02 Algorithm Analysis/IMG-Ch.02 Algorithm Analysis-20250125003827264.webp" src="__assets/Ch.02%20Algorithm%20Analysis/IMG-Ch.02%20Algorithm%20Analysis-20250125003827264.webp" /></p>
 <ul>
 <li>先 divide，找到每个最小单元（单个数）返回这个数</li>
 <li>然后 conquer，需要进行判断<ul>
@@ -1359,7 +1359,7 @@
 </li>
 </ul>
 <h4 id="212-on-line-algotithm">2.1.2 On-line Algotithm<a class="headerlink" href="#212-on-line-algotithm" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/Ch.02 Algorithm Analysis.md/IMG-Ch.02 Algorithm Analysis-20250125003855202.png" src="__assets/Ch.02%20Algorithm%20Analysis.md/IMG-Ch.02%20Algorithm%20Analysis-20250125003855202.png" /></p>
+<p><img alt="__assets/Ch.02 Algorithm Analysis/IMG-Ch.02 Algorithm Analysis-20250125003855202.webp" src="__assets/Ch.02%20Algorithm%20Analysis/IMG-Ch.02%20Algorithm%20Analysis-20250125003855202.webp" /></p>
 <ul>
 <li>使用 ThisSum 记录这个子序列的和<ul>
 <li>如果 ThisSum 小于零，说明这个位置前面的子序列已经为负数，可以抛弃，重置 ThisSum 为 0</li>
@@ -1368,7 +1368,7 @@
 </li>
 </ul>
 <h2 id="3-recursion-analysis">3 Recursion Analysis<a class="headerlink" href="#3-recursion-analysis" title="Locate to heading">#</a></h2>
-<p><img alt="__assets/Ch.02 Algorithm Analysis.md/IMG-Ch.02 Algorithm Analysis-20250125003915221.png" src="__assets/Ch.02%20Algorithm%20Analysis.md/IMG-Ch.02%20Algorithm%20Analysis-20250125003915221.png" /></p>
+<p><img alt="__assets/Ch.02 Algorithm Analysis/IMG-Ch.02 Algorithm Analysis-20250125003915221.webp" src="__assets/Ch.02%20Algorithm%20Analysis/IMG-Ch.02%20Algorithm%20Analysis-20250125003915221.webp" /></p>
 <ul>
 <li>只需要记得前面的指数为 <span class="arithmatex">\(\log_ba\)</span> 需要和后面的 <span class="arithmatex">\(k\)</span> 进行比较 </li>
 </ul>
@@ -1406,12 +1406,12 @@
 </ul>
 <h3 id="43-pta">4.3 PTA<a class="headerlink" href="#43-pta" title="Locate to heading">#</a></h3>
 <ul>
-<li><img alt="__assets/Ch.02 Algorithm Analysis.md/IMG-Ch.02 Algorithm Analysis-20250125003949488.png" src="__assets/Ch.02%20Algorithm%20Analysis.md/IMG-Ch.02%20Algorithm%20Analysis-20250125003949488.png" /><ul>
+<li><img alt="__assets/Ch.02 Algorithm Analysis/IMG-Ch.02 Algorithm Analysis-20250125003949488.webp" src="__assets/Ch.02%20Algorithm%20Analysis/IMG-Ch.02%20Algorithm%20Analysis-20250125003949488.webp" /><ul>
 <li>可能需要自己算一下，也可以记住这个答案</li>
 <li>这其实很简单，上面的显然是 log，下面的因为每次除三又乘三，所以是 O(N)</li>
 </ul>
 </li>
-<li><img alt="__assets/Ch.02 Algorithm Analysis.md/IMG-Ch.02 Algorithm Analysis-20250125004005501.png" src="__assets/Ch.02%20Algorithm%20Analysis.md/IMG-Ch.02%20Algorithm%20Analysis-20250125004005501.png" /><ul>
+<li><img alt="__assets/Ch.02 Algorithm Analysis/IMG-Ch.02 Algorithm Analysis-20250125004005501.webp" src="__assets/Ch.02%20Algorithm%20Analysis/IMG-Ch.02%20Algorithm%20Analysis-20250125004005501.webp" /><ul>
 <li>空间复杂度等于递归深度，而由于存在 <span class="arithmatex">\(F_{N-1}\)</span>，最大递归深度为 N</li>
 </ul>
 </li>

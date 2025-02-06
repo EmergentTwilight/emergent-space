@@ -1711,7 +1711,7 @@
 <li>每次排序交换相隔比较远的两个元素</li>
 </ul>
 <h2 id="4-shellsort">4 Shellsort<a class="headerlink" href="#4-shellsort" title="Locate to heading">#</a></h2>
-<p><img alt="__assets/Ch.06 Sorting.md/IMG-Ch.06 Sorting-20250125004810877.png" src="__assets/Ch.06%20Sorting.md/IMG-Ch.06%20Sorting-20250125004810877.png" /></p>
+<p><img alt="__assets/Ch.06 Sorting/IMG-Ch.06 Sorting-20250125004810877.webp" src="__assets/Ch.06%20Sorting/IMG-Ch.06%20Sorting-20250125004810877.webp" /></p>
 <ul>
 <li>定义序列 <span class="arithmatex">\(h\)</span>，然后进行多次排序，每次 <span class="arithmatex">\(h\)</span> 减小，直到最后 <span class="arithmatex">\(h=1\)</span></li>
 </ul>
@@ -2093,7 +2093,7 @@ T(N)&amp;=2T(N/2)+O(N)\\
 <li><strong>Solution</strong>: Add a <em>pointer field</em> to the structure and swap ptrs instead</li>
 <li><strong>Table Sort</strong><ul>
 <li>对于所有的 key，先创建一个 <code>table[]</code>，用来存储目标的 index<ul>
-<li>构成了 cycle，也就是通过 list index 和 table 目标位置构成的需要交换的 cycle!<img alt="__assets/Ch.06 Sorting.md/IMG-Ch.06 Sorting-20250125004937209.png" src="__assets/Ch.06%20Sorting.md/IMG-Ch.06%20Sorting-20250125004937209.png" /></li>
+<li>构成了 cycle，也就是通过 list index 和 table 目标位置构成的需要交换的 cycle!<img alt="__assets/Ch.06 Sorting/IMG-Ch.06 Sorting-20250125004937209.webp" src="__assets/Ch.06%20Sorting/IMG-Ch.06%20Sorting-20250125004937209.webp" /></li>
 <li>具体操作时<ul>
 <li>先进行 tablesort<ul>
 <li>table 初始化为 <code>[0, 1, 2, 3, 4, 5]</code></li>
@@ -2125,7 +2125,7 @@ T(N)&amp;=2T(N/2)+O(N)\\
 <ul>
 <li><span class="arithmatex">\(Theorem\)</span> Any algorithm that <strong>sorts by comparisons only</strong> must have a worst case computing time of <span class="arithmatex">\(\Omega(N\log N)\)</span><ul>
 <li>Can be proved by <em>decision tree</em></li>
-<li><img alt="__assets/Ch.06 Sorting.md/IMG-Ch.06 Sorting-20250125004959687.png" src="__assets/Ch.06%20Sorting.md/IMG-Ch.06%20Sorting-20250125004959687.png" /></li>
+<li><img alt="__assets/Ch.06 Sorting/IMG-Ch.06 Sorting-20250125004959687.webp" src="__assets/Ch.06%20Sorting/IMG-Ch.06%20Sorting-20250125004959687.webp" /></li>
 </ul>
 </li>
 </ul>
@@ -2141,7 +2141,7 @@ T(N)&amp;=2T(N/2)+O(N)\\
 </li>
 </ul>
 <h3 id="102-radix-sort">10.2 Radix Sort<a class="headerlink" href="#102-radix-sort" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/Ch.06 Sorting.md/IMG-Ch.06 Sorting-20250125005012173.png" src="__assets/Ch.06%20Sorting.md/IMG-Ch.06%20Sorting-20250125005012173.png" /></p>
+<p><img alt="__assets/Ch.06 Sorting/IMG-Ch.06 Sorting-20250125005012173.webp" src="__assets/Ch.06%20Sorting/IMG-Ch.06%20Sorting-20250125005012173.webp" /></p>
 <ul>
 <li>进行多轮排序，每次排一个数位，<strong>Least Significant Digit First</strong></li>
 <li><span class="arithmatex">\(T=O(P(N+B))\)</span><ul>
@@ -2179,7 +2179,7 @@ T(N)&amp;=2T(N/2)+O(N)\\
 </li>
 <li>Mergesort is stable. <strong>T</strong></li>
 <li>During the sorting, processing every element which is not yet at its final position is called a "run". Which of the following cannot be the result after the second run of quicksort?<ul>
-<li><img alt="__assets/Ch.06 Sorting.md/IMG-Ch.06 Sorting-20250125005025810.png" src="__assets/Ch.06%20Sorting.md/IMG-Ch.06%20Sorting-20250125005025810.png" /></li>
+<li><img alt="__assets/Ch.06 Sorting/IMG-Ch.06 Sorting-20250125005025810.webp" src="__assets/Ch.06%20Sorting/IMG-Ch.06%20Sorting-20250125005025810.webp" /></li>
 <li>注意<ul>
 <li>这里 quicksort 的 run 指的是<strong>递归深度</strong>，两层递归能够选定 3 个 pivot 位置</li>
 <li>这里的 quicksort 实现方式不是选中位数</li>

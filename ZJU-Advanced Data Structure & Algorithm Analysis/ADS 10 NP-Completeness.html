@@ -2219,7 +2219,7 @@
 </blockquote>
 <p>和停机问题一样，PCP 是一个 undecidable 问题。</p>
 <p>有一些 dominos，top 和 bottom 有不同的字符串，每个 domino 可以使用多次。</p>
-<p><img alt="__assets/ADS 10 NP-Completeness.md/IMG-ADS 10 NP-Completeness-20241219230238924.png" src="__assets/ADS%2010%20NP-Completeness.md/IMG-ADS%2010%20NP-Completeness-20241219230238924.png" /></p>
+<p><img alt="__assets/ADS 10 NP-Completeness/IMG-ADS 10 NP-Completeness-20241219230238924.webp" src="__assets/ADS%2010%20NP-Completeness/IMG-ADS%2010%20NP-Completeness-20241219230238924.webp" /></p>
 <p>找到一种排列方式，使得 top string 和 bottom string 完全相同。</p>
 <h5 id="solvability">Solvability<a class="headerlink" href="#solvability" title="Locate to heading">#</a></h5>
 <ul>
@@ -2228,7 +2228,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">但是可以找到这样的例子：</p>
-<p><img alt="__assets/ADS 10 NP-Completeness.md/IMG-ADS 10 NP-Completeness-20241219231145031.png" src="__assets/ADS%2010%20NP-Completeness.md/IMG-ADS%2010%20NP-Completeness-20241219231145031.png" />
+<p><img alt="__assets/ADS 10 NP-Completeness/IMG-ADS 10 NP-Completeness-20241219231145031.webp" src="__assets/ADS%2010%20NP-Completeness/IMG-ADS%2010%20NP-Completeness-20241219231145031.webp" />
 其中，如果一直尝试配对，将一直放 3 号 domino 而不会停止</p>
 </div>
 <h5 id="undecidability">Undecidability<a class="headerlink" href="#undecidability" title="Locate to heading">#</a></h5>
@@ -2268,7 +2268,7 @@
 <li>NPC 问题是 NP 中最难的问题，如果某个 NPC 问题能够在多项式时间内求解（<span class="arithmatex">\(\text{P}=\text{NP}\)</span>），则所有 NP 问题都能在多项式时间内求解</li>
 </ul>
 <h4 id="251-complexity-graph">2.5.1 Complexity Graph<a class="headerlink" href="#251-complexity-graph" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/ADS 10 NP-Completeness.md/IMG-ADS 10 NP-Completeness-20241218211925159.png" src="__assets/ADS%2010%20NP-Completeness.md/IMG-ADS%2010%20NP-Completeness-20241218211925159.png" /></p>
+<p><img alt="__assets/ADS 10 NP-Completeness/IMG-ADS 10 NP-Completeness-20241218211925159.webp" src="__assets/ADS%2010%20NP-Completeness/IMG-ADS%2010%20NP-Completeness-20241218211925159.webp" /></p>
 <h4 id="252-example-hamiltonian-cycle-leq_p-tsp">2.5.2 Example: Hamiltonian Cycle <span class="arithmatex">\(\leq_{p}\)</span> TSP<a class="headerlink" href="#252-example-hamiltonian-cycle-leq_p-tsp" title="Locate to heading">#</a></h4>
 <ul>
 <li>TSP: 对于给定的有权完全图，是否存在一个哈密顿环，使得其总权重 <span class="arithmatex">\(\leq K\)</span></li>
@@ -2278,7 +2278,7 @@
 <ul>
 <li>第一个被证明是 NP-C 的问题是 Circuit-SAT 问题，对于一个给定的布尔表达式，问是否存在一种赋值方式能够使得表达式为真</li>
 </ul>
-<p><img alt="__assets/ADS 10 NP-Completeness.md/IMG-ADS 10 NP-Completeness-20241220134615294.png" src="__assets/ADS%2010%20NP-Completeness.md/IMG-ADS%2010%20NP-Completeness-20241220134615294.png" /></p>
+<p><img alt="__assets/ADS 10 NP-Completeness/IMG-ADS 10 NP-Completeness-20241220134615294.webp" src="__assets/ADS%2010%20NP-Completeness/IMG-ADS%2010%20NP-Completeness-20241220134615294.webp" /></p>
 <h2 id="3-formal-language">3 Formal Language<a class="headerlink" href="#3-formal-language" title="Locate to heading">#</a></h2>
 <h3 id="31-abstract-problem">3.1 Abstract Problem<a class="headerlink" href="#31-abstract-problem" title="Locate to heading">#</a></h3>
 <p>形式语言中，将问题分为 <em>Abstract Problem</em> 和 <em>Concrete Problem</em>，分别是抽象问题和具体问题
@@ -2349,7 +2349,7 @@
 <p>如果已知 <span class="arithmatex">\(L\in\text{NP}\)</span>，那么 <span class="arithmatex">\(\bar{L}\in\text{NP}\)</span> 是否正确？</p>
 </blockquote>
 <p><strong>co-NP</strong> definition: 如果 <span class="arithmatex">\(\bar{L}\in\text{NP}\)</span>，那么 <span class="arithmatex">\(L\in\text{co-NP}\)</span></p>
-<p><img alt="__assets/ADS 10 NP-Completeness.md/IMG-ADS 10 NP-Completeness-20241220145642110.png" src="__assets/ADS%2010%20NP-Completeness.md/IMG-ADS%2010%20NP-Completeness-20241220145642110.png" /></p>
+<p><img alt="__assets/ADS 10 NP-Completeness/IMG-ADS 10 NP-Completeness-20241220145642110.webp" src="__assets/ADS%2010%20NP-Completeness/IMG-ADS%2010%20NP-Completeness-20241220145642110.webp" /></p>
 <h3 id="34-reduction-function">3.4 Reduction Function<a class="headerlink" href="#34-reduction-function" title="Locate to heading">#</a></h3>
 <ul>
 <li>如果存在多项式时间可计算的函数 <span class="arithmatex">\(f:\{0,1\}^*\to\{0,1\}^*\)</span> 能够实现 <span class="arithmatex">\(\forall x\in\{0,1\}^*, x\in L_{1}\Leftrightarrow f(x)\in L_{2}\)</span>，那么 <span class="arithmatex">\(L_{1}\leq_{p}L_{2}\)</span></li>

@@ -29,6 +29,7 @@
   font-size: 1rem;
   font-family: var(--md-default-font);
   font-weight: bold;
+  line-height: 1.4;
   text-shadow: var(--md-shadow-z2);
 }
 

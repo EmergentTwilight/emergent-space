@@ -1676,16 +1676,16 @@
 <span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">4</span><span class="w">  </span><span class="c1"># 设置线程数</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>gcc<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c<span class="w"> </span>-fopenmp
 </span></code></pre></div></td></tr></table></div>
-<p><img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础.md/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074017152.png" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80.md/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074017152.png" /></p>
+<p><img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074017152.webp" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074017152.webp" /></p>
 <p>Thread ID: <code>omp_get_thread_num()</code> 可以获取线程索引</p>
 <h3 id="openmp-directives-and-constructs">OpenMP directives and constructs<a class="headerlink" href="#openmp-directives-and-constructs" title="Locate to heading">#</a></h3>
 <h4 id="directives">Directives<a class="headerlink" href="#directives" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础.md/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074025836.png" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80.md/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074025836.png" /></p>
+<p><img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074025836.webp" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074025836.webp" /></p>
 <ul>
 <li>Official Cheat Sheet =&gt; <a href="https://cheat-sheets.org/saved-copy/OpenMP_reference.pdf">OpenMP_reference.pdf (cheat-sheets.org)</a></li>
 </ul>
 <h4 id="work-distribution-constructs">Work-distribution constructs<a class="headerlink" href="#work-distribution-constructs" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础.md/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074038298.png" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80.md/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074038298.png" /></p>
+<p><img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074038298.webp" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074038298.webp" /></p>
 <div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Addition of two vectors</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
@@ -1699,7 +1699,7 @@
 <p>加速倍数!=线程数<br>
 Overhead: any combination of excess or indirect computation time, memory, bandwidth, or other resources that are required to perform a specific task.</p>
 </div>
-<p>只能使用等差数列形式的 for loop <img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础.md/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074058001.png" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80.md/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074058001.png" /></p>
+<p>只能使用等差数列形式的 for loop <img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074058001.webp" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074058001.webp" /></p>
 <h4 id="loop-schedule">Loop Schedule<a class="headerlink" href="#loop-schedule" title="Locate to heading">#</a></h4>
 <div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Unbalanced workload</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
@@ -1713,7 +1713,7 @@ Overhead: any combination of excess or indirect computation time, memory, bandwi
 <li><strong>Chunks</strong>: 循环中的子块，是任务分配的单位，可大可小</li>
 <li>Type: static, dynamic, guided, runtime, auto</li>
 </ul>
-<p><img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础.md/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074109908.png" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80.md/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074109908.png" /></p>
+<p><img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074109908.webp" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074109908.webp" /></p>
 <h5 id="static">static<a class="headerlink" href="#static" title="Locate to heading">#</a></h5>
 <div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
@@ -2003,7 +2003,7 @@ Think anout locality and data dependency before you use collapse clause.<br>
 <li>建议重构代码</li>
 </ul>
 <h4 id="false-sharing">False Sharing<a class="headerlink" href="#false-sharing" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础.md/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074140970.png" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80.md/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074140970.png" /></p>
+<p><img alt="__assets/Lec.07 OpenMP, MPI 并行计算基础/IMG-Lec.07 OpenMP, MPI 并行计算基础-20250125074140970.webp" src="__assets/Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/IMG-Lec.07%20OpenMP%2C%20MPI%20%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80-20250125074140970.webp" /></p>
 <ul>
 <li>cache 有最小读写单位 block，每次 A 对自己操作的值进行了修改，由于来自 memory 中相同的 block，A 会通过一种广播机制使得 B 修改 cache，实际上并没有共享</li>
 </ul>

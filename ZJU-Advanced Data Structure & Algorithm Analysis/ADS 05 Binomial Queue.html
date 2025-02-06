@@ -2017,7 +2017,7 @@
 <ul>
 <li>Not a heap-ordered tree, but rather a <strong>colloction</strong> of heap-ordered trees, <strong>forest</strong></li>
 </ul>
-<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028013906675.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028013906675.png" /></p>
+<p><img alt="__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028013906675.webp" src="__assets/ADS%2005%20Binomial%20Queue/IMG-ADS%2005%20Binomial%20Queue-20241028013906675.webp" /></p>
 <ul>
 <li><span class="arithmatex">\(B_k\)</span> properties<ul>
 <li><span class="arithmatex">\(k\)</span> children, which are <span class="arithmatex">\(B_0, B_1, B_2, \dots, B_{k-1}\)</span></li>
@@ -2027,7 +2027,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028013928477.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028013928477.png" /></p>
+<p><img alt="__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028013928477.webp" src="__assets/ADS%2005%20Binomial%20Queue/IMG-ADS%2005%20Binomial%20Queue-20241028013928477.webp" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A priority queue of <em>any size</em> can be uniquely represented by a collection of binomial trees.</p>
@@ -2048,7 +2048,7 @@
 <li>keep record of the min, update whenever the tree is changed, then <span class="arithmatex">\(O(1)\)</span></li>
 </ul>
 <h3 id="22-merge">2.2 Merge<a class="headerlink" href="#22-merge" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028013941261.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028013941261.png" /></p>
+<p><img alt="__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028013941261.webp" src="__assets/ADS%2005%20Binomial%20Queue/IMG-ADS%2005%20Binomial%20Queue-20241028013941261.webp" /></p>
 <ul>
 <li>使用二进制加法得到目标森林的结构</li>
 <li>直接将同阶的数组合成一颗更大的树，完成合并</li>
@@ -2071,7 +2071,7 @@
 <li>均摊开销 <span class="arithmatex">\(T_{amortized}=\Theta(1)\)</span></li>
 </ul>
 <h3 id="24-deletemin">2.4 DeleteMin<a class="headerlink" href="#24-deletemin" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028013951646.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028013951646.png" /></p>
+<p><img alt="__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028013951646.webp" src="__assets/ADS%2005%20Binomial%20Queue/IMG-ADS%2005%20Binomial%20Queue-20241028013951646.webp" /></p>
 <ol>
 <li>找最小 <span class="arithmatex">\(O(\log N)\)</span> or <span class="arithmatex">\(\Theta(1)\)</span>，取决于是否保存了最小元素的指针</li>
 <li>将这棵树拆散放到新的队列中 <span class="arithmatex">\(O(\log N)\)</span></li>
@@ -2138,7 +2138,7 @@
 <div class="admonition note">
 <p class="admonition-title">Skew Binomial Queue</p>
 <p>第 <span class="arithmatex">\(k\)</span> 个树的容量为 <span class="arithmatex">\(2^{k+1}-1\)</span>，而不是 <span class="arithmatex">\(2^k\)</span>。这样带来的最大好处就是，每次 insert 一个节点时，最多只需要 carry 一次，能做到 <span class="arithmatex">\(\Theta(1)\)</span> 的 worst-case insert 时间。</p>
-<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028014012921.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028014012921.png" /></p>
+<p><img alt="__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028014012921.webp" src="__assets/ADS%2005%20Binomial%20Queue/IMG-ADS%2005%20Binomial%20Queue-20241028014012921.webp" /></p>
 <p>For example, 60 is represented as 11200 in skew binary (31 + 15 + 7 + 7), and adding 1 produces 12000 (31 + 15 + 15). Since the next higher digit is guaranteed not to be 2, a carry is performed at most once.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </div>
 <h2 id="3-implementation">3 Implementation<a class="headerlink" href="#3-implementation" title="Locate to heading">#</a></h2>
@@ -2153,7 +2153,7 @@
 <li>为什么不用数组？占用空间较大，而且不好扩容</li>
 </ul>
 </div>
-<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028014033907.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028014033907.png" /></p>
+<p><img alt="__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028014033907.webp" src="__assets/ADS%2005%20Binomial%20Queue/IMG-ADS%2005%20Binomial%20Queue-20241028014033907.webp" /></p>
 <div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Data Structure of Binomial Queue</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -2389,7 +2389,7 @@
 <p><span class="arithmatex">\(Claim\)</span>: A binomial queue of <span class="arithmatex">\(N\)</span> elements can be built by <span class="arithmatex">\(N\)</span> successive insertions in <span class="arithmatex">\(O(N)\)</span> time.</p>
 </blockquote>
 <h3 id="41-aggregate-method">4.1 Aggregate Method<a class="headerlink" href="#41-aggregate-method" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028014045974.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028014045974.png" /></p>
+<p><img alt="__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028014045974.webp" src="__assets/ADS%2005%20Binomial%20Queue/IMG-ADS%2005%20Binomial%20Queue-20241028014045974.webp" /></p>
 <h4 id="411-推导方式-1">4.1.1 推导方式 1<a class="headerlink" href="#411-推导方式-1" title="Locate to heading">#</a></h4>
 <ul>
 <li>进行二进制 counting 时，进位操作发生的频率为 <span class="arithmatex">\(\frac{1}{2^i}\)</span>，每次进位都算一次操作，<em>包括创建 <span class="arithmatex">\(B_{0}\)</span></em></li>
@@ -2766,8 +2766,8 @@ bool isEmpty() override
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Data Structure</p>
-<p><img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028014738550.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028014738550.png" />
-<img alt="__assets/ADS 05 Binomial Queue.md/IMG-ADS 05 Binomial Queue-20241028014756607.png" src="__assets/ADS%2005%20Binomial%20Queue.md/IMG-ADS%2005%20Binomial%20Queue-20241028014756607.png" /></p>
+<p><img alt="__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028014738550.webp" src="__assets/ADS%2005%20Binomial%20Queue/IMG-ADS%2005%20Binomial%20Queue-20241028014738550.webp" />
+<img alt="__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028014756607.webp" src="__assets/ADS%2005%20Binomial%20Queue/IMG-ADS%2005%20Binomial%20Queue-20241028014756607.webp" /></p>
 </div>
 <h4 id="512-getmin">5.1.2 GetMin<a class="headerlink" href="#512-getmin" title="Locate to heading">#</a></h4>
 <p>维护指针 <code>Node* min_node</code>，所以 <span class="arithmatex">\(O(1)\)</span></p>

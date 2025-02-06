@@ -2119,7 +2119,7 @@
 <li><span class="arithmatex">\(T=\text{Depth}=O(1)\)</span></li>
 </ul>
 <h2 id="3-parallel-summation">3 Parallel Summation<a class="headerlink" href="#3-parallel-summation" title="Locate to heading">#</a></h2>
-<p><img alt="__assets/ADS 14 Parallel Algorithms.md/IMG-ADS 14 Parallel Algorithms-20241209135328356.png" src="__assets/ADS%2014%20Parallel%20Algorithms.md/IMG-ADS%2014%20Parallel%20Algorithms-20241209135328356.png" /></p>
+<p><img alt="__assets/ADS 14 Parallel Algorithms/IMG-ADS 14 Parallel Algorithms-20241209135328356.webp" src="__assets/ADS%2014%20Parallel%20Algorithms/IMG-ADS%2014%20Parallel%20Algorithms-20241209135328356.webp" /></p>
 <ul>
 <li><span class="arithmatex">\(\text{Depth}=O(\log N)\)</span></li>
 <li><span class="arithmatex">\(\text{Work}=O(N)\)</span></li>
@@ -2141,7 +2141,7 @@
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>for i = 1: output B[log(N), 1]; for i &gt; 1: stay idle
 </span></code></pre></div></td></tr></table></div>
-<p><img alt="__assets/ADS 14 Parallel Algorithms.md/IMG-ADS 14 Parallel Algorithms-20241209141734817.png" src="__assets/ADS%2014%20Parallel%20Algorithms.md/IMG-ADS%2014%20Parallel%20Algorithms-20241209141734817.png" /></p>
+<p><img alt="__assets/ADS 14 Parallel Algorithms/IMG-ADS 14 Parallel Algorithms-20241209141734817.webp" src="__assets/ADS%2014%20Parallel%20Algorithms/IMG-ADS%2014%20Parallel%20Algorithms-20241209141734817.webp" /></p>
 <div class="admonition bug">
 <p class="admonition-title">Bug</p>
 <ul>
@@ -2168,7 +2168,7 @@
 <p class="admonition-title">Tip</p>
 <p>这里与 PRAM 不同，不再显式地指出每个处理器应该干什么</p>
 </div>
-<p><img alt="__assets/ADS 14 Parallel Algorithms.md/IMG-ADS 14 Parallel Algorithms-20241209143120102.png" src="__assets/ADS%2014%20Parallel%20Algorithms.md/IMG-ADS%2014%20Parallel%20Algorithms-20241209143120102.png" /></p>
+<p><img alt="__assets/ADS 14 Parallel Algorithms/IMG-ADS 14 Parallel Algorithms-20241209143120102.webp" src="__assets/ADS%2014%20Parallel%20Algorithms/IMG-ADS%2014%20Parallel%20Algorithms-20241209143120102.webp" /></p>
 <h2 id="4-performance-measurement">4 Performance Measurement<a class="headerlink" href="#4-performance-measurement" title="Locate to heading">#</a></h2>
 <ul>
 <li>Work load <span class="arithmatex">\(W(n)\)</span></li>
@@ -2207,7 +2207,7 @@ T=\sum_{i=1}^D t_{i}\leq \sum_{i=1}^D (\frac{w_{i}}{p}+1)=\frac{W}{p}+D
 <p>求一个序列所有的 <span class="arithmatex">\(n\)</span> 个前序和</p>
 </div>
 <p>可以借助求和问题：假设我们已经有了求和的树状结构和每个 node 的值 <code>B[h, i]</code>，那么可以进一步求出 <code>C[h, i]</code> ，表示到其右叶子的前缀和</p>
-<p><img alt="__assets/ADS 14 Parallel Algorithms.md/IMG-ADS 14 Parallel Algorithms-20241223005444998.png" src="__assets/ADS%2014%20Parallel%20Algorithms.md/IMG-ADS%2014%20Parallel%20Algorithms-20241223005444998.png" /></p>
+<p><img alt="__assets/ADS 14 Parallel Algorithms/IMG-ADS 14 Parallel Algorithms-20241223005444998.webp" src="__assets/ADS%2014%20Parallel%20Algorithms/IMG-ADS%2014%20Parallel%20Algorithms-20241223005444998.webp" /></p>
 <h3 id="51-implementation">5.1 Implementation<a class="headerlink" href="#51-implementation" title="Locate to heading">#</a></h3>
 <ul>
 <li>首先，左路径上 <code>C[h, 1] = B[h, 1]</code></li>
@@ -2289,7 +2289,7 @@ n &amp;\text{if }B(j)&gt;A(n)
 <li>然后对选中的元素进行排序 <em>下图中的箭头标记了插入位置</em></li>
 <li>转化成子问题 <em>下图中部分标记为绿色</em></li>
 </ul>
-<p><img alt="__assets/ADS 14 Parallel Algorithms.md/IMG-ADS 14 Parallel Algorithms-20241228121045932.png" src="__assets/ADS%2014%20Parallel%20Algorithms.md/IMG-ADS%2014%20Parallel%20Algorithms-20241228121045932.png" /></p>
+<p><img alt="__assets/ADS 14 Parallel Algorithms/IMG-ADS 14 Parallel Algorithms-20241228121045932.webp" src="__assets/ADS%2014%20Parallel%20Algorithms/IMG-ADS%2014%20Parallel%20Algorithms-20241228121045932.webp" /></p>
 <h5 id="6332-stage-2-actural-ranking">6.3.3.2 Stage 2: Actural Ranking<a class="headerlink" href="#6332-stage-2-actural-ranking" title="Locate to heading">#</a></h5>
 <blockquote>
 <p>最多得到 <span class="arithmatex">\(2p\)</span> 个 <span class="arithmatex">\(O(\log n)\)</span> 大小的子问题，分别进行串行排序</p>
@@ -2369,7 +2369,7 @@ W(n)&amp;=O(h\cdot(n/h)+(n/h)\log \log(n/h))&amp;&amp;=O(n)
 <blockquote>
 <p><span class="arithmatex">\(T=O(1),\,W=O(n)\)</span>, with <em>very high probability</em>, on an Arbitrary CRCW PRAM</p>
 </blockquote>
-<p><img alt="__assets/ADS 14 Parallel Algorithms.md/IMG-ADS 14 Parallel Algorithms-20241209153751412.png" src="__assets/ADS%2014%20Parallel%20Algorithms.md/IMG-ADS%2014%20Parallel%20Algorithms-20241209153751412.png" /></p>
+<p><img alt="__assets/ADS 14 Parallel Algorithms/IMG-ADS 14 Parallel Algorithms-20241209153751412.webp" src="__assets/ADS%2014%20Parallel%20Algorithms/IMG-ADS%2014%20Parallel%20Algorithms-20241209153751412.webp" /></p>
 <ol>
 <li>随机选择 <span class="arithmatex">\(n^{7/8}\)</span> 个元素，分成 <span class="arithmatex">\(n^{3/4}\)</span> 个大小为 <span class="arithmatex">\(n^{1/8}\)</span> 的块<ul>
 <li><span class="arithmatex">\(T=O(1)\)</span>，可以并行选择</li>

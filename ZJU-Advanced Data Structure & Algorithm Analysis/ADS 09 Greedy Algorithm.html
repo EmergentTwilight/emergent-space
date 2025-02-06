@@ -1857,13 +1857,13 @@ void Huffman ( PriorityQueue  heap[ ],  int  C )
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>### 4.1.1 The greedy-choice property
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a>![__assets/ADS 09 Greedy Algorithm.md/IMG-ADS 09 Greedy Algorithm-20241109151151281.png](__assets/ADS 09 Greedy Algorithm.md/IMG-ADS 09 Greedy Algorithm-20241109151151281.png)
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a>![__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241109151151281.webp](__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241109151151281.webp)
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a>- 频率小的一定有更长的 prefix，频率最小的两个 prefix 长度相等且只有最后一个 bit 不同
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a>### 4.1.2 The optimal substructure property
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a>![__assets/ADS 09 Greedy Algorithm.md/IMG-ADS 09 Greedy Algorithm-20241109151425799.png](__assets/ADS 09 Greedy Algorithm.md/IMG-ADS 09 Greedy Algorithm-20241109151425799.png)
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a>![__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241109151425799.webp](__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241109151425799.webp)
 </span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a>
 </span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a>- $x, y$ 节点在后面的解题过程中，与一个 $z$ 节点等价，所以构成了最优子结构
 </span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a>- 可以使用反证法来证明这一点
@@ -2008,7 +2008,7 @@ void Huffman ( PriorityQueue  heap[ ],  int  C )
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a>return C
 </span></code></pre></div></td></tr></table></div>
 如果使用题目的算法（启发式算法），其解的近似比是大于 2 的，可以举出这样一个例子 <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>：
-<img alt="__assets/ADS 09 Greedy Algorithm.md/IMG-ADS 09 Greedy Algorithm-20241107185730272.png" src="__assets/ADS%2009%20Greedy%20Algorithm.md/IMG-ADS%2009%20Greedy%20Algorithm-20241107185730272.png" />
+<img alt="__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241107185730272.webp" src="__assets/ADS%2009%20Greedy%20Algorithm/IMG-ADS%2009%20Greedy%20Algorithm-20241107185730272.webp" />
 此时，最优解是左边的 5 个顶点，但是算法会找到右边的所有 11 个顶点，于是近似比 <span class="arithmatex">\(\geq 11/5\)</span></p>
 </details>
 <h4 id="622-binary-tree-and-prefix-code">6.2.2 Binary Tree and Prefix Code<a class="headerlink" href="#622-binary-tree-and-prefix-code" title="Locate to heading">#</a></h4>

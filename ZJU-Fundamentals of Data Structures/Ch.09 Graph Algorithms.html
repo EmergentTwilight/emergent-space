@@ -2189,12 +2189,12 @@
 </ul>
 <h5 id="1121-inverse-adjacency-lists">1.1.2.1 Inverse adjacency lists<a class="headerlink" href="#1121-inverse-adjacency-lists" title="Locate to heading">#</a></h5>
 <ul>
-<li>构建 <strong>inverse adjacency list</strong> 表示哪些节点指向了本节点 <img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005511781.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005511781.png" /></li>
+<li>构建 <strong>inverse adjacency list</strong> 表示哪些节点指向了本节点 <img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005511781.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005511781.webp" /></li>
 </ul>
 <h5 id="1122-multilist-representation-for-adj_matij">1.1.2.2 Multilist representation for <code>adj_mat[i][j]</code><a class="headerlink" href="#1122-multilist-representation-for-adj_matij" title="Locate to heading">#</a></h5>
 <ul>
 <li><strong>Multilists</strong>回忆十字链表，上课问题，多少人上课，这门课有多少人选修问题 <a href="Ch.03%20List.html#232-multilists">Ch.03 List#2.3.2 Multilists</a><ul>
-<li>每个节点有 <code>head list, tail list</code> <img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005600146.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005600146.png" /></li>
+<li>每个节点有 <code>head list, tail list</code> <img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005600146.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005600146.webp" /></li>
 </ul>
 </li>
 </ul>
@@ -2211,7 +2211,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005612864.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005612864.png" /></p>
+<p><img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005612864.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005612864.webp" /></p>
 <ul>
 <li><strong>缺点？</strong><ul>
 <li>构造麻烦</li>
@@ -2566,7 +2566,7 @@
 </li>
 <li><strong>CPM</strong>: Critical Path Method</li>
 </ul>
-<p><img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005642986.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005642986.png" /></p>
+<p><img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005642986.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005642986.webp" /></p>
 <ul>
 <li><strong>EC</strong>：从起点开始往后计算，每次加上边，每个节点要取入度中最大的</li>
 <li><strong>LC</strong>：从终点往前计算，每次减去边，每个节点要取出度中最小的</li>
@@ -2601,7 +2601,7 @@
 <li>并更新 residual</li>
 <li>如果 residual 中仍然存在 path，继续 step 1；否则结束</li>
 </ul>
-<p><img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005655856.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005655856.png" /></p>
+<p><img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005655856.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005655856.webp" /></p>
 <h4 id="411-问题-1">4.1.1 问题 1<a class="headerlink" href="#411-问题-1" title="Locate to heading">#</a></h4>
 <ul>
 <li>如果使用 greedy method，可能提前导致路封死</li>
@@ -2611,7 +2611,7 @@
 <li>更新 residual 时，加上反向的路径，有一个改错的机会</li>
 <li><strong>Proposition</strong>: 如果边是<strong>有理数</strong>，一定会找到最大的流量</li>
 <li><strong>Note</strong>: The algorithm works for G with <em>cycles</em> as well</li>
-<li><img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005707380.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005707380.png" /></li>
+<li><img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005707380.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005707380.webp" /></li>
 </ul>
 <h3 id="43-analysis-if-the-capacities-are-all-integers">4.3 Analysis ( If the capacities are all integers )<a class="headerlink" href="#43-analysis-if-the-capacities-are-all-integers" title="Locate to heading">#</a></h3>
 <ul>
@@ -2630,7 +2630,7 @@
 <li>
 <div class="arithmatex">\[T=T_{augmentation}*T_{find\,a\,path}=O(|E|)*O(|E|*|V|)=O(|E|^2|V|)\]</div>
 </li>
-<li>Note <img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005723299.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005723299.png" /></li>
+<li>Note <img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005723299.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005723299.webp" /></li>
 </ul>
 </li>
 </ul>
@@ -2738,13 +2738,13 @@
 </span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <h3 id="62-biconnectivity">6.2 Biconnectivity<a class="headerlink" href="#62-biconnectivity" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005741631.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005741631.png" /></p>
+<p><img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005741631.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005741631.webp" /></p>
 <ul>
 <li><strong>Articulation Point</strong>: v is an articulation point if G' = deleteVertex(G, v) has <strong>at least 2</strong> connected components <em>如果把这个节点删掉之后，图被分开了</em></li>
 <li><strong>Biconnected graph</strong>: G is a biconnected graph if G is <strong>connected</strong> and <strong>has no articulation points</strong></li>
 <li>A <strong>biconnected component</strong> is a <em>maximal biconnected subgraph</em></li>
 </ul>
-<p><img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005749962.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005749962.png" /></p>
+<p><img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005749962.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005749962.webp" /></p>
 <h4 id="621-finding-the-biconnected-components">6.2.1 Finding the biconnected components<a class="headerlink" href="#621-finding-the-biconnected-components" title="Locate to heading">#</a></h4>
 <h5 id="6211-use-dfs-to-obtain-a-spanning-tree-of-g">6.2.1.1 Use DFS to obtain a spanning tree of G<a class="headerlink" href="#6211-use-dfs-to-obtain-a-spanning-tree-of-g" title="Locate to heading">#</a></h5>
 <ul>
@@ -2757,7 +2757,7 @@
 <li>The <em>root</em> is an articulation point iff it has <strong>at least 2 children</strong></li>
 <li>Any <em>other vertex</em> is an articulation point iff u has <strong>at least 1 child</strong>, <mark>and</mark> it is impossible to <strong>move down at least 1 step and then jump up to u's ancestor</strong><ul>
 <li>至少有一个孩子，而且无法从后代中通过 <em>back edge</em> 回到祖先</li>
-<li><img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005758609.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005758609.png" /></li>
+<li><img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005758609.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005758609.webp" /></li>
 </ul>
 </li>
 </ul>
@@ -2765,7 +2765,7 @@
 <ul>
 <li>是 <strong>自己的 number</strong>、<strong>children 中最小的 low number</strong>、<strong>自己 backedge 另一头中最小的 number</strong> 中最小的</li>
 <li>计算 Low number<ul>
-<li><img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005808300.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005808300.png" /></li>
+<li><img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005808300.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005808300.webp" /></li>
 <li><strong>根节点</strong> 的 low number 是 0</li>
 <li>先找所有 <strong>backedge</strong> 影响的 low number <em>因为 backedge 要找的是另一头的 number， 已经全部已知</em></li>
 <li><strong>DFS</strong>，每次返回本节点的 low number，每次比较自己的 number 和所有返回值，取最小的</li>
@@ -2789,7 +2789,7 @@
 </li>
 </ul>
 <h4 id="631-algorithm">6.3.1 algorithm<a class="headerlink" href="#631-algorithm" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/Ch.09 Graph Algorithms.md/IMG-Ch.09 Graph Algorithms-20250125005819351.png" src="__assets/Ch.09%20Graph%20Algorithms.md/IMG-Ch.09%20Graph%20Algorithms-20250125005819351.png" /></p>
+<p><img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005819351.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005819351.webp" /></p>
 <ul>
 <li>the path should be maintained as a linked list</li>
 <li>for each adjacency list, maintain a pointer to the last edge scanned</li>

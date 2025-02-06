@@ -11,12 +11,12 @@
 
   /* Primary color shades */
   --md-primary-fg-color: rgb(5, 122, 127);
-  /* --md-primary-fg-color: hsl(
+  --md-primary-fg-color: hsl(
     var(--md-primary-fg-color-h),
     var(--md-primary-fg-color-s),
     var(--md-primary-fg-color-l)
-  ); */
-  /* --md-primary-fg-color--light: hsl(
+  );
+  --md-primary-fg-color--light: hsl(
     var(--md-primary-fg-color-h),
     var(--md-primary-fg-color-s),
     calc(var(--md-primary-fg-color-l) * 1.4)
@@ -25,7 +25,7 @@
     var(--md-primary-fg-color-h),
     var(--md-primary-fg-color-s),
     calc(var(--md-primary-fg-color-l) * 0.6)
-  ); */
+  );
   /* --md-primary-bg-color: hsl(0, 0%, 100%); */
   /* --md-primary-bg-color--light: hsla(0, 0%, 100%, 0.7); */
 

@@ -1887,7 +1887,7 @@
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">};</span>
 </span></code></pre></div></td></tr></table></div>
 <h4 id="221-recursive-version">2.2.1 Recursive version<a class="headerlink" href="#221-recursive-version" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/ADS 04 Leftist Heaps and Skew Heaps.md/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241028013044470.png" src="__assets/ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.md/IMG-ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps-20241028013044470.png" /></p>
+<p><img alt="__assets/ADS 04 Leftist Heaps and Skew Heaps/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241028013044470.webp" src="__assets/ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps/IMG-ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps-20241028013044470.webp" /></p>
 <div class="admonition tip">
 <p class="admonition-title">进行如下递归的操作 <code>Merge</code></p>
 <ol>
@@ -1941,7 +1941,7 @@
 <p>如果其中一个堆已经没有左孩子了，那么根据 <span class="arithmatex">\(Npl\)</span>，它一定没有右孩子，这时候为了维护 <span class="arithmatex">\(Npl\)</span> 只需要将另一个堆当作其左孩子</p>
 </div>
 <h4 id="222-iterative-version">2.2.2 Iterative version<a class="headerlink" href="#222-iterative-version" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/ADS 04 Leftist Heaps and Skew Heaps.md/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241028013537299.png" src="__assets/ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.md/IMG-ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps-20241028013537299.png" /></p>
+<p><img alt="__assets/ADS 04 Leftist Heaps and Skew Heaps/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241028013537299.webp" src="__assets/ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps/IMG-ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps-20241028013537299.webp" /></p>
 <ol>
 <li>按照右路经排序（链表的合并）</li>
 <li>沿着右路径从下往上检查是否需要交换</li>
@@ -1960,7 +1960,7 @@
 <p>Any <span class="arithmatex">\(M\)</span> consecutive operations take at most <span class="arithmatex">\(O(M \log N)\)</span> time.</p>
 </div>
 <h3 id="31-merge">3.1 Merge<a class="headerlink" href="#31-merge" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/ADS 04 Leftist Heaps and Skew Heaps.md/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241101144759195.png" src="__assets/ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.md/IMG-ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps-20241101144759195.png" /></p>
+<p><img alt="__assets/ADS 04 Leftist Heaps and Skew Heaps/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241101144759195.webp" src="__assets/ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps/IMG-ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps-20241101144759195.webp" /></p>
 <p><strong>Always</strong> swap the left and right children except that the largest of all the nodes on the right paths does not have its children swapped. <strong>始终</strong>交换左子树和右子树，除了在右路径上最大的节点不交换其子节点。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1986,7 +1986,7 @@
 <li><span class="arithmatex">\(\Phi(D_{i})=\)</span> number of <strong>heavy</strong> nodes</li>
 </ul>
 <p><span class="arithmatex">\(definition\)</span>: 某一节点的后代（包括自己）中，其右子树内的大于等于一半，则其为 <em>heavy node</em>，反之为 <em>light</em>。也就是 <span class="arithmatex">\(R\geq \frac{L+R+1}{2}\)</span></p>
-<p><img alt="__assets/ADS 04 Leftist Heaps and Skew Heaps.md/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241028013549950.png" src="__assets/ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.md/IMG-ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps-20241028013549950.png" /></p>
+<p><img alt="__assets/ADS 04 Leftist Heaps and Skew Heaps/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241028013549950.webp" src="__assets/ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps/IMG-ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps-20241028013549950.webp" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Important</p>
 <p>每次合并，只有原本在<strong>右路经</strong>上的节点才有机会改变轻重状态</p>
@@ -2087,7 +2087,7 @@ T_{amortized}=T_{worst}+\Phi_{i+1}-\Phi_{i} \leq 2(l_{1}+l_{2})
 <li>40 is the left child of 18</li>
 <li>the depths of 18 and 33 are the same</li>
 </ul>
-<p><img alt="__assets/ADS 04 Leftist Heaps and Skew Heaps.md/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241101153347592.png" src="__assets/ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps.md/IMG-ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps-20241101153347592.png" /></p>
+<p><img alt="__assets/ADS 04 Leftist Heaps and Skew Heaps/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241101153347592.webp" src="__assets/ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps/IMG-ADS%2004%20Leftist%20Heaps%20and%20Skew%20Heaps-20241101153347592.webp" /></p>
 <details class="tip">
 <summary>Answer</summary>
 <p><strong>0</strong> 注意参考 [[#3.1 Merge]] 中的说法，即使一个堆空了，另一个堆的右路经也是要进行遍历交换的，所以最后 35 是 18 的右孩子，40 是左孩子</p>
