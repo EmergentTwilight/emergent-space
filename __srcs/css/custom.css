@@ -11,78 +11,63 @@
 
   /* Primary color shades */
   --md-primary-fg-color: rgb(5, 122, 127);
-  --md-primary-fg-color: hsl(
-    var(--md-primary-fg-color-h),
-    var(--md-primary-fg-color-s),
-    var(--md-primary-fg-color-l)
-  );
-  --md-primary-fg-color--light: hsl(
-    var(--md-primary-fg-color-h),
-    var(--md-primary-fg-color-s),
-    calc(var(--md-primary-fg-color-l) * 1.4)
-  );
-  --md-primary-fg-color--dark: hsl(
-    var(--md-primary-fg-color-h),
-    var(--md-primary-fg-color-s),
-    calc(var(--md-primary-fg-color-l) * 0.6)
-  );
+  --md-primary-fg-color: hsl(var(--md-primary-fg-color-h),
+      var(--md-primary-fg-color-s),
+      var(--md-primary-fg-color-l));
+  --md-primary-fg-color--light: hsl(var(--md-primary-fg-color-h),
+      var(--md-primary-fg-color-s),
+      calc(var(--md-primary-fg-color-l) * 1.4));
+  --md-primary-fg-color--dark: hsl(var(--md-primary-fg-color-h),
+      var(--md-primary-fg-color-s),
+      calc(var(--md-primary-fg-color-l) * 0.6));
   /* --md-primary-bg-color: hsl(0, 0%, 100%); */
   /* --md-primary-bg-color--light: hsla(0, 0%, 100%, 0.7); */
 
   /* Accent color shades */
-  --md-accent-fg-color: hsl(
-    var(--md-accent-fg-color-h),
-    var(--md-accent-fg-color-s),
-    var(--md-accent-fg-color-l)
-  );
-  --md-accent-fg-color--transparent: hsla(
-    var(--md-accent-fg-color-h),
-    var(--md-accent-fg-color-s),
-    var(--md-accent-fg-color-l),
-    0.1
-  );
+  --md-accent-fg-color: hsl(var(--md-accent-fg-color-h),
+      var(--md-accent-fg-color-s),
+      var(--md-accent-fg-color-l));
+  --md-accent-fg-color--transparent: hsla(var(--md-accent-fg-color-h),
+      var(--md-accent-fg-color-s),
+      var(--md-accent-fg-color-l),
+      0.1);
   /* --md-accent-bg-color: var(--md-primary-bg-color); */
   /* --md-accent-bg-color--light: var(--md-primary-bg-color--light); */
 
   --md-main-bg-mix-percentage: 15%;
-  --md-code-bg-transparency: 0.5;
+  --md-code-bg-transparency: 0.3;
+  --md-code-border-transparency: 0.5;
 }
 
+
+[data-md-color-scheme="default"] {
+  --md-footer-bg-color: rgba(239, 239, 239, 0.5);
+  --md-footer-fg-color: rgb(0, 0, 0);
+  --md-footer-bg-color--dark: var(--md-footer-bg-color);
+  --md-footer-fg-color--light: var(--md-footer-fg-color);
+  .md-copyright {
+    color: var(--md-footer-fg-color);
+  }
+}
+
+.md-footer {
+  box-shadow: var(--md-shadow-z2);
+}
 
 
 /* 渐变背景 */
 .md-main {
   background-attachment: fixed;
   background-image: linear-gradient(to bottom,
-      color-mix(in srgb, var(--md-primary-fg-color) var(--md-main-bg-mix-percentage), var(--md-default-bg-color)),
+      color-mix(in srgb,
+        var(--md-primary-fg-color) var(--md-main-bg-mix-percentage),
+        var(--md-default-bg-color)),
       var(--md-default-bg-color));
 }
 
 
 
-/* 代码块半透明背景 */
-.md-typeset code {
-  background-color: color-mix(in srgb, var(--md-code-bg-color) calc(var(--md-code-bg-transparency) * 100%), transparent) !important;
-}
 
-.highlighttable .linenos {
-  background-color: color-mix(in srgb, var(--md-code-bg-color) calc(var(--md-code-bg-transparency) * 100%), transparent) !important;
-}
-
-.highlight span.filename {
-  background-color: color-mix(in srgb, var(--md-code-bg-color) calc(var(--md-code-bg-transparency) * 100%), transparent) !important;
-}
-
-
-/* 透明 callout */
-.md-typeset .admonition,
-.md-typeset details {
-  background-color: transparent !important;
-}
-
-.md-typeset table:not([class]) {
-  background-color: transparent !important;
-}
 
 /* // Color variables
 :root {

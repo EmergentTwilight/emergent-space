@@ -12,7 +12,7 @@
         <meta name="author" content="Emergent Twilight">
       
       
-        <link rel="canonical" href="https://emergenttwilight.github.io/Emergent-Space/ZJU-Advanced%20Data%20Structure%20%26%20Algorithm%20Analysis/ADS%2009%20Greedy%20Algorithm.html">
+        <link rel="canonical" href="https://emergenttwilight.github.io/emergent-space/ZJU-Advanced%20Data%20Structure%20%26%20Algorithm%20Analysis/ADS%2009%20Greedy%20Algorithm.html">
       
       
         <link rel="prev" href="ADS%2008%20Dynamic%20Programming.html">
@@ -56,15 +56,17 @@
     
       <link rel="stylesheet" href="../__srcs/css/banner.css">
     
-      <link rel="stylesheet" href="../__srcs/css/right-sidebar.css">
-    
-      <link rel="stylesheet" href="../__srcs/css/left-sidebar.css">
+      <link rel="stylesheet" href="../__srcs/css/sidebar.css">
     
       <link rel="stylesheet" href="../__srcs/css/content.css">
     
       <link rel="stylesheet" href="../__srcs/css/custom.css">
     
       <link rel="stylesheet" href="../__srcs/css/font.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/list_callouts.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/friend_link.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -219,13 +221,13 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/EmergentTwilight/emergent-space/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
-    Emergent-Space
+    emergent-space
   </div>
 </a>
       </div>
@@ -286,7 +288,65 @@
   
     
   
-  ZJU
+  DS/Algo.
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ZJU-Assembly%20Fundamentals/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Coding/Lang.
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../GAMES101/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Others
 
         </a>
       </li>
@@ -328,13 +388,13 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/EmergentTwilight/emergent-space/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
-    Emergent-Space
+    emergent-space
   </div>
 </a>
     </div>
@@ -352,6 +412,8 @@
       
         
           
+        
+      
         
       
     
@@ -404,10 +466,6 @@
       
         
       
-        
-      
-        
-      
     
     
       
@@ -430,7 +488,7 @@
             
   
   <span class="md-ellipsis">
-    ZJU
+    DS/Algo.
   </span>
   
 
@@ -440,7 +498,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            ZJU
+            DS/Algo.
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -496,69 +554,6 @@
   
   <span class="md-ellipsis">
     Fundamentals of Data Structures
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../ZJU-HPC101/index.html" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    HPC101
   </span>
   
 
@@ -637,7 +632,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           
@@ -653,14 +648,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Advanced Data Structure & Algorithm Analysis
           </label>
@@ -1012,6 +1007,96 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#41-correctness" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Correctness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Correctness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-the-greedy-choice-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.1 The greedy-choice property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-the-optimal-substructure-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2 The optimal substructure property
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 Discussion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-hw9" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 HW9
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 HW9">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-找零问题" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 找零问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-fill-or-not-to-fill-fold" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 Fill or Not to Fill %% fold %%
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#62-ex9" class="md-nav__link">
     <span class="md-ellipsis">
       6.2 Ex9
@@ -1288,8 +1373,15 @@
 
               
             
-              
-                
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
   
   
   
@@ -1298,30 +1390,55 @@
     
       
         
-          
-        
+      
+    
+    
+      
+      
+    
+    
       
         
-      
         
       
-        
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
+  
+  
+    
+  
+  
+    <a href="../ZJU-Assembly%20Fundamentals/index.html" class="md-nav__link">
       
-        
+  
+  <span class="md-ellipsis">
+    Coding/Lang.
+  </span>
+  
+
       
-        
+        <span class="md-nav__icon md-icon"></span>
       
-        
+    </a>
+  
+
+  
+
       
-        
+    </li>
+  
+
+    
       
-        
       
-        
-      
-        
+  
+  
+  
+  
+    
+    
       
         
       
@@ -1343,11 +1460,14 @@
         
   
   
-    <a href="../ZJU-Assembly%20Fundamentals/index.html" class="md-nav__link">
+    
+  
+  
+    <a href="../GAMES101/index.html" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    汇编语言程序设计基础
+    Others
   </span>
   
 
@@ -1357,14 +1477,8 @@
     </a>
   
 
-      
-    </li>
   
 
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -1522,6 +1636,96 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#41-correctness" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Correctness
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1 Correctness">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#411-the-greedy-choice-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.1 The greedy-choice property
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#412-the-optimal-substructure-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1.2 The optimal substructure property
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-discussion" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 Discussion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-hw9" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 HW9
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 HW9">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-找零问题" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1 找零问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-fill-or-not-to-fill-fold" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2 Fill or Not to Fill %% fold %%
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#62-ex9" class="md-nav__link">
     <span class="md-ellipsis">
       6.2 Ex9
@@ -1607,7 +1811,7 @@
                   
 
   
-    <a href="https://github.com/EmergentTwilight/Emergent-Space/edit/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 09 Greedy Algorithm.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/EmergentTwilight/emergent-space/edit/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 09 Greedy Algorithm.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1616,7 +1820,7 @@
     
       
     
-    <a href="https://github.com/EmergentTwilight/Emergent-Space/raw/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 09 Greedy Algorithm.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/EmergentTwilight/emergent-space/raw/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 09 Greedy Algorithm.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
@@ -1649,9 +1853,15 @@
 <p>每个贪心算法总是对应一个复杂度更高的 dp</p>
 </blockquote>
 <ul>
-<li><span class="arithmatex">\(S_{ij}\)</span> 表示从活动 <span class="arithmatex">\(a_i\)</span> 到 <span class="arithmatex">\(a_j\)</span> 的活动集合（不包括两端）</li>
-<li><span class="arithmatex">\(c_{ij}\)</span> 表示 <span class="arithmatex">\(S_{ij}\)</span> 中最大安排活动数量，状态转移方程为 <span class="arithmatex">\(<span class="arithmatex">\(c_{ij}=\begin{cases}0 &amp;\text{if }S_{ij}=\emptyset\\max_{{a_{k}\in S_{ij}}}\{c_{ik}+c_{kj}+1\}\quad &amp;\text{if }S_{{ij}}\neq \emptyset\end{cases}\)</span>\)</span></li>
-<li><span class="arithmatex">\(T(N)=O(N^3)\)</span>，这是因为有 <span class="arithmatex">\(i,j,k\)</span> 三个变量的遍历</li>
+<li>
+<p><span class="arithmatex">\(S_{ij}\)</span> 表示从活动 <span class="arithmatex">\(a_i\)</span> 到 <span class="arithmatex">\(a_j\)</span> 的活动集合（不包括两端）</p>
+</li>
+<li>
+<p><span class="arithmatex">\(c_{ij}\)</span> 表示 <span class="arithmatex">\(S_{ij}\)</span> 中最大安排活动数量，状态转移方程为 <span class="arithmatex">\(<span class="arithmatex">\(c_{ij}=\begin{cases}0 &amp;\text{if }S_{ij}=\emptyset\\max_{{a_{k}\in S_{ij}}}\{c_{ik}+c_{kj}+1\}\quad &amp;\text{if }S_{{ij}}\neq \emptyset\end{cases}\)</span>\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(T(N)=O(N^3)\)</span>，这是因为有 <span class="arithmatex">\(i,j,k\)</span> 三个变量的遍历</p>
+</li>
 </ul>
 <h3 id="22-greedy-solution">2.2 Greedy Solution<a class="headerlink" href="#22-greedy-solution" title="Locate to heading">#</a></h3>
 <blockquote>
@@ -1679,7 +1889,7 @@
 </ul>
 <h3 id="25-interval-scheduling-区间调度问题">2.5 Interval Scheduling 区间调度问题<a class="headerlink" href="#25-interval-scheduling-区间调度问题" title="Locate to heading">#</a></h3>
 <blockquote>
-<p>详见 [[#6.2.3 Room Scheduling]]</p>
+<p>详见 <a href="#623-room-scheduling">6.2.3 Room Scheduling</a></p>
 </blockquote>
 <h2 id="3-elements-of-the-greedy-strategy">3 Elements of the Greedy Strategy<a class="headerlink" href="#3-elements-of-the-greedy-strategy" title="Locate to heading">#</a></h2>
 <ol>
@@ -1693,300 +1903,188 @@
 </div>
 <h2 id="4-huffman-codes-霍夫曼编码">4 Huffman Codes 霍夫曼编码<a class="headerlink" href="#4-huffman-codes-霍夫曼编码" title="Locate to heading">#</a></h2>
 <p>Huffman Coding 过于简单，可以参考离散的内容</p>
-<p>```c title"Huffman Code"
-void Huffman ( PriorityQueue  heap[ ],  int  C )
-{   consider the C characters as C single node binary trees,
-     and initialize them into a min heap;
-     for ( i = 1; i &lt; C; i++ ) { 
-        create a new node;
-        /* be greedy here <em>/
-        delete root from min heap and attach it to left_child of node;
-        delete root from min heap and attach it to right_child of node;
-        weight of node = sum of weights of its children;
-        /</em> weight of a tree = sum of the frequencies of its leaves */
-        insert node into min heap;
-   }
-}
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">  1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">  2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">  3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">  4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">  5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">  6</a></span>
-<span class="normal"><a href="#__codelineno-0-7">  7</a></span>
-<span class="normal"><a href="#__codelineno-0-8">  8</a></span>
-<span class="normal"><a href="#__codelineno-0-9">  9</a></span>
-<span class="normal"><a href="#__codelineno-0-10"> 10</a></span>
-<span class="normal"><a href="#__codelineno-0-11"> 11</a></span>
-<span class="normal"><a href="#__codelineno-0-12"> 12</a></span>
-<span class="normal"><a href="#__codelineno-0-13"> 13</a></span>
-<span class="normal"><a href="#__codelineno-0-14"> 14</a></span>
-<span class="normal"><a href="#__codelineno-0-15"> 15</a></span>
-<span class="normal"><a href="#__codelineno-0-16"> 16</a></span>
-<span class="normal"><a href="#__codelineno-0-17"> 17</a></span>
-<span class="normal"><a href="#__codelineno-0-18"> 18</a></span>
-<span class="normal"><a href="#__codelineno-0-19"> 19</a></span>
-<span class="normal"><a href="#__codelineno-0-20"> 20</a></span>
-<span class="normal"><a href="#__codelineno-0-21"> 21</a></span>
-<span class="normal"><a href="#__codelineno-0-22"> 22</a></span>
-<span class="normal"><a href="#__codelineno-0-23"> 23</a></span>
-<span class="normal"><a href="#__codelineno-0-24"> 24</a></span>
-<span class="normal"><a href="#__codelineno-0-25"> 25</a></span>
-<span class="normal"><a href="#__codelineno-0-26"> 26</a></span>
-<span class="normal"><a href="#__codelineno-0-27"> 27</a></span>
-<span class="normal"><a href="#__codelineno-0-28"> 28</a></span>
-<span class="normal"><a href="#__codelineno-0-29"> 29</a></span>
-<span class="normal"><a href="#__codelineno-0-30"> 30</a></span>
-<span class="normal"><a href="#__codelineno-0-31"> 31</a></span>
-<span class="normal"><a href="#__codelineno-0-32"> 32</a></span>
-<span class="normal"><a href="#__codelineno-0-33"> 33</a></span>
-<span class="normal"><a href="#__codelineno-0-34"> 34</a></span>
-<span class="normal"><a href="#__codelineno-0-35"> 35</a></span>
-<span class="normal"><a href="#__codelineno-0-36"> 36</a></span>
-<span class="normal"><a href="#__codelineno-0-37"> 37</a></span>
-<span class="normal"><a href="#__codelineno-0-38"> 38</a></span>
-<span class="normal"><a href="#__codelineno-0-39"> 39</a></span>
-<span class="normal"><a href="#__codelineno-0-40"> 40</a></span>
-<span class="normal"><a href="#__codelineno-0-41"> 41</a></span>
-<span class="normal"><a href="#__codelineno-0-42"> 42</a></span>
-<span class="normal"><a href="#__codelineno-0-43"> 43</a></span>
-<span class="normal"><a href="#__codelineno-0-44"> 44</a></span>
-<span class="normal"><a href="#__codelineno-0-45"> 45</a></span>
-<span class="normal"><a href="#__codelineno-0-46"> 46</a></span>
-<span class="normal"><a href="#__codelineno-0-47"> 47</a></span>
-<span class="normal"><a href="#__codelineno-0-48"> 48</a></span>
-<span class="normal"><a href="#__codelineno-0-49"> 49</a></span>
-<span class="normal"><a href="#__codelineno-0-50"> 50</a></span>
-<span class="normal"><a href="#__codelineno-0-51"> 51</a></span>
-<span class="normal"><a href="#__codelineno-0-52"> 52</a></span>
-<span class="normal"><a href="#__codelineno-0-53"> 53</a></span>
-<span class="normal"><a href="#__codelineno-0-54"> 54</a></span>
-<span class="normal"><a href="#__codelineno-0-55"> 55</a></span>
-<span class="normal"><a href="#__codelineno-0-56"> 56</a></span>
-<span class="normal"><a href="#__codelineno-0-57"> 57</a></span>
-<span class="normal"><a href="#__codelineno-0-58"> 58</a></span>
-<span class="normal"><a href="#__codelineno-0-59"> 59</a></span>
-<span class="normal"><a href="#__codelineno-0-60"> 60</a></span>
-<span class="normal"><a href="#__codelineno-0-61"> 61</a></span>
-<span class="normal"><a href="#__codelineno-0-62"> 62</a></span>
-<span class="normal"><a href="#__codelineno-0-63"> 63</a></span>
-<span class="normal"><a href="#__codelineno-0-64"> 64</a></span>
-<span class="normal"><a href="#__codelineno-0-65"> 65</a></span>
-<span class="normal"><a href="#__codelineno-0-66"> 66</a></span>
-<span class="normal"><a href="#__codelineno-0-67"> 67</a></span>
-<span class="normal"><a href="#__codelineno-0-68"> 68</a></span>
-<span class="normal"><a href="#__codelineno-0-69"> 69</a></span>
-<span class="normal"><a href="#__codelineno-0-70"> 70</a></span>
-<span class="normal"><a href="#__codelineno-0-71"> 71</a></span>
-<span class="normal"><a href="#__codelineno-0-72"> 72</a></span>
-<span class="normal"><a href="#__codelineno-0-73"> 73</a></span>
-<span class="normal"><a href="#__codelineno-0-74"> 74</a></span>
-<span class="normal"><a href="#__codelineno-0-75"> 75</a></span>
-<span class="normal"><a href="#__codelineno-0-76"> 76</a></span>
-<span class="normal"><a href="#__codelineno-0-77"> 77</a></span>
-<span class="normal"><a href="#__codelineno-0-78"> 78</a></span>
-<span class="normal"><a href="#__codelineno-0-79"> 79</a></span>
-<span class="normal"><a href="#__codelineno-0-80"> 80</a></span>
-<span class="normal"><a href="#__codelineno-0-81"> 81</a></span>
-<span class="normal"><a href="#__codelineno-0-82"> 82</a></span>
-<span class="normal"><a href="#__codelineno-0-83"> 83</a></span>
-<span class="normal"><a href="#__codelineno-0-84"> 84</a></span>
-<span class="normal"><a href="#__codelineno-0-85"> 85</a></span>
-<span class="normal"><a href="#__codelineno-0-86"> 86</a></span>
-<span class="normal"><a href="#__codelineno-0-87"> 87</a></span>
-<span class="normal"><a href="#__codelineno-0-88"> 88</a></span>
-<span class="normal"><a href="#__codelineno-0-89"> 89</a></span>
-<span class="normal"><a href="#__codelineno-0-90"> 90</a></span>
-<span class="normal"><a href="#__codelineno-0-91"> 91</a></span>
-<span class="normal"><a href="#__codelineno-0-92"> 92</a></span>
-<span class="normal"><a href="#__codelineno-0-93"> 93</a></span>
-<span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
-<span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
-<span class="normal"><a href="#__codelineno-0-96"> 96</a></span>
-<span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
-<span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
-<span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
-<span class="normal"><a href="#__codelineno-0-100">100</a></span>
-<span class="normal"><a href="#__codelineno-0-101">101</a></span>
-<span class="normal"><a href="#__codelineno-0-102">102</a></span>
-<span class="normal"><a href="#__codelineno-0-103">103</a></span>
-<span class="normal"><a href="#__codelineno-0-104">104</a></span>
-<span class="normal"><a href="#__codelineno-0-105">105</a></span>
-<span class="normal"><a href="#__codelineno-0-106">106</a></span>
-<span class="normal"><a href="#__codelineno-0-107">107</a></span>
-<span class="normal"><a href="#__codelineno-0-108">108</a></span>
-<span class="normal"><a href="#__codelineno-0-109">109</a></span>
-<span class="normal"><a href="#__codelineno-0-110">110</a></span>
-<span class="normal"><a href="#__codelineno-0-111">111</a></span>
-<span class="normal"><a href="#__codelineno-0-112">112</a></span>
-<span class="normal"><a href="#__codelineno-0-113">113</a></span>
-<span class="normal"><a href="#__codelineno-0-114">114</a></span>
-<span class="normal"><a href="#__codelineno-0-115">115</a></span>
-<span class="normal"><a href="#__codelineno-0-116">116</a></span>
-<span class="normal"><a href="#__codelineno-0-117">117</a></span>
-<span class="normal"><a href="#__codelineno-0-118">118</a></span>
-<span class="normal"><a href="#__codelineno-0-119">119</a></span>
-<span class="normal"><a href="#__codelineno-0-120">120</a></span>
-<span class="normal"><a href="#__codelineno-0-121">121</a></span>
-<span class="normal"><a href="#__codelineno-0-122">122</a></span>
-<span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span>
-<span class="normal"><a href="#__codelineno-0-125">125</a></span>
-<span class="normal"><a href="#__codelineno-0-126">126</a></span>
-<span class="normal"><a href="#__codelineno-0-127">127</a></span>
-<span class="normal"><a href="#__codelineno-0-128">128</a></span>
-<span class="normal"><a href="#__codelineno-0-129">129</a></span>
-<span class="normal"><a href="#__codelineno-0-130">130</a></span>
-<span class="normal"><a href="#__codelineno-0-131">131</a></span>
-<span class="normal"><a href="#__codelineno-0-132">132</a></span>
-<span class="normal"><a href="#__codelineno-0-133">133</a></span>
-<span class="normal"><a href="#__codelineno-0-134">134</a></span>
-<span class="normal"><a href="#__codelineno-0-135">135</a></span>
-<span class="normal"><a href="#__codelineno-0-136">136</a></span>
-<span class="normal"><a href="#__codelineno-0-137">137</a></span>
-<span class="normal"><a href="#__codelineno-0-138">138</a></span>
-<span class="normal"><a href="#__codelineno-0-139">139</a></span>
-<span class="normal"><a href="#__codelineno-0-140">140</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>- 算法
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>    - 构建优先队列，插入所有节点
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>    - 每次取权重最小的两个元素，作为一个新根的左右孩子，新根的权重为两个元素之和，将新根插入队列
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>    - 重复直到队列中只有一个元素
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>- $T=O(C\log C)$
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>- 所有的 character 都在叶子节点
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>- 每个 internal node 都是 2 degree 的，**full tree**
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>    - 区别于 complete tree 完全二叉树
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a>## 4.1 Correctness
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>### 4.1.1 The greedy-choice property
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a>![__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241109151151281.webp](__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241109151151281.webp)
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a>- 频率小的一定有更长的 prefix，频率最小的两个 prefix 长度相等且只有最后一个 bit 不同
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18"></a>### 4.1.2 The optimal substructure property
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20"></a>![__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241109151425799.webp](__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241109151425799.webp)
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21"></a>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22"></a>- $x, y$ 节点在后面的解题过程中，与一个 $z$ 节点等价，所以构成了最优子结构
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23"></a>- 可以使用反证法来证明这一点
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25"></a># 5 Discussion
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27"></a>!!! question
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28"></a>    Suppose that all the characters are sorted by their frequencies. Can you compute the Huffman code in $O(n)$ time?
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29"></a>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30"></a>建立两个队列 $Q_{1}, Q_{2}$，其中 $Q_{1}$ 就是排好序的 characters，$Q_{2}$ 初始化为空。
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32"></a>每次考虑 $Q_{1},Q_{2}$ 中的前两个共四个元素，将其中非空且最小的两个进行合并，enqueue 到 $Q_{2}$。
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33"></a>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34"></a>直到 $Q_{1}$ 为空，$Q_2$ 中只有一个元素时，这个元素就是结果。
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36"></a>证明：每次合并后得到的 trie 元素的总权重总是递增的，因此 $Q_{2}$ 必然是增序的。
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37"></a>
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38"></a># 6 Questions
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39"></a>
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40"></a>## 6.1 HW9
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42"></a>### 6.1.1 找零问题
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43"></a>
-</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44"></a>Consider the problem of making change for n cents using the fewest number of coins. Assume that each coin&#39;s value is an integer.  
-</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45"></a>The coins of the lowest denomination（面额） is the cent.
-</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47"></a>(I) Suppose that the available coins are quarters (25 cents), dimes (10 cents), nickels (5 cents), and pennies (1 cent). The greedy algorithm always yields an optimal solution.
-</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48"></a>
-</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49"></a>(II) Suppose that the available coins are in the denominations that are powers of c, that is, the denominations are $c^0$, $c^1$, ..., $c^k$ for some integers $c&gt;1$ and $k\geq1$. The greedy algorithm always yields an optimal solution.
-</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51"></a>(III) Given any set of k different coin denominations which includes a penny (1 cent) so that there is a solution for every value of n, greedy algorithm always yields an optimal solution.
-</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52"></a>
-</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53"></a>Which of the them are correct?
-</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55"></a>??? tip &quot;Answer&quot;
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56"></a>    只有 **III** 错
-</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58"></a>    - 关键问题是，如果剩余的空缺刚好能用两个中等面值填上，但如果放了最大面值，可能还需要放很多个最小面值，远远超过两个，这样就不是最优解，所以 **III** 肯定错
-</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59"></a>    - **II** 是 $c$ 进制唯一表示，肯定对
-</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60"></a>    - 现在考虑解决这个关键问题，假设面值递增序列为 $w_{i}$，满足贪心要求的面值满足以下其一
-</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61"></a>        - $w_{i+1}=k*w_{i}$，即 $w_{i+1}$ 是 $w_i$ 的整数倍
-</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62"></a>        - 若 $w_{i+1}$ 不是 $w_i$ 整数倍，那么存在一个 $k_{i}$，使得 $(k_{i}-1)w_{i}&lt;w_{i+1}$，且 $k_{i}w_{i}&gt;w_{i+1}$；若 $k_{i}w_{i}=w_{i+1}+k_{i-1}w_{i-1}+k_{i-1}w_{{i-2}}+\dots+k_{0}w_{0}$，必须满足 $k_{i}\geq 1+k_{i-1}+k_{i-2}+\dots+k_{0}$
-</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63"></a>
-</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64"></a>### 6.1.2 Fill or Not to Fill %% fold %% 
-</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65"></a>
-</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66"></a>??? question
-</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67"></a>    With highways available, driving a car from Hangzhou to any other city is easy. But since the tank capacity of a car is limited, we have to find gas stations on the way from time to time. Different gas station may give different price. You are asked to carefully design the cheapest route to go.
-</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68"></a>
-</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69"></a>    **Input Specification**:
-</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70"></a>
-</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71"></a>    Each input file contains one test case. For each case, the first line contains 4 positive numbers: $C_{max}$​ (≤ 100), the maximum capacity of the tank; $D$ (≤30000), the distance between Hangzhou and the destination city; $D_{avg}$​ (≤20), the average distance per unit gas that the car can run; and $N$ (≤ 500), the total number of gas stations. Then $N$ lines follow, each contains a pair of non-negative numbers: $P_{i}$​, the unit gas price, and $D_i$​ (≤$D$), the distance between this station and Hangzhou, for $i=1,\dots,N$. All the numbers in a line are separated by a space.
-</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73"></a>    **Output Specification**:
-</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74"></a>
-</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75"></a>    For each test case, print the cheapest price in a line, accurate up to 2 decimal places. It is assumed that the tank is empty at the beginning. If it is impossible to reach the destination, print `The maximum travel distance = X` where `X` is the maximum possible distance the car can run, accurate up to 2 decimal places.
-</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76"></a>
-</span><span id="__span-0-77"><a id="__codelineno-0-77" name="__codelineno-0-77"></a>    **Sample Input 1**:
-</span><span id="__span-0-78"><a id="__codelineno-0-78" name="__codelineno-0-78"></a>
-</span><span id="__span-0-79"><a id="__codelineno-0-79" name="__codelineno-0-79"></a>    ```in
-</span><span id="__span-0-80"><a id="__codelineno-0-80" name="__codelineno-0-80"></a>    50 1300 12 8
-</span><span id="__span-0-81"><a id="__codelineno-0-81" name="__codelineno-0-81"></a>    6.00 1250
-</span><span id="__span-0-82"><a id="__codelineno-0-82" name="__codelineno-0-82"></a>    7.00 600
-</span><span id="__span-0-83"><a id="__codelineno-0-83" name="__codelineno-0-83"></a>    7.00 150
-</span><span id="__span-0-84"><a id="__codelineno-0-84" name="__codelineno-0-84"></a>    7.10 0
-</span><span id="__span-0-85"><a id="__codelineno-0-85" name="__codelineno-0-85"></a>    7.20 200
-</span><span id="__span-0-86"><a id="__codelineno-0-86" name="__codelineno-0-86"></a>    7.50 400
-</span><span id="__span-0-87"><a id="__codelineno-0-87" name="__codelineno-0-87"></a>    7.30 1000
-</span><span id="__span-0-88"><a id="__codelineno-0-88" name="__codelineno-0-88"></a>    6.85 300
-</span><span id="__span-0-89"><a id="__codelineno-0-89" name="__codelineno-0-89"></a>    ```
-</span><span id="__span-0-90"><a id="__codelineno-0-90" name="__codelineno-0-90"></a>
-</span><span id="__span-0-91"><a id="__codelineno-0-91" name="__codelineno-0-91"></a>    **Sample Output 1**:
-</span><span id="__span-0-92"><a id="__codelineno-0-92" name="__codelineno-0-92"></a>
-</span><span id="__span-0-93"><a id="__codelineno-0-93" name="__codelineno-0-93"></a>    ```out
-</span><span id="__span-0-94"><a id="__codelineno-0-94" name="__codelineno-0-94"></a>    749.17
-</span><span id="__span-0-95"><a id="__codelineno-0-95" name="__codelineno-0-95"></a>    ```
-</span><span id="__span-0-96"><a id="__codelineno-0-96" name="__codelineno-0-96"></a>
-</span><span id="__span-0-97"><a id="__codelineno-0-97" name="__codelineno-0-97"></a>    **Sample Input 2**:
-</span><span id="__span-0-98"><a id="__codelineno-0-98" name="__codelineno-0-98"></a>
-</span><span id="__span-0-99"><a id="__codelineno-0-99" name="__codelineno-0-99"></a>    ```
-</span><span id="__span-0-100"><a id="__codelineno-0-100" name="__codelineno-0-100"></a>    50 1300 12 2
-</span><span id="__span-0-101"><a id="__codelineno-0-101" name="__codelineno-0-101"></a>    7.10 0
-</span><span id="__span-0-102"><a id="__codelineno-0-102" name="__codelineno-0-102"></a>    7.00 600
-</span><span id="__span-0-103"><a id="__codelineno-0-103" name="__codelineno-0-103"></a>    ```
-</span><span id="__span-0-104"><a id="__codelineno-0-104" name="__codelineno-0-104"></a>
-</span><span id="__span-0-105"><a id="__codelineno-0-105" name="__codelineno-0-105"></a>    **Sample Output 2**:
-</span><span id="__span-0-106"><a id="__codelineno-0-106" name="__codelineno-0-106"></a>
-</span><span id="__span-0-107"><a id="__codelineno-0-107" name="__codelineno-0-107"></a>    ```
-</span><span id="__span-0-108"><a id="__codelineno-0-108" name="__codelineno-0-108"></a>    The maximum travel distance = 1200.00
-</span><span id="__span-0-109"><a id="__codelineno-0-109" name="__codelineno-0-109"></a>    ```
-</span><span id="__span-0-110"><a id="__codelineno-0-110" name="__codelineno-0-110"></a>
-</span><span id="__span-0-111"><a id="__codelineno-0-111" name="__codelineno-0-111"></a>```txt title=&quot;Pseudocode&quot;
-</span><span id="__span-0-112"><a id="__codelineno-0-112" name="__codelineno-0-112"></a>assign the destination to be station N with price 0.0
-</span><span id="__span-0-113"><a id="__codelineno-0-113" name="__codelineno-0-113"></a>
-</span><span id="__span-0-114"><a id="__codelineno-0-114" name="__codelineno-0-114"></a>if is not at the 1st station:
-</span><span id="__span-0-115"><a id="__codelineno-0-115" name="__codelineno-0-115"></a>    print maximum dist = 0.0
-</span><span id="__span-0-116"><a id="__codelineno-0-116" name="__codelineno-0-116"></a>    exit
-</span><span id="__span-0-117"><a id="__codelineno-0-117" name="__codelineno-0-117"></a>
-</span><span id="__span-0-118"><a id="__codelineno-0-118" name="__codelineno-0-118"></a>while i &lt; N:
-</span><span id="__span-0-119"><a id="__codelineno-0-119" name="__codelineno-0-119"></a>    // assume now at station i
-</span><span id="__span-0-120"><a id="__codelineno-0-120" name="__codelineno-0-120"></a>    if there is not station accessible in the next run:
-</span><span id="__span-0-121"><a id="__codelineno-0-121" name="__codelineno-0-121"></a>        maximum dist = current dist + max run
-</span><span id="__span-0-122"><a id="__codelineno-0-122" name="__codelineno-0-122"></a>        print maximum dist
-</span><span id="__span-0-123"><a id="__codelineno-0-123" name="__codelineno-0-123"></a>        exit
-</span><span id="__span-0-124"><a id="__codelineno-0-124" name="__codelineno-0-124"></a>    else:
-</span><span id="__span-0-125"><a id="__codelineno-0-125" name="__codelineno-0-125"></a>        int next
-</span><span id="__span-0-126"><a id="__codelineno-0-126" name="__codelineno-0-126"></a>        for station j in accessible stations:
-</span><span id="__span-0-127"><a id="__codelineno-0-127" name="__codelineno-0-127"></a>            if station j is the cheapest among accessible stations:
-</span><span id="__span-0-128"><a id="__codelineno-0-128" name="__codelineno-0-128"></a>                next = j
-</span><span id="__span-0-129"><a id="__codelineno-0-129" name="__codelineno-0-129"></a>            if station j is cheaper than station i:
-</span><span id="__span-0-130"><a id="__codelineno-0-130" name="__codelineno-0-130"></a>                break
-</span><span id="__span-0-131"><a id="__codelineno-0-131" name="__codelineno-0-131"></a>
-</span><span id="__span-0-132"><a id="__codelineno-0-132" name="__codelineno-0-132"></a>        if next is cheaper than i:
-</span><span id="__span-0-133"><a id="__codelineno-0-133" name="__codelineno-0-133"></a>            try to get just enough fuel to go to next
-</span><span id="__span-0-134"><a id="__codelineno-0-134" name="__codelineno-0-134"></a>            i = next
-</span><span id="__span-0-135"><a id="__codelineno-0-135" name="__codelineno-0-135"></a>        else:
-</span><span id="__span-0-136"><a id="__codelineno-0-136" name="__codelineno-0-136"></a>            fill the tank
-</span><span id="__span-0-137"><a id="__codelineno-0-137" name="__codelineno-0-137"></a>            i = next
-</span><span id="__span-0-138"><a id="__codelineno-0-138" name="__codelineno-0-138"></a>
-</span><span id="__span-0-139"><a id="__codelineno-0-139" name="__codelineno-0-139"></a>if i == N:
-</span><span id="__span-0-140"><a id="__codelineno-0-140" name="__codelineno-0-140"></a>    print total cost
-</span></code></pre></div></td></tr></table></div></p>
+<div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Huffman Code</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Huffman</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w">  </span><span class="n">heap</span><span class="p">[</span><span class="w"> </span><span class="p">],</span><span class="w">  </span><span class="kt">int</span><span class="w">  </span><span class="n">C</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">{</span><span class="w">   </span><span class="n">consider</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">C</span><span class="w"> </span><span class="n">single</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">binary</span><span class="w"> </span><span class="n">trees</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">     </span><span class="n">and</span><span class="w"> </span><span class="n">initialize</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="n">heap</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">     </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">C</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">        </span><span class="n">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="cm">/* be greedy here */</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">        </span><span class="n">delete</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">attach</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">left_child</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="n">delete</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">attach</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">right_child</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">        </span><span class="n">weight</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">weights</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">its</span><span class="w"> </span><span class="n">children</span><span class="p">;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">        </span><span class="cm">/* weight of a tree = sum of the frequencies of its leaves */</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">        </span><span class="n">insert</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="n">heap</span><span class="p">;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">   </span><span class="p">}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>算法<ul>
+<li>构建优先队列，插入所有节点</li>
+<li>每次取权重最小的两个元素，作为一个新根的左右孩子，新根的权重为两个元素之和，将新根插入队列</li>
+<li>重复直到队列中只有一个元素</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(T=O(C\log C)\)</span></li>
+<li>所有的 character 都在叶子节点</li>
+<li>每个 internal node 都是 2 degree 的，<strong>full tree</strong><ul>
+<li>区别于 complete tree 完全二叉树</li>
+</ul>
+</li>
+</ul>
+<h3 id="41-correctness">4.1 Correctness<a class="headerlink" href="#41-correctness" title="Locate to heading">#</a></h3>
+<h4 id="411-the-greedy-choice-property">4.1.1 The greedy-choice property<a class="headerlink" href="#411-the-greedy-choice-property" title="Locate to heading">#</a></h4>
+<p><img alt="__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241109151151281.webp" src="__assets/ADS%2009%20Greedy%20Algorithm/IMG-ADS%2009%20Greedy%20Algorithm-20241109151151281.webp" /></p>
+<ul>
+<li>频率小的一定有更长的 prefix，频率最小的两个 prefix 长度相等且只有最后一个 bit 不同</li>
+</ul>
+<h4 id="412-the-optimal-substructure-property">4.1.2 The optimal substructure property<a class="headerlink" href="#412-the-optimal-substructure-property" title="Locate to heading">#</a></h4>
+<p><img alt="__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241109151425799.webp" src="__assets/ADS%2009%20Greedy%20Algorithm/IMG-ADS%2009%20Greedy%20Algorithm-20241109151425799.webp" /></p>
+<ul>
+<li><span class="arithmatex">\(x, y\)</span> 节点在后面的解题过程中，与一个 <span class="arithmatex">\(z\)</span> 节点等价，所以构成了最优子结构</li>
+<li>可以使用反证法来证明这一点</li>
+</ul>
+<h2 id="5-discussion">5 Discussion<a class="headerlink" href="#5-discussion" title="Locate to heading">#</a></h2>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Suppose that all the characters are sorted by their frequencies. Can you compute the Huffman code in <span class="arithmatex">\(O(n)\)</span> time?</p>
+</div>
+<p>建立两个队列 <span class="arithmatex">\(Q_{1}, Q_{2}\)</span>，其中 <span class="arithmatex">\(Q_{1}\)</span> 就是排好序的 characters，<span class="arithmatex">\(Q_{2}\)</span> 初始化为空。</p>
+<p>每次考虑 <span class="arithmatex">\(Q_{1},Q_{2}\)</span> 中的前两个共四个元素，将其中非空且最小的两个进行合并，enqueue 到 <span class="arithmatex">\(Q_{2}\)</span>。</p>
+<p>直到 <span class="arithmatex">\(Q_{1}\)</span> 为空，<span class="arithmatex">\(Q_2\)</span> 中只有一个元素时，这个元素就是结果。</p>
+<p>证明：每次合并后得到的 trie 元素的总权重总是递增的，因此 <span class="arithmatex">\(Q_{2}\)</span> 必然是增序的。</p>
+<h2 id="6-questions">6 Questions<a class="headerlink" href="#6-questions" title="Locate to heading">#</a></h2>
+<h3 id="61-hw9">6.1 HW9<a class="headerlink" href="#61-hw9" title="Locate to heading">#</a></h3>
+<h4 id="611-找零问题">6.1.1 找零问题<a class="headerlink" href="#611-找零问题" title="Locate to heading">#</a></h4>
+<p>Consider the problem of making change for n cents using the fewest number of coins. Assume that each coin's value is an integer.
+The coins of the lowest denomination（面额） is the cent.</p>
+<p>(I) Suppose that the available coins are quarters (25 cents), dimes (10 cents), nickels (5 cents), and pennies (1 cent). The greedy algorithm always yields an optimal solution.</p>
+<p>(II) Suppose that the available coins are in the denominations that are powers of c, that is, the denominations are <span class="arithmatex">\(c^0\)</span>, <span class="arithmatex">\(c^1\)</span>, ..., <span class="arithmatex">\(c^k\)</span> for some integers <span class="arithmatex">\(c&gt;1\)</span> and <span class="arithmatex">\(k\geq1\)</span>. The greedy algorithm always yields an optimal solution.</p>
+<p>(III) Given any set of k different coin denominations which includes a penny (1 cent) so that there is a solution for every value of n, greedy algorithm always yields an optimal solution.</p>
+<p>Which of the them are correct?</p>
+<details class="tip">
+<summary>Answer</summary>
+<p>只有 <strong>III</strong> 错</p>
+<ul>
+<li>关键问题是，如果剩余的空缺刚好能用两个中等面值填上，但如果放了最大面值，可能还需要放很多个最小面值，远远超过两个，这样就不是最优解，所以 <strong>III</strong> 肯定错</li>
+<li><strong>II</strong> 是 <span class="arithmatex">\(c\)</span> 进制唯一表示，肯定对</li>
+<li>现在考虑解决这个关键问题，假设面值递增序列为 <span class="arithmatex">\(w_{i}\)</span>，满足贪心要求的面值满足以下其一<ul>
+<li><span class="arithmatex">\(w_{i+1}=k*w_{i}\)</span>，即 <span class="arithmatex">\(w_{i+1}\)</span> 是 <span class="arithmatex">\(w_i\)</span> 的整数倍</li>
+<li>若 <span class="arithmatex">\(w_{i+1}\)</span> 不是 <span class="arithmatex">\(w_i\)</span> 整数倍，那么存在一个 <span class="arithmatex">\(k_{i}\)</span>，使得 <span class="arithmatex">\((k_{i}-1)w_{i}&lt;w_{i+1}\)</span>，且 <span class="arithmatex">\(k_{i}w_{i}&gt;w_{i+1}\)</span>；若 <span class="arithmatex">\(k_{i}w_{i}=w_{i+1}+k_{i-1}w_{i-1}+k_{i-1}w_{{i-2}}+\dots+k_{0}w_{0}\)</span>，必须满足 <span class="arithmatex">\(k_{i}\geq 1+k_{i-1}+k_{i-2}+\dots+k_{0}\)</span></li>
+</ul>
+</li>
+</ul>
+</details>
+<h4 id="612-fill-or-not-to-fill-fold">6.1.2 Fill or Not to Fill %% fold %%<a class="headerlink" href="#612-fill-or-not-to-fill-fold" title="Locate to heading">#</a></h4>
+<details class="question">
+<summary>Question</summary>
+<p>With highways available, driving a car from Hangzhou to any other city is easy. But since the tank capacity of a car is limited, we have to find gas stations on the way from time to time. Different gas station may give different price. You are asked to carefully design the cheapest route to go.</p>
+<p><strong>Input Specification</strong>:</p>
+<p>Each input file contains one test case. For each case, the first line contains 4 positive numbers: <span class="arithmatex">\(C_{max}\)</span>​ (≤ 100), the maximum capacity of the tank; <span class="arithmatex">\(D\)</span> (≤30000), the distance between Hangzhou and the destination city; <span class="arithmatex">\(D_{avg}\)</span>​ (≤20), the average distance per unit gas that the car can run; and <span class="arithmatex">\(N\)</span> (≤ 500), the total number of gas stations. Then <span class="arithmatex">\(N\)</span> lines follow, each contains a pair of non-negative numbers: <span class="arithmatex">\(P_{i}\)</span>​, the unit gas price, and <span class="arithmatex">\(D_i\)</span>​ (≤<span class="arithmatex">\(D\)</span>), the distance between this station and Hangzhou, for <span class="arithmatex">\(i=1,\dots,N\)</span>. All the numbers in a line are separated by a space.</p>
+<p><strong>Output Specification</strong>:</p>
+<p>For each test case, print the cheapest price in a line, accurate up to 2 decimal places. It is assumed that the tank is empty at the beginning. If it is impossible to reach the destination, print <code>The maximum travel distance = X</code> where <code>X</code> is the maximum possible distance the car can run, accurate up to 2 decimal places.</p>
+<p><strong>Sample Input 1</strong>:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">8</a></span>
+<span class="normal"><a href="#__codelineno-1-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>50 1300 12 8
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>6.00 1250
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>7.00 600
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>7.00 150
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>7.10 0
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>7.20 200
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a>7.50 400
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>7.30 1000
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a>6.85 300
+</span></code></pre></div></td></tr></table></div>
+<p><strong>Sample Output 1</strong>:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>749.17
+</span></code></pre></div></td></tr></table></div>
+<p><strong>Sample Input 2</strong>:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>50 1300 12 2
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>7.10 0
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>7.00 600
+</span></code></pre></div></td></tr></table></div>
+<p><strong>Sample Output 2</strong>:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>The maximum travel distance = 1200.00
+</span></code></pre></div></td></tr></table></div>
+</details>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Pseudocode</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span>
+<span class="normal"><a href="#__codelineno-5-27">27</a></span>
+<span class="normal"><a href="#__codelineno-5-28">28</a></span>
+<span class="normal"><a href="#__codelineno-5-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>assign the destination to be station N with price 0.0
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>if is not at the 1st station:
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>    print maximum dist = 0.0
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>    exit
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a>while i &lt; N:
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a>    // assume now at station i
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a>    if there is not station accessible in the next run:
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a>        maximum dist = current dist + max run
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a>        print maximum dist
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12"></a>        exit
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13"></a>    else:
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14"></a>        int next
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15"></a>        for station j in accessible stations:
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16"></a>            if station j is the cheapest among accessible stations:
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17"></a>                next = j
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18"></a>            if station j is cheaper than station i:
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19"></a>                break
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21"></a>        if next is cheaper than i:
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22"></a>            try to get just enough fuel to go to next
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23"></a>            i = next
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24"></a>        else:
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25"></a>            fill the tank
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26"></a>            i = next
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27"></a>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28"></a>if i == N:
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29"></a>    print total cost
+</span></code></pre></div></td></tr></table></div>
 <h3 id="62-ex9">6.2 Ex9<a class="headerlink" href="#62-ex9" title="Locate to heading">#</a></h3>
 <h4 id="621-vertex-cover-problem">6.2.1 Vertex Cover Problem<a class="headerlink" href="#621-vertex-cover-problem" title="Locate to heading">#</a></h4>
 <p>To solve the vertex cover problem, there is a greedy algorithm that collects the vertex with the highest degree (i.e., the one covering the largest number of edges) and remove it from the graph at each stage. This greedy algorithm achieves an approximation ratio of 2. (T/F)</p>
@@ -1995,19 +2093,19 @@ void Huffman ( PriorityQueue  heap[ ],  int  C )
 <p><strong>F</strong>
 顶点覆盖问题是从 <span class="arithmatex">\(G\)</span> 中取尽量少的顶点组成集合 <span class="arithmatex">\(C\)</span>，使得每一条边都和 <span class="arithmatex">\(C\)</span> 中至少一个顶点相连；这是一个 NP-C 问题。
 一种近似算法如下：
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">6</a></span>
-<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>C = null
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>E = G.E
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>while E != null:
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>    let (u, v) be an arbitraty edge of E
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>    C = C union {u, v}
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>    remove from E edge (u, v) and every edge incident on either u or v
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a>return C
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>C = null
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>E = G.E
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>while E != null:
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>    let (u, v) be an arbitraty edge of E
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a>    C = C union {u, v}
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a>    remove from E edge (u, v) and every edge incident on either u or v
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>return C
 </span></code></pre></div></td></tr></table></div>
 如果使用题目的算法（启发式算法），其解的近似比是大于 2 的，可以举出这样一个例子 <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>：
 <img alt="__assets/ADS 09 Greedy Algorithm/IMG-ADS 09 Greedy Algorithm-20241107185730272.webp" src="__assets/ADS%2009%20Greedy%20Algorithm/IMG-ADS%2009%20Greedy%20Algorithm-20241107185730272.webp" />
@@ -2023,13 +2121,13 @@ void Huffman ( PriorityQueue  heap[ ],  int  C )
 <h4 id="623-room-scheduling">6.2.3 Room Scheduling<a class="headerlink" href="#623-room-scheduling" title="Locate to heading">#</a></h4>
 <p>In Activity Selection Problem, we are given a set of activities <span class="arithmatex">\(S=\{a_1 ​,a_2​, \dots, a_{n}\}\)</span> that wish to use a resource (e.g. a room). Each <span class="arithmatex">\(a_{i}​\)</span> takes place during a time interval <span class="arithmatex">\([si​,fi​)\)</span>.</p>
 <p>Let us consider the following problem: given the set of activities <span class="arithmatex">\(S\)</span>, we must schedule them all using the minimum number of rooms.</p>
-<p><strong>Greedy1</strong>:<br />
+<p><strong>Greedy1</strong>:
 Use the optimal algorithm for the Activity Selection Problem to find the max number of activities that can be scheduled in one room. Delete and repeat on the rest, until no activities left.</p>
 <p><strong>Greedy2</strong>:</p>
 <ul>
 <li>Sort activities by start time. Open room <span class="arithmatex">\(1\)</span> for <span class="arithmatex">\(a_1\)</span>​.</li>
-<li>for <span class="arithmatex">\(i=2\)</span> to <span class="arithmatex">\(n\)</span> 
-    if <span class="arithmatex">\(a_i\)</span>​ can fit in any open room, schedule it in that room;<br />
+<li>for <span class="arithmatex">\(i=2\)</span> to <span class="arithmatex">\(n\)</span>
+    if <span class="arithmatex">\(a_i\)</span>​ can fit in any open room, schedule it in that room;
     otherwise open a new room for <span class="arithmatex">\(a_i\)</span>​.</li>
 </ul>
 <p>Are they optimal methods?</p>
@@ -2038,27 +2136,27 @@ Use the optimal algorithm for the Activity Selection Problem to find the max num
 <p><strong>Greedy1 is not, while Greedy2 is</strong></p>
 <p>对于 <strong>Greedy1</strong>，可以举出一个反例，如 <code>(1,4),(2,5),(6,7),(4,8)</code> <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
 <p>对于<strong>Greedy2</strong>，先给出一个最优解：关键在于<strong>最大化利用已经安排了活动的教室</strong>，所以不能随意安排进能用的教室；要对已经安排了活动的教室的下一个释放时间放到 minHeap 中，对于每个活动，先与这个最早的释放时间比较，如果大于则安排到那个教室并重新插入堆；如果小于则必须开辟新的教室，伪代码如下 <sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup>：</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>sort activities by starting time in ascending order
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>H = null  // minHeap of room release time 
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>create room for course[0], calculate release time, insert to H
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>for activity 1 to N:
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>    if activity.start &gt; H.top:
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>        room = H.pop
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>        assign activity to room
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a>        recalculate release time insert room to H
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a>    else:
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>        create a new room, assign activity, calculate release time, insert to H
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>sort activities by starting time in ascending order
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>H = null  // minHeap of room release time 
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>create room for course[0], calculate release time, insert to H
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>for activity 1 to N:
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a>    if activity.start &gt; H.top:
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>        room = H.pop
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a>        assign activity to room
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a>        recalculate release time insert room to H
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a>    else:
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a>        create a new room, assign activity, calculate release time, insert to H
 </span></code></pre></div></td></tr></table></div>
 <p>可以发现，<strong>Greedy2</strong> 和上述最优解其实是等价的，如果到这个活动开始的时候有很多房间都空了，从这个时间点之后这些房间如何安排其实是等价的，可以相互交换，随机安排也是最优解</p>
 </details>
@@ -2071,15 +2169,15 @@ Use the optimal algorithm for the Activity Selection Problem to find the max num
 <ol>
 <li>
 <p>优化问题能够经过 choice 变成子问题
-   Cast the optimization problem as one in which we <em>make a choice</em> and are left with <em>one subproblem</em> to solve.</p>
+Cast the optimization problem as one in which we <em>make a choice</em> and are left with <em>one subproblem</em> to solve.</p>
 </li>
 <li>
 <p>证明一定存在某种最优解，能通过某种贪心过程得到
-   Prove that there is always <em>an optimal solution</em> to the original problem that makes the <strong>greedy choice</strong>, so that the greedy choice is always safe.</p>
+Prove that there is always <em>an optimal solution</em> to the original problem that makes the <strong>greedy choice</strong>, so that the greedy choice is always safe.</p>
 </li>
 <li>
 <p>证明最优子结构
-   Demonstrate <strong>optimal substructure</strong> by showing that, having make the greedy choice, what remains is a subproblem with the property that if we combine an <em>optimal solution to the subproblem</em> with the <em>greedy choice</em> we have made, we arrive at an <em>optimal solution to the original problem</em>.</p>
+Demonstrate <strong>optimal substructure</strong> by showing that, having make the greedy choice, what remains is a subproblem with the property that if we combine an <em>optimal solution to the subproblem</em> with the <em>greedy choice</em> we have made, we arrive at an <em>optimal solution to the original problem</em>.</p>
 </li>
 </ol>
 </details>
@@ -2108,6 +2206,59 @@ Use the optimal algorithm for the Activity Selection Problem to find the max num
 
 
 
+
+  <h2 id="__comments">Comments</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+          data-repo="EmergentTwilight/Emergent-Space"
+          data-repo-id="R_kgDOMQFYhw"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOMQFYh84Cmb5p"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
                 
               </article>
@@ -2172,7 +2323,7 @@ Use the optimal algorithm for the Activity Selection Problem to find the max num
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2025 EmergentTwilight
+      Copyright &copy; 2024-2025 <a href="https://github.com/EmergentTwilight">EmergentTwilight</a>
     </div>
   
   

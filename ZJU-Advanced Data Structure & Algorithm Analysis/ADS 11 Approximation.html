@@ -12,7 +12,7 @@
         <meta name="author" content="Emergent Twilight">
       
       
-        <link rel="canonical" href="https://emergenttwilight.github.io/Emergent-Space/ZJU-Advanced%20Data%20Structure%20%26%20Algorithm%20Analysis/ADS%2011%20Approximation.html">
+        <link rel="canonical" href="https://emergenttwilight.github.io/emergent-space/ZJU-Advanced%20Data%20Structure%20%26%20Algorithm%20Analysis/ADS%2011%20Approximation.html">
       
       
         <link rel="prev" href="ADS%2010%20NP-Completeness.html">
@@ -56,15 +56,17 @@
     
       <link rel="stylesheet" href="../__srcs/css/banner.css">
     
-      <link rel="stylesheet" href="../__srcs/css/right-sidebar.css">
-    
-      <link rel="stylesheet" href="../__srcs/css/left-sidebar.css">
+      <link rel="stylesheet" href="../__srcs/css/sidebar.css">
     
       <link rel="stylesheet" href="../__srcs/css/content.css">
     
       <link rel="stylesheet" href="../__srcs/css/custom.css">
     
       <link rel="stylesheet" href="../__srcs/css/font.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/list_callouts.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/friend_link.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -219,13 +221,13 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/EmergentTwilight/emergent-space/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
-    Emergent-Space
+    emergent-space
   </div>
 </a>
       </div>
@@ -286,7 +288,65 @@
   
     
   
-  ZJU
+  DS/Algo.
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ZJU-Assembly%20Fundamentals/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Coding/Lang.
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../GAMES101/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Others
 
         </a>
       </li>
@@ -328,13 +388,13 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/EmergentTwilight/Emergent-Space" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/EmergentTwilight/emergent-space/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
-    Emergent-Space
+    emergent-space
   </div>
 </a>
     </div>
@@ -352,6 +412,8 @@
       
         
           
+        
+      
         
       
     
@@ -404,10 +466,6 @@
       
         
       
-        
-      
-        
-      
     
     
       
@@ -430,7 +488,7 @@
             
   
   <span class="md-ellipsis">
-    ZJU
+    DS/Algo.
   </span>
   
 
@@ -440,7 +498,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            ZJU
+            DS/Algo.
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -496,69 +554,6 @@
   
   <span class="md-ellipsis">
     Fundamentals of Data Structures
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../ZJU-HPC101/index.html" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    HPC101
   </span>
   
 
@@ -637,7 +632,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           
@@ -653,14 +648,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             Advanced Data Structure & Algorithm Analysis
           </label>
@@ -1411,8 +1406,15 @@
 
               
             
-              
-                
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
   
   
   
@@ -1421,30 +1423,55 @@
     
       
         
-          
-        
+      
+    
+    
+      
+      
+    
+    
       
         
-      
         
       
-        
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
         
+  
+  
+    
+  
+  
+    <a href="../ZJU-Assembly%20Fundamentals/index.html" class="md-nav__link">
       
-        
+  
+  <span class="md-ellipsis">
+    Coding/Lang.
+  </span>
+  
+
       
-        
+        <span class="md-nav__icon md-icon"></span>
       
-        
+    </a>
+  
+
+  
+
       
-        
+    </li>
+  
+
+    
       
-        
       
-        
-      
-        
+  
+  
+  
+  
+    
+    
       
         
       
@@ -1466,11 +1493,14 @@
         
   
   
-    <a href="../ZJU-Assembly%20Fundamentals/index.html" class="md-nav__link">
+    
+  
+  
+    <a href="../GAMES101/index.html" class="md-nav__link">
       
   
   <span class="md-ellipsis">
-    汇编语言程序设计基础
+    Others
   </span>
   
 
@@ -1480,14 +1510,8 @@
     </a>
   
 
-      
-    </li>
   
 
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -1853,7 +1877,7 @@
                   
 
   
-    <a href="https://github.com/EmergentTwilight/Emergent-Space/edit/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 11 Approximation.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/EmergentTwilight/emergent-space/edit/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 11 Approximation.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1862,7 +1886,7 @@
     
       
     
-    <a href="https://github.com/EmergentTwilight/Emergent-Space/raw/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 11 Approximation.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/EmergentTwilight/emergent-space/raw/master/docs/ZJU-Advanced Data Structure & Algorithm Analysis/ADS 11 Approximation.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
@@ -1914,11 +1938,15 @@
 <h4 id="211-next-fit-2-approx">2.1.1 Next Fit <em>2-approx</em><a class="headerlink" href="#211-next-fit-2-approx" title="Locate to heading">#</a></h4>
 <ul>
 <li>每次看下一个能不能放进当前的箱子，如果不能就新建一个箱子</li>
-<li>一定有 <span class="arithmatex">\(M\leq 2M^*-1\)</span><ul>
+<li>
+<p>一定有 <span class="arithmatex">\(M\leq 2M^*-1\)</span></p>
+<ul>
 <li><strong>补充</strong>：如果最大物品的大小为 <span class="arithmatex">\(\alpha\)</span>，那么近似比应该为 <span class="arithmatex">\(<span class="arithmatex">\(\rho=\begin{cases}\frac{1}{1-\alpha}&amp;,0\leq \alpha\leq \frac{1}{2}\\2&amp;,1/2&lt;\alpha&lt;1\end{cases}\)</span>\)</span></li>
 </ul>
 </li>
-<li><span class="arithmatex">\(O(N)\)</span></li>
+<li>
+<p><span class="arithmatex">\(O(N)\)</span></p>
+</li>
 </ul>
 <h4 id="212-first-fit-17-approx">2.1.2 First Fit <em>1.7-approx</em><a class="headerlink" href="#212-first-fit-17-approx" title="Locate to heading">#</a></h4>
 <ul>
@@ -1981,16 +2009,16 @@
 </div>
 <h4 id="321-dp-algo">3.2.1 DP Algo<a class="headerlink" href="#321-dp-algo" title="Locate to heading">#</a></h4>
 <ul>
-<li>令 <span class="arithmatex">\(dp[i][p]\)</span> 是前 <span class="arithmatex">\(i\)</span> 个物品，总价值为 <span class="arithmatex">\(p\)</span> 的情况下的最小质量</li>
+<li>
+<p>令 <span class="arithmatex">\(dp[i][p]\)</span> 是前 <span class="arithmatex">\(i\)</span> 个物品，总价值为 <span class="arithmatex">\(p\)</span> 的情况下的最小质量</p>
+</li>
 <li>
 <div class="arithmatex">\[dp[i][p]=\begin{cases}\infty &amp;i=0\\dp[i-1][p]&amp;p_{i}&gt;p\\ \min\{dp[i-1][p],w_{i}+dp[i-1][p-p_{i}] \}&amp;\text{otherwise}\end{cases}\]</div>
 <ul>
 <li>分别代表了，不可能达到</li>
 <li>不取物品 <span class="arithmatex">\(i\)</span></li>
 <li>取物品 <span class="arithmatex">\(i\)</span></li>
-</ul>
-</li>
-<li><span class="arithmatex">\(O(N^2p_{max})\)</span><ul>
+<li><span class="arithmatex">\(O(N^2p_{max})\)</span></li>
 <li>如果有 <span class="arithmatex">\(p_{max}&lt;N^C\)</span>，那么就可以说是多项式时间</li>
 <li>否则 <span class="arithmatex">\(p_{max}\)</span> 可能是指数级的大小</li>
 </ul>
@@ -2064,11 +2092,11 @@ FFD(L)≤(11/9)OPT(L)+1, for all L.</p>
 将 Clique Problem 中的图 <span class="arithmatex">\(G\)</span> 转换为补图 <span class="arithmatex">\(G'\)</span>，然后在 <span class="arithmatex">\(G'\)</span> 上做 Vertex Cover，对于所有没有被选中的顶点，一定都如下图所示
 <img alt="__assets/ADS 11 Approximation/IMG-ADS 11 Approximation-20241121134722826.webp" src="__assets/ADS%2011%20Approximation/IMG-ADS%2011%20Approximation-20241121134722826.webp" />
 所以，<span class="arithmatex">\(|V|-|S|\)</span> 是一个完全子图，也就是 clique 的近似</p>
-<p>但是，虽然 Vertex Cover Problem 中有 2- 近似算法能够得到 <span class="arithmatex">\(\rho_{2}=\frac{C_{2}}{C_{2}^*}=\frac{|S|}{|S^*|}=2\)</span>，但是 Clique Problem 中的计算方式不一样：
-$$
-\rho_{1}=\frac{C_{1}^<em>}{C_{1}}=\frac{|V|-|S^</em>|}{|V|-|S|}=1+\frac{1}{\frac{|V|}{|S^*|}-2}
-$$
-于是 <span class="arithmatex">\(rho_1\)</span> 是不可确定的 <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>但是，虽然 Vertex Cover Problem 中有 2- 近似算法能够得到 <span class="arithmatex">\(\rho_{2}=\frac{C_{2}}{C_{2}^*}=\frac{|S|}{|S^*|}=2\)</span>，但是 Clique Problem 中的计算方式不一样：</p>
+<div class="arithmatex">\[
+\rho_{1}=\frac{C_{1}^*}{C_{1}}=\frac{|V|-|S^*|}{|V|-|S|}=1+\frac{1}{\frac{|V|}{|S^*|}-2}
+\]</div>
+<p>于是 <span class="arithmatex">\(rho_1\)</span> 是不可确定的 <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 </details>
 <h4 id="613-approximation-of-tsp">6.1.3 approximation of TSP<a class="headerlink" href="#613-approximation-of-tsp" title="Locate to heading">#</a></h4>
 <details class="question">
@@ -2145,6 +2173,59 @@ C 不会证明</p>
 
 
 
+  <h2 id="__comments">Comments</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+          data-repo="EmergentTwilight/Emergent-Space"
+          data-repo-id="R_kgDOMQFYhw"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOMQFYh84Cmb5p"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
                 
               </article>
             </div>
@@ -2208,7 +2289,7 @@ C 不会证明</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2025 EmergentTwilight
+      Copyright &copy; 2024-2025 <a href="https://github.com/EmergentTwilight">EmergentTwilight</a>
     </div>
   
   

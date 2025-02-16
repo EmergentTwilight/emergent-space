@@ -1,0 +1,46 @@
+/* custom.css */
+.friend-link-card {
+  display: flex;
+  align-items: center;
+  background-color: var(--md-default-bg-color);
+  border: 1px solid var(--md-primary-fg-color);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease; /* 过渡效果，使变化更平滑 */
+}
+
+.friend-link-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 浮起效果，增加底部阴影 */
+  transform: translateY(-4px); /* 向上移动 4px，产生浮起效果 */
+  opacity: 0.9; /* 变透明效果 */
+  border: 1px solid var(--md-accent-fg-color);
+}
+
+.friend-link-card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 16px; /* 头像与描述之间的间距 */
+}
+
+.friend-link-card .friend-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直居中内容 */
+}
+
+.friend-link-card h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.friend-link-card p {
+  margin: 4px 0 0; /* 减小描述与标题之间的间距 */
+  font-size: 14px;
+  color: #666;
+}
