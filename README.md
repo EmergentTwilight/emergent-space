@@ -4,6 +4,8 @@
 
 欢迎在文档下方留言讨论，或通过 [Issues](https://github.com/emergenttwilight/emergent-space/issues) 提交你的任何问题或建议 🥰
 
+如果我的笔记对你有帮助，欢迎给我一颗 Star 🌟
+
 ## Acknowledgements
 
 - 来自 [TonyCrane/note](https://github.com/TonyCrane/note) 的 [toc 自动折叠实现](https://github.com/TonyCrane/note/blob/master/docs/js/toc.js)
