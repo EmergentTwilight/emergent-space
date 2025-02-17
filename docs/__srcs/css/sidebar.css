@@ -1,0 +1,85 @@
+.md-sidebar {
+  width: 18% !important;
+  /* max-width: 20%; */
+}
+
+@supports selector(::-webkit-scrollbar) {
+  [dir=ltr] .md-sidebar__inner {
+    padding-right: 0 !important;
+  }
+}
+
+
+
+
+
+
+
+/* toc 自动折叠，与 toc.js 搭配使用 by @TonyCrane，注意与 navigation.instant 不兼容 */
+.md-sidebar--secondary .md-nav > .md-nav__list > li > a + .md-nav {
+  display: none;
+}
+
+.md-sidebar--secondary .md-nav > .md-nav__list > li > a.is-active + .md-nav {
+  display: block;
+}
+
+.md-sidebar--secondary .md-nav__list a.is-active {
+  color: var(--md-primary-fg-color);
+}
+
+
+
+/* toc 辅助线 */
+@media (min-width: 960px) {
+  .md-nav--secondary .md-nav__list {
+    position: relative;
+  }
+
+  .md-nav--secondary .md-nav__item .md-nav__list .md-nav__item {
+    position: relative;
+    padding-left: .8em;
+  }
+
+  .md-nav--secondary .md-nav__item .md-nav__list .md-nav__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -7px;
+    bottom: -3px;
+    width: 2px;
+    background-color: var(--md-primary-fg-color);
+  }
+}
+
+
+
+/* 调节目录字体大小 */
+@media (min-width: 960px) {
+  .md-nav--secondary .md-nav {
+    font-size: 0.95em;
+  }
+}
+
+@media (min-width: 1220px) {
+  .md-nav--primary .md-nav {
+    font-size: 0.95em;
+  }
+}
+
+
+
+/* 去除 title 背景 */
+@media (min-width: 960px) {
+  .md-nav--secondary .md-nav__title {
+    background: none;
+    box-shadow: none;
+  }
+}
+
+@media (min-width: 1220px) {
+  .md-nav--primary>.md-nav__list>.md-nav__item>.md-nav__link {
+    background: none !important;
+    box-shadow: none !important;
+  }
+}

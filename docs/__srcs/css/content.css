@@ -1,0 +1,109 @@
+h5 {
+  text-transform: none !important;
+}
+
+/* 代码块 */
+.md-typeset code {
+  background-color: 
+    color-mix(
+      in srgb,
+      var(--md-code-bg-color) calc(var(--md-code-bg-transparency) * 100%),
+      transparent
+    ) !important;
+}
+
+.md-typeset code:not(.highlighttable code) {
+  border: 1px solid color-mix(
+    in srgb,
+    var(--md-primary-fg-color) calc(var(--md-code-border-transparency) * 100%),
+    var(--md-code-bg-color)
+  ) !important;
+  border-radius: .2rem;
+  /* box-shadow: var(--md-shadow-z1) !important; */
+}
+
+.highlighttable .linenos {
+  background-color: color-mix(
+    in srgb,
+    var(--md-code-bg-color) calc(var(--md-code-bg-transparency) * 100%),
+    transparent
+  ) !important;
+}
+
+.highlighttable {
+  /* border: .075rem solid color-mix(
+    in srgb,
+    var(--md-accent-fg-color) calc(var(--md-code-border-transparency) * 100%),
+    transparent
+  ) !important; */
+  /* border: .075rem solid var(--md-code-bg-color) !important; */
+  border-radius: .2rem !important;
+  box-shadow: var(--md-shadow-z1) !important;
+}
+
+.highlight span.filename {
+  background-color: color-mix(
+    in srgb,
+    var(--md-code-bg-color) calc(var(--md-code-bg-transparency) * 100%),
+    transparent
+  ) !important;
+}
+
+
+/* 透明 callout */
+.md-typeset .admonition,
+.md-typeset details {
+  background-color: transparent !important;
+}
+
+.md-typeset table:not([class]) {
+  background-color: transparent !important;
+}
+
+
+
+
+/* 增加内容宽度 */
+.md-grid {
+  max-width: calc(min(1920px, 90%));
+}
+
+
+
+/* 内容字体大小 */
+.md-typeset {
+  font-size: .75rem;
+  line-height: 1.5;
+}
+
+
+
+/* 列表间距 */
+.md-typeset ol li,.md-typeset ul li {
+  margin-bottom: .3em !important;
+}
+
+
+
+
+
+
+/* 增大 admonition 内的字体大小 by @Nought0 */
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: inherit;
+}
+
+
+
+/* 图片圆角和阴影 by @Nought0 */
+.md-content img:not([src$=".svg"]):not(.banner img):not(.friend-link-card img) {
+  border-radius: 10px;
+  box-shadow: var(--md-shadow-z1);
+  max-width: 80%;
+  display: block;
+  margin: 12px auto;
+}
+
+
+
