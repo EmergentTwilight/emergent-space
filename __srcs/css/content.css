@@ -1,12 +1,3 @@
-:root {
-  --md-main-bg-mix-percentage: 15%;
-  --md-content-bg-transparency-1: 0.3;
-  --md-code-bg-transparency: 0.3;
-}
-
-
-
-
 /* gradient background */
 .md-main {
   background-attachment: fixed;
@@ -81,12 +72,16 @@ h5 {
   ) !important;
 }
 
+
+
+/* table */
 .md-typeset table:not([class]) {
   background-color: color-mix(
     in srgb,
     var(--md-admonition-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
     transparent
   ) !important;
+  border-radius: .2rem;
 }
 
 
@@ -128,7 +123,7 @@ h5 {
 
 /* 图片圆角和阴影 by @Nought0 */
 .md-content img:not([src$=".svg"]):not(.banner img):not(.friend-link-card img) {
-  border-radius: 10px;
+  border-radius: .4rem;
   box-shadow: var(--md-shadow-z1);
   max-width: 80%;
   display: block;

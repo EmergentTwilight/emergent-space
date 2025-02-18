@@ -33,6 +33,10 @@
       0.1);
   /* --md-accent-bg-color: var(--md-primary-bg-color); */
   /* --md-accent-bg-color--light: var(--md-primary-bg-color--light); */
+
+  --md-main-bg-mix-percentage: 15%;
+  --md-content-bg-transparency-1: 0.3;
+  --md-code-bg-transparency: 0.3;
 }
 
 

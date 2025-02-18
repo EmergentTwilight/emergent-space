@@ -1,6 +1,14 @@
-.md-sidebar {
-  width: 18% !important;
-  /* max-width: 20%; */
+/* 宽度限制 */
+@media (min-width: 960px) {
+  .md-sidebar--secondary {
+    width: 18% !important;
+  }
+}
+
+@media (min-width: 1220px) {
+  .md-sidebar--primary {
+    width: 18% !important;
+  }
 }
 
 @supports selector(::-webkit-scrollbar) {
