@@ -1,13 +1,39 @@
+:root {
+  --md-main-bg-mix-percentage: 15%;
+  --md-content-bg-transparency-1: 0.3;
+  --md-code-bg-transparency: 0.3;
+}
+
+
+
+
+/* gradient background */
+.md-main {
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom,
+      color-mix(in srgb,
+        var(--md-primary-fg-color) var(--md-main-bg-mix-percentage),
+        var(--md-default-bg-color)),
+      var(--md-default-bg-color));
+}
+
+
+
+
+/* header 5 */
 h5 {
   text-transform: none !important;
 }
 
-/* 代码块 */
+
+
+
+/* code */
 .md-typeset code {
   background-color: 
     color-mix(
       in srgb,
-      var(--md-code-bg-color) calc(var(--md-code-bg-transparency) * 100%),
+      var(--md-code-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
       transparent
     ) !important;
 }
@@ -15,28 +41,21 @@ h5 {
 .md-typeset code:not(.highlighttable code) {
   border: 1px solid color-mix(
     in srgb,
-    var(--md-primary-fg-color) calc(var(--md-code-border-transparency) * 100%),
-    var(--md-code-bg-color)
+    var(--md-primary-fg-color) calc(var(--md-content-bg-transparency-1) * 100%),
+    transparent
   ) !important;
   border-radius: .2rem;
-  /* box-shadow: var(--md-shadow-z1) !important; */
 }
 
 .highlighttable .linenos {
   background-color: color-mix(
     in srgb,
-    var(--md-code-bg-color) calc(var(--md-code-bg-transparency) * 100%),
+    var(--md-code-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
     transparent
   ) !important;
 }
 
 .highlighttable {
-  /* border: .075rem solid color-mix(
-    in srgb,
-    var(--md-accent-fg-color) calc(var(--md-code-border-transparency) * 100%),
-    transparent
-  ) !important; */
-  /* border: .075rem solid var(--md-code-bg-color) !important; */
   border-radius: .2rem !important;
   box-shadow: var(--md-shadow-z1) !important;
 }
@@ -50,14 +69,24 @@ h5 {
 }
 
 
-/* 透明 callout */
+
+
+/* callout */
 .md-typeset .admonition,
 .md-typeset details {
-  background-color: transparent !important;
+  background-color: color-mix(
+    in srgb,
+    var(--md-admonition-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
+    transparent
+  ) !important;
 }
 
 .md-typeset table:not([class]) {
-  background-color: transparent !important;
+  background-color: color-mix(
+    in srgb,
+    var(--md-admonition-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
+    transparent
+  ) !important;
 }
 
 
@@ -65,8 +94,9 @@ h5 {
 
 /* 增加内容宽度 */
 .md-grid {
-  max-width: calc(min(1920px, 90%));
+  max-width: calc(min(1920px, 80%));
 }
+
 
 
 
@@ -78,12 +108,11 @@ h5 {
 
 
 
+
 /* 列表间距 */
 .md-typeset ol li,.md-typeset ul li {
   margin-bottom: .3em !important;
 }
-
-
 
 
 
@@ -96,6 +125,7 @@ h5 {
 
 
 
+
 /* 图片圆角和阴影 by @Nought0 */
 .md-content img:not([src$=".svg"]):not(.banner img):not(.friend-link-card img) {
   border-radius: 10px;
@@ -104,6 +134,3 @@ h5 {
   display: block;
   margin: 12px auto;
 }
-
-
-

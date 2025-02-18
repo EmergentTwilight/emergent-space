@@ -1,3 +1,14 @@
-.md-footer-meta {
-  background-color: rgb(220, 137, 29);
+/* footer */
+[data-md-color-scheme="default"] {
+  --md-footer-bg-color: rgba(239, 239, 239, var(--md-content-bg-transparency-1));
+  --md-footer-fg-color: rgb(0, 0, 0);
+  --md-footer-bg-color--dark: var(--md-footer-bg-color);
+  --md-footer-fg-color--light: var(--md-footer-fg-color);
+  .md-copyright {
+    color: var(--md-footer-fg-color);
+  }
+}
+
+.md-footer {
+  box-shadow: var(--md-shadow-z2);
 }

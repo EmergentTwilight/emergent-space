@@ -41,28 +41,6 @@
     padding-left: .8em;
   }
 
-  /* .md-nav--secondary .md-nav__item .md-nav__list .md-nav__item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: -7px;
-    bottom: -3px;
-    width: 2px;
-    background-color: var(--md-primary-fg-color);
-  } */
-
-  /* .md-nav--secondary .md-nav__item .md-nav__list .md-nav__item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: -10px;
-    bottom: 0;
-    width: 2px;
-    background-color: var(--md-primary-fg-color);
-    transform: scaleX(0.5);
-    transform-origin: left center;
-  } */
-
   .md-nav--secondary .md-nav__item .md-nav__list .md-nav__item::before {
     content: "";
     position: absolute;
@@ -98,7 +76,7 @@
 
 
 
-/* 去除 title 背景 */
+/* 去除 title 背景并恢复遮挡关系*/
 @media (min-width: 960px) {
   .md-nav--secondary .md-nav__title {
     background: none;

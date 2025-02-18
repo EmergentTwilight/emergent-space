@@ -68,6 +68,8 @@
     
       <link rel="stylesheet" href="../__srcs/css/friend_link.css">
     
+      <link rel="stylesheet" href="../__srcs/css/footer.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1832,13 +1834,13 @@
 <h3 id="ray-intersection">Ray Intersection<a class="headerlink" href="#ray-intersection" title="Locate to heading">#</a></h3>
 <h4 id="with-sphere">with sphere<a class="headerlink" href="#with-sphere" title="Locate to heading">#</a></h4>
 <p><img alt="./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250208232045614.webp" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250208232045614.webp" /></p>
-<p>$$</p>
-<p>\begin{cases}</p>
-<p>\mathbf{r}(t)=\mathbf{o}+t\mathbf{d}\quad0\leq t&lt;\infty \</p>
-<p>(\mathbf{p}-\mathbf{c})^2-R^2=0</p>
-<p>\end{cases}\implies</p>
-<p>(\mathbf{o}+t\mathbf{d}-\mathbf{c})^2-R^2=0</p>
-<p>$$</p>
+<div class="arithmatex">\[
+\begin{cases}
+\mathbf{r}(t)=\mathbf{o}+t\mathbf{d}\quad0\leq t&lt;\infty \\
+(\mathbf{p}-\mathbf{c})^2-R^2=0
+\end{cases}\implies
+(\mathbf{o}+t\mathbf{d}-\mathbf{c})^2-R^2=0
+\]</div>
 <p>然后计算二次方程：</p>
 <div class="arithmatex">\[\begin{aligned}
  &amp; at^{2}+bt+c=0,\mathrm{where} \\
@@ -1848,13 +1850,13 @@
  &amp; t=\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}
 \end{aligned}\]</div>
 <h4 id="with-implicit-surface">with implicit surface<a class="headerlink" href="#with-implicit-surface" title="Locate to heading">#</a></h4>
-<p>$$</p>
-<p>\begin{cases}</p>
-<p>\mathbf{r}(t)=\mathbf{o}+t\mathbf{d}\quad0\leq t&lt;\infty \</p>
-<p>f(\mathbf{p})=0</p>
-<p>\end{cases}\implies</p>
-<p>f(\mathbf{o}+t\mathbf{d})=0</p>
-<p>$$</p>
+<div class="arithmatex">\[
+\begin{cases}
+\mathbf{r}(t)=\mathbf{o}+t\mathbf{d}\quad0\leq t&lt;\infty \\
+f(\mathbf{p})=0
+\end{cases}\implies
+f(\mathbf{o}+t\mathbf{d})=0
+\]</div>
 <h4 id="with-single-triangle">with single triangle<a class="headerlink" href="#with-single-triangle" title="Locate to heading">#</a></h4>
 <p><img alt="./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250208232609966.webp" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250208232609966.webp" /></p>
 <div class="admonition note">
@@ -2152,22 +2154,22 @@ E(\mathrm{p}) &amp; =\int_{H^2}L_i(\mathrm{p},\omega)\cos\theta\mathrm{d}\omega
 </div>
 <p><img alt="./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209152239723.webp" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209152239723.webp" /></p>
 <p>进行简化：</p>
-<p>$$</p>
-<p>\begin{align}</p>
-<p>\to &amp;&amp; l(u)&amp;=e(u)+\int l(v)K(u,v)dv \</p>
-<p>\to &amp;&amp; L&amp;=E+KL</p>
-<p>\end{align}</p>
-<p>$$</p>
+<div class="arithmatex">\[
+\begin{align}
+\to &amp;&amp; l(u)&amp;=e(u)+\int l(v)K(u,v)dv \\
+\to &amp;&amp; L&amp;=E+KL
+\end{align}
+\]</div>
 <p>这里的 <span class="arithmatex">\(L\)</span> 是全局光照(Global Illimination)</p>
-<p>$$</p>
-<p>\begin{align}</p>
-<p>L&amp;=E+KL \</p>
-<p>(I-K)L&amp;=E \</p>
-<p>L&amp;=(I-K)^{-1}E \</p>
-<p>L&amp;=(I+K+K^2+K^3+\dots)E \</p>
-<p>L&amp;=E+KE+K^2E+K^3E+\dots</p>
-<p>\end{align}</p>
-<p>$$</p>
+<div class="arithmatex">\[
+\begin{align}
+L&amp;=E+KL \\
+(I-K)L&amp;=E \\
+L&amp;=(I-K)^{-1}E \\
+L&amp;=(I+K+K^2+K^3+\dots)E \\
+L&amp;=E+KE+K^2E+K^3E+\dots
+\end{align}
+\]</div>
 <p><img alt="400" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209153405715.webp" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2215,12 +2217,12 @@ E(\mathrm{p}) &amp; =\int_{H^2}L_i(\mathrm{p},\omega)\cos\theta\mathrm{d}\omega
 <p>考虑要渲染一个像素(pixel, point)的 direct illumination</p>
 <div class="arithmatex">\[L_o(p,\omega_o)=\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i\]</div>
 <p>使用 Monte Carlo 进行采样</p>
-<p>$$</p>
-<p>\begin{align}</p>
-<p>f(x)\text{ in Monte Carlo} &amp; =L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i) \</p>
-<p>p(\omega_{i})\text{ in Monte Carlo}&amp;=&frac12;\pi</p>
-<p>\end{align}</p>
-<p>$$</p>
+<div class="arithmatex">\[
+\begin{align}
+f(x)\text{ in Monte Carlo} &amp; =L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i) \\
+p(\omega_{i})\text{ in Monte Carlo}&amp;=1/2\pi
+\end{align}
+\]</div>
 <p>得到</p>
 <div class="arithmatex">\[\begin{aligned}
 L_{o}(p,\omega_{o}) &amp; =\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i \\
