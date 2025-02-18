@@ -2,8 +2,6 @@
 MkDocs_comments: true
 date_created: 2025-02-07 05:42:12
 date_modified: 2025-02-16 00:40:10
-state: []
-type: null
 ---
 # Perspective Projection Cont.
 

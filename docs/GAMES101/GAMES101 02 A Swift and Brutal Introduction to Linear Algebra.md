@@ -2,10 +2,6 @@
 MkDocs_comments: true
 date_created: 2024-12-01 21:09:36
 date_modified: 2025-02-16 00:37:52
-state:
-- 复习中
-type:
-- note
 ---
 
 > 图形学依赖线性代数、微积分、统计、光学、力学、信号处理、数值分析...

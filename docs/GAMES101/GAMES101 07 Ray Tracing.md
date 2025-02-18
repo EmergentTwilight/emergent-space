@@ -1,7 +1,7 @@
 ---
+date_created: 2025-02-08T23:00:47
+date_modified: 2025-02-18T19:05:22
 MkDocs_comments: true
-date_created: 2025-02-08 23:00:47
-date_modified: 2025-02-16 23:25:13
 ---
 # Intro
 
@@ -50,17 +50,11 @@ $$\begin{aligned}
 ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250208232045614.webp]]
 
 $$
-
 \begin{cases}
-
 \mathbf{r}(t)=\mathbf{o}+t\mathbf{d}\quad0\leq t<\infty \\
-
 (\mathbf{p}-\mathbf{c})^2-R^2=0
-
 \end{cases}\implies
-
 (\mathbf{o}+t\mathbf{d}-\mathbf{c})^2-R^2=0
-
 $$
 
 然后计算二次方程：
@@ -76,17 +70,11 @@ $$\begin{aligned}
 ### with implicit surface
 
 $$
-
 \begin{cases}
-
 \mathbf{r}(t)=\mathbf{o}+t\mathbf{d}\quad0\leq t<\infty \\
-
 f(\mathbf{p})=0
-
 \end{cases}\implies
-
 f(\mathbf{o}+t\mathbf{d})=0
-
 $$
 
 ### with single triangle
@@ -368,35 +356,22 @@ $$\text{The Rendering Equation: }L_o(p,\omega_o)=\underbrace{   L_e(p,\omega_o)}
 进行简化：
 
 $$
-
 \begin{align}
-
 \to && l(u)&=e(u)+\int l(v)K(u,v)dv \\
-
 \to && L&=E+KL
-
 \end{align}
-
 $$
 
 这里的 $L$ 是全局光照(Global Illimination)
 
 $$
-
 \begin{align}
-
 L&=E+KL \\
-
 (I-K)L&=E \\
-
 L&=(I-K)^{-1}E \\
-
 L&=(I+K+K^2+K^3+\dots)E \\
-
 L&=E+KE+K^2E+K^3E+\dots
-
 \end{align}
-
 $$
 
 ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209153405715.webp|400]]
@@ -447,15 +422,10 @@ $$L_o(p,\omega_o)=\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\
 使用 Monte Carlo 进行采样
 
 $$
-
 \begin{align}
-
 f(x)\text{ in Monte Carlo} & =L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i) \\
-
 p(\omega_{i})\text{ in Monte Carlo}&=1/2\pi
-
 \end{align}
-
 $$
 
 得到

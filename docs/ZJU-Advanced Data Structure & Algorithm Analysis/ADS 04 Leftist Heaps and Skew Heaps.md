@@ -3,14 +3,9 @@ MkDocs_comments: true
 date_created: 2024-09-23 03:05:05
 date_modified: 2025-01-31 18:12:25
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags:
 - Data-Structure/Priority-Queue/Leftist-Heap
 - Data-Structure/Priority-Queue/Skew-Heap
-type:
-- note
 ---
 # 1 Intro
 

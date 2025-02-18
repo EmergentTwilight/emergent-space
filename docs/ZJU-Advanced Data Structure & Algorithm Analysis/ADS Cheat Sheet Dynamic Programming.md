@@ -3,13 +3,7 @@ MkDocs_comments: true
 date_created: 2024-12-23 16:26:54
 date_modified: 2025-02-05 11:21:17
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags: Algorithm/Dynamic-Programming
-type:
-- cheat sheet
-- note
 ---
 # 1 总结
 

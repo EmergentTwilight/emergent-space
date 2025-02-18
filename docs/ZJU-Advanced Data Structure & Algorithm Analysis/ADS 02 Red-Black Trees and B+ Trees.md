@@ -3,14 +3,9 @@ MkDocs_comments: true
 date_created: 2024-09-14 01:23:34
 date_modified: 2025-01-31 19:13:58
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags:
 - Data-Structure/Tree/B-Plus-Tree
 - Data-Structure/Tree/Red-Black-Tree
-type:
-- note
 ---
 # 1 Red-Black Trees
 

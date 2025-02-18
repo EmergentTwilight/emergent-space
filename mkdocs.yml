@@ -208,6 +208,7 @@ extra_css:
   - __srcs/css/font.css
   - __srcs/css/list_callouts.css
   - __srcs/css/friend_link.css
+  - __srcs/css/footer.css
 
 extra_javascript:
   # $latex$

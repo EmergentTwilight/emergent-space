@@ -3,14 +3,9 @@ MkDocs_comments: true
 date_created: 2024-12-02 13:26:58
 date_modified: 2025-01-31 19:10:45
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags:
 - Algorithm/Problem/Max-3-SAT
 - Algorithm/Random
-type:
-- note
 ---
 # 1 Intro
 

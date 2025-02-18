@@ -3,12 +3,7 @@ MkDocs_comments: true
 date_created: 2024-10-14 13:33:37
 date_modified: 2025-01-31 19:31:25
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags: Algorithm/Backtracking
-type:
-- note
 ---
 # 1 Intro
 

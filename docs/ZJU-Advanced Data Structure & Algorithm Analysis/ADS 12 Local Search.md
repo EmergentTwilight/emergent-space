@@ -2,16 +2,11 @@
 MkDocs_comments: true
 date_created: 2024-11-25 13:27:10
 date_modified: 2025-01-31 19:09:40
-state:
-- 待发布
-- 归档
 tags:
 - Algorithm/Local-Search
 - Algorithm/Problem/Hopfield-Neural-Network
 - Algorithm/Problem/Max-Cut
 - Algorithm/Problem/Vertex-Cover
-type:
-- note
 ---
 # Intro
 

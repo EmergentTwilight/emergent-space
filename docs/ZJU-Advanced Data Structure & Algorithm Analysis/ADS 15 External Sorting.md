@@ -3,12 +3,7 @@ MkDocs_comments: true
 date_created: 2024-12-16 12:36:41
 date_modified: 2025-01-31 19:10:51
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags: Algorithm/Sorting/External-Sort
-type:
-- note
 ---
 # 1 Introduction
 

@@ -3,12 +3,7 @@ MkDocs_comments: true
 date_created: 2024-11-04 14:31:32
 date_modified: 2025-02-07 02:18:32
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags: Algorithm/Greedy
-type:
-- note
 ---
 # 1 Introduction
 

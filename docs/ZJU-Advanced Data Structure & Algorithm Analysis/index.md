@@ -2,8 +2,6 @@
 MkDocs_comments: true
 date_created: 2025-01-31 18:48:02
 date_modified: 2025-02-16 22:08:51
-state: null
-type: null
 ---
 # Table of Contents
 
@@ -57,7 +55,7 @@ type: null
 
 # Tips
 
-> [!warning] This note might be incomplete!
+> [!warning] 这份笔记并不完整！
 > - 本笔记**基本**涵盖了所有课程内容，但无法保证完整性和正确性
 > - 每章节笔记末尾有部分 pta 题目的订正/思路，**由于课程要求，没有任何源码**
 > - 含有部分期末复习笔记

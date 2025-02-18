@@ -4,12 +4,7 @@ comment: Summation, prefix-sum and find-max.
 date_created: 2024-12-09 13:25:50
 date_modified: 2025-01-31 18:52:50
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags: Algorithm/Parallel
-type:
-- note
 ---
 # 1 Introduction
 

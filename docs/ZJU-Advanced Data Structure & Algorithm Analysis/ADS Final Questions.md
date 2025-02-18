@@ -2,15 +2,9 @@
 MkDocs_comments: true
 date_created: 2024-12-31 14:51:35
 date_modified: 2025-01-31 19:22:23
-state:
-- 待发布
-- 归档
 tags:
 - Algorithm/Analysis/Approximation
 - Algorithm/Analysis/Complexity
-type:
-- cheat sheet
-- correction
 ---
 
 

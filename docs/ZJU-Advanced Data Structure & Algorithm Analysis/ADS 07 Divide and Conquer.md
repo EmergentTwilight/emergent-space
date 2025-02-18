@@ -1,13 +1,9 @@
 ---
-MkDocs_comments: true
-date_created: 2024-10-14 15:22:45
-date_modified: 2025-02-16 23:28:04
-number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
 tags: Algorithm/Divide-and-Conquer
-type:
-- note
+number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
+date_created: 2024-10-14T15:22:45
+date_modified: 2025-02-18T19:03:30
+MkDocs_comments: true
 ---
 # 1 Intro
 
@@ -126,9 +122,7 @@ $$
 > > 
 > > 具体来说，如果有两个函数 \( f(n) \) 和 \( g(n) \)，我们说 \( f(n) \) **polynomially smaller**（多项式级别小）于 \( g(n) \)，意味着存在某个多项式函数 \( n^k \)，使得
 > > 
-> >  $$
-> >  f(n) = O(\frac{g(n)}{n^k})
-> >  $$
+> > $$f(n) = O(\frac{g(n)}{n^{k}})$$
 > > 
 > > 换句话说，\( f(n) \) 的增长速率比 \( g(n) \) 慢，并且相差一个多项式因子 \( n^k \)，其中 \( k \) 是一个常数。
 > > 

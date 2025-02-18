@@ -3,14 +3,9 @@ MkDocs_comments: true
 date_created: 2024-09-30 03:07:46
 date_modified: 2025-02-16 02:05:59
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags:
 - Data-Structure/Priority-Queue/Binomial-Queue
 - Data-Structure/Priority-Queue/Fibonacci-Heap
-type:
-- note
 ---
 # 1 Structure
 

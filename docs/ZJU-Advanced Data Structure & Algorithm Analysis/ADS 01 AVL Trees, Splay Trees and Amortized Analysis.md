@@ -3,15 +3,10 @@ MkDocs_comments: true
 date_created: 2024-09-09 01:48:22
 date_modified: 2025-02-16 23:26:54
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags:
 - Algorithm/Analysis/Amortized-Analysis
 - Data-Structure/Tree/AVL-Tree
 - Data-Structure/Tree/Splay-Tree
-type:
-- note
 ---
 # 1 AVL Trees: Self-Balancing Tree
 

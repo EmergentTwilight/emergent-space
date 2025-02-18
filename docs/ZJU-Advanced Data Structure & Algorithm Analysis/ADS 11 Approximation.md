@@ -3,16 +3,11 @@ MkDocs_comments: true
 date_created: 2024-11-18 13:43:35
 date_modified: 2025-02-16 23:43:47
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
 tags:
 - Algorithm/Analysis/Approximation
 - Algorithm/Problem/Bin-Packing
 - Algorithm/Problem/K-center
 - Algorithm/Problem/Knapsack
-type:
-- note
 ---
 # 1 Intro
 

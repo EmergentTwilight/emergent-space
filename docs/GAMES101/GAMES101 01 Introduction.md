@@ -1,15 +1,11 @@
 ---
-type:
-  - intro
-state:
-  - 复习中
-tags: Computer-Graphics
-is_archived: false
-attachment:
-  - https://games-cn.org/intro-graphics/
-date_created: 2024-12-01T20:24:37
-date_modified: 2025-02-16T23:45:24
 MkDocs_comments: true
+attachment:
+- https://games-cn.org/intro-graphics/
+date_created: 2024-12-01 20:24:37
+date_modified: 2025-02-16 23:45:24
+is_archived: false
+tags: Computer-Graphics
 ---
 # What is CG?
 

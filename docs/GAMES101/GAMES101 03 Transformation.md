@@ -1,7 +1,7 @@
 ---
+date_created: 2025-02-05T11:21:16
+date_modified: 2025-02-18T19:03:13
 MkDocs_comments: true
-date_created: 2025-02-05 11:21:16
-date_modified: 2025-02-16 23:25:59
 ---
 # Why study transformation
 
@@ -412,25 +412,15 @@ n
 第三行结果与 $x,y$ 都没有关系，所以可能是 $(0,0,A,B)$，那么：
 
 $$
-
 \begin{pmatrix}
-
 0 & 0&A&B
-
 \end{pmatrix}
-
 \begin{pmatrix}
-
 x \\
-
 y \\
-
 n \\
-
 1
-
 \end{pmatrix}=An+B=n^2
-
 $$
 
 同理，f 平面上的点 Z 也不变，有 $Af+B=f^2$，联立得到 $\begin{cases}A=n+f \\ B=-nf\end{cases}$
