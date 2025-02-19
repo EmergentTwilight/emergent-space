@@ -21,29 +21,23 @@ h5 {
 
 /* code */
 .md-typeset code {
-  background-color: 
-    color-mix(
-      in srgb,
+  background-color:
+    color-mix(in srgb,
       var(--md-code-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
-      transparent
-    ) !important;
+      transparent) !important;
 }
 
 .md-typeset code:not(.highlighttable code) {
-  border: 1px solid color-mix(
-    in srgb,
-    var(--md-primary-fg-color) calc(var(--md-content-bg-transparency-1) * 100%),
-    transparent
-  ) !important;
+  border: 1px solid color-mix(in srgb,
+      var(--md-primary-fg-color) calc(var(--md-content-bg-transparency-1) * 100%),
+      transparent) !important;
   border-radius: .2rem;
 }
 
 .highlighttable .linenos {
-  background-color: color-mix(
-    in srgb,
-    var(--md-code-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
-    transparent
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--md-code-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
+      transparent) !important;
 }
 
 .highlighttable {
@@ -52,11 +46,9 @@ h5 {
 }
 
 .highlight span.filename {
-  background-color: color-mix(
-    in srgb,
-    var(--md-code-bg-color) calc(var(--md-code-bg-transparency) * 100%),
-    transparent
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--md-code-bg-color) calc(var(--md-code-bg-transparency) * 100%),
+      transparent) !important;
 }
 
 
@@ -65,22 +57,18 @@ h5 {
 /* callout */
 .md-typeset .admonition,
 .md-typeset details {
-  background-color: color-mix(
-    in srgb,
-    var(--md-admonition-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
-    transparent
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--md-admonition-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
+      transparent) !important;
 }
 
 
 
 /* table */
 .md-typeset table:not([class]) {
-  background-color: color-mix(
-    in srgb,
-    var(--md-admonition-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
-    transparent
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--md-admonition-bg-color) calc(var(--md-content-bg-transparency-1) * 100%),
+      transparent) !important;
   border-radius: .2rem;
 }
 
@@ -88,8 +76,10 @@ h5 {
 
 
 /* 增加内容宽度 */
-.md-grid {
-  max-width: calc(min(1920px, 80%));
+@media (min-width: 960px) {
+  .md-grid {
+    max-width: calc(min(1920px, 80%));
+  }
 }
 
 
@@ -105,7 +95,8 @@ h5 {
 
 
 /* 列表间距 */
-.md-typeset ol li,.md-typeset ul li {
+.md-typeset ol li,
+.md-typeset ul li {
   margin-bottom: .3em !important;
 }
 
