@@ -113,7 +113,7 @@ h5 {
 
 
 /* 图片圆角和阴影 by @Nought0 */
-.md-content img:not([src$=".svg"]):not(.banner img):not(.friend-link-card img) {
+.md-content img:not([src$=".svg"]):not(.exclude-image-style) {
   border-radius: .4rem;
   box-shadow: var(--md-shadow-z1);
   max-width: 80%;
