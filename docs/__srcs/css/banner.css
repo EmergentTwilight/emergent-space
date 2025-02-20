@@ -1,6 +1,6 @@
 .banner {
   position: relative;
-  margin-bottom: -40px; /* 使后面的内容部分重合，改善视觉间距 */
+  margin-bottom: -30px; /* 使后面的内容部分重合，改善视觉间距 */
   /* 渐隐效果 */
   --mask-height: 25%;
   mask-image: linear-gradient(to bottom, black calc(100% - var(--mask-height)), transparent);

@@ -1,9 +1,11 @@
 ---
 MkDocs_comments: true
+hide:
+    - toc
 ---
 
-<div class="banner">
-    <img src="__srcs/images/seashore.png" alt="Banner Image">
+<div class="banner exclude-image-style">
+    <img src="__srcs/images/seashore.png" alt="Banner Image" class="exclude-image-style">
     <div class="overlay-content" style="font-size: 1.5rem">
         Emergent Space
     </div>
