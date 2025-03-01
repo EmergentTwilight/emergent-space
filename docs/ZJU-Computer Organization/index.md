@@ -1,3 +1,7 @@
+---
+MkDocs_comments: true
+---
+
 # Table of Contents
 
 > [!note]
