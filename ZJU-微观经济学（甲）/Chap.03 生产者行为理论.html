@@ -1,0 +1,2405 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Emergent Space">
+      
+      
+        <meta name="author" content="Emergent Twilight">
+      
+      
+        <link rel="canonical" href="https://note.emergenttwilight.top/ZJU-%E5%BE%AE%E8%A7%82%E7%BB%8F%E6%B5%8E%E5%AD%A6%EF%BC%88%E7%94%B2%EF%BC%89/Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA.html">
+      
+      
+        <link rel="prev" href="Chap.02%20%E6%B6%88%E8%B4%B9%E8%80%85%E9%80%89%E6%8B%A9.html">
+      
+      
+        <link rel="next" href="Chap.04%20%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E4%BA%A7%E5%93%81%E5%B8%82%E5%9C%BA.html">
+      
+      
+      <link rel="icon" href="../__srcs/images/logo-E.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>Chap.03 生产者行为理论 - Emergent Space</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/banner.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/sidebar.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/content.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/custom.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/font.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/list_callouts.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/friend_link.css">
+    
+      <link rel="stylesheet" href="../__srcs/css/footer.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#企业与企业的本质" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Emergent Space" class="md-header__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/images/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Emergent Space
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chap.03 生产者行为理论
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/EmergentTwilight/emergent-space/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    emergent-space
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index/dsalgo/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  DS/Algo.
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index/codinglang/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Coding/Lang.
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index/system/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  System
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../index/graphics/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Graphics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../index/others/index.html" class="md-tabs__link">
+          
+  
+    
+  
+  Others
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Emergent Space" class="md-nav__button md-logo" aria-label="Emergent Space" data-md-component="logo">
+      
+  <img src="../__srcs/images/logo-gaussian-small.png" alt="logo">
+
+    </a>
+    Emergent Space
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/EmergentTwilight/emergent-space/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    emergent-space
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index/dsalgo/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    DS/Algo.
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index/codinglang/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Coding/Lang.
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index/system/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    System
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../index/graphics/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Graphics
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../index/others/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Others
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Others
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    微观经济学（甲）
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            微观经济学（甲）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Chap.01%20%E9%9C%80%E6%B1%82%E3%80%81%E4%BE%9B%E7%BB%99%E5%92%8C%E5%9D%87%E8%A1%A1%E4%BB%B7%E6%A0%BC.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap.01 需求、供给和均衡价格
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Chap.02%20%E6%B6%88%E8%B4%B9%E8%80%85%E9%80%89%E6%8B%A9.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap.02 消费者选择
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chap.03 生产者行为理论
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chap.03 生产者行为理论
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#企业与企业的本质" class="md-nav__link">
+    <span class="md-ellipsis">
+      企业与企业的本质
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#生产分析" class="md-nav__link">
+    <span class="md-ellipsis">
+      生产分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生产分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#生产函数" class="md-nav__link">
+    <span class="md-ellipsis">
+      生产函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生产函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#固定比例生产函数" class="md-nav__link">
+    <span class="md-ellipsis">
+      固定比例生产函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#可变比例生产函数" class="md-nav__link">
+    <span class="md-ellipsis">
+      可变比例生产函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#柯布道格拉斯生产函数" class="md-nav__link">
+    <span class="md-ellipsis">
+      柯布—道格拉斯生产函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#长期和短期" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期和短期
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="长期和短期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#短期总产量平均产量和边际产量" class="md-nav__link">
+    <span class="md-ellipsis">
+      短期总产量、平均产量和边际产量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#边际产量递减规律" class="md-nav__link">
+    <span class="md-ellipsis">
+      边际产量递减规律
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="边际产量递减规律">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#总产量平均产量和边际产量之间的关系" class="md-nav__link">
+    <span class="md-ellipsis">
+      总产量、平均产量和边际产量之间的关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#生产要素投入的合理区间" class="md-nav__link">
+    <span class="md-ellipsis">
+      生产要素投入的合理区间
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#长期生产函数" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期生产函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="长期生产函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#最适要素组合" class="md-nav__link">
+    <span class="md-ellipsis">
+      最适要素组合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#规模收益" class="md-nav__link">
+    <span class="md-ellipsis">
+      规模收益
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#生产分析总结" class="md-nav__link">
+    <span class="md-ellipsis">
+      生产分析总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#成本分析" class="md-nav__link">
+    <span class="md-ellipsis">
+      成本分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="成本分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#经济成本" class="md-nav__link">
+    <span class="md-ellipsis">
+      经济成本
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="经济成本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#案例分析" class="md-nav__link">
+    <span class="md-ellipsis">
+      案例分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#经济利润" class="md-nav__link">
+    <span class="md-ellipsis">
+      经济利润
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#短期成本" class="md-nav__link">
+    <span class="md-ellipsis">
+      短期成本
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="短期成本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#短期总产量曲线与总成本曲线" class="md-nav__link">
+    <span class="md-ellipsis">
+      短期总产量曲线与总成本曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#短期平均成本和边际成本" class="md-nav__link">
+    <span class="md-ellipsis">
+      短期平均成本和边际成本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#平均成本与产量及边际成本与产量" class="md-nav__link">
+    <span class="md-ellipsis">
+      平均成本与产量及边际成本与产量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#长期成本" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期成本
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="长期成本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#长期总成本ltc曲线" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期总成本（LTC）曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#长期平均成本lac曲线" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期平均成本（LAC）曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#长期边际成本lmc曲线" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期边际成本（LMC）曲线
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#规模经济规模不经济和最适规模" class="md-nav__link">
+    <span class="md-ellipsis">
+      规模经济、规模不经济和最适规模
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="规模经济、规模不经济和最适规模">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#规模收益递增和规模经济" class="md-nav__link">
+    <span class="md-ellipsis">
+      规模收益递增和规模经济
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#规模经济分析理由符合逻辑即可" class="md-nav__link">
+    <span class="md-ellipsis">
+      规模经济分析（理由符合逻辑即可）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#企业收益" class="md-nav__link">
+    <span class="md-ellipsis">
+      企业收益
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="企业收益">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#收益曲线" class="md-nav__link">
+    <span class="md-ellipsis">
+      收益曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#企业利润最大化原则" class="md-nav__link">
+    <span class="md-ellipsis">
+      企业利润最大化原则
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Chap.04%20%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E4%BA%A7%E5%93%81%E5%B8%82%E5%9C%BA.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap.04 完全竞争产品市场
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Chap.05%20%E5%AE%8C%E5%85%A8%E5%9E%84%E6%96%AD%E5%B8%82%E5%9C%BA.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap.05 完全垄断市场
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Chap.06%20%E5%9E%84%E6%96%AD%E7%AB%9E%E4%BA%89.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap.06 垄断竞争
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Final.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Final
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#企业与企业的本质" class="md-nav__link">
+    <span class="md-ellipsis">
+      企业与企业的本质
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#生产分析" class="md-nav__link">
+    <span class="md-ellipsis">
+      生产分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生产分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#生产函数" class="md-nav__link">
+    <span class="md-ellipsis">
+      生产函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="生产函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#固定比例生产函数" class="md-nav__link">
+    <span class="md-ellipsis">
+      固定比例生产函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#可变比例生产函数" class="md-nav__link">
+    <span class="md-ellipsis">
+      可变比例生产函数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#柯布道格拉斯生产函数" class="md-nav__link">
+    <span class="md-ellipsis">
+      柯布—道格拉斯生产函数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#长期和短期" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期和短期
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="长期和短期">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#短期总产量平均产量和边际产量" class="md-nav__link">
+    <span class="md-ellipsis">
+      短期总产量、平均产量和边际产量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#边际产量递减规律" class="md-nav__link">
+    <span class="md-ellipsis">
+      边际产量递减规律
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="边际产量递减规律">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#总产量平均产量和边际产量之间的关系" class="md-nav__link">
+    <span class="md-ellipsis">
+      总产量、平均产量和边际产量之间的关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#生产要素投入的合理区间" class="md-nav__link">
+    <span class="md-ellipsis">
+      生产要素投入的合理区间
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#长期生产函数" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期生产函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="长期生产函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#最适要素组合" class="md-nav__link">
+    <span class="md-ellipsis">
+      最适要素组合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#规模收益" class="md-nav__link">
+    <span class="md-ellipsis">
+      规模收益
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#生产分析总结" class="md-nav__link">
+    <span class="md-ellipsis">
+      生产分析总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#成本分析" class="md-nav__link">
+    <span class="md-ellipsis">
+      成本分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="成本分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#经济成本" class="md-nav__link">
+    <span class="md-ellipsis">
+      经济成本
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="经济成本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#案例分析" class="md-nav__link">
+    <span class="md-ellipsis">
+      案例分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#经济利润" class="md-nav__link">
+    <span class="md-ellipsis">
+      经济利润
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#短期成本" class="md-nav__link">
+    <span class="md-ellipsis">
+      短期成本
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="短期成本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#短期总产量曲线与总成本曲线" class="md-nav__link">
+    <span class="md-ellipsis">
+      短期总产量曲线与总成本曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#短期平均成本和边际成本" class="md-nav__link">
+    <span class="md-ellipsis">
+      短期平均成本和边际成本
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#平均成本与产量及边际成本与产量" class="md-nav__link">
+    <span class="md-ellipsis">
+      平均成本与产量及边际成本与产量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#长期成本" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期成本
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="长期成本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#长期总成本ltc曲线" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期总成本（LTC）曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#长期平均成本lac曲线" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期平均成本（LAC）曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#长期边际成本lmc曲线" class="md-nav__link">
+    <span class="md-ellipsis">
+      长期边际成本（LMC）曲线
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#规模经济规模不经济和最适规模" class="md-nav__link">
+    <span class="md-ellipsis">
+      规模经济、规模不经济和最适规模
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="规模经济、规模不经济和最适规模">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#规模收益递增和规模经济" class="md-nav__link">
+    <span class="md-ellipsis">
+      规模收益递增和规模经济
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#规模经济分析理由符合逻辑即可" class="md-nav__link">
+    <span class="md-ellipsis">
+      规模经济分析（理由符合逻辑即可）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#企业收益" class="md-nav__link">
+    <span class="md-ellipsis">
+      企业收益
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="企业收益">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#收益曲线" class="md-nav__link">
+    <span class="md-ellipsis">
+      收益曲线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#企业利润最大化原则" class="md-nav__link">
+    <span class="md-ellipsis">
+      企业利润最大化原则
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/EmergentTwilight/emergent-space/edit/master/docs/ZJU-微观经济学（甲）/Chap.03 生产者行为理论.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/EmergentTwilight/emergent-space/raw/master/docs/ZJU-微观经济学（甲）/Chap.03 生产者行为理论.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+  <h1>Chap.03 生产者行为理论</h1>
+
+<h2 id="企业与企业的本质">企业与企业的本质<a class="headerlink" href="#企业与企业的本质" title="Locate to heading">#</a></h2>
+<ul>
+<li>使用生产要素并将其组织起来生产并销售产品或提供劳务的机构</li>
+<li>交易成本：交易时的选购，配送，售后等<ul>
+<li>企业可以降低交易成本</li>
+</ul>
+</li>
+</ul>
+<h2 id="生产分析">生产分析<a class="headerlink" href="#生产分析" title="Locate to heading">#</a></h2>
+<ul>
+<li>生产：将投入转换为产出的过程</li>
+<li>产品：<em>有形或无形</em>提供效用</li>
+<li>投入：<strong>资本、劳动、土地、企业家才能</strong><ul>
+<li>劳动：生产中一切体力和脑力的消耗</li>
+<li>资本/资本品：厂房、机器设备等</li>
+<li>土地：土地本身和一切相关的自然资源</li>
+<li>企业家才能：企业家经营企业的组织、管理和创新能力</li>
+</ul>
+</li>
+</ul>
+<h3 id="生产函数">生产函数<a class="headerlink" href="#生产函数" title="Locate to heading">#</a></h3>
+<ul>
+<li>一定时期内，<em>技术水平不变的情况下</em>，最大产出随着投入的变化而变化</li>
+<li>一般表示 <span class="arithmatex">\(Q=F(X_1,X_2, \dots,X_n)\)</span></li>
+<li>如果只考虑两种要素，劳动和资本投入 <span class="arithmatex">\(Q=F(L,K)\)</span></li>
+</ul>
+<h4 id="固定比例生产函数">固定比例生产函数<a class="headerlink" href="#固定比例生产函数" title="Locate to heading">#</a></h4>
+<ul>
+<li>里昂惕夫生产函数，生产要素需要按照比例搭配</li>
+<li><span class="arithmatex">\(Q=min\{\frac{L}{a},\frac{K}{b}\}\)</span></li>
+<li>产量取决于较少的生产要素</li>
+</ul>
+<h4 id="可变比例生产函数">可变比例生产函数<a class="headerlink" href="#可变比例生产函数" title="Locate to heading">#</a></h4>
+<ul>
+<li>可以采用不同的资本和劳动组合的比例<ul>
+<li>资本密集型</li>
+<li>劳动密集型</li>
+<li><em>农业生产，牛奶生产</em></li>
+</ul>
+</li>
+</ul>
+<h4 id="柯布道格拉斯生产函数">柯布—道格拉斯生产函数<a class="headerlink" href="#柯布道格拉斯生产函数" title="Locate to heading">#</a></h4>
+<ul>
+<li>C-D 生产函数，<span class="arithmatex">\(Q=AL^\alpha K^\beta\)</span><ul>
+<li><span class="arithmatex">\(A&gt;0, 0&lt;\alpha&lt;1, 0&lt;\beta&lt;1\)</span></li>
+<li>A：技术水平</li>
+<li><span class="arithmatex">\(\alpha,\beta\)</span>：劳动和资本投入的贡献率<em>产出弹性</em><ul>
+<li>计算弹性刚好等于 <span class="arithmatex">\(\alpha, \beta\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="长期和短期">长期和短期<a class="headerlink" href="#长期和短期" title="Locate to heading">#</a></h3>
+<ul>
+<li>短期：企业来不及调整全部生产要素的数量，<em>至少有一种生产要素固定不变的时期</em></li>
+<li>长期：企业能够调整所有生产要素的时期<ul>
+<li>对于一个复印店，买设备只需要一周，招工人签三个月，店面签一年，则对于这家复印店，长期是<em>一年及以上</em></li>
+</ul>
+</li>
+<li>可变与不变或固定生产要素<em>针对短期考虑</em><ul>
+<li>可变投入：可调整的生产要素</li>
+<li>固定投入：不能或来不及调整的生产要素</li>
+</ul>
+</li>
+</ul>
+<h4 id="短期总产量平均产量和边际产量">短期总产量、平均产量和边际产量<a class="headerlink" href="#短期总产量平均产量和边际产量" title="Locate to heading">#</a></h4>
+<ul>
+<li>短期生产函数 <em>资本不变</em> <span class="arithmatex">\(Q=F(L,\bar K)\)</span><ul>
+<li>劳动总产量 <span class="arithmatex">\(TP_L=Q=F(L,\bar K)\)</span></li>
+<li>劳动平均产量 <span class="arithmatex">\(AP_L=\frac{TP_L}{L}=\frac{Q}{L}\)</span></li>
+<li>劳动的边际产量 <span class="arithmatex">\(MP_L=\frac{\Delta TP_L}{\Delta L}=\frac{\Delta Q}{\Delta L}\)</span></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">有这样一家咖啡店</p>
+<p>如果只有一个店员，每个小时只能生产 5 杯咖啡，如果增加店员，禅理那个会出现什么情况？<br>
+增加几个店员，可以分工收银、清洁、咖啡制作，<strong>产量增加</strong><br>
+如果继续增加，可能导致<strong>产量减少</strong></p>
+</div>
+<h3 id="边际产量递减规律">边际产量递减规律<a class="headerlink" href="#边际产量递减规律" title="Locate to heading">#</a></h3>
+<ul>
+<li>生产要素可变比例规律：存在一个生产要素最优比例，在达到这个比例之前，增加一种投入量，产量会增加；超过比例后继续投入，产量会减少<ul>
+<li><em>例如一亩地不断加大投入，也不可能养活整个世界</em></li>
+<li>生产可能性曲线是远离原点的（凸函数)</li>
+</ul>
+</li>
+<li><strong>前提</strong>：只有一种要素在变</li>
+</ul>
+<p><img alt="__assets/Chap.03 生产者行为理论/IMG-Chap.03 生产者行为理论-20250301141539492.webp" src="__assets/Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA/IMG-Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA-20250301141539492.webp" /></p>
+<h4 id="总产量平均产量和边际产量之间的关系">总产量、平均产量和边际产量之间的关系<a class="headerlink" href="#总产量平均产量和边际产量之间的关系" title="Locate to heading">#</a></h4>
+<ul>
+<li><a href="Slides/%E5%BE%AE%E8%A7%8204%201-%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E4%BA%A7%281%29.pdf#page13selection20218">微观04 1-企业的生产(1), page 13</a></li>
+<li>边际产量和平均产量<ul>
+<li>边际产量大于平均产量时，平均产量会增加</li>
+<li>边际产量等于平均产量时，平均产量最大<ul>
+<li>边际产量曲线与平均产量曲线相交于<strong>平均产量曲线最大值点</strong>（GPA）</li>
+</ul>
+</li>
+<li><strong>边际产量的变动永远快于平均产量</strong></li>
+</ul>
+</li>
+<li>边际产量和总产量<ul>
+<li>边际产量大于 0， 总产量增加</li>
+<li>边际产量等于 0，总产量最大</li>
+</ul>
+</li>
+</ul>
+<h4 id="生产要素投入的合理区间">生产要素投入的合理区间<a class="headerlink" href="#生产要素投入的合理区间" title="Locate to heading">#</a></h4>
+<ul>
+<li><a href="Slides/%E5%BE%AE%E8%A7%8204%201-%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E4%BA%A7%281%29.pdf#page16selection31432">对于一个追求利润最大化的企业来说，生产要素的合理投入区为第二阶段</a></li>
+<li>即平均产量最大，到总产量最大</li>
+</ul>
+<h3 id="长期生产函数">长期生产函数<a class="headerlink" href="#长期生产函数" title="Locate to heading">#</a></h3>
+<ul>
+<li><span class="arithmatex">\(Q=F(L,K)\)</span></li>
+<li>研究的问题<ul>
+<li>最适合生产要素组合的确定</li>
+<li>规模收益分析（两种要素同时同比例变化）</li>
+</ul>
+</li>
+</ul>
+<h4 id="最适要素组合">最适要素组合<a class="headerlink" href="#最适要素组合" title="Locate to heading">#</a></h4>
+<h5 id="等产量线生产无差异曲线">等产量线<em>生产无差异曲线</em><a class="headerlink" href="#等产量线生产无差异曲线" title="Locate to heading">#</a></h5>
+<ul>
+<li><a href="Slides/%E5%BE%AE%E8%A7%8204%201-%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E4%BA%A7%281%29.pdf#page22selection0404">微观04 1-企业的生产(1), page 22</a></li>
+<li>两种投入，达到相同的某个产量的所有点对</li>
+<li>性质<ul>
+<li>平面内有无数条等产量线，离原点越远产量越高</li>
+<li>不能相交</li>
+<li>斜率为负（可替代性）</li>
+<li>凸向原点，斜率绝对值递减（边际产量递减）</li>
+</ul>
+</li>
+</ul>
+<h6 id="边际技术替代率">边际技术替代率<a class="headerlink" href="#边际技术替代率" title="Locate to heading">#</a></h6>
+<ul>
+<li><em>保持产量水平不变时</em>，增加一单位技术投入，能够减少其他劳动投入的量。</li>
+<li><span class="arithmatex">\(MRTS_{L,K}=-\frac{\Delta K}{\Delta L}|_{Q不变}\)</span> <em>就是斜率的绝对值</em><ul>
+<li><a href="Slides/%E5%BE%AE%E8%A7%8204%201-%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E4%BA%A7%281%29.pdf#page29selection180233">微观04 1-企业的生产(1), page 29</a> 注意下标和比值的对应关系</li>
+</ul>
+</li>
+<li>边际技术替代率有<strong>递减规律</strong></li>
+</ul>
+<h6 id="等产量曲线特例">等产量曲线特例<a class="headerlink" href="#等产量曲线特例" title="Locate to heading">#</a></h6>
+<ul>
+<li>直线等产量曲线：两种要素完全替代<ul>
+<li>固定替代比例生产函数 <span class="arithmatex">\(Q=aL+bK\)</span></li>
+<li>熟练工人和不熟练工人，熟练工人产量是两倍<ul>
+<li><span class="arithmatex">\(Q=2aL_1+aL_2\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>直角折线等产量曲线：固定比例的生产函数<ul>
+<li>固定比例的生产函数 <span class="arithmatex">\(Q=min\{aK, bL\}\)</span> <em>注意和固定替代比例不同，不可替代</em></li>
+<li>例如一人只能操控一台机器</li>
+</ul>
+</li>
+</ul>
+<h5 id="等成本线">等成本线<a class="headerlink" href="#等成本线" title="Locate to heading">#</a></h5>
+<ul>
+<li>企业投入的<em>总成本及生产要素价格既定</em>，所能购买到的<em>资本和劳动最大数量各种组合的连线</em></li>
+<li><span class="arithmatex">\(C=wL+rK\)</span></li>
+</ul>
+<h5 id="最适生产要素组合的确定">最适生产要素组合的确定<a class="headerlink" href="#最适生产要素组合的确定" title="Locate to heading">#</a></h5>
+<ul>
+<li>成本既定的情况下产量最大<ul>
+<li><strong>找到一条等产量线，与既定等成本线相切</strong><a href="Slides/%E5%BE%AE%E8%A7%8204%201-%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E4%BA%A7%281%29.pdf#page34selection00011">微观04 1-企业的生产(1), page 34</a></li>
+<li>变化的视角<ul>
+<li>边际技术替代率大于等成本曲线斜率时，要增大劳动投入</li>
+<li>边际技术替代率小于等成本曲线斜率时，要增大资本投入</li>
+</ul>
+</li>
+<li>方程和最优解<ul>
+<li>均衡条件：最后一块钱用来投入资本或投入劳动的产量增加相同<em>二者的边际产量相同</em></li>
+<li>成本之和为总成本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>产量既定条件下的成本最小<ul>
+<li><strong>找到一条等成本线，与既定等产量曲线相切</strong><a href="Slides/%E5%BE%AE%E8%A7%8204%201-%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E4%BA%A7%281%29.pdf#page35selection11228">微观04 1-企业的生产(1), page 35</a></li>
+</ul>
+</li>
+<li>关键方程<ul>
+<li>生产者均衡的一般条件：最后一单位货币得到的边际产量相等</li>
+<li><span class="arithmatex">\(\frac{MP_L}{P_L}=\frac{MP_K}{P_K}\)</span> 并添加条件：<ul>
+<li><span class="arithmatex">\(C=wL+rK\)</span> 既定成本，求产量最大</li>
+<li><span class="arithmatex">\(Q_0=f(L,K)\)</span> 既定产量，求成本最小</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="生产扩展曲线">生产扩展曲线<a class="headerlink" href="#生产扩展曲线" title="Locate to heading">#</a></h5>
+<ul>
+<li><em>生产要素价格和技术水平不变的情况下</em>，成本或产量增加（企业规模增加），最优要素组合点的集合</li>
+<li><span class="arithmatex">\(MRTS_{L,K}=\frac{MP_L}{MP_K}=\frac{w}{r}\)</span></li>
+<li>形状 <a href="Slides/%E5%BE%AE%E8%A7%8204%201-%E4%BC%81%E4%B8%9A%E7%9A%84%E7%94%9F%E4%BA%A7%281%29.pdf#page41selection20210">微观04 1-企业的生产(1), page 41</a><ul>
+<li>资本多就是资本密集型</li>
+<li>劳动多就是劳动密集型</li>
+</ul>
+</li>
+</ul>
+<h4 id="规模收益">规模收益<a class="headerlink" href="#规模收益" title="Locate to heading">#</a></h4>
+<ul>
+<li>在<em>一定的技术条件下</em>，所有生产要素投入量同时同比例增加带来的产量增加<ul>
+<li>规模收益不变：产量增加比例 = 各种投入量增加比例</li>
+<li>规模收益递增：产量增加比例 &gt; 各种投入量增加比例</li>
+<li>规模收益递减：产量增加比例 &lt; 各种投入量增加比例</li>
+</ul>
+</li>
+<li><img alt="__assets/Chap.03 生产者行为理论/IMG-Chap.03 生产者行为理论-20250301141652800.webp" src="__assets/Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA/IMG-Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA-20250301141652800.webp" /><ul>
+<li>直线：投入比例不变</li>
+<li>100 到 200，规模收益递增</li>
+<li>200 到 300，规模收益不变</li>
+<li>300 到 400，规模收益递减</li>
+</ul>
+</li>
+</ul>
+<h5 id="函数表达">函数表达<a class="headerlink" href="#函数表达" title="Locate to heading">#</a></h5>
+<ul>
+<li><span class="arithmatex">\(Q=F(L,K)\)</span><ul>
+<li><span class="arithmatex">\(F(\lambda K,\lambda L)=\mu F(K,L)=\mu Q\)</span></li>
+<li>CRS (<span class="arithmatex">\(\lambda = \mu\)</span>); IRS (<span class="arithmatex">\(\lambda&lt;\mu\)</span>); DRS (<span class="arithmatex">\(\lambda &gt; \mu\)</span>).</li>
+</ul>
+</li>
+<li>柯布道格拉斯函数：<span class="arithmatex">\(Q=AL^\alpha K^\beta\)</span><ul>
+<li><span class="arithmatex">\(F(\lambda K,\lambda L)=\lambda^{\alpha+\beta}Q\)</span></li>
+<li><span class="arithmatex">\(\alpha+\beta&gt;1\)</span> 则规模收益一直递增，其他同理</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">规模收益递增与边际收益递减是否矛盾？</p>
+<p>求导可以证明边际收益递减，例如 <span class="arithmatex">\(Q=L^{0.5}K^{0.6}\)</span></p>
+</div>
+<h3 id="生产分析总结">生产分析总结<a class="headerlink" href="#生产分析总结" title="Locate to heading">#</a></h3>
+<p><img alt="__assets/Chap.03 生产者行为理论/IMG-Chap.03 生产者行为理论-20250301141707406.webp" src="__assets/Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA/IMG-Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA-20250301141707406.webp" /></p>
+<h2 id="成本分析">成本分析<a class="headerlink" href="#成本分析" title="Locate to heading">#</a></h2>
+<ul>
+<li>企业的目标：利润最大化</li>
+</ul>
+<h3 id="经济成本">经济成本<a class="headerlink" href="#经济成本" title="Locate to heading">#</a></h3>
+<ul>
+<li><strong>经济成本</strong>：为了得到某种东西必须放弃的东西 <em>最高价值的放弃</em>，这里是企业生产中所使用资源的机会成本（经济成本）</li>
+<li><span class="arithmatex">\(经济成本=显性成本(会计成本)+隐性成本\)</span><ul>
+<li><strong>显性成本</strong> <em>会计成本</em>：购买生产要素所花费的货币</li>
+<li><strong>隐性成本</strong>：企业使用自己所拥有的生产要素的机会成本<ul>
+<li><em>例如开店的夫妻不会计算自己的工资成本，但实际上他们可以去干别的工作，存在机会成本</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>沉没成本（Sunk Cost）</strong>：一旦发生就无法收回的成本，是任何决策都无法避免的成本，<strong>不是现有决策的相关成本，决策的时候不需要考虑</strong> <em>例如西瓜、共享单车和电影票</em></li>
+</ul>
+<h4 id="案例分析">案例分析<a class="headerlink" href="#案例分析" title="Locate to heading">#</a></h4>
+<ul>
+<li><a href="Slides/%E5%BE%AE%E8%A7%8204%202-%E4%BC%81%E4%B8%9A%E7%9A%84%E6%88%90%E6%9C%AC%281%29.pdf#page4selection2029">微观04 2-企业的成本(1), page 4</a><ul>
+<li>第一题<ul>
+<li>会计成本：30</li>
+<li>经济成本：30(1 + 5%) + 20 = 51.5</li>
+</ul>
+</li>
+<li>第二题<ul>
+<li>会计成本：10 + 20(1 + 5%) = 31</li>
+<li>经济成本：10(1 + 5%) + 20(1 + 5%) + 20 = 51.5</li>
+</ul>
+</li>
+<li>可以发现，经济成本是一样的，会计成本会变化</li>
+</ul>
+</li>
+<li>如果骑共享单车收益为 2.5，扫到一辆故障车花费 1.5，是否换一辆？<ul>
+<li>如果不扫，损失 4</li>
+<li>如果扫，损失 0.5</li>
+</ul>
+</li>
+<li>钓鱼工程<ul>
+<li>如果一个项目收益 18 亿，成本 20 亿</li>
+<li>施工方可以报成本为 15 亿，这样国家会投</li>
+<li>施工到一半再报另外 5 亿，考虑沉没成本，国家还是会继续投</li>
+</ul>
+</li>
+</ul>
+<h3 id="经济利润">经济利润<a class="headerlink" href="#经济利润" title="Locate to heading">#</a></h3>
+<ul>
+<li><strong>会计利润</strong>：<span class="arithmatex">\(销售收入-会计成本（显性成本）\)</span></li>
+<li><strong>经济利润</strong>：<span class="arithmatex">\(销售收入-经济成本=销售收入-显性成本-隐性成本\)</span></li>
+<li>正常利润：<span class="arithmatex">\(经济利润=0\)</span>；超额利润：<span class="arithmatex">\(经济利润&gt;0\)</span></li>
+<li><a href="Slides/%E5%BE%AE%E8%A7%8204%202-%E4%BC%81%E4%B8%9A%E7%9A%84%E6%88%90%E6%9C%AC%281%29.pdf#page5selection4404412">微观04 2-企业的成本(1), page 5</a><ul>
+<li>如果不自己用，租出去，获益增加 500，所以经济成本增加 500</li>
+</ul>
+</li>
+</ul>
+<h3 id="短期成本">短期成本<a class="headerlink" href="#短期成本" title="Locate to heading">#</a></h3>
+<ul>
+<li><strong>短期总成本（TC）</strong>：企业为生产既定产量所需要生产要素投入的费用<ul>
+<li><span class="arithmatex">\(短期总成本（TC）=可变成本（VC）+不变成本（FC）\)</span></li>
+<li>可变成本：随着产量而变动的成本</li>
+<li>不变成本（固定成本）：不随产量变化而变化的成本</li>
+</ul>
+</li>
+</ul>
+<h4 id="短期总产量曲线与总成本曲线">短期总产量曲线与总成本曲线<a class="headerlink" href="#短期总产量曲线与总成本曲线" title="Locate to heading">#</a></h4>
+<ul>
+<li>总成本曲线 <span class="arithmatex">\(TC(Q)\)</span> 图像<ul>
+<li><strong>增长速度先减后增</strong>，向右上方倾斜 <em>边际成本先减后增</em></li>
+</ul>
+</li>
+</ul>
+<h4 id="短期平均成本和边际成本">短期平均成本和边际成本<a class="headerlink" href="#短期平均成本和边际成本" title="Locate to heading">#</a></h4>
+<ul>
+<li>平均总成本 <span class="arithmatex">\(AC(Q)=\frac{TC}{Q}\)</span></li>
+<li>平均不变成本 <span class="arithmatex">\(AFC(Q)=\frac{FC}{Q}\)</span></li>
+<li>平均可变成本 <span class="arithmatex">\(AVC(Q)=\frac{VC}{Q}\)</span></li>
+<li>边际成本 <span class="arithmatex">\(MC(Q)=\frac{\Delta TC}{\Delta Q}=\frac{\Delta VC}{\Delta Q}\)</span></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">求成本函数</p>
+<p>需要写出 <span class="arithmatex">\(C(Q)\)</span> 的关系</p>
+</div>
+<h5 id="图像分析">图像分析<a class="headerlink" href="#图像分析" title="Locate to heading">#</a></h5>
+<p><img alt="__assets/Chap.03 生产者行为理论/IMG-Chap.03 生产者行为理论-20250301141736377.webp" src="__assets/Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA/IMG-Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA-20250301141736377.webp" /></p>
+<ul>
+<li>除了 AFC，都是先减后增的 U 形曲线<ul>
+<li>总成本先以递减的速度增加，再以递增的速度增加 <em>与短期产量曲线相反</em></li>
+</ul>
+</li>
+<li>AC 逼近 AVC，这是因为 AFC 不断减小</li>
+<li>MC 曲线<strong>穿过了 ATC 和 AVC 曲线的最低点</strong><img alt="__assets/Chap.03 生产者行为理论/IMG-Chap.03 生产者行为理论-20250301141803309.webp" src="__assets/Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA/IMG-Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA-20250301141803309.webp" /></li>
+</ul>
+<h4 id="平均成本与产量及边际成本与产量">平均成本与产量及边际成本与产量<a class="headerlink" href="#平均成本与产量及边际成本与产量" title="Locate to heading">#</a></h4>
+<ul>
+<li>平均可变成本与平均产量 <span class="arithmatex">\(AVC=wL/Q=w/AP\)</span> <em>劳动的平均产量</em></li>
+<li>边际成本与边际产量 <span class="arithmatex">\(MC=w\Delta L/\Delta Q=w/MP\)</span> <em>劳动的边际产量</em></li>
+<li>边际成本递减规律：不断增加可变要素的投入，边际成本开始时递减<em>规模效应</em>，要素投入上升到一定程度时递增 <em>边际产量递减效应</em></li>
+</ul>
+<h3 id="长期成本">长期成本<a class="headerlink" href="#长期成本" title="Locate to heading">#</a></h3>
+<ul>
+<li><strong>长期总成本（LTC）</strong>：长期调整下，对于一定的产量，达到的最低成本 <em>生产扩展线</em></li>
+<li><strong>长期平均成本（LAC）</strong>：<span class="arithmatex">\(LAC=LTC/Q\)</span></li>
+<li><strong>长期边际成本</strong>：<span class="arithmatex">\(LMC=\Delta LTC/\Delta Q\)</span></li>
+</ul>
+<h4 id="长期总成本ltc曲线">长期总成本（LTC）曲线<a class="headerlink" href="#长期总成本ltc曲线" title="Locate to heading">#</a></h4>
+<ul>
+<li><strong>在所有短期总成本曲线下方，每一点都和一条短期总成本曲线相切</strong>，是包络线 <span class="arithmatex">\(LTC=\min\{TC_i\}\)</span></li>
+<li>由于没有固定成本，<strong>经过原点</strong></li>
+<li>比短期总成本曲线都<strong>平缓</strong></li>
+</ul>
+<h4 id="长期平均成本lac曲线">长期平均成本（LAC）曲线<a class="headerlink" href="#长期平均成本lac曲线" title="Locate to heading">#</a></h4>
+<ul>
+<li>每一产量的<strong>所有短期平均成本中最低的成本</strong>，<span class="arithmatex">\(LATC=min\{SAC\}\)</span></li>
+<li>是<strong>包络线</strong>，但不是所有最低点的连线<ul>
+<li>为什么不是最低点？最低点的连线其实不是最优解</li>
+</ul>
+</li>
+</ul>
+<h4 id="长期边际成本lmc曲线">长期边际成本（LMC）曲线<a class="headerlink" href="#长期边际成本lmc曲线" title="Locate to heading">#</a></h4>
+<ul>
+<li>同样有<strong>边际经过平均的最低点</strong></li>
+<li><strong>不是</strong>短期边际成本曲线的<strong>包络线</strong><ul>
+<li>对于每个被选择的短期平均曲线，找到这一切点对应的边际成本点<em>作垂线</em>，然后再扩展</li>
+</ul>
+</li>
+</ul>
+<p><img alt="__assets/Chap.03 生产者行为理论/IMG-Chap.03 生产者行为理论-20250301141837735.webp" src="__assets/Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA/IMG-Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA-20250301141837735.webp" /></p>
+<h3 id="规模经济规模不经济和最适规模">规模经济、规模不经济和最适规模<a class="headerlink" href="#规模经济规模不经济和最适规模" title="Locate to heading">#</a></h3>
+<ul>
+<li><strong>规模经济</strong>：ATC（平均成本） 下降</li>
+<li><strong>规模不经济</strong>：ATC（平均成本） 上升</li>
+<li><strong>最适规模</strong>：企业处于长期平均成本最小时的规模</li>
+</ul>
+<h4 id="规模收益递增和规模经济">规模收益递增和规模经济<a class="headerlink" href="#规模收益递增和规模经济" title="Locate to heading">#</a></h4>
+<ul>
+<li><strong>规模收益递增</strong>：生产要素<strong>必须同时同比例增加</strong></li>
+<li><strong>规模经济</strong>：生产要素<strong>不一定</strong>同比例增加</li>
+<li><span class="arithmatex">\(规模收益递增\subset 规模经济\)</span>，规模经济与规模收益递增不完全对应 <a href="Slides/%E5%BE%AE%E8%A7%8204%202-%E4%BC%81%E4%B8%9A%E7%9A%84%E6%88%90%E6%9C%AC%281%29.pdf#page28selection1601633">微观04 2-企业的成本(1), page 28</a><ul>
+<li>表中 2，既是规模经济，也是规模收益递增</li>
+<li>表中 3，是规模经济，但不是规模收益递增</li>
+</ul>
+</li>
+<li><a href="Slides/%E5%BE%AE%E8%A7%8204%202-%E4%BC%81%E4%B8%9A%E7%9A%84%E6%88%90%E6%9C%AC%281%29.pdf#page29selection20213">微观04 2-企业的成本(1), page 29</a> 规模经济的扩展范围更广，但是规模收益递增<em>只能沿直线</em></li>
+</ul>
+<h4 id="规模经济分析理由符合逻辑即可">规模经济分析（理由符合逻辑即可）<a class="headerlink" href="#规模经济分析理由符合逻辑即可" title="Locate to heading">#</a></h4>
+<ul>
+<li>规模经济的原因：生产专门化、管理专门化、设备的充分利用、技术进步、行业特征、规模便利、范围经济<em>生产多种相关的产品</em></li>
+<li>规模不变：任何要素的潜能发挥极致<em>各行各业有最适规模</em></li>
+<li>规模不经济的原因：管理和协调不灵活、生产决策信息传递慢且失真、应变能力弱</li>
+</ul>
+<h2 id="企业收益">企业收益<a class="headerlink" href="#企业收益" title="Locate to heading">#</a></h2>
+<ul>
+<li>总收益 <span class="arithmatex">\(R(Q)=P*Q=P(Q)*Q\)</span></li>
+<li>平均收益 <span class="arithmatex">\(AR(Q)=R/Q=P(Q)*Q/Q=P(Q)\)</span></li>
+<li>边际收益 <span class="arithmatex">\(MR(Q)=\frac{dR}{dQ}=\frac{dP(Q)}{dQ}Q+P(Q)\)</span></li>
+<li><strong>都是产量的函数</strong></li>
+</ul>
+<h3 id="收益曲线">收益曲线<a class="headerlink" href="#收益曲线" title="Locate to heading">#</a></h3>
+<ul>
+<li>价格不变时 <img alt="__assets/Chap.03 生产者行为理论/IMG-Chap.03 生产者行为理论-20250301141906291.webp" src="__assets/Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA/IMG-Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA-20250301141906291.webp" /><ul>
+<li><span class="arithmatex">\(AR=MR=\bar P\)</span></li>
+<li><span class="arithmatex">\(R=\bar P*Q\)</span></li>
+</ul>
+</li>
+<li>价格递减 <img alt="__assets/Chap.03 生产者行为理论/IMG-Chap.03 生产者行为理论-20250301141918410.webp" src="__assets/Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA/IMG-Chap.03%20%E7%94%9F%E4%BA%A7%E8%80%85%E8%A1%8C%E4%B8%BA%E7%90%86%E8%AE%BA-20250301141918410.webp" /><ul>
+<li><span class="arithmatex">\(AR=P(Q)\)</span></li>
+<li><span class="arithmatex">\(MR=P(Q)+\frac{dP(Q)}{dQ}Q=P(Q)(1+\frac{dP(Q)}{dQ}\frac{Q}{P(Q)})=P(Q)(1+\frac{1}{E_d})\)</span><ul>
+<li>期中 <span class="arithmatex">\(E_d\)</span> <em>是需求价格弹性</em>，是负的</li>
+<li><em>复习</em>：上半段富有弹性，弹性大于 1；下半段缺乏弹性，弹性小于 1</li>
+<li><strong>用来在 MR, P(Q), E_d 之间知二求三</strong></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(R=P(Q)*Q\)</span></li>
+</ul>
+</li>
+</ul>
+<h3 id="企业利润最大化原则">企业利润最大化原则<a class="headerlink" href="#企业利润最大化原则" title="Locate to heading">#</a></h3>
+<ul>
+<li>利润=总收益 - 总成本：<span class="arithmatex">\(\pi(Q)=R(Q)-C(Q)\)</span></li>
+<li>利润最大化条件：<ul>
+<li><span class="arithmatex">\(MR(Q)=MC(Q)\)</span></li>
+<li><em>MC 处于递增阶段，但是一般不需要考虑</em></li>
+</ul>
+</li>
+<li>对于完全竞争的厂商，<span class="arithmatex">\(P=MR=MC\)</span></li>
+<li></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  <h2 id="__comments">Comments</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+          data-repo="EmergentTwilight/Emergent-Space"
+          data-repo-id="R_kgDOMQFYhw"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOMQFYh84Cmb5p"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    // Set palette on initial load
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate"
+        ? "transparent_dark"
+        : "light"
+
+      // Instruct Giscus to set theme
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    // Register event handlers after documented loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate"
+            ? "transparent_dark"
+            : "light"
+
+          // Instruct Giscus to change theme
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="Chap.02%20%E6%B6%88%E8%B4%B9%E8%80%85%E9%80%89%E6%8B%A9.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Chap.02 消费者选择">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Chap.02 消费者选择
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="Chap.04%20%E5%AE%8C%E5%85%A8%E7%AB%9E%E4%BA%89%E4%BA%A7%E5%93%81%E5%B8%82%E5%9C%BA.html" class="md-footer__link md-footer__link--next" aria-label="Next: Chap.04 完全竞争产品市场">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Chap.04 完全竞争产品市场
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024-2025 <a href="https://github.com/EmergentTwilight">EmergentTwilight</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/EmergentTwilight" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:emergentshores@outlook.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "content.action.view", "content.code.copy", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+        <script src="../__srcs/javascript/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+        <script src="../__srcs/javascript/toc.js"></script>
+      
+    
+  </body>
+</html>
