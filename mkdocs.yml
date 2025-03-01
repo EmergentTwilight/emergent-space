@@ -3,6 +3,7 @@ nav:
     - Welcome to my notebook ~: index.md
     - Friends: friends.md
   - DS/Algo.:
+    - Data Structure & Algorithm: index/dsalgo/index.md
     - Fundamentals of Data Structures:
       - Fundamentals of Data Structures: ZJU-Fundamentals of Data Structures/index.md
       - Ch.02 Algorithm Analysis: ZJU-Fundamentals of Data Structures/Ch.02 Algorithm Analysis.md
@@ -35,6 +36,7 @@ nav:
       - Final DP: ZJU-Advanced Data Structure & Algorithm Analysis/ADS Cheat Sheet Dynamic Programming.md
       - Final Questions: ZJU-Advanced Data Structure & Algorithm Analysis/ADS Final Questions.md
   - Coding/Lang.:
+    - Coding & Language: index/codinglang/index.md
     - 汇编语言程序设计基础:
       - 汇编语言程序设计基础: ZJU-Assembly Fundamentals/index.md
       - 01 数据类型和变量: ZJU-Assembly Fundamentals/ASMF 01 数据类型和变量.md
@@ -50,7 +52,30 @@ nav:
       - 11 字符串操作指令: ZJU-Assembly Fundamentals/ASMF 11 字符串操作指令.md
       - 12 控制转移指令: ZJU-Assembly Fundamentals/ASMF 12 控制转移指令.md
       - Cheat Sheet: ZJU-Assembly Fundamentals/ASMF Cheat Sheet.md
-  - Others:
+  - System:
+    - System: index/system/index.md
+    - HPC101:
+      - HPC101: ZJU-HPC101/index.md
+      - Lec.02 体系结构与高性能计算基础: ZJU-HPC101/Lec.02 体系结构与高性能计算基础.md
+      - Lec.03 高性能计算方法学: ZJU-HPC101/Lec.03 高性能计算方法学.md
+      - Lec.04 集群软硬件及运维基础: ZJU-HPC101/Lec.04 集群软硬件及运维基础.md
+      - Lec.05 向量化计算: ZJU-HPC101/Lec.05 向量化计算.md
+      - Lec.06 CUDA C 编程基础: ZJU-HPC101/Lec.06 CUDA C 编程基础.md
+      - Lec.07 OpenMP, MPI 并行计算基础: ZJU-HPC101/Lec.07 OpenMP, MPI 并行计算基础.md
+      - Lec.09 Introduction to Machine Learning: ZJU-HPC101/Lec.09 Introduction to Machine Learning.md
+    - Computer Organization:
+      - Computer Organization: ZJU-Computer Organization/index.md
+      - 01 Computer Abstraction and Technology: ZJU-Computer Organization/CO 01 Computer Abstraction and Technology.pdf
+      - 02 Instructions: ZJU-Computer Organization/CO 02 Instructions.pdf
+      - 03 Arithmetic for Computer: ZJU-Computer Organization/CO 03 Arithmetic for Computer.pdf
+      - 04 The Processor Pt1: ZJU-Computer Organization/CO 04 The Processor Pt1.pdf
+      - 04 The Processor Pt2: ZJU-Computer Organization/CO 04 The Processor Pt2.pdf
+      - 05 Memory Hierarchy: ZJU-Computer Organization/CO 05 Memory Hierarchy.pdf
+      - 06 IO: ZJU-Computer Organization/CO 06 IO.pdf
+      - Midterm Cheat sheet: ZJU-Computer Organization/CO Midterm Cheatsheet.pdf
+      - Final Cheat sheet: ZJU-Computer Organization/CO Final Cheatsheet.pdf
+  - Graphics:
+    - Graphics: index/graphics/index.md
     - GAMES101:
       - GAMES101: GAMES101/index.md
       - 01 Introduction: GAMES101/GAMES101 01 Introduction.md
@@ -65,16 +90,6 @@ nav:
       - 10 Cameras, Lenses and Light Fields: GAMES101/GAMES101 10 Cameras, Lenses and Light Fields.md
       - 11 Color and Perception: GAMES101/GAMES101 11 Color and Perception.md
       - 12 Animation: GAMES101/GAMES101 12 Animation.md
-    - HPC101:
-      - HPC101: ZJU-HPC101/index.md
-      - Lec.02 体系结构与高性能计算基础: ZJU-HPC101/Lec.02 体系结构与高性能计算基础.md
-      - Lec.03 高性能计算方法学: ZJU-HPC101/Lec.03 高性能计算方法学.md
-      - Lec.04 集群软硬件及运维基础: ZJU-HPC101/Lec.04 集群软硬件及运维基础.md
-      - Lec.05 向量化计算: ZJU-HPC101/Lec.05 向量化计算.md
-      - Lec.06 CUDA C 编程基础: ZJU-HPC101/Lec.06 CUDA C 编程基础.md
-      - Lec.07 OpenMP, MPI 并行计算基础: ZJU-HPC101/Lec.07 OpenMP, MPI 并行计算基础.md
-      - Lec.09 Introduction to Machine Learning: ZJU-HPC101/Lec.09 Introduction to Machine Learning.md
-    
 
 
 # site metadata
