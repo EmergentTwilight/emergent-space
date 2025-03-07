@@ -1318,6 +1318,115 @@
 
   <h1>Cheat Sheet</h1>
 
+<style>
+:root {
+  --md-list-callouts-bg-intensity-light: 0.15;
+  --md-list-callouts-bg-intensity-dark: 0.15;
+  --md-list-callouts-content-padding-left: 1.2rem;
+  --md-list-callouts-symbol-width: 1.25rem;
+  --md-list-callouts-border-radius: 0.2rem;
+}
+
+.list-callouts {
+  padding-left: var(--md-list-callouts-content-padding-left);
+  border-radius: var(--md-list-callouts-border-radius);
+  position: relative;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.list-callouts::before {
+  font-family: var(--md-code-font);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--md-list-callouts-symbol-width);
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+
+/* & */
+.list-callouts-highlight {
+  background-color: rgba(246, 217, 67, calc(var(--md-list-callouts-bg-intensity-light) * 100%));
+}
+
+.list-callouts-highlight::before {
+  content: "&";
+  color: rgb(246, 217, 67);
+}
+
+
+/* ? */
+.list-callouts-question {
+  background-color: rgba(240, 151, 48, calc(var(--md-list-callouts-bg-intensity-light) * 100%));
+}
+
+.list-callouts-question::before {
+  content: "?";
+  color: rgb(240, 151, 48);
+}
+
+
+/* ! */
+.list-callouts-warning {
+  background-color: rgba(235, 56, 72, calc(var(--md-list-callouts-bg-intensity-light) * 100%));
+}
+
+.list-callouts-warning::before {
+  content: "!";
+  color: rgb(235, 56, 72);
+}
+
+
+/* ~ */
+.list-callouts-bookmark {
+  background-color: rgba(125, 73, 247, calc(var(--md-list-callouts-bg-intensity-light) * 100%));
+}
+
+.list-callouts-bookmark::before {
+  content: "~";
+  color: rgb(125, 73, 247);
+}
+
+
+/* @ */
+.list-callouts-tip {
+  background-color: rgba(84, 181, 209, calc(var(--md-list-callouts-bg-intensity-light) * 100%));
+}
+
+.list-callouts-tip::before {
+  content: "@";
+  color: rgb(84, 181, 209);
+}
+
+
+/* $ */
+.list-callouts-success {
+  background-color: rgba(83, 198, 96, calc(var(--md-list-callouts-bg-intensity-light) * 100%));
+}
+
+.list-callouts-success::before {
+  content: "$";
+  color: rgb(83, 198, 96);
+}
+
+
+/* % */
+.list-callouts-quote {
+  background-color: rgba(158, 158, 158, calc(var(--md-list-callouts-bg-intensity-light) * 100%));
+}
+
+.list-callouts-quote::before {
+  content: "%";
+  color: rgb(158, 158, 158);
+}
+</style>
 <h2 id="编程-tips">编程 tips<a class="headerlink" href="#编程-tips" title="Locate to heading">#</a></h2>
 <ul>
 <li><code>add dl, '0'</code> 转字符格式</li>
@@ -2133,7 +2242,7 @@
     
     
     
-    <a href="mailto:emergentshores@outlook.com" target="_blank" rel="noopener" title="" class="md-social__link">
+    <a href="mailto:travischengzju@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
     </a>
   
