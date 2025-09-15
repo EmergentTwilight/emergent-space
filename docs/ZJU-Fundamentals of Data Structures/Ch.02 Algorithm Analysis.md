@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-04-22 11:35:49
-date_modified: 2025-01-30 11:39:59
-is_published: true
+status:
+  - archived
+tags: CS/Algorithm/Analysis/Complexity
+date_created: 2024-04-22T11:35:49
+date_modified: 2025-09-12T15:23:19
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-type:
-- note
 ---
+
 # 1 Complexity: Asymptotic Notation
 
 - $T(N)=O(f(N))$ if there are positive constants $c$ and $n_0$ such that $T(N)\le cf(N)$ for all $N\ge n_0$
@@ -18,12 +15,12 @@ type:
 	- Big Omega 代表一种**下界**，大于等于
 - $T(N)=\Theta (h(N))$ if and only if $T(N)=O(h(N))$ and $T(N)=\Omega(h(N))$
 	- Big Theta 代表上下界同阶，是**确界**
-- $T(N)=o(p(N))$ if $T(N)=O(p(N))$ and $T(N)\ne \Theta(p(N))$ 
+- $T(N)=o(p(N))$ if $T(N)=O(p(N))$ and $T(N)\ne \Theta(p(N))$
 	- Small o 代表**严格渐进上界**，严格小于
 
 ## 1.1 Rules of Asymptotic Notation
 
-- $T_1(N)=O(f(N))\,\, T_2(N)=O(g(N))$ 
+- $T_1(N)=O(f(N))\,\, T_2(N)=O(g(N))$
 	- $T_1(N)+T_2(N)=\mathrm{max}(O(f(N)),O(g(N)))$
 	- $T_1(N)*T_2(N)=O(f(N)*g(N))$
 - $log^kN=O(N)$ for any constant $k$, **logarithms grow very slowly**
@@ -63,9 +60,9 @@ type:
 
 ![[__assets/Ch.02 Algorithm Analysis/IMG-Ch.02 Algorithm Analysis-20250125003915221.webp]]
 
-- 只需要记得前面的指数为 $\log_ba$ 需要和后面的 $k$ 进行比较 
+- 只需要记得前面的指数为 $\log_ba$ 需要和后面的 $k$ 进行比较
 
-> [!example] 
+> [!example]
 > -  $T(N)=2T(N/2)+N$ -> $O(NlogN)$
 > - $T(N)=2T(N/2)+N\log N$ -> $O(N\log^2 N)$
 

@@ -1,7 +1,11 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-07 20:21:39
-date_modified: 2025-02-16 00:46:49
+status:
+  - archived
+tags:
+  - CS/CG-CV/Rendering
+  - CS/CG-CV/Rendering/Shading
+date_created: 2025-02-07T20:21:39
+date_modified: 2025-09-13T10:18:01
 ---
 
 > [!note] intro
@@ -40,7 +44,9 @@ date_modified: 2025-02-16 00:46:49
 
 **Lambertian (Diffuse) Shading**:
 
-$$L_{d}=k_{d}(I/r^2) \max(0,\hat{n}\cdot \hat{l})$$
+$$
+L_{d}=k_{d}(I/r^2) \max(0,\hat{n}\cdot \hat{l})
+$$
 
 - $k_{d}$ diffuse coeffficient，与表面性质、波长有关
 - $r$ 是光源与 shading point 的距离
@@ -53,9 +59,13 @@ $$L_{d}=k_{d}(I/r^2) \max(0,\hat{n}\cdot \hat{l})$$
 
 bisector vector $h$:
 
-$$\mathbf{h}=\text{bisector}(\mathbf{v},\mathbf{l})=\frac{\mathbf{v}+\mathbf{l}}{||\mathbf{v}+\mathbf{l}||}$$
+$$
+\mathbf{h}=\text{bisector}(\mathbf{v},\mathbf{l})=\frac{\mathbf{v}+\mathbf{l}}{||\mathbf{v}+\mathbf{l}||}
+$$
 
-$$L_{s}=k_{s}(I/r^2)\max(0,\mathbf{n}\cdot\mathbf{h})^p$$
+$$
+L_{s}=k_{s}(I/r^2)\max(0,\mathbf{n}\cdot\mathbf{h})^p
+$$
 
 其中指数 $p$ 有利于控制镜面反射范围，一般取 100~200
 
@@ -67,14 +77,18 @@ $$L_{s}=k_{s}(I/r^2)\max(0,\mathbf{n}\cdot\mathbf{h})^p$$
 
 ![[./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250207210933574.webp]]
 
-$$L_{a}=k_{a}I_{a}$$
+$$
+L_{a}=k_{a}I_{a}
+$$
 
 ## Conclusion
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathrm{L} & =L_a+L_d+L_s \\
  & =k_aI_a+k_d(I/r^2)\max(0,\mathbf{n}\cdot\mathbf{l})+k_s(I/r^2)\max(0,\mathbf{n}\cdot\mathbf{h})^p
-\end{aligned}$$
+\end{aligned}
+$$
 
 > [!note] Note
 > 并不考虑 viewer 距离对亮度的影响
@@ -83,7 +97,7 @@ $$\begin{aligned}
 
 ![[./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250207211506628.webp]]
 
-> 上图中分别是平面着色(Flat shading)、顶点着色再插值(Gouraud shading)和像素着色(Phong shading)
+> 上图中分别是平面着色 (Flat shading)、顶点着色再插值 (Gouraud shading) 和像素着色 (Phong shading)
 
 ![[./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250207211931370.webp]]
 
@@ -95,7 +109,7 @@ $$\begin{aligned}
 ![[./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250207212239418.webp]]
 
 > [!note] Note
->  可以平均，也可以加权平均
+> 可以平均，也可以加权平均
 
 ## per-vertex normal vectors
 
@@ -302,7 +316,8 @@ for each rasterized screen sample(x, y):
 
 ![[./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250208002629950.webp]]
 
-$$\begin{cases}
+$$
+\begin{cases}
 (x,y)&=\alpha A+\beta B+\gamma C \\
 \alpha+\beta+\gamma&=1
 \end{cases}
@@ -314,24 +329,31 @@ $$
 
 可以通过面积的比例关系求解重心坐标：
 
-$$\begin{align}
+$$
+\begin{align}
 \alpha &=\frac{A_A}{A_A+A_B+A_C} \\
 \beta &=\frac{A_B}{A_A+A_B+A_C} \\
 \gamma &=\frac{A_C}{A_A+A_B+A_C}
-\end{align}$$
+\end{align}
+$$
 
 也可以使用公式：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
  & \alpha=\frac{-(x-x_B)(y_C-y_B)+(y-y_B)(x_C-x_B)}{-(x_A-x_B)(y_C-y_B)+(y_A-y_B)(x_C-x_B)} \\
  & \beta=\frac{-(x-x_C)(y_A-y_C)+(y-y_C)(x_A-x_C)}{-(x_B-x_C)(y_A-y_C)+(y_B-y_C)(x_A-x_C)} \\
  & \gamma=1-\alpha-\beta
-\end{aligned}$$
+\end{aligned}
+$$
 
 ## Using Barycentric Coordinates
 
-$$V=\alpha V_A+\beta V_B+\gamma V_C$$
+$$
+V=\alpha V_A+\beta V_B+\gamma V_C
+$$
 
 > [!warning] Warning
 > 空间三角形经过投影之后，重心坐标并不是不变的，所以要先在三维空间中完成插值
+
 

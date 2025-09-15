@@ -1,8 +1,13 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-09 23:05:48
-date_modified: 2025-02-09 23:54:02
+status:
+  - archived
+tags:
+  - CS/CG-CV/Rendering
+  - CS/CG-CV/Rendering/Texture
+date_created: 2025-02-09T23:05:48
+date_modified: 2025-09-13T10:18:01
 ---
+
 # Intro
 
 ![[./__assets/GAMES101 08 Materials and Appearances/IMG-GAMES101 08 Materials and Appearances-20250209231019039.webp]]
@@ -10,7 +15,9 @@ date_modified: 2025-02-09 23:54:02
 - 不同的材质与光线的作用不同
 - 画面应该能够体现材质的不同
 
-$$\text{Material}=\text{BRDF}$$
+$$
+\text{Material}=\text{BRDF}
+$$
 
 # Diffuse / Lambertian Material
 
@@ -18,15 +25,19 @@ $$\text{Material}=\text{BRDF}$$
 
 在所有方向上积分得到的出射光：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 L_o(\omega_o) & =\int_{H^2}f_rL_i(\omega_i)\cos\theta_i\mathrm{d}\omega_i \\
  & =f_rL_i\int_{H^2}(\omega_i)\cos\theta_i\mathrm{d}\omega_i \\
  & =\pi f_rL_i
-\end{aligned}$$
+\end{aligned}
+$$
 
 由于假设 $L_{i}=L_{o}$，得到 $f_{r}=\frac{1}{\pi}$，就是不吸收情况下的均匀漫反射，可以考虑吸收：
 
-$$f_{r}=\frac{\rho}{\pi}\quad\rho\text{ is albedo(color) 基础反射率}$$
+$$
+f_{r}=\frac{\rho}{\pi}\quad\rho\text{ is albedo(color) 基础反射率}
+$$
 
 # Glossy Material
 
@@ -46,7 +57,9 @@ $$f_{r}=\frac{\rho}{\pi}\quad\rho\text{ is albedo(color) 基础反射率}$$
 
 ![[./__assets/GAMES101 08 Materials and Appearances/IMG-GAMES101 08 Materials and Appearances-20250209232347629.webp|400]]
 
-$$\eta_{i}\sin \theta_{i}=\eta_{t}\sin \theta_{t}$$
+$$
+\eta_{i}\sin \theta_{i}=\eta_{t}\sin \theta_{t}
+$$
 
 **全反射**，光密介质到光疏介质，折射角为 90°
 
@@ -63,15 +76,18 @@ $$\eta_{i}\sin \theta_{i}=\eta_{t}\sin \theta_{t}$$
 > [!note] Note
 > 导体和绝缘体的变化趋势不同
 
-$$\begin{align}
+$$
+\begin{align}
 R_s&=\left|\frac{n_1\cos\theta_i-n_2\cos\theta_i}{n_1\cos\theta_i+n_2\cos\theta_i}\right|^2=\left|\frac{n_1\cos\theta_i-n_2\sqrt{1-\left(\frac{n_1}{n_2}\sin\theta_i\right)^2}}{n_1\cos\theta_i+n_2\sqrt{1-\left(\frac{n_1}{n_2}\sin\theta_i\right)^2}}\right|^2 \\
 R_p&=\left|\frac{n_1\cos\theta_i-n_2\cos\theta_i}{n_1\cos\theta_i+n_2\cos\theta_i}\right|^2=\left|\frac{n_1\sqrt{1-\left(\frac{n_1}{n_2}\sin\theta_i\right)^2}-n_2\cos\theta_i}{n_1\sqrt{1-\left(\frac{n_1}{n_2}\sin\theta_i\right)^2}+n_2\cos\theta_i}\right|^2\\
 R_{\mathrm{eff}}&=\frac{1}{2}\left(R_{\mathrm{s}}+R_{\mathrm{p}}\right) 
-\end{align}$$
+\end{align}
+$$
 
 ## Approximate: Schlick's approximation
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 R(\theta) & =R_0+(1-R_0)(1-\cos\theta)^5 \\
 R_{0} & =\left(\frac{n_1-n_2}{n_1+n_2}\right)^2
 \end{aligned}$$

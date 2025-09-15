@@ -1,14 +1,16 @@
 ---
-MkDocs_comments: true
-date_created: 2024-11-18 13:43:35
-date_modified: 2025-02-16 23:43:47
-number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
+status:
+  - archived
 tags:
-- Algorithm/Analysis/Approximation
-- Algorithm/Problem/Bin-Packing
-- Algorithm/Problem/K-center
-- Algorithm/Problem/Knapsack
+  - CS/Algorithm/Analysis/Approximation
+  - CS/Algorithm/Complexity-Problem/Bin-Packing
+  - CS/Algorithm/Complexity-Problem/K-center
+  - CS/Algorithm/Complexity-Problem/Knapsack
+date_created: 2024-11-18T13:43:35
+date_modified: 2025-09-13T10:18:04
+number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
 ---
+
 # 1 Intro
 
 > [!tip] Tip
@@ -53,7 +55,11 @@ $$
 - 每次看下一个能不能放进当前的箱子，如果不能就新建一个箱子
 - 一定有 $M\leq 2M^*-1$
 
-	- **补充**：如果最大物品的大小为 $\alpha$，那么近似比应该为 $$\rho=\begin{cases}\frac{1}{1-\alpha}&,0\leq \alpha\leq \frac{1}{2}\\2&,1/2<\alpha<1\end{cases}$$
+	- **补充**：如果最大物品的大小为 $\alpha$，那么近似比应该为
+
+$$
+\rho=\begin{cases}\frac{1}{1-\alpha}&,0\leq \alpha\leq \frac{1}{2}\\2&,1/2<\alpha<1\end{cases}
+$$
 
 - $O(N)$
 
@@ -64,7 +70,7 @@ $$
 	- 能够证明 $M\leq 1.7M^*$，而且存在一种输入使得 $M=1.7(M^*-1)$
 - 可以用数据结构优化，得到 $O(N \log N)$ 的时间复杂度，每次找箱子的速度是 $O(\log N)$
 
-> [!NOTE] 
+> [!NOTE]
 > 如果在原始的物品集合 $L$ 中删除一个元素，那么可能导致解变差
 
 ### 2.1.3 Best Fit *1.7-approx*
@@ -73,7 +79,7 @@ $$
 - $O(N \log N)$
 - 和 FItst Fit 一样是 1.7-approx 的
 
-> [!NOTE] 
+> [!NOTE]
 > 可以构造一种特例，让上述的 Online Algos 都一定无法产生 $M\leq \frac{5}{3}M^*$
 
 ## 2.2 Offline Algos
@@ -110,7 +116,11 @@ $$
 
 - 令 $dp[i][p]$ 是前 $i$ 个物品，总价值为 $p$ 的情况下的最小质量
 
-- $$dp[i][p]=\begin{cases}\infty &i=0\\dp[i-1][p]&p_{i}>p\\ \min\{dp[i-1][p],w_{i}+dp[i-1][p-p_{i}] \}&\text{otherwise}\end{cases}$$
+-
+
+$$
+dp[i][p]=\begin{cases}\infty &i=0\\dp[i-1][p]&p_{i}>p\\ \min\{dp[i-1][p],w_{i}+dp[i-1][p-p_{i}] \}&\text{otherwise}\end{cases}
+$$
 
 	- 分别代表了，不可能达到
 	- 不取物品 $i$
@@ -156,7 +166,8 @@ $$
 
 # 5 Discussion
 
-The FFD algorithm for bin packing achieves the following bounds:  
+The FFD algorithm for bin packing achieves the following bounds:
+
 FFD(L)≤(11/9)OPT(L)+1, for all L.
 
 (1) Please show that FFD(L)≤(3/2)OPT(L), for all L, with the above inequality.
@@ -184,21 +195,21 @@ As we know there is a 2-approximation algorithm for the Vertex Cover problem. Th
 
 > [!tip]- Answer
 > **F**
-> 
+>
 > **Vertex Cover Problem**，选择最少的顶点集合 $S$，使得所有边都与 $S$ 中的顶点连接，即覆盖所有的边 **NP-C**
 > **Clique Problem(团问题)**，团 (clique) 就是完全子图，在无向图中找到最大的完全子图 **NP-C, NP-H**
-> 
+>
 > Clique Problem $\leq_{p}$ Vertex Cover Problem
 > 将 Clique Problem 中的图 $G$ 转换为补图 $G'$，然后在 $G'$ 上做 Vertex Cover，对于所有没有被选中的顶点，一定都如下图所示
 > ![[__assets/ADS 11 Approximation/IMG-ADS 11 Approximation-20241121134722826.webp]]
 > 所以，$|V|-|S|$ 是一个完全子图，也就是 clique 的近似
-> 
+>
 > 但是，虽然 Vertex Cover Problem 中有 2- 近似算法能够得到 $\rho_{2}=\frac{C_{2}}{C_{2}^*}=\frac{|S|}{|S^*|}=2$，但是 Clique Problem 中的计算方式不一样：
-> 
+>
 > $$
 > \rho_{1}=\frac{C_{1}^*}{C_{1}}=\frac{|V|-|S^*|}{|V|-|S|}=1+\frac{1}{\frac{|V|}{|S^*|}-2}
 > $$
-> 
+>
 > 于是 $rho_1$ 是不可确定的 [^1]
 
 ### 6.1.3 approximation of TSP

@@ -1,8 +1,10 @@
 ---
+status:
+  - archived
 date_created: 2024-05-08T10:39:02
-date_modified: 2025-03-01T14:56:36
-MkDocs_comments: true
+date_modified: 2025-09-13T09:24:52
 ---
+
 # 企业收益与市场结构
 
 ## 需求类型

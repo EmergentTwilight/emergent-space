@@ -1,13 +1,15 @@
 ---
-MkDocs_comments: true
-date_created: 2024-09-09 01:48:22
-date_modified: 2025-02-16 23:26:54
-number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
+status:
+  - archived
 tags:
-- Algorithm/Analysis/Amortized-Analysis
-- Data-Structure/Tree/AVL-Tree
-- Data-Structure/Tree/Splay-Tree
+  - CS/Algorithm/Analysis/Amortized-Analysis
+  - CS/Data-Structure/Tree/AVL-Tree
+  - CS/Data-Structure/Tree/Splay-Tree
+date_created: 2024-09-09T01:48:22
+date_modified: 2025-09-13T10:18:02
+number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
 ---
+
 # 1 AVL Trees: Self-Balancing Tree
 
 - Target
@@ -137,7 +139,7 @@ $$
 
 这说明了 AVL Tree 的平衡性。
 
-> [!attention] 
+> [!attention]
 > 课本中对 height 没有统一的定义，这里认为根节点的高度为 0，边才能提供高度
 
 # 2 Splay Trees: Self-Adjusting Tree
@@ -164,12 +166,12 @@ $$
 
 ### 2.2.2 { Zig-zag, Zig-zig, Zig }
 
-> [!attention] 
+> [!attention]
 > 这里的 zig-zig 被认为是 *single rotation*，但事实上使用了两次 AVL rotations
 
 ![[__assets/ADS 01 AVL Trees, Splay Trees and Amortized Analysis/IMG-ADS 01 AVL Trees, Splay Trees and Amortized Analysis-20241028012027625.webp]]
 
-> [!hint] 
+> [!hint]
 > Splaying not only moves the accessed node to the root, but also **roughly halves the depth of most nodes on the path**. 所以 Splay Tree 也是平衡树
 
 ### 2.2.3 Insertion
@@ -195,32 +197,36 @@ $$
 
 strength: worst-case bound $\ge$ amortized bound *Probablity not involved* $\ge$ average-case bound
 
-> [!NOTE] 
+> [!NOTE]
 > 但是 amortized 结果可能比 average 要小
 
 ## 3.1 Aggregate analysis 聚合分析
 
 对于所有 $n$，连续的 $n$ 个操作总共花费的最坏时间为 $T(n)$，那么 amortized cost 为：
 
-$$T_{amortized}=T(n)/n$$
+$$
+T_{amortized}=T(n)/n
+$$
 
 ### 3.1.1 e.g. Stach with `MultiPop`
 
 从空栈开始连续进行 $n$ 个 {`push`, `pop`, `multiPop`} 操作，有 $sizeof(S)\le n$。即使单次 `MultiPop` 可以是 $O(sizeof(S))$，但无法连续执行 $O(n)$ 次，总复杂度不是 $O(n^2)$ 而是 $O(n)$。每个被 push 的元素最多只能 pop 一次，所以
 
-$$T_{amortized}=O(n)/n=O(1)$$
+$$
+T_{amortized}=O(n)/n=O(1)
+$$
 
 > [!hint]- GPT 的解释
 > **假设我们进行了一系列操作，包括多次 `push`、`pop` 和 `multipop` 操作。**
-> 
+>
 > - 每个 `push` 操作显然只需要 O(1) 的时间。
 > - 每个 `pop` 操作也需要 O(1) 的时间。
 > - 对于 `multipop(k)`，虽然它可能一次执行多次 `pop`，但重要的是，每个元素最多只能被弹出一次。因此，整个过程中无论是通过 `pop` 还是 `multipop` 弹出的元素，其数量最多为 n 次（即至多 n 个元素被压入栈并弹出）。
 > 
 > 因此，即使 `multipop(k)` 在某次操作中可能执行 k 次 `pop`，但所有 `pop` 操作（包括在 `multipop` 中的）总共不会超过 n 次。
-> 
+>
 > **Aggregate Analysis 结论：**
-> 
+>
 > - 如果执行了 n 次操作（其中包括 `push`、`pop` 和 `multipop` 操作），那么总的时间复杂度是 **O(n)**。
 > - 于是每次操作的摊还复杂度是 O(1)。
 
@@ -239,11 +245,15 @@ $$
 
 在 push 时分配 $\hat c_i=2$ 来支付弹出时的花销，这样 pop 的摊还花销都是 $\hat c_i=0$，满足了
 
-$$O(n)=\sum_{i=1}^n \hat c_i \ge \sum_{i=1}^n c_i$$
+$$
+O(n)=\sum_{i=1}^n \hat c_i \ge \sum_{i=1}^n c_i
+$$
 
 所以
 
-$$T_{amoritzed}=\frac{\sum_{i=1}^n \hat c_i}{n}=\frac{O(n)}{n}=O(1)$$
+$$
+T_{amoritzed}=\frac{\sum_{i=1}^n \hat c_i}{n}=\frac{O(n)}{n}=O(1)
+$$
 
 ## 3.3 Potential method 势能法
 
@@ -251,7 +261,7 @@ $$T_{amoritzed}=\frac{\sum_{i=1}^n \hat c_i}{n}=\frac{O(n)}{n}=O(1)$$
 
 > [!hint]- 势能函数的选择
 > 选择**势能函数**时，核心原则是确保势能函数能够准确反映数据结构状态的变化，并能够帮助解释操作的摊还代价。在不同的问题中，势能函数的选择方式会有所不同，但通常会遵循以下几个指导原则：
-> 
+>
 > 1. **势能函数要与数据结构状态相关**：
 > 势能函数 $\Phi$ 通常是数据结构的某些属性的函数。它应该能够反映操作前后系统状态的变化。常见的选择包括：
 >    - 数据结构中的元素数量。
@@ -284,30 +294,32 @@ In general, a good potential function should always **assume its minimum** at th
 
 ### 3.3.3 Splay Trees: $T_{amortized}=O(\log N)$
 
-$$\Phi(T)=\sum_{i \in T} \log S(i)$$
+$$
+\Phi(T)=\sum_{i \in T} \log S(i)
+$$
 
 其中 $S(i)$ 表示以 $i$ 为根节点的子树中节点数之和，这样，当树更加平衡时，势能较小。
 
 > [!NOTE] 考察三种 splay 操作的摊还花销：
 > **zig**
-> 
+>
 > ![[__assets/ADS 01 AVL Trees, Splay Trees and Amortized Analysis/IMG-ADS 01 AVL Trees, Splay Trees and Amortized Analysis-20241028012110595.webp]]
-> 
+>
 > - $c_i=1$，因为只有一次旋转
 > - 势能函数中只有 `X, P` 两个节点的 rank 发生了变化，且 $R(P)$ 变小所以可以放缩
 > 
 > **zig-zag**
-> 
+>
 > ![[__assets/ADS 01 AVL Trees, Splay Trees and Amortized Analysis/IMG-ADS 01 AVL Trees, Splay Trees and Amortized Analysis-20241028012152129.webp]]
-> 
+>
 > - $c_i=2$，因为实际旋转 2 次
 > - 同理，由于 $R(P)$ 和 $R(G)$ 都变小，可以放缩
 > - 进一步 `X` 一定至少多了两个后代 `P, G`，所以 $R_2(X)-R_1(X)\ge 2$，可以进一步放缩
 > 
 > **zig-zig**
-> 
+>
 > ![[__assets/ADS 01 AVL Trees, Splay Trees and Amortized Analysis/IMG-ADS 01 AVL Trees, Splay Trees and Amortized Analysis-20241028012217570.webp]]
-> 
+>
 > - $c_i=2$，因为实际旋转 2 次
 > - 同理，$R(G)$ 一定减小，可以放缩掉
 > - $R(P)$ 的变化情况不确定，但一定有 $R_2(P)-R_1(P)\le R_2(X)-R_1(X)$
@@ -357,7 +369,7 @@ Consider the following buffer management problem. Initially the buffer size (the
 
 ### 4.1.4 编程题：AVL Tree 插入实现
 
-> [!attention] 
+> [!attention]
 > - 由于本章节课件没有代码实现，可以借鉴课本上的代码
 > - **高度更新的时机**十分重要
 

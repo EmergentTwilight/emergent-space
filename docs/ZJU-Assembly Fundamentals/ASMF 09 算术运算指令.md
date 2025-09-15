@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-17 21:31:05
-date_modified: 2025-02-04 14:54:41
+status:
+  - archived
+tags: CS/Language/Assembly/80x86
+date_created: 2024-12-17T21:31:05
+date_modified: 2025-09-13T10:18:06
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-tags: Programming-Language/Assembly/80x86
-type:
-- note
 ---
+
 # 1 算术运算指令格式（以加法为例）
 
 ```asm title="add 语句的几种用法"
@@ -32,7 +29,7 @@ add ah, bx  ; wrong
 上面的加法中，使用的寄存器有 8 位和 16 位的，所以不能直接相加。
 
 > [!example] Solution
-> 如果一定要相加，则必须将较短的进行扩展： 
+> 如果一定要相加，则必须将较短的进行扩展：
 > ```asm
 > mov bl, bh  ; let bh = 12h, then bl = 12h
 > mov bh, 0  ; bx = 0012h
@@ -51,7 +48,7 @@ add ah, bx  ; wrong
 add byte ptr ds:[1000h], 1
 ```
 
-> [!attention] 
+> [!attention]
 > 汇编语言中**常数没有宽度**。上面的例子中，编译器无法自动确定变量宽度，**必须手动确定变量宽度**为 `byte ptr`
 
 设 `ds=2000h`，且从地址 `2000h:1000h` 起存放了下面四个字节：
@@ -63,7 +60,7 @@ add byte ptr ds:[1000h], 1
 2000:1003 0FFh
 ```
 
-> [!attention] 
+> [!attention]
 > 汇编语言中，由于使用后缀 `h` 来声明 16 进制数，当这个 16 进制数开头恰好是字母时，编译器无法识别这是一个变量还是一个数。<br>
 > 所以，**增加一个前缀 `0`** 来说明这是一个数而不是一个变量。
 
@@ -104,7 +101,7 @@ a += b;
 00401033    mov        [00424a30], eax
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > - 上述的汇编语言其实可以压缩到两步
 > - `[00424a30]` 这里相当于省略了 `ds:`
 
@@ -200,7 +197,7 @@ neg ax  ; ax = 0 - ax
 ; neg ax = ~ax + 1
 ```
 
-> [!attention] 
+> [!attention]
 > 应当当作普通的减法指令来看待，**会影响标志位**
 
 ## 2.5 `cmp` 减法比较
@@ -217,6 +214,7 @@ neg ax  ; ax = 0 - ax
 	- `ja: CF=0 & ZF=0` (jump if above)
 
 > [!example]
+>
 > ```asm
 > mov ah, 0FFh
 > mov al, 01h
@@ -323,7 +321,7 @@ imul eax, ebx, 3  ; eax = ebx * 3，这种用法中第三个参数只能是常�
 > - 第二个操作数可以是寄存器或变量
 > - 第三个操作数必须是常数
 
-> [!bug] 
+> [!bug]
 > - 可能会造成乘法溢出，不像除法溢出那样，CPU 不会中断处理乘法溢出
 > - `idiv` 没有类似的使用方法
 
@@ -405,7 +403,7 @@ code ends
 end main
 ```
 
-> [!attention] 
+> [!attention]
 > - 要使用 64 位除 32 位才行，否则会溢出
 > - 使用栈先入后出的性质，来将余数按照正确的顺序输出
 > - 堆栈只能进行 16 位或 32 位操作，所以即使 `dl` 是需要的 `char`，也要 `push dx`

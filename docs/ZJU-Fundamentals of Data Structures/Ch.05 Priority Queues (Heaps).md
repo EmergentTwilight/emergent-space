@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-04-02 02:23:58
-date_modified: 2025-01-30 11:40:25
-is_published: true
+status:
+  - archived
+tags: CS/Data-Structure/Priority-Queue
+date_created: 2024-04-02T02:23:58
+date_modified: 2025-09-12T15:23:20
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-type:
-- note
 ---
+
 > [!NOTE] Priority queues
 > delete the element with the highest / lowest priority
 

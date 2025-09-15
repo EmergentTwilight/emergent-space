@@ -1,12 +1,14 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-02 13:26:58
-date_modified: 2025-01-31 19:10:45
-number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
+status:
+  - archived
 tags:
-- Algorithm/Problem/Max-3-SAT
-- Algorithm/Random
+  - CS/Algorithm/Complexity-Problem/Max-3-SAT
+  - CS/Algorithm/Random
+date_created: 2024-12-02T13:26:58
+date_modified: 2025-09-13T10:18:04
+number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
 ---
+
 # 1 Intro
 
 ## 1.1 Review
@@ -74,7 +76,7 @@ tags:
 > [!warning] Warning
 > 无法保证找到最优解
 
-> [!NOTE] 
+> [!NOTE]
 > 这种 online 算法中，如果雇佣了能力超过前 $k$ 个人而继续寻找，预期雇佣人数为 $\frac{N-k}{k+1}$
 
 # 3 Randomized Quicksort
@@ -103,7 +105,7 @@ tags:
 
 > [!question] Question
 > Let's consider the **Randomized Quicksort** where each pivot is randomly chosen from the subsequence. The following is the pseudo-code:
-> 
+>
 > ```
 > RandQSort( A, L, R ) {
 >     if (L < R) {
@@ -115,9 +117,9 @@ tags:
 >     }
 > }
 > ```
-> 
+>
 > Show that the **expected** running time is $O(n \log n)$ for sorting $A[1\dots n]$.
-> 
+>
 > Hint: `Partition` is called $n$ times. Each call takes a constant time plus the number of comparisons with the pivot. Hence the total run time is $O(n+X)$ where $X$ is the total number of comparisons with the pivots. You need to prove that $E[X]=O(n\log n)$.
 
 Assume the **sorted** array is $R[1\dots n]$, and there exist $r_i$ and $r_j$ where $i<j$ and $r_i<r_j$.
@@ -141,7 +143,7 @@ Thus, the overall expected time complexity is $O(n \ln n)$.
 
 > [!question] Question
 > Given a $3$-SAT formula with $k$ clauses, in which each clause has three variables, the **MAX 3-SAT** problem is to find a truth assignment that satisfies as many clauses as possible. A simple randomized algorithm is to flip a coin, and to set each variable true with probability $1/2$, independently for each variable.
-> 
+>
 > Prove that the expected number of clauses satisfied is $7k/8$. Hence if we repeatedly generate random truth assignments until one of them satisfies $\ge 7k/8$ clauses, then this algorithm is a $8/7$-approximation algorithm.
 
 A clause has 3 varibles, for example $(\neg x_{1} \vee x_{2} \vee \neg x_{3})$. For all truth assignments, the probability that one clause is true is:
@@ -173,8 +175,10 @@ Then this is a $8/7$-approximation algorithm.
 
 ### 5.1.1 Las Vegas and Monte Carlo
 
-A **Las Vegas** algorithm is a randomized algorithm that always gives the correct result, however the runtime of a Las Vegas algorithm differs depending on the input.  
-A **Monte Carlo** algorithm is a randomized algorithm whose output may be incorrect with a certain (typically small) probability. The running time for the algorithm is fixed however.  
+A **Las Vegas** algorithm is a randomized algorithm that always gives the correct result, however the runtime of a Las Vegas algorithm differs depending on the input.
+
+A **Monte Carlo** algorithm is a randomized algorithm whose output may be incorrect with a certain (typically small) probability. The running time for the algorithm is fixed however.
+
 Then if a Monte Carlo algorithm runs in $O(n^2)$ time, with the probability 50% of producing a correct solution, then there must be a Las Vegas algorithm that can get a solution in $O(n^2)$ time in expectation.
 
 > [!tip]- Answer
@@ -186,8 +190,9 @@ Then if a Monte Carlo algorithm runs in $O(n^2)$ time, with the probability 50% 
 
 > [!tip]- Answer
 > **D**
+>
 > > 从箱子的角度，考虑一个箱子被几个球选中，比较方便思考，每个箱子被 $X \sim B(m,\frac{1}{m})$ 个球选中
-> 
+>
 > C 显然，有多少个空箱子，就有多少个 rejected balls，所以 C 正确
 > D $1-(\frac{m-1}{m})^m-C_{m}^1 \frac{1}{m}(\frac{m-1}{m})^{m-1}=1-\frac{2}{e}$
 
@@ -196,8 +201,9 @@ Then if a Monte Carlo algorithm runs in $O(n^2)$ time, with the probability 50% 
 ![[__assets/ADS 13 Randomized Algorithms/IMG-ADS 13 Randomized Algorithms-20241223114819991.webp]]
 
 > [!tip]- Answer
+>
 > > Master theorm
-> 
+>
 > $T(n)\leq T(3n/4)+O(n)$
 > $a=1,b=4/3,k=1$，满足了 $a<b^k$ 所以 $O(n)$
 

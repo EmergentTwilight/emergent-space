@@ -1,10 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-11-01 16:23:43
-date_modified: 2025-01-31 19:09:37
+status:
+  - archived
+tags: CS/Algorithm/Analysis/Complexity
+date_created: 2024-11-01T16:23:43
+date_modified: 2025-09-13T10:18:04
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-tags: Algorithm/Analysis/Complexity
 ---
+
 # 1 Intro
 
 ## 1.1 Recall: FDS
@@ -30,14 +32,15 @@ tags: Algorithm/Analysis/Complexity
 > 最复杂的问题是**不可判定问题 (undecidable problem)**，无法用渐进符号描述
 
 > [!example] Undecidable Problem: Halting Problem
+>
 > ```python
 >def g():
 >	if halts(g):
 >		loop_forever() 			
 >```
->- 如果 `halts()` 判定 `g()` 会停机，那么 `g()` 进入死循环
->- 如果 `halts()` 判定 `g()` 不会停机，那么 `g()` 返回
->- 这样就构造了一组矛盾，所以停机问题是不可判定的
+> - 如果 `halts()` 判定 `g()` 会停机，那么 `g()` 进入死循环
+> - 如果 `halts()` 判定 `g()` 不会停机，那么 `g()` 返回
+> - 这样就构造了一组矛盾，所以停机问题是不可判定的
 
 # 2 NP, P, NP-H, NP-C
 
@@ -58,43 +61,44 @@ tags: Algorithm/Analysis/Complexity
 - **Deterministic** Turing Machine: 每一步的操作都由当前的指令唯一确定
 - **Deterministic** Turing Machine: 每一步的操作可以从 finite set 中选择，总是选择能得到解的操作，lucky machine
 
-> [!attention] 
+> [!attention]
 > **Solvable** 不一定意味着 **decidable**
 
-> [!note]- #Algorithm/Problem/Post-Correspondence-Problem 
-> 
+> [!note]- #CS/Algorithm/Complexity-Problem/Post-Correspondence-Problem
+>
 > > 一个有趣的 **solvable** yet **undecidable** 问题 [Post correspondence problem - Wikipedia](https://en.wikipedia.org/wiki/Post_correspondence_problem#Proof_sketch_of_undecidability)，通过将问题规约成 Turing Machine 来证明不可判定
-> 
+>
 > 和停机问题一样，PCP 是一个 undecidable 问题。
-> 
+>
 > 有一些 dominos，top 和 bottom 有不同的字符串，每个 domino 可以使用多次。
-> 
+>
 > ![[__assets/ADS 10 NP-Completeness/IMG-ADS 10 NP-Completeness-20241219230238924.webp]]
-> 
+>
 > 找到一种排列方式，使得 top string 和 bottom string 完全相同。
-> 
+>
 > #### Solvability
-> 
+>
 > - 找到一个 top bottom 第一个字母一样的 domino
 > - 以此类推，如果某个部分解 top bottom 不等长，找缺失的字母；如果部分解已经对齐，就得到了答案
 > 
 > > [!note] 但是可以找到这样的例子：
 > > ![[__assets/ADS 10 NP-Completeness/IMG-ADS 10 NP-Completeness-20241219231145031.webp]]
 > > 其中，如果一直尝试配对，将一直放 3 号 domino 而不会停止
-> 
+>
 > #### Undecidability
-> 
+>
 > > 如果能将一个 undecidable problem 规约到 PCP，那么 PCP 肯定也是 undecidable 的
 > > [Undecidability of the Post Correspondence Problem](https://www.youtube.com/watch?v=7w9elZjJ9Ko) 介绍了如何将 Acceptance Problem of a Turing Machine (命题接受问题，undecidable) 规约到 PCP 来完成证明
 
 ## 2.2 NP: **N**ondeterministic **P**olynomial-time
 
 - 能在**多项式时间**内验证任何解是否正确的问题
-- e.g. #Algorithm/Problem/Hamiltonian-Cycle
+- e.g. #CS/Algorithm/Complexity-Problem/Hamiltonian-Cycle
 
-> [!attention] 
+> [!attention]
 > 不是所有 **decicable** problem 都是 NP 问题
 > 例如判定一个图是否有 Hamiltonian cycle，这个问题可以在多项式时间内解决；但是要 **verify** 就必须找出一个 Hamilton cycle，没有多项式时间算法能做到
+>
 > > 但是 NP 问题全都是 **decidable** 的
 
 ## 2.3 Reduction
@@ -134,6 +138,7 @@ $A$ 类问题的一个实例是 $\alpha$，如果存在一个程序能够在多�
 ## 3.1 Abstract Problem
 
 形式语言中，将问题分为 *Abstract Problem* 和 *Concrete Problem*，分别是抽象问题和具体问题
+
 - 抽象问题 $Q$ 是问题实例集合 $I$ 和问题解集合 $S$ 的二元对应关系
 - 具体问题是对抽象问题的一种编码，将 $I$ 映射到一个 bitstring 上，$Q$ 就变成了具体问题
 
@@ -182,11 +187,11 @@ $A$ 类问题的一个实例是 $\alpha$，如果存在一个程序能够在多�
 
 > [!NOTE] $L$ 为 NP 问题的充要条件
 > 存在一个多项式时间的双参数验证算法 $A$ 和一个常数 $c$，使得
-> 
+>
 > $L=\{x\in\{0,1\}^*:\text{there exists a certificate }y\text{ with }|y|=O(|x|^c)\text{ such that }A(x,y)=1\}$
-> 
+>
 > > 其中的 $|y|=O(|x|^c)$ 只是为了让解的长度不至于直接影响时间复杂度
-> 
+>
 > 这样，就能说算法 $A$ 能在多项式时间内验证 $L$ 的解的正确性
 
 ## 3.3 co-NP
@@ -213,8 +218,8 @@ $A$ 类问题的一个实例是 $\alpha$，如果存在一个程序能够在多�
 
 ### 3.5.1 抽象问题表述
 
-- $\text{CLIQUE}=\{<G,K>:G\text{ is a graph with a clique of size }K\}$ #Algorithm/Problem/Clique 
-- $\text{VERTEX-COVER}=\{<G,K>:G\text{ has a vertex cover of size }K\}$ #Algorithm/Problem/Vertex-Cover 
+- $\text{CLIQUE}=\{<G,K>:G\text{ is a graph with a clique of size }K\}$ #CS/Algorithm/Complexity-Problem/Clique
+- $\text{VERTEX-COVER}=\{<G,K>:G\text{ has a vertex cover of size }K\}$ #CS/Algorithm/Complexity-Problem/Vertex-Cover
 
 ### 3.5.2 证明过程
 
@@ -264,9 +269,9 @@ $A$ 类问题的一个实例是 $\alpha$，如果存在一个程序能够在多�
 
 > [!question] Question
 > A knapsack with a capacity $M$ is to be packed. Given $N$ items. Each item $i$ has a weight $w_i$ and a profit $p_{i}$​. An **optimal packing** is a feasible one with maximum profit.
-> 
+>
 > This problem is NP-hard.
-> 
+>
 > However, if no items have a size larger than $N^2$, is it still NP-hard? Explain your answer.
 
 给出一种 dp 算法，遍历所有物品，遍历所有 $w=1,2,3,\dots,M$，这样时间复杂度为 $O(NM)$ 或 $O(N^2W_{max})$。
@@ -316,56 +321,56 @@ Which one of the following statements is FALSE?
 
 > [!tip]- Answer
 > 让我们逐一分析每个选项，找出其中的 **FALSE** 陈述。
-> 
+>
 > ---
-> 
+>
 > ### **选项 A**
 > **陈述**：SAT, Vertex Cover, Hamiltonian Cycle, Clique, Knapsack, Bin Packing, and Domination Set 问题都是 NP- 完全问题。
-> 
+>
 > **分析**：
 > - **SAT**（布尔可满足性问题）是第一个被证明的 NP- 完全问题。
 > - **Vertex Cover**（顶点覆盖问题）、**Hamiltonian Cycle**（哈密顿回路问题）、**Clique**（团问题）、**Knapsack**（背包问题）、**Bin Packing**（装箱问题）和 **Domination Set**（支配集问题）都是经典的 NP- 完全问题。
 > 
 > **结论**：该陈述是 **TRUE**。
-> 
+>
 > ---
-> 
+>
 > ### **选项 B**
 > **陈述**：如果存在一个多项式时间的 $(1+\frac{1}{2n})$- 近似算法（其中 $n$ 是图中顶点的总数）来解决 Vertex Cover 问题，则 P=NP。
-> 
+>
 > **分析**：
 > - Vertex Cover 是一个 NP- 完全问题。
 > - 已知 Vertex Cover 的近似算法的最小近似比为 $2$（即 2- 近似算法）。
 > - 如果存在一个比 $2$ 更优的近似算法（例如 $(1+\frac{1}{2n})$- 近似算法），则意味着可以在多项式时间内精确解决 Vertex Cover 问题，从而 P=NP。
 > 
 > **结论**：该陈述是 **TRUE**。
-> 
+>
 > ---
-> 
+>
 > ### **选项 C**
 > **陈述**：如果存在一个多项式时间的 $3/2$- 近似算法来解决 K-Center 问题，则 P=NP。
-> 
+>
 > **分析**：
 > - K-Center 是一个 NP- 完全问题。
 > - 已知 K-Center 的近似算法的最小近似比为 $2$（即 2- 近似算法）。
 > - 如果存在一个比 $2$ 更优的近似算法（例如 $3/2$- 近似算法），则意味着可以在多项式时间内精确解决 K-Center 问题，从而 P=NP。
 > 
 > **结论**：该陈述是 **TRUE**。
-> 
+>
 > ---
-> 
+>
 > ### **选项 D**
 > **陈述**：给定一个加权有向无环图（DAG）$G$ 和一个源顶点 $s$，找到从 $s$ 到所有其他顶点的最长距离是 NP- 难的。
-> 
+>
 > **分析**：
 > - 在 **DAG** 中，最长路径问题（Longest Path Problem）可以在多项式时间内解决。
 >   - 具体方法：对 DAG 进行拓扑排序，然后使用动态规划计算从 $s$ 到每个顶点的最长距离。
 > - 因此，该问题不是 NP- 难的。
 > 
 > **结论**：该陈述是 **FALSE**。
-> 
+>
 > ---
-> 
+>
 > ### **最终答案**
 > **选项 D** 是 **FALSE**。
 
@@ -375,6 +380,7 @@ Which one of the following statements is FALSE?
 
 > [!tip]- Answer
 > **T** 所有的 NP 问题都是可判定的，**不可判定问题不存在 complexity class**
+>
 > > **Undecidable** 不存在算法能够在有限的时间内解决的问题。
 
 ### 6.3.2 Proof of NP-C

@@ -1,8 +1,10 @@
 ---
+status:
+  - archived
 date_created: 2025-03-01T14:24:24
-date_modified: 2025-03-01T14:46:13
-MkDocs_comments: true
+date_modified: 2025-09-13T09:24:53
 ---
+
 # Table of Contents
 
 - [[Chap.01 需求、供给和均衡价格]]
@@ -11,7 +13,7 @@ MkDocs_comments: true
 - [[Chap.04 完全竞争产品市场]]
 - [[Chap.05 完全垄断市场]]
 - [[Chap.06 垄断竞争]]
-- [[Final]]
+- [[ZJU/2024-1 Spring-Summer/ZJU-微观经济学（甲）/Final]]
 
 # Info
 

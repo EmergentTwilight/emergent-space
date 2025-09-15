@@ -1,10 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-10-14 13:33:37
-date_modified: 2025-01-31 19:31:25
+status:
+  - archived
+tags: CS/Algorithm/Backtracking
+date_created: 2024-10-14T13:33:37
+date_modified: 2025-09-13T10:18:03
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-tags: Algorithm/Backtracking
 ---
+
 # 1 Intro
 
 ## 1.1 Elements of an Algorithm
@@ -171,15 +173,23 @@ In practice, it limits the searching to only $O(\sqrt{ N })$ nodes, where $N$ is
 ### 4.2.1 Discussion: best-case complexity for $\alpha-\beta$ pruning
 
 > [!question] 试图证明：
-> 若分叉数 $b$ 的 Minimax 博弈树的深度为 $d$，且叶子节点都在深度 $d$ 层，则 best case 下使用 $\alpha -\beta$ pruning 后的最优复杂度为：$$O\left( b^\frac{d}{2} \right)$$
+> 若分叉数 $b$ 的 Minimax 博弈树的深度为 $d$，且叶子节点都在深度 $d$ 层，则 best case 下使用 $\alpha -\beta$ pruning 后的最优复杂度为：
+>
+> $$
+> O\left( b^\frac{d}{2} \right)
+> $$
 
 记 $c_i$ 表示深度为 $i$ 时的最优复杂度，则对于 $d=i$ 的树，至少有一个子树进行了子问题的搜索 $c_{i-1}$，其他 $b-1$ 个子树至少有一个孩子进行了子问题的搜索 $(b-1)c_{i-2}$，因此：
 
-$$c_{i}=c_{i-1}+(b-1)c_{i-2}$$
+$$
+c_{i}=c_{i-1}+(b-1)c_{i-2}
+$$
 
 求解特征方程 $x^2-x-(b-1)=0$ 得到 $x=\frac{1\pm \sqrt{ 4b-3 }}{2}$，那么
 
-$$c_{d}=C_{1}x_{1}^d+C_{2}x_{2}^d = O\left( \left( \frac{1+\sqrt{ 4b-3 }}{2} \right)^d \right)=O(b^{d/2})$$
+$$
+c_{d}=C_{1}x_{1}^d+C_{2}x_{2}^d = O\left( \left( \frac{1+\sqrt{ 4b-3 }}{2} \right)^d \right)=O(b^{d/2})
+$$
 
 证毕。
 
@@ -198,11 +208,11 @@ It is guaranteed that an exhaustive search can always find the solution in finit
 
 ## 5.3 HW6
 
-### 5.3.1 Detecting Werewolves %% fold %% 
+### 5.3.1 Detecting Werewolves %% fold %%
 
 > [!question]- Werewolf
 > Werewolf（狼人杀） is a game in which the players are partitioned into two parties: the werewolves and the human beings. Suppose that in a game,
-> 
+>
 > - player #1 said: "Player #2 is a werewolf.";
 > - player #2 said: "Player #3 is a human.";
 > - player #3 said: "Player #4 is a werewolf.";
@@ -210,19 +220,19 @@ It is guaranteed that an exhaustive search can always find the solution in finit
 > - player #5 said: "Player #4 is a human.".
 > 
 > Given that there were 2 werewolves among them, at least one but not all the werewolves were lying, and there were exactly 2 liers. Can you point out the werewolves?
-> 
+>
 > Now you are asked to solve a harder vertion of this problem: given that there were N players, with M werewolves among them, at least one but not all the werewolves were lying, and there were exactly L liers. You are supposed to point out the werewolves.
-> 
+>
 > **Input Specification**:
-> 
+>
 > Each input file contains one test case. For each case, the first line gives three positive integer N (5 ≤ N ≤ 100), M and L (2 ≤ M < N, 1 ≤ L < N). Then N lines follow and the i-th line gives the statement of the i-th player (1 ≤ i ≤ N), which is represented by the index of the player with a positive sign for a human and a negative sign for a werewolf.
-> 
+>
 > **Output Specification**:
-> 
+>
 > If a solution exists, print in a line in descending order the indices of the M werewolves. The numbers must be separated by exactly one space with no extra spaces at the beginning or the end of the line. If there are more than one solution, you must output the largest solution sequence -- that is, for two sequences A = { a[1], ..., a[M] } and B = { b[1], ..., b[M] }, if there exists 0 ≤ k < M such that a[i] = b[i] (i ≤ k) and a[k+1]>b[k+1], then A is said to be larger than B. In case there is no solution, simply print `No Solution`.
-> 
+>
 > **Sample Input 1**:
-> 
+>
 > ```in
 > 5 2 2
 > -2
@@ -231,15 +241,15 @@ It is guaranteed that an exhaustive search can always find the solution in finit
 > +5
 > +4
 > ```
-> 
+>
 > **Sample Output 1**:
-> 
+>
 > ```out
 > 4 1
 > ```
-> 
+>
 > **Sample Input 2**:
-> 
+>
 > ```in
 > 6 2 3
 > -2
@@ -249,15 +259,15 @@ It is guaranteed that an exhaustive search can always find the solution in finit
 > +4
 > -3
 > ```
-> 
+>
 > **Sample Output 2**:
-> 
+>
 > ```out
 > 6 4
 > ```
-> 
+>
 > **Sample Input 3**:
-> 
+>
 > ```in
 > 6 2 5
 > -2
@@ -267,18 +277,18 @@ It is guaranteed that an exhaustive search can always find the solution in finit
 > +4
 > +6
 > ```
-> 
+>
 > **Sample Output 3**:
-> 
+>
 > ```out
 > No Solution
 > ```
 
-> [!hint] 
+> [!hint]
 > - 使用合理的 struct 来方便状态传递
 > - 需要高亮部分的 pruning 条件，才能避免超时
 
-> [!note] 
+> [!note]
 > 非常有意思的问题
 
 

@@ -1,8 +1,11 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-11 02:27:54
-date_modified: 2025-02-11 05:34:28
+status:
+  - archived
+tags: CS/CG-CV/Concept/Color-Science
+date_created: 2025-02-11T02:27:54
+date_modified: 2025-09-13T10:18:02
 ---
+
 # Physical Basis of Colors
 
 ## Spectral Power Distribution (SPD)

@@ -1,8 +1,10 @@
 ---
-MkDocs_comments: true
-date_created: 2025-01-31 18:48:02
-date_modified: 2025-02-16 22:08:51
+status:
+  - archived
+date_created: 2025-01-31T18:48:02
+date_modified: 2025-09-13T10:18:05
 ---
+
 # Table of Contents
 
 - [[ADS 01 AVL Trees, Splay Trees and Amortized Analysis]]
@@ -21,8 +23,8 @@ date_modified: 2025-02-16 22:08:51
 - [[ADS 14 Parallel Algorithms]]
 - [[ADS 15 External Sorting]]
 - Final
-	- [[ADS Cheat Sheet]]
-	- [[ADS Cheat Sheet Dynamic Programming]]
+	- [[ADS Cheatsheet]]
+	- [[ADS Cheatsheet Dynamic Programming]]
 	- [[ADS Final Questions]]
 
 # Info
@@ -35,11 +37,11 @@ date_modified: 2025-02-16 22:08:51
 > - 教材：*Introductin to Algorithms*, 3rd Edition
 
 > [!note]- Grading Policy
-> 
+>
 > > [!warning] Warning
 > > 每位老师的评分标准可能不同，仅供参考！
+>
 > - Discussions **10** *可能的加分*
-> 
 > - Research Project + Peer Review **30** *8 选 2，每多做一个加 2 分*
 > 	- 报告 **20**
 > 		- 会留 2 周时间
@@ -59,8 +61,8 @@ date_modified: 2025-02-16 22:08:51
 > - 本笔记**基本**涵盖了所有课程内容，但无法保证完整性和正确性
 > - 每章节笔记末尾有部分 pta 题目的订正/思路，**由于课程要求，没有任何源码**
 > - 含有部分期末复习笔记
-> 	- [[ADS Cheat Sheet]] 是一份并不完整的 Cheat Sheet，其中的 **Complexity Class** 和 **Approximation** 部分可能有很多错误
-> 	- [[ADS Cheat Sheet Dynamic Programming]] 整理了部分动态规划内容，笔者认为对期末复习有一定帮助，*毕竟期末函数题基本都是 dp*
+> 	- [[ADS Cheatsheet]] 是一份并不完整的 Cheat Sheet，其中的 **Complexity Class** 和 **Approximation** 部分可能有很多错误
+> 	- [[ADS Cheatsheet Dynamic Programming]] 整理了部分动态规划内容，笔者认为对期末复习有一定帮助，*毕竟期末函数题基本都是 dp*
 > 	- [[ADS Final Questions]] 是历年卷里一些错题的订正/思路，**也不保证正确**，欢迎大家来讨论和修正
 
 > [!quote] Useful Links

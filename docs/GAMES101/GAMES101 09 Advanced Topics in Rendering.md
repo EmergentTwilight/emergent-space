@@ -1,8 +1,11 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-11 00:12:09
-date_modified: 2025-02-11 01:36:21
+status:
+  - archived
+tags: CS/CG-CV/Rendering
+date_created: 2025-02-11T00:12:09
+date_modified: 2025-09-13T10:18:02
 ---
+
 # Advanced Light Transport
 
 ## Biased vs. Unbiased Monte Carlo Estimators

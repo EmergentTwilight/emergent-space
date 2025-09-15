@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-03-19 02:25:13
-date_modified: 2025-01-30 13:48:18
-is_published: true
+status:
+  - archived
+tags: CS/Data-Structure/Tree
+date_created: 2024-03-19T02:25:13
+date_modified: 2025-09-12T15:23:20
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-type:
-- note
 ---
+
 # 1 Preliminaries
 
 ## 1.1 Definition
@@ -191,7 +188,7 @@ Position Iter_Find( ElementType X, SearchTree T )
 	- 最后一个遇到的节点就是这个数的父节点
 - 创建节点并返回指针
 - 上一层调用中使父节点的指针等于这个新节点的指针
-- $T(N)=O(d)$ 
+- $T(N)=O(d)$
 
 ```c
 SearchTree Insert( ElementType X, SearchTree T )
@@ -217,7 +214,7 @@ SearchTree Insert( ElementType X, SearchTree T )
 
 - delete leaf node: free 并将父节点指向空
 - delete 1 degree node: 将它的子节点直接接到父节点上
-- delete 2 degree node: 
+- delete 2 degree node:
 	- 将这个节点替换为**左子树中最大的**，或**右子树中最小的**
 	- 对被换过来的这个节点**递归进行 delete 操作**
 

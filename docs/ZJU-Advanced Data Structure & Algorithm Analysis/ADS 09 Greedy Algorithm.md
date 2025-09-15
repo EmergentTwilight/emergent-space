@@ -1,10 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-11-04 14:31:32
-date_modified: 2025-02-07 02:18:32
+status:
+  - archived
+tags: CS/Algorithm/Greedy
+date_created: 2024-11-04T14:31:32
+date_modified: 2025-09-13T10:18:03
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-tags: Algorithm/Greedy
 ---
+
 # 1 Introduction
 
 ## 1.1 Optimization Problems
@@ -31,7 +33,11 @@ tags: Algorithm/Greedy
 
 - $S_{ij}$ 表示从活动 $a_i$ 到 $a_j$ 的活动集合（不包括两端）
 
-- $c_{ij}$ 表示 $S_{ij}$ 中最大安排活动数量，状态转移方程为 $$c_{ij}=\begin{cases}0 &\text{if }S_{ij}=\emptyset\\max_{{a_{k}\in S_{ij}}}\{c_{ik}+c_{kj}+1\}\quad &\text{if }S_{{ij}}\neq \emptyset\end{cases}$$
+- $c_{ij}$ 表示 $S_{ij}$ 中最大安排活动数量，状态转移方程为
+
+$$
+c_{ij}=\begin{cases}0 &\text{if }S_{ij}=\emptyset\\max_{{a_{k}\in S_{ij}}}\{c_{ik}+c_{kj}+1\}\quad &\text{if }S_{{ij}}\neq \emptyset\end{cases}
+$$
 
 - $T(N)=O(N^3)$，这是因为有 $i,j,k$ 三个变量的遍历
 
@@ -140,6 +146,7 @@ void Huffman ( PriorityQueue  heap[ ],  int  C )
 ### 6.1.1 找零问题
 
 Consider the problem of making change for n cents using the fewest number of coins. Assume that each coin's value is an integer.
+
 The coins of the lowest denomination（面额） is the cent.
 
 (I) Suppose that the available coins are quarters (25 cents), dimes (10 cents), nickels (5 cents), and pennies (1 cent). The greedy algorithm always yields an optimal solution.

@@ -1,13 +1,15 @@
 ---
-MkDocs_comments: true
-date_created: 2024-11-25 13:27:10
-date_modified: 2025-01-31 19:09:40
+status:
+  - archived
 tags:
-- Algorithm/Local-Search
-- Algorithm/Problem/Hopfield-Neural-Network
-- Algorithm/Problem/Max-Cut
-- Algorithm/Problem/Vertex-Cover
+  - CS/Algorithm/Complexity-Problem/Hopfield-Neural-Network
+  - CS/Algorithm/Complexity-Problem/Max-Cut
+  - CS/Algorithm/Complexity-Problem/Vertex-Cover
+  - CS/Algorithm/Local-Search
+date_created: 2024-11-25T13:27:10
+date_modified: 2025-09-13T10:18:04
 ---
+
 # Intro
 
 - Guess
@@ -27,7 +29,7 @@ tags:
 - **邻居解** $S\sim S'$: $S'$ is a *neighboring solution* of $S-S'$ can be obtained by a *samll modification* of S.
 - **邻域** $N(S)$: *neighborhood* of $S-\{S':S\sim S'\}$
 
-> [!NOTE] 
+> [!NOTE]
 > Greedy Algorithm 不是 Local Search 的一种特殊情况
 
 # Vertex Cover Problem
@@ -113,15 +115,15 @@ ConfigType State_flipping()
 
 > [!question] Question
 > A bipartite graph $G$ is one whose vertex set can be partitioned into two sets $A$ and $B$, such that each edge in the graph goes between a vertex in $A$ and a vertex in $B$. Matching $M$ in $G$ is a set of edges that have no end points in common. Maximum Bipartite Matching Problem finds a matching with the greatest number of edges (over all matchings).
-> 
+>
 > Consider the following **Gradient Ascent Algorithm**:
-> 
+>
 > _As long as there is an edge whose endpoints are unmatched, add it to the current matching. When there is no longer such an edge, terminate with a locally optimal._
-> 
+>
 > (a) Give an example of a bipartite graph $G$ for which this gradient ascent algorithm does **not** return the maximum matching.
-> 
+>
 > (b) Let $M$ and $M'$ be matchings in a bipartite graph $G$. Suppose that $|M'|>2|M|$. Show that there is an edge $e'$ in $M'$ such that ($M \cup e'$) is a matching in $G$.
-> 
+>
 > (c) Use (b) to conclude that any locally optimal matching returned by the gradient ascent algorithm in a bipartite graph $G$ is at least half as large as a maximum matching in $G$.
 
 (a) Graph $A-B-C-D$, which can be partitioned into $\{A,C\}$ and $\{B,D\}$. The optimal result is $\{(A,B),(C,D)\}$, while if edge $(B,C)$ is added first, the algorithm **does not** return the maximum matching.
@@ -155,12 +157,16 @@ When the above local search algorithm terminates, the covering radius of its sol
 
 There are $n$ jobs, and each job $j$ has a processing time $t_j$​. We will use a local search algorithm to partition the jobs into two groups $A$ and $B$, where set $A$ is assigned to machine $M_1$​ and set $B$ to $M_2$​. The time needed to process all of the jobs on the two machines is $T_1​=\sum_{j\in A} ​t_j$​, $T_2​=\sum_{j \in B} ​t_j$​. The problem is to minimize $|T_1​−T_2​|$.
 
-Local search: Start by assigning jobs $1,\cdots,n/2$ to $M_1$​, and the rest to $M_2$​.  
+Local search: Start by assigning jobs $1,\cdots,n/2$ to $M_1$​, and the rest to $M_2$​.
+
 The local moves are to move a single job from one machine to the other, and we only move a job if the move decreases the absolute difference in the processing times. Which of the following statement is true?
 
 A. The problem is NP-hard and the local search algorithm will not terminate.
+
 B. When there are many candidate jobs that can be moved to reduce the absolute difference, if we always move the job $j$ with maximum $t_j$​, then the local search terminates in at most $n$ moves.
+
 C. The local search algorithm always returns an optimal solution.
+
 D. The local search algorithm always returns a local solution with $2/1​T_1​\le T_2​\le 2T_1$​.
 
 > [!tip]- Answer
@@ -207,7 +213,7 @@ Local search algorithm can be used to solve lots of classic problems, such as SA
 > A 显然错误，无环图的 degree 总和是 $2|V|-2$
 > B 也有问题，进行一次操作后，删除的边 $-(\geq d(w))$，但是增加了一条 $d(u)+1$ 的边（假设 $d(u)>d(v)$），并且还有两条边可能 $+2$，无法保证递减
 > C 有问题，对于操作中的 $u,v,w$ 是满足的，实现了 $-1$，但是可能导致其他很多点对的值变大
->  D 正确，进行一次操作，考虑 $w$ 减少 $-(\geq 2 \cdot 3^{d(w)-1})$，考虑 $u,v$ 增加 $(2\cdot 3^{d(u)}+2\cdot 3^{d(v)})$。假设 $d(u)\geq d(v)$，存在 $d(w)-1\geq d(u)+1$，所以整体递减，满足题意
+> D 正确，进行一次操作，考虑 $w$ 减少 $-(\geq 2 \cdot 3^{d(w)-1})$，考虑 $u,v$ 增加 $(2\cdot 3^{d(u)}+2\cdot 3^{d(v)})$。假设 $d(u)\geq d(v)$，存在 $d(w)-1\geq d(u)+1$，所以整体递减，满足题意
 
 ### Load Balancing Problem
 
@@ -224,7 +230,6 @@ Local search algorithm can be used to solve lots of classic problems, such as SA
 ![[__assets/ADS 12 Local Search/IMG-ADS 12 Local Search-20241223104337745.webp]]
 
 > [!tip]- Answer
-> 
 
 ## Q13
 
@@ -232,5 +237,5 @@ Since finding a locally optimal solution is presumably easier than finding an op
 
 > [!tip]- Answer
 > **F**，显然有些 local search 在 neighbor 空间里的搜索也可以是指数级的（例如 TSP 的一些局部 permute 搜索）
+>
 > > 关键在于不能和 divide and conquer 中的**假设子问题的时间复杂度为常数**搞混了
-

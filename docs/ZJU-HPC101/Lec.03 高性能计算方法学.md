@@ -1,16 +1,13 @@
 ---
-MkDocs_comments: true
-date_created: 2024-07-03 02:00:35
-date_modified: 2025-01-31 17:03:32
-state:
-- 待发布
-- 归档
-type:
-- note
+status:
+  - archived
+attachment:
+  - "[[slides/3_HPCMethodology.pdf|3_HPCMethodology]]"
+date_created: 2024-07-03T02:00:35
+date_modified: 2025-09-12T13:47:02
 ---
-# HPC skills
 
-[[Attachment/3_HPCMethodology.pdf|3_HPCMethodology]]
+# HPC skills
 
 - Linux
 - 集群维护和网络配置

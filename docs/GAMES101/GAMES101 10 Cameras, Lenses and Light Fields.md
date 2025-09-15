@@ -1,8 +1,13 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-11 01:35:25
-date_modified: 2025-02-11 02:27:54
+status:
+  - archived
+tags:
+  - CS/CG-CV/Concept/Camera
+  - CS/CG-CV/Light-Field
+date_created: 2025-02-11T01:35:25
+date_modified: 2025-09-13T10:18:02
 ---
+
 # Concepts in Photography
 
 # Lense
@@ -44,13 +49,17 @@ date_modified: 2025-02-11 02:27:54
 
 > [!note] 全光函数
 >
-> $$P(\theta,\phi,\lambda,t,V_x,V_y,V_z)$$
+> $$
+> P(\theta,\phi,\lambda,t,V_x,V_y,V_z)
+> $$
 >
 > 方位角、波长、时间、空间坐标
 
 > [!note] 光线
 >
-> $$P(\theta,\phi,V_x,V_y,V_z)$$
+> $$
+> P(\theta,\phi,V_x,V_y,V_z)
+> $$
 >
 > 同时，两点也可以定义一条光线
 

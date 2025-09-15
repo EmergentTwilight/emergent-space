@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-18 13:31:23
-date_modified: 2025-01-25 16:26:59
+status:
+  - archived
+tags: CS/Language/Assembly/80x86
+date_created: 2024-12-18T13:31:23
+date_modified: 2025-09-13T10:18:05
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-tags: Programming-Language/Assembly/80x86
-type:
-- note
 ---
+
 # 1 总结
 
 > 8086 一共有 14 个寄存器，分别为：
@@ -348,6 +345,7 @@ rep movsb
 > - `mov ah, 1; int 21h` 是函数调用，软件中断，代码在**显式地**用 `int n` 的形式调用函数集的函数
 
 > [!question] 什么是硬件中断
+>
 > ```asm title="example: add 1 to 100"
 > mov ax, 0  ; 此时用户敲键盘
 > ;; int 9h ;; CPU 插入并执行键盘中断
@@ -469,4 +467,3 @@ or ax, 100h  ; 0000 0001 0000 0000
 push ax
 popf
 ```
-

@@ -1,8 +1,11 @@
 ---
+status:
+  - archived
+tags: CS/CG-CV/Transformation
 date_created: 2025-02-05T11:21:16
-date_modified: 2025-02-18T19:03:13
-MkDocs_comments: true
+date_modified: 2025-09-13T10:18:01
 ---
+
 # Why study transformation
 
 - modeling
@@ -16,7 +19,8 @@ MkDocs_comments: true
 
 ## Scale
 
-$$\begin{bmatrix}
+$$
+\begin{bmatrix}
 x^{\prime} \\
 y^{\prime}
 \end{bmatrix}=
@@ -27,7 +31,8 @@ s_{x} & 0 \\
 \begin{bmatrix}
 x \\
 y
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 - 对角阵
 - 可以实现 reflection，例如 $s_{x}=-1, s_{y}=1$
@@ -36,7 +41,8 @@ y
 
 ![[__assets/GAMES101 03 Transformation/IMG-GAMES101 03 Transformation-20250205113500277.webp]]
 
-$$\begin{bmatrix}
+$$
+\begin{bmatrix}
 x^{\prime} \\
 y^{\prime}
 \end{bmatrix}=
@@ -47,11 +53,13 @@ y^{\prime}
 \begin{bmatrix}
 x \\
 y
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 ## Rotate
 
-$$\begin{bmatrix}
+$$
+\begin{bmatrix}
 x^{\prime} \\
 y^{\prime}
 \end{bmatrix}=
@@ -62,13 +70,15 @@ y^{\prime}
 \begin{bmatrix}
 x \\
 y
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 $\mathbf{R}_{-\theta}=\mathbf{R}_{\theta}^T$，矩阵的逆等于其转置，称为**正交矩阵**
 
 ## Conc: Linear Transformations = Matrices
 
-$$\begin{bmatrix}
+$$
+\begin{bmatrix}
 x^{\prime} \\
 y^{\prime}
 \end{bmatrix}=
@@ -79,14 +89,18 @@ c & d
 \begin{bmatrix}
 x \\
 y
-\end{bmatrix} \quad \mathbf{x'=M~x}$$
+\end{bmatrix} \quad \mathbf{x'=M~x}
+$$
 
 # Homogeneous coordinates
 
 ## Translation
 
 > [!NOTE] Why homogeneous coordinates
-> $$\begin{bmatrix}
+>
+
+$$
+\begin{bmatrix}
 > x^{\prime} \\
 > y^{\prime}
 > \end{bmatrix}=
@@ -100,7 +114,10 @@ y
 > \end{bmatrix}+\begin{bmatrix}
 > t_{x} \\
 > t_{y}
-> \end{bmatrix}$$
+> \end{bmatrix}
+> 
+$$
+
 > > 平移变换中含有常向量，希望使用统一的方式表示变换
 
 - $w$-coordinate
@@ -111,7 +128,8 @@ y
 	- point-point=vec
 	- point+vec=point
 
-$$\begin{pmatrix}
+$$
+\begin{pmatrix}
 x^{\prime} \\
 y^{\prime} \\
 w^{\prime}
@@ -130,11 +148,13 @@ y \\
 x+t_x \\
 y+t_y \\
 1
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 In homogeneous coordinates, $\begin{pmatrix}x\\y\\w\end{pmatrix}$ is the 2D point $\begin{pmatrix}x/w\\y/w\\1\end{pmatrix}$, $w\neq 0$.
 
-$$\begin{pmatrix}
+$$
+\begin{pmatrix}
 x^{\prime} \\
 y^{\prime} \\
 1
@@ -148,7 +168,8 @@ c & d & t_y \\
 x \\
 y \\
 1
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 > [!NOTE] inverse transform
 > $M^{-1}$ 就是逆变换的变换矩阵
@@ -170,7 +191,8 @@ y \\
 - 3D point $(x,y,z,1)^T$ 同样能够进行仿射使 $w=1$
 - 3D vector $(x,y,z,0)^T$
 
-$$\begin{pmatrix}
+$$
+\begin{pmatrix}
 x^{\prime} \\
 y^{\prime} \\
 z^{\prime} \\
@@ -187,16 +209,18 @@ x \\
 y \\
 z \\
 1
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
-> [!summary] 
+> [!summary]
 > 一般变换的矩阵表示形式下，先进行线性变换，再进行平移
 
 ## rotation
 
 ### around axis
 
-$$\begin{gathered}
+$$
+\begin{gathered}
 \mathbf{R}_{x}(\alpha)=
 \begin{pmatrix}
 1 & 0 & 0 & 0 \\
@@ -218,7 +242,8 @@ $$\begin{gathered}
 0 & 0 & 1 & 0 \\
 0 & 0 & 0 & 1
 \end{pmatrix}
-\end{gathered}$$
+\end{gathered}
+$$
 
 - 绕 $x$ 轴旋转，则 $x$ 坐标不变
 - 其中的 $\mathbf{R}_{y}$ 的正负号不同，这是因为 $x \times y=z, y\times z=x$ 但是 $z\times x=y$
@@ -229,12 +254,15 @@ $$\begin{gathered}
 - 与飞行模拟中的 roll, pitch, yaw 对应
 
 > [!NOTE] Rodrigues' Rotation Formula
-> $$\mathbf{R}(\mathbf{n},\alpha)=\cos(\alpha)\mathbf{I}+(1-\cos(\alpha))\mathbf{n}\mathbf{n}^T+\sin(\alpha)\underbrace{
+>
+
+$$\mathbf{R}(\mathbf{n},\alpha)=\cos(\alpha)\mathbf{I}+(1-\cos(\alpha))\mathbf{n}\mathbf{n}^T+\sin(\alpha)\underbrace{
 > \begin{pmatrix}
 > 0 & & -n_z & & n_y \\
 > n_z & & 0 & & -n_x \\
 > -n_y & & n_x & & 0
-> \end{pmatrix}}_{\mathbf{N}}$$
+> \end{pmatrix}}_{\mathbf{N}}
+> $$
 > > 表示，绕着 $\mathbf{n}$ 方向旋转 $\alpha$ 角
 
 但是上面的公式只能绕着过原点的轴旋转，如果要实现绕着任意轴旋转，如 [[#Decomposing Complex Transforms]] 将轴上一点平移到原点、旋转并平移回来即可
@@ -273,23 +301,27 @@ taking a photo: model -> view -> projection, **mvp** transformations
 > [!NOTE] 如何求 $R_{\text{view}}$
 > 从逆变换出发，先求出 $Y\to t, g\to -Z, (g\times t)\to X$
 >
-> $$R_{\text{view}}^{-1}=
+> 
+$$R_{\text{view}}^{-1}=
 > \begin{bmatrix}
 > x_{\hat{g}\times\hat{t}} & x_t & x_{-g} & 0 \\
 > y_{\hat{g}\times\hat{t}} & y_t & y_{-g} & 0 \\
 > z_{\hat{g}\times\hat{t}} & z_t & z_{-g} & 0 \\
 > 0 & 0 & 0 & 1
-> \end{bmatrix}$$
+> \end{bmatrix}
+> $$
 > 
 > 然后进行**转置**就能得到
 > 
-> $$R_{\text{view}}=
+> 
+$$R_{\text{view}}=
 > \begin{bmatrix}
 > x_{\hat{g}\times\hat{t}} & y_{\hat{g}\times\hat{t}} & z_{\hat{g}\times\hat{t}} & 0 \\
 > x_t & y_t & z_t & 0 \\
 > x_{-g} & y_{-g} & z_{-g} & 0 \\
 > 0 & 0 & 0 & 1
-> \end{bmatrix}$$
+> \end{bmatrix}
+> $$
 
 ## Conc.
 
@@ -323,21 +355,35 @@ taking a photo: model -> view -> projection, **mvp** transformations
 	- 先平移，中心点移到原点
 	- 再缩放
 
-$$M_{ortho}=
+$$
+
+M_{ortho}=
+
 \begin{bmatrix}
+
 \frac{2}{r-l} & 0 & 0 & 0 \\
+
 0 & \frac{2}{t-b} & 0 & 0 \\
+
 0 & 0 & \frac{2}{n-f} & 0 \\
+
 0 & 0 & 0 & 1
+
 \end{bmatrix}
+
 \begin{bmatrix}
+
 1 & 0 & 0 & -\frac{r+l}{2} \\
+
 0 & 1 & 0 & -\frac{t+b}{2} \\
+
 0 & 0 & 1 & -\frac{n+f}{2} \\
+
 0 & 0 & 0 & 1
+
 \end{bmatrix}$$
 
-> [!NOTE] 
+> [!NOTE]
 > OpenGL 之类的 API 使用的是左手系，Z 越大表示离相机越远
 
 ## Perspective Projection
@@ -410,33 +456,49 @@ n
 \end{pmatrix}$$
 
 第三行结果与 $x,y$ 都没有关系，所以可能是 $(0,0,A,B)$，那么：
-
 $$
+
 \begin{pmatrix}
+
 0 & 0&A&B
-\end{pmatrix}
-\begin{pmatrix}
-x \\
-y \\
-n \\
-1
-\end{pmatrix}=An+B=n^2
-$$
 
+\end{pmatrix}
+
+\begin{pmatrix}
+
+x \\
+
+y \\
+
+n \\
+
+1
+
+\end{pmatrix}=An+B=n^2
+
+$$
 同理，f 平面上的点 Z 也不变，有 $Af+B=f^2$，联立得到 $\begin{cases}A=n+f \\ B=-nf\end{cases}$
 
 所以：
+$$
 
-$$M_{persp\to ortho}=
+M_{persp\to ortho}=
+
 \begin{pmatrix}
+
 n & 0 & 0 & 0 \\
+
 0 & n & 0 & 0 \\
+
 0 & 0 & n+f & -nf \\
+
 0 & 0 & 1 & 0
+
 \end{pmatrix}$$
 
 且 $M_{persp}=M_{ortho}M_{persp\to ortho}$
 
 > [!question] 经过变换后，中间的点的 Z 值如何变化？
 > 变换后，$z'=\frac{z(n+f)-nf}{z}=n+f-\frac{nf}{z}>z$，所以是变近了
+
 

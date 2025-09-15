@@ -14,7 +14,7 @@ nav:
       - Ch.07 Hashing: ZJU-Fundamentals of Data Structures/Ch.07 Hashing.md
       - Ch.08 Disjoint Set: ZJU-Fundamentals of Data Structures/Ch.08 Disjoint Set.md
       - Ch.09 Graph Algorithms: ZJU-Fundamentals of Data Structures/Ch.09 Graph Algorithms.md
-      - Cheat Sheet: ZJU-Fundamentals of Data Structures/Cheat Sheet.md
+      - Cheatsheet: ZJU-Fundamentals of Data Structures/FDS Cheatsheet.md
     - Advanced Data Structure & Algorithm Analysis:
       - Advanced Data Structure & Algorithm Analysis: ZJU-Advanced Data Structure & Algorithm Analysis/index.md
       - 01 AVL Trees, Splay Trees and Amortized Analysis: ZJU-Advanced Data Structure & Algorithm Analysis/ADS 01 AVL Trees, Splay Trees and Amortized Analysis.md
@@ -32,9 +32,16 @@ nav:
       - 13 Randomized Algorithms: ZJU-Advanced Data Structure & Algorithm Analysis/ADS 13 Randomized Algorithms.md
       - 14 Parallel Algorithms: ZJU-Advanced Data Structure & Algorithm Analysis/ADS 14 Parallel Algorithms.md
       - 15 External Sorting: ZJU-Advanced Data Structure & Algorithm Analysis/ADS 15 External Sorting.md
-      - Final Cheat Sheet: ZJU-Advanced Data Structure & Algorithm Analysis/ADS Cheat Sheet.md
-      - Final DP: ZJU-Advanced Data Structure & Algorithm Analysis/ADS Cheat Sheet Dynamic Programming.md
+      - Final Cheatsheet: ZJU-Advanced Data Structure & Algorithm Analysis/ADS Cheatsheet.md
+      - Final DP: ZJU-Advanced Data Structure & Algorithm Analysis/ADS Cheatsheet Dynamic Programming.md
       - Final Questions: ZJU-Advanced Data Structure & Algorithm Analysis/ADS Final Questions.md
+    - Algorithms in Game Design:
+      - Algorithms in Game Design: ZJU-Algorithms in Game Design/index.md
+      - 01 Game Arch Pygame: ZJU-Algorithms in Game Design/AGD 01 Game Arch Pygame.md
+      - 02 Font Sprite Random: ZJU-Algorithms in Game Design/AGD 02 Font Sprite Random.md
+      - 03 Mazes: ZJU-Algorithms in Game Design/AGD 03 Mazes.md
+      - 04 Navigation: ZJU-Algorithms in Game Design/AGD 04 Navigation.md
+      - 05 Collision Detection: ZJU-Algorithms in Game Design/AGD 05 Collision Detection.md
   - Coding/Lang.:
     - Coding & Language: index/codinglang/index.md
     - 汇编语言程序设计基础:
@@ -51,7 +58,7 @@ nav:
       - 10 逻辑运算和移位指令: ZJU-Assembly Fundamentals/ASMF 10 逻辑运算和移位指令.md
       - 11 字符串操作指令: ZJU-Assembly Fundamentals/ASMF 11 字符串操作指令.md
       - 12 控制转移指令: ZJU-Assembly Fundamentals/ASMF 12 控制转移指令.md
-      - Cheat Sheet: ZJU-Assembly Fundamentals/ASMF Cheat Sheet.md
+      - Cheatsheet: ZJU-Assembly Fundamentals/ASMF Cheatsheet.md
   - System:
     - System: index/system/index.md
     - HPC101:
@@ -65,17 +72,34 @@ nav:
       - Lec.09 Introduction to Machine Learning: ZJU-HPC101/Lec.09 Introduction to Machine Learning.md
     - Computer Organization:
       - Computer Organization: ZJU-Computer Organization/index.md
-      - 01 Computer Abstraction and Technology: ZJU-Computer Organization/CO 01 Computer Abstraction and Technology.pdf
-      - 02 Instructions: ZJU-Computer Organization/CO 02 Instructions.pdf
-      - 03 Arithmetic for Computer: ZJU-Computer Organization/CO 03 Arithmetic for Computer.pdf
-      - 04 The Processor Pt1: ZJU-Computer Organization/CO 04 The Processor Pt1.pdf
-      - 04 The Processor Pt2: ZJU-Computer Organization/CO 04 The Processor Pt2.pdf
-      - 05 Memory Hierarchy: ZJU-Computer Organization/CO 05 Memory Hierarchy.pdf
-      - 06 IO: ZJU-Computer Organization/CO 06 IO.pdf
-      - Midterm Cheat sheet: ZJU-Computer Organization/CO Midterm Cheatsheet.pdf
-      - Final Cheat sheet: ZJU-Computer Organization/CO Final Cheatsheet.pdf
-  - Graphics:
-    - Graphics: index/graphics/index.md
+      - 01 Computer Abstraction and Technology: ZJU-Computer Organization/CO 01 Computer Abstraction and Technology.md
+      - 02 Instructions: ZJU-Computer Organization/CO 02 Instructions.md
+      - 03 Arithmetic for Computer: ZJU-Computer Organization/CO 03 Arithmetic for Computer.md
+      - 04 The Processor Pt1: ZJU-Computer Organization/CO 04 The Processor Pt1.md
+      - 04 The Processor Pt2: ZJU-Computer Organization/CO 04 The Processor Pt2.md
+      - 05 Memory Hierarchy: ZJU-Computer Organization/CO 05 Memory Hierarchy.md
+      - 06 IO: ZJU-Computer Organization/CO 06 IO.md
+      - Midterm Cheatsheet: ZJU-Computer Organization/CO Midterm Cheatsheet.md
+      - Final Cheatsheet: ZJU-Computer Organization/CO Final Cheatsheet.md
+    - Database System:
+      - Database System: ZJU-Database System/index.md
+      - 01 Introduction: ZJU-Database System/DB 01 Introduction.md
+      - 02 Intro to the Relational Model: ZJU-Database System/DB 02 Intro to the Relational Model.md
+      - 03 Introduction to SQL: ZJU-Database System/DB 03 Introduction to SQL.md
+      - 04 Intermediate SQL: ZJU-Database System/DB 04 Intermediate SQL.md
+      - 05 Advanced SQL: ZJU-Database System/DB 05 Advanced SQL.md
+      - 06 Database Design using the E-R Model: ZJU-Database System/DB 06 Database Design using the E-R Model.md
+      - 07 Relational Database Design: ZJU-Database System/DB 07 Relational Database Design.md
+      - 13 Data Storage Structures: ZJU-Database System/DB 13 Data Storage Structures.md
+      - 14 Indexing: ZJU-Database System/DB 14 Indexing.md
+      - 15 Query Processing: ZJU-Database System/DB 15 Query Processing.md
+      - 16 Query Optimization: ZJU-Database System/DB 16 Query Optimization.md
+      - 17 Transactions: ZJU-Database System/DB 17 Transactions.md
+      - 18 Concurrency Control: ZJU-Database System/DB 18 Concurrency Control.md
+      - 19 Recovery System: ZJU-Database System/DB 19 Recovery System.md
+      - Cheatsheet: ZJU-Database System/DB Cheatsheet.md
+  - CV/CG:
+    - CV/CG: index/cv_cg/index.md
     - GAMES101:
       - GAMES101: GAMES101/index.md
       - 01 Introduction: GAMES101/GAMES101 01 Introduction.md
@@ -90,6 +114,21 @@ nav:
       - 10 Cameras, Lenses and Light Fields: GAMES101/GAMES101 10 Cameras, Lenses and Light Fields.md
       - 11 Color and Perception: GAMES101/GAMES101 11 Color and Perception.md
       - 12 Animation: GAMES101/GAMES101 12 Animation.md
+    - Introduction to Computer Vision:
+      - Introduction to Computer Vision: ZJU-Introduction to Computer Vision/index.md
+      - 01 Introduction: ZJU-Introduction to Computer Vision/CV 01 Introduction.md
+      - 02 Image Formation: ZJU-Introduction to Computer Vision/CV 02 Image Formation.md
+      - 03 Image Processing: ZJU-Introduction to Computer Vision/CV 03 Image Processing.md
+      - 04 Model Fitting and Optimization: ZJU-Introduction to Computer Vision/CV 04 Model Fitting and Optimization.md
+      - 05 Image Matching and Motion Estimation: ZJU-Introduction to Computer Vision/CV 05 Image Matching and Motion Estimation.md
+      - 06 Image Stiching: ZJU-Introduction to Computer Vision/CV 06 Image Stiching.md
+      - 07 Structure from Motion: ZJU-Introduction to Computer Vision/CV 07 Structure from Motion.md
+      - 08 Depth Estimation and 3D Reconstruction: ZJU-Introduction to Computer Vision/CV 08 Depth Estimation and 3D Reconstruction.md
+      - 09 Deep Learning: ZJU-Introduction to Computer Vision/CV 09 Deep Learning.md
+      - 10 Recognition: ZJU-Introduction to Computer Vision/CV 10 Recognition.md
+      - 11 3D Deep Learning: ZJU-Introduction to Computer Vision/CV 11 3D Deep Learning.md
+      - 12 Computational Photography: ZJU-Introduction to Computer Vision/CV 12 Computational Photography.md
+      - 13 Image-Based Rendering: ZJU-Introduction to Computer Vision/CV 13 Image-Based Rendering.md
   - Others:
     - Others: index/others/index.md
     - 微观经济学（甲）:
@@ -248,7 +287,7 @@ extra:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/EmergentTwilight
     - icon: fontawesome/regular/envelope
-      link: mailto:emergentshores@outlook.com
+      link: mailto:travischengzju@gmail.com
 
 plugins:
   - search
@@ -256,14 +295,15 @@ plugins:
   - emergent_space_wikilink_converter
   - emergent_space_implicit_md_links
   - emergent_space_code_block_hl_formatter
-  - emergent_space_list_callouts:
-      symbol_map:
-        '&': 'highlight'
-        '?': 'question'
-        '!': 'warning'
-        '~': 'bookmark'
-        '@': 'tip'
-        '$': 'success'
-        '%': 'quote'
+  - emergent_space_list_callouts
+      # insert_default_css: False
+      # symbol_map:
+      #   '&': 'highlight'
+      #   '?': 'question'
+      #   '!': 'warning'
+      #   '~': 'bookmark'
+      #   '@': 'tip'
+      #   '$': 'success'
+      #   '%': 'quote'
   # - toc
   # - statistics

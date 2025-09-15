@@ -1,25 +1,25 @@
 ---
-MkDocs_comments: true
-date_created: 2024-07-08 02:00:34
-date_modified: 2025-01-31 18:11:56
-state:
-- 待发布
-- 归档
-type:
-- note
+status:
+  - archived
+tags:
+  - CS/Tool/MPI
+  - CS/Tool/OpenMP
+attachment:
+  - "[[slides/7_HPC101_24_MPI.pdf|7_HPC101_24_MPI]]"
+date_created: 2024-07-08T02:00:34
+date_modified: 2025-09-12T15:23:19
 ---
+
 # OpenMP
 
 ## Introduction
-
-[[Attachment/7_HPC101_24_MPI.pdf|7_HPC101_24_MPI]]
 
 ### Shared Memory Parallel Model
 
 - UMA (Uniform memory access)：所有核心访问一块内存
 - NUMA (Non-~)：内存分组，跨组访问的速度较低  **MPI imp**
 
-> [!hint] 
+> [!hint]
 > - OpenMP - thread - shared
 > - MPI - process - not shared
 
@@ -269,7 +269,7 @@ printf("Sum = %d\n", sum);
 
 #### Comparison
 
-- Critical Region: 软件层面上的锁机制 
+- Critical Region: 软件层面上的锁机制
 - Atomic: CPU 层面上的原子化指令调用，**通常具有更高的性能**
 - Reduction: 在最终进行同步
 
@@ -353,9 +353,10 @@ int main(){
 
 ## Introduction
 
-[[Attachment/7_HPC101_24_MPI.pdf|7_HPC101_24_MPI]]
+[[slides/7_HPC101_24_MPI.pdf|7_HPC101_24_MPI]]
 
 MPI, **Message Passing Interface**
+
 - OpenMPI
 - Intel-MPI
 - MPICH

@@ -1,10 +1,10 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-04 14:16:54
-date_modified: 2025-02-04 14:18:42
-state: []
-type: null
+status:
+  - archived
+date_created: 2025-02-04T14:16:54
+date_modified: 2025-09-12T15:23:19
 ---
+
 # Table of Contents
 
 - [[Lec.02 体系结构与高性能计算基础]]

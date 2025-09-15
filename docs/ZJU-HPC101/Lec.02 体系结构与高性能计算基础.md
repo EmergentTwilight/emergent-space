@@ -1,13 +1,13 @@
 ---
-MkDocs_comments: true
-date_created: 2024-07-02 08:30:45
-date_modified: 2025-01-31 17:06:08
-state:
-- 待发布
-- 归档
-type:
-- note
+status:
+  - archived
+tags:
+  - CS/Hardware/Arch
+  - CS/Hardware/HPC
+date_created: 2024-07-02T08:30:45
+date_modified: 2025-09-12T15:23:19
 ---
+
 # Intro
 
 - 背景：数据科学、计算需求

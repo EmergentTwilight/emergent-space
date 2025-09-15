@@ -1,12 +1,13 @@
 ---
-MkDocs_comments: true
+status:
+  - archived
+tags: CS/CG-CV
 attachment:
-- https://games-cn.org/intro-graphics/
-date_created: 2024-12-01 20:24:37
-date_modified: 2025-02-16 23:45:24
-is_archived: false
-tags: Computer-Graphics
+  - https://games-cn.org/intro-graphics/
+date_created: 2024-12-01T20:24:37
+date_modified: 2025-09-13T10:18:01
 ---
+
 # What is CG?
 
 - Video games

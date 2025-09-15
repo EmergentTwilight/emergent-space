@@ -1,16 +1,14 @@
 ---
-MkDocs_comments: true
-date_created: 2024-07-06 02:00:54
-date_modified: 2025-01-31 17:03:38
-state:
-- 待发布
-- 归档
-type:
-- note
+status:
+  - archived
+tags: CS/Language/Python/Numpy
+attachment:
+  - "[[slides/5_向量化计算.pdf|5_向量化计算]]"
+date_created: 2024-07-06T02:00:54
+date_modified: 2025-09-12T15:23:19
 ---
-# 什么是向量化计算
 
-[[Attachment/5_向量化计算.pdf|5_向量化计算]]
+# 什么是向量化计算
 
 - Array Programming
 - 编译器的优化
@@ -112,6 +110,7 @@ def func(A):
 	- Store 回内存
 
 > [!example] 手写一个循环
+>
 > ```c
 > for(int i = 0; i < MAXN; i++){
 > 	c[i] += a[i] * b[i];

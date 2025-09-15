@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-17 21:07:15
-date_modified: 2025-01-25 16:26:31
+status:
+  - archived
+tags: CS/Language/Assembly/80x86
+date_created: 2024-12-17T21:07:15
+date_modified: 2025-09-13T10:18:05
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-tags: Programming-Language/Assembly/80x86
-type:
-- note
 ---
+
 # 1 位汇编语言语法基础
 
 ```asm title="1+2+3+4+...+100=?"
@@ -71,6 +68,7 @@ invoke MessageBoxA, 0, offset result, offset prompt, 0
 ```
 
 也就是 `MessageBoxA(0, &result[0], &prompt[0], 0);`，这是一个 windows 函数，实现了一个系统弹窗
+
 - `var1`: 建的消息框的所有者窗口的句柄
 - `result`: 这里是将会显示的消息文本
 - `prompt`: 这里是窗口的标题
@@ -159,7 +157,7 @@ mov dx, offset hello; offset hello 表示取 hello 的偏移地址
 					; 完成了对 ds 和 dx 的赋值，这样就构成了 ds:dx -> hello 这个指针
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > 构建这个指针是为了满足函数调用的要求
 
 ## 2.3 调用操作系统函数
@@ -323,7 +321,7 @@ code segment
 code ends
 ```
 
-> [!hint] 
+> [!hint]
 > 注意上面循环和分支的实现
 
 # 5 HW

@@ -1,11 +1,13 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-31 14:51:35
-date_modified: 2025-01-31 19:22:23
+status:
+  - archived
 tags:
-- Algorithm/Analysis/Approximation
-- Algorithm/Analysis/Complexity
+  - CS/Algorithm/Analysis/Approximation
+  - CS/Algorithm/Analysis/Complexity
+date_created: 2024-12-31T14:51:35
+date_modified: 2025-09-13T10:18:05
 ---
+
 
 
 # 15-16 春夏
@@ -183,7 +185,7 @@ tags:
 > A 显然错误，无环图的 degree 总和是 $2|V|-2$
 > B 也有问题，进行一次操作后，删除的边 $-(\geq d(w))$，但是增加了一条 $d(u)+1$ 的边（假设 $d(u)>d(v)$），并且还有两条边可能 $+2$，无法保证递减
 > C 有问题，对于操作中的 $u,v,w$ 是满足的，实现了 $-1$，但是可能导致其他很多点对的值变大
->  D 正确，进行一次操作，考虑 $w$ 减少 $-(\geq 2 \cdot 3^{d(w)-1})$，考虑 $u,v$ 增加 $(2\cdot 3^{d(u)}+2\cdot 3^{d(v)})$。假设 $d(u)\geq d(v)$，存在 $d(w)-1\geq d(u)+1$，所以整体递减，满足题意
+> D 正确，进行一次操作，考虑 $w$ 减少 $-(\geq 2 \cdot 3^{d(w)-1})$，考虑 $u,v$ 增加 $(2\cdot 3^{d(u)}+2\cdot 3^{d(v)})$。假设 $d(u)\geq d(v)$，存在 $d(w)-1\geq d(u)+1$，所以整体递减，满足题意
 
 ### 2 item sizes bin packing
 

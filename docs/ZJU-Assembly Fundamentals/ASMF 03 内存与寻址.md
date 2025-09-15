@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-18 13:13:18
-date_modified: 2025-02-04 14:53:08
+status:
+  - archived
+tags: CS/Language/Assembly/80x86
+date_created: 2024-12-18T13:13:18
+date_modified: 2025-09-13T10:18:05
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-tags: Programming-Language/Assembly/80x86
-type:
-- note
 ---
+
 # 1 内存
 
 - DOS 系统在实模式下，能够访问 `[00000h, 0FFFFFh]` 共 1MB 的内存空间，这里的 `12345h` 称为物理地址，寄存器放不下，所以需要**段地址**和**偏移地址**
@@ -31,7 +28,7 @@ type:
 
 ### 2.1.1 直接寻址：使用常数来表示偏移地址
 
-> [!attention] 
+> [!attention]
 > 段地址只能用寄存器来表示
 
 ```asm title="间接寻址"
@@ -49,7 +46,7 @@ al = *(byte *)(ds:2000h);
 
 ## 2.2 间接寻址: 使用寄存器或寄存器 + 常数来表示偏移地址
 
-> [!attention] 
+> [!attention]
 > 用于间接寻址的寄存器**仅限** `bx, bp, si, di`，而且一定是 `bx, bp` 中的一个能和 `si, di` 中的一个相加
 
 ```asm title="间接寻址"
@@ -160,7 +157,7 @@ lea eax, [eax+eax*4]  ; EAX=EAX*5，用 lea 作乘法
 1000:0003  12
 ```
 
-> [!attention] 
+> [!attention]
 > - 小端规则
 > - 远指针和 int 无法区分，需要由使用者定义
 
@@ -257,7 +254,7 @@ mov byte ptr ds:[2], 'B'
 mov byte ptr ds:[3], 72h
 ```
 
-> [!hint] 
+> [!hint]
 > - `0B800h` 可以认为是显卡的地址，往显卡写入字符就可以显示在屏幕上
 > - `74h` 中，`7` 表示背景色是白色，`4` 用来表示前景色是红色
 
@@ -435,7 +432,7 @@ out 60h, al  ; 将 al 的值输出到 60h 端口
 
 `60h` 端口是键盘的输入端口，通过修改硬件断点 `int 9h` 函数指针，让程序在键盘敲击时读取键盘输入值
 
-### 9.1.1 Code %% fold %% 
+### 9.1.1 Code %% fold %%
 
 ```asm title="key"
 ;---------------------------------------
@@ -601,7 +598,7 @@ convert:
 	ret
 ```
 
-### 9.2.1 Code %% fold %% 
+### 9.2.1 Code %% fold %%
 
 ```asm title="readtime"
 data segment

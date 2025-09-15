@@ -1,8 +1,13 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-07 05:42:12
-date_modified: 2025-02-16 00:40:10
+status:
+  - archived
+tags:
+  - CS/CG-CV/Rendering
+  - CS/CG-CV/Rendering/Rasterization
+date_created: 2025-02-07T05:42:12
+date_modified: 2025-09-13T10:18:01
 ---
+
 # Perspective Projection Cont.
 
 ## near plane
@@ -36,7 +41,8 @@ date_modified: 2025-02-16 00:40:10
 
 xy coordinates: $[-1,1]^2$ to $[0,\text{width}]\times[0,\text{height}]$, *viewpoint transformation*
 
-$$M_{viewport}=
+$$
+M_{viewport}=
 \begin{pmatrix}
 \frac{width}{2} & 0 & 0 & \frac{width}{2} \\
 0 & \frac{height}{2} & 0 & \frac{height}{2} \\
@@ -246,4 +252,5 @@ for (each triangle T)
 ![[./__assets/GAMES101 04 Rasterization/IMG-GAMES101 04 Rasterization-20250208225932469.webp]]
 
 > 因为光源有一定大小
+
 

@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-17 20:39:11
-date_modified: 2025-01-25 16:27:42
+status:
+  - archived
+tags: CS/Language/Assembly/80x86
+date_created: 2024-12-17T20:39:11
+date_modified: 2025-09-13T10:18:06
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-tags: Programming-Language/Assembly/80x86
-type:
-- note
 ---
+
 # 1 逻辑运算
 
 | 指令   | `and` | `or` | `xor` | `not` | `test`       |
@@ -40,7 +37,7 @@ test ax, 8000h  ; ZF = 0, AX = 1234h
 > [!note] 移位与 `CF` 的关系
 > > [!warning] Warning
 > > `CF` 里保留的一定是**最后移出去的一位**，不论是什么移位指令
-> 
+>
 > ```asm title="shift - CF"
 > mov ah, 0EFh  ; 1110 1111, CF = ?
 > ror ah, 1  ;    1111 0111, CF = 1

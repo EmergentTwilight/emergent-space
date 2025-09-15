@@ -1,15 +1,16 @@
 ---
-MkDocs_comments: true
-date_created: 2024-03-12 02:56:55
-date_modified: 2025-01-30 13:48:42
-is_published: true
+status:
+  - archived
+tags:
+  - CS/Data-Structure/Sequential-List
+  - CS/Data-Structure/Sequential-List/Linked-List
+  - CS/Data-Structure/Sequential-List/Queue
+  - CS/Data-Structure/Sequential-List/Stack
+date_created: 2024-03-12T02:56:55
+date_modified: 2025-09-12T13:31:28
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-type:
-- note
 ---
+
 # 1 Abstract Data Type (ADT)
 
 - $Data Type = \{Objects\} \cup \{Operations\}$
@@ -93,17 +94,17 @@ For example, represent the relationship between students and the courses. **Arra
 
 > [!NOTE]- HW: Sparse matrix representation
 > 1. **坐标列表（Coordinate List, COO）**：
->    在这种表示中，矩阵被表示为三个数组：行索引、列索引和数据值。每个非零元素由其行索引、列索引和值组成。
+> 在这种表示中，矩阵被表示为三个数组：行索引、列索引和数据值。每个非零元素由其行索引、列索引和值组成。
 > 2. **压缩稀疏行（Compressed Sparse Row, CSR）**：
->    CSR 表示由三个数组组成：非零元素的值、行指针和列索引。行指针数组指向列索引数组中每个行的起始位置。这种表示方式适合于行操作，如行的插入和删除。
+> CSR 表示由三个数组组成：非零元素的值、行指针和列索引。行指针数组指向列索引数组中每个行的起始位置。这种表示方式适合于行操作，如行的插入和删除。
 > 3. **压缩稀疏列（Compressed Sparse Column, CSC）**：
->    CSC 与 CSR 类似，但是是按照列来组织的。它包含三个数组：非零元素的值、列指针和行索引。列指针数组指向行索引数组中每个列的起始位置。这种表示方式适合于列操作。
+> CSC 与 CSR 类似，但是是按照列来组织的。它包含三个数组：非零元素的值、列指针和行索引。列指针数组指向行索引数组中每个列的起始位置。这种表示方式适合于列操作。
 > 4. **字典式（Dictionary of Keys, DICTIONARY）**：
->    这种表示方法使用字典（或哈希表）来存储非零元素的位置和值，键是元素的索引对（行索引，列索引）。
+> 这种表示方法使用字典（或哈希表）来存储非零元素的位置和值，键是元素的索引对（行索引，列索引）。
 > 5. **块稀疏矩阵（Block Sparse Matrix）**：
->    当矩阵的稀疏性在子矩阵级别上时，可以使用块稀疏矩阵表示。这种表示将矩阵分割成小块，并且只存储那些非零的块。
+> 当矩阵的稀疏性在子矩阵级别上时，可以使用块稀疏矩阵表示。这种表示将矩阵分割成小块，并且只存储那些非零的块。
 > 6. **带状稀疏矩阵（Banded Sparse Matrix）**：
->    当非零元素仅出现在矩阵的主对角线附近的几条对角线上时，可以使用带状稀疏矩阵表示。这种表示通常包含对角线宽度和非零元素。
+> 当非零元素仅出现在矩阵的主对角线附近的几条对角线上时，可以使用带状稀疏矩阵表示。这种表示通常包含对角线宽度和非零元素。
 
 ### 2.3.3 Cursor Implementation of Linked Lists (no pointer)
 
@@ -189,7 +190,7 @@ typedef struct {
 
 #### 3.3.3.2 有括号
 
-a\*(b+c)-d -> 
+a\*(b+c)-d ->
 
 - 读到元素直接输出
 - 读到符号（包括括号）

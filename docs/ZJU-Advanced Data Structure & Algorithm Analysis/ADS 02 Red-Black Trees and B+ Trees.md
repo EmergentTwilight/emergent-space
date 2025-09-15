@@ -1,12 +1,14 @@
 ---
-MkDocs_comments: true
-date_created: 2024-09-14 01:23:34
-date_modified: 2025-01-31 19:13:58
-number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
+status:
+  - archived
 tags:
-- Data-Structure/Tree/B-Plus-Tree
-- Data-Structure/Tree/Red-Black-Tree
+  - CS/Data-Structure/Tree/B-Plus-Tree
+  - CS/Data-Structure/Tree/Red-Black-Tree
+date_created: 2024-09-14T01:23:34
+date_modified: 2025-09-13T10:18:02
+number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
 ---
+
 # 1 Red-Black Trees
 
 **Target**: balanced BST
@@ -19,7 +21,7 @@ tags:
 4. 红色节点的两个孩子都是黑色，*不能有两个连续的红色节点*
 5. 每个节点到叶子的路径上**黑色节点数量相同**，*same black height*
 
-> [!attention] 
+> [!attention]
 > - Black height 计算时不算自己，算 NIL
 > - 所有有 key 的节点都是 internal node
 
@@ -50,6 +52,7 @@ $Proof$: 数学归纳，即证 $N\ge 2^{h/2}-1$
 - Case 3: 更改颜色，为了修正 bh，需要旋转，**Case 3** 修正后就完成了，不需要向上传递
 
 > [!NOTE] 状态机
+>
 > ```mermaid
 > flowchart TD
 > 	A[Case 1] -->|C| A
@@ -70,7 +73,7 @@ $Proof$: 数学归纳，即证 $N\ge 2^{h/2}-1$
 
 ### 1.3.2 Advanced: [Top-Down Insertion](https://www.cs.buap.mx/~titab/files/RedBlackTrees.pdf)
 
-> [!question] 
+> [!question]
 > Q1：为什么使用 Top-Down<br>
 > A1：为了减少 rotation 的次数，不进行 percolate up<br>
 > Q2：Top-Down 如何保证插入时最多只用 rotate 一次？<br>
@@ -100,6 +103,7 @@ $Proof$: 数学归纳，即证 $N\ge 2^{h/2}-1$
 3. Delete a degree 2 node: 将前驱（后继）的值 copy 过来并尝试删除前驱（后继），***递归***
 
 > [!hint] 找到 key 之后的流程图
+>
 > ```mermaid
 > flowchart TD
 > A[To delete leaf] -->|is red, delete|B{End}
@@ -144,7 +148,7 @@ $Proof$: 数学归纳，即证 $N\ge 2^{h/2}-1$
 
 ### 1.4.2 Advanced: [Top-Down Deletion](https://www.cs.buap.mx/~titab/files/RedBlackTrees.pdf)
 
-> [!bug] 
+> [!bug]
 > 并没有找到相关的资料？& 不知道和前面的 Bottom-Up 有什么具体区别？
 
 ## 1.5 Advantage
@@ -162,7 +166,7 @@ $Proof$: 数学归纳，即证 $N\ge 2^{h/2}-1$
 2. 所有非叶子节点（除了根）都有 $[\lceil M/2\rceil, M]$ 个孩子
 3. 所有叶子的**深度相同**
 
-> [!important] 
+> [!important]
 > - 所有数据都在叶子上
 > - 每个中间节点有 $M$ 个 ptr，$M-1$ 个 key value
 > - 每个叶子节点有 $M$ 个 key 和 $M$ 个 ptr，这里的 ptr 指向实际的数据结构而不是其他节点
@@ -172,6 +176,7 @@ $Proof$: 数学归纳，即证 $N\ge 2^{h/2}-1$
 ### 2.1.1 复杂度分析
 
 考虑 $M$ order B+ tree 有 N 个数据
+
 - $Depth(M, N)=O(\lceil \log_{\lceil M/2\rceil} N\rceil)$
 - $T_{find}=Depth(M, N) \times O(\log M)=O(\log N)$
 
@@ -198,9 +203,11 @@ Btree Insert ( ElementType X,  Btree T )
 }
 ```
 
-$$T_{insert}(M, N)=O((M/\log M)\log N)$$
+$$
+T_{insert}(M, N)=O((M/\log M)\log N)
+$$
 
-> [!NOTE] 
+> [!NOTE]
 > $M$ 最好的选择是 3 或 4，但在数据库中经常选几千的
 
 ## 2.3 Deletion
@@ -269,7 +276,7 @@ After deleting 9 from the 2-3 tree given in the figure, which one of the followi
 > **D**[^1]
 > ![[__assets/ADS 02 Red-Black Trees and B+ Trees/IMG-ADS 02 Red-Black Trees and B+ Trees-20241101023350633.webp]]
 
-### 3.2.4 Self-printable B+ Tree %% fold %% 
+### 3.2.4 Self-printable B+ Tree %% fold %%
 
 - 实现 `OEDER = 3` 的 B+ 树插入和打印即可
 

@@ -1,15 +1,18 @@
 ---
-MkDocs_comments: true
-date_created: 2024-05-07 03:23:53
-date_modified: 2025-02-04 12:19:31
-is_published: true
+status:
+  - archived
+tags:
+  - CS/Algorithm/Sorting/Bucket-Sort
+  - CS/Algorithm/Sorting/Heap-Sort
+  - CS/Algorithm/Sorting/Merge-Sort
+  - CS/Algorithm/Sorting/Quick-Sort
+  - CS/Algorithm/Sorting/Radix-Sort
+  - CS/Algorithm/Sorting/Shell-Sort
+date_created: 2024-05-07T03:23:53
+date_modified: 2025-09-12T15:23:20
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-type:
-- note
 ---
+
 # 1 Preliminaries
 
 `void X_Sort ( ElementType A[], int N )`
@@ -43,7 +46,7 @@ void InsertionSort( ElementType A[], int N)
 
 - An **Inversion** *逆序对，index 大小和值的大小相反*，类比逆序数问题，假设逆序数为 n
 - There are $n$ swaps needed to sort this list by insertion sort
-- $T(N, I)=O(I+N)$ $I$ 
+- $T(N, I)=O(I+N)$ $I$
 	- 至少需要数组过一遍 $N$
 	- 每个逆序对都需要 swap $I$
 	- 如果本来就接近于排好了，那么接近于 $O(N)$ Linear
@@ -302,7 +305,11 @@ void Quicksort( ElementType A[], int N )
 - Best case: $T(N)=2T(N/2)+cN=O(N\log N)$
 - Average case
 	- Assume the average value of $T(i)$ for any $i$ is $\frac{1}{N}[\sum_{j=0}^{N-1}T(j)]$
-	- $$T(N)=\frac{2}{N}[\sum_{j=0}^{N-1}T(j)]+cN=O(N\log N)$$
+	-
+
+$$
+T(N)=\frac{2}{N}[\sum_{j=0}^{N-1}T(j)]+cN=O(N\log N)
+$$
 
 > [!NOTE] Quicksort to find the kth largest element
 > 每次找到 pivot 进行 partition 之后，计算大的一边的元素个数，判断第 k 大的元素在哪边，直到其出现在 pivot<br>

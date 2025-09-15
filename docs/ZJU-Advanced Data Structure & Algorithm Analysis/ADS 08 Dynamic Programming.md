@@ -1,10 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-10-28 12:48:24
-date_modified: 2025-01-31 19:09:35
+status:
+  - archived
+tags: CS/Algorithm/Dynamic-Programming
+date_created: 2024-10-28T12:48:24
+date_modified: 2025-09-13T10:18:03
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-tags: Algorithm/Dynamic-Programming
 ---
+
 # 1 Fibonacci Numbers
 
 $F(N)=F(N-1)+F(N-2)$
@@ -31,11 +33,11 @@ int FIbNum(int N)
 
 # 2 Ordering Matrix Multiplications
 
-> [!question] 
+> [!question]
 > 一系列矩阵相乘时，不同的结合顺序开销不同，如
-> 
+>
 > ![[__assets/ADS 08 Dynamic Programming/IMG-ADS 08 Dynamic Programming-20241031170153023.webp]]
-> 
+>
 > 试图找到最优的结合方法？
 
 ## 2.1 定义问题规模
@@ -86,9 +88,9 @@ void OptMatirx(const long r[], int N, TwoDimArray M)
 
 # 3 Optimal Binary Search Tree
 
-> [!question] 
+> [!question]
 > 静态 BST，考虑搜索总开销为 $T(N)=\sum_{i=1}^Np_{i}(1+d_{i})$，其中，$p_i$ 是 $Key_{i}$ 的搜索频率，$d_i$ 是 $Key_{i}$ 的深度。
-> 
+>
 > 如何找到最佳的树结构？**显然，任何平衡树都不一定是最佳的**
 
 ## 3.1 Solution
@@ -123,7 +125,7 @@ $$
 
 # 4 All-Pairs Shortest Path
 
-> [!question] 
+> [!question]
 > For all pairs of $v_i$ and $v_{j}$ ($i\neq j$), find the shortest path between.
 
 ## 4.1 Method 1: Dijkstra
@@ -176,7 +178,7 @@ $T(N)=O(N^3)$, where $N$ is the number of vertices.
 
 # 5 Product Assembly
 
-> [!question] 
+> [!question]
 > - 两条生产线
 > - 每个 stage 使用了不同的技术，因此有不同的时间开销
 > - 部件可以在 stage 之间更换生产线
@@ -226,13 +228,13 @@ for (stage = n; stage > 0; stage--) {
 3. 按照合适的顺序计算最优解目标函数
 4. 重构最优解
 
-# 7 Discussion %% fold %% 
+# 7 Discussion %% fold %%
 
 > [!question]
 > A palindrome is a nonempty string over some alphabet that reads the same forward and backward. Examples: `civic`, `racecar`, and `aibohphobia` (fear of palindromes).
-> 
+>
 > Give an efficient algorithm to find the longest palindrome that is a subsequence of a given input string. For example, given the input `character`, your algorithm should return `carac`.
-> 
+>
 > Notice the subsequence does not have to be consecutive.
 
 ```cpp title="maxPalindromeSubString"
@@ -307,8 +309,11 @@ The root of an optimal binary search tree always contains the key with the highe
 Given a recurrence equation $f_{i,j,k}​=f_{i,j+1,k}​+\min_{0\leq l\leq k} \{f_{i−1,j,l​}+w_{j,l}\}$. To solve this equation in an iterative way, we **cannot** fill up a table as follows:
 
 A. `for k in 0 to n: for i in 0 to n: for j in n to 0`
+
 B. `for i in 0 to n: for j in 0 to n: for k in 0 to n`
+
 C. `for i in 0 to n: for j in n to 0: for k in n to 0`
+
 D. `for i in 0 to n: for j in n to 0: for k in 0 to n`
 
 > [!hint]- Answer
@@ -318,20 +323,20 @@ D. `for i in 0 to n: for j in n to 0: for k in 0 to n`
 
 > [!question]-
 > Bob will participate in a programming contest. There are altogether `n` problems in the contest. Unlike in PAT (Programming Ability Test), in a programming contest one can not obtain partial scores. For problem `i`, Bob will need `time[i]` to solve it and obtains the corresponding `score[i]`, or he may choose not to solve it at all. Bob will be happy when he obtains a total score no less than `happy_score`. You are supposed to find the minimum time needed for Bob to be happy. The function `need_time` must return the minimum time, or `-1` if it is impossible for Bob to obtain a score no less than `happy_score`.
-> 
+>
 > **Format of function**
-> 
+>
 > ```c
 > int need_time(const int time[], const int score[], int happy_score, int n);
 > ```
-> 
-> Here `n` (1≤`n`≤ `MAXN`) is the number of problems;  
-> `happy_score` (1≤ `happy_score` ≤ `MAXS`) is the minimum score for Bob to be happy;  
-> `time[]` is the array to store `time[i]` (1≤`time[i]`≤100) which is the time to solve problem `i`;  
+>
+> Here `n` (1≤`n`≤ `MAXN`) is the number of problems;
+> `happy_score` (1≤ `happy_score` ≤ `MAXS`) is the minimum score for Bob to be happy;
+> `time[]` is the array to store `time[i]` (1≤`time[i]`≤100) which is the time to solve problem `i`;
 > `score[]` is the array to store `score[i]` (1≤`score[i]`≤100) which is the score Bob gets for solving problem `i`.
-> 
+>
 > **Sample program of judge**
-> 
+>
 > ```c
 > #include <stdio.h>
 > 
@@ -354,28 +359,28 @@ D. `for i in 0 to n: for j in n to 0: for k in 0 to n`
 > 
 > /* Your function will be put here */
 > ```
-> 
+>
 > **Sample Input**
-> 
+>
 > ```in
 > 6 121
 > 
 > 84 87 78 16 94 38
 > 87 93 50 22 63 28
 > ```
-> 
+>
 > **Sample Output**
-> 
+>
 > ```out
 > 125
 > ```
-> 
+>
 > ```
 > dp[i][j] = time and score
 > 
 > ```
 
-#### 8.2.2.1 View 1 %% fold %% 
+#### 8.2.2.1 View 1 %% fold %%
 
 > [!fail] A naive solution
 > - 设 `dp[i]` 为得到 `i` 分的最小耗时，是 **一维动态规划问题**
@@ -430,29 +435,38 @@ If a problem can be solved by dynamic programming, it must be solved in polynomi
 
 > [!hint]- Answer
 > **F** 虽然动态规划能够将问题限制在一个张量所有 entry 的遍历中，但是这个张量的规模可能是指数级的，一个有意思的例子是动态规划版本的 TSP，使用 Held-Karp 算法：
-> 
+>
 > > [!NOTE] GPT 的解释
 > > 旅行商问题（TSP）的动态规划解法通常使用 Held-Karp 算法，其时间复杂度为 $O(n^2 \cdot 2^n)$。以下是对这一复杂度的详细解释：
-> > 
+> >
 > > **问题描述**
-> > 
+> >
 > > 旅行商问题要求找到一条最短路径，使得每个城市都被访问一次，并最终返回到起始城市。假设有 \(n\) 个城市。
-> > 
+> >
 > > **动态规划解法**
-> > 
+> >
 > > 1. **状态定义**：
 > >    - 用 $dp[S][j]$ 表示从起始城市出发，经过一组城市 $S$（其中 $S$ 包含城市 $j$)，最终到达城市 $j$ 的最短路径长度。
 > >    - $S$ 是一个集合，包含了当前访问的城市。
 > > 2. **状态转移**：
-> > 	- 对于每个可能的城市集合 $S$ 和每个城市 $j$：<br>$$dp[S][j] = \min_{i \in S, i \neq j}(dp[S - \{j\}][i] + d(i, j))$$<br>这里，$d(i, j)$ 是城市 $i$ 到城市 $j$ 的距离。
-> > 3. **状态数**：
+> > 	- 对于每个可能的城市集合 $S$ 和每个城市 $j$：<br>
+> > 
+> > 	$$
+> > 	dp[S][j] = \min_{i \in S, i \neq j}(dp[S - \{j\}][i] + d(i, j))
+> > 	$$<br>这里，$d(i, j)$ 是城市 $i$ 到城市 $j$ 的距离。
+
+> > > 3. **状态数**：
 > >    - 集合 $S$ 的数量是 $2^n$，因为每个城市可以在集合中或不在集合中（总共有 $n$ 个城市）。
 > >    - 对于每个集合 $S$，需要遍历所有可能的目标城市 $j$，共有 $n$ 个城市。
-> > 4. **复杂度计算**：
-> >    - 由于我们需要填充一个大小为 $2^n$ 的表格（每个集合对应一个状态），而对于每个状态需要遍历 $n$ 个城市来计算最短路径，因此总的时间复杂度为：<br>$$O(n^2 \cdot 2^n)$$
+> > 3. **复杂度计算**：
+> >    - 由于我们需要填充一个大小为 $2^n$ 的表格（每个集合对应一个状态），而对于每个状态需要遍历 $n$ 个城市来计算最短路径，因此总的时间复杂度为：<br>
+> > 
+> >    $$
+> >    O(n^2 \cdot 2^n)
+> >    $$
 > > 
 > > **结论**
-> > 
+> >
 > > 因此，旅行商问题的动态规划版本由于需要处理所有可能的城市组合和每个组合中的所有城市，导致其复杂度为 $O(n^2 \cdot 2^n)$。这种复杂度在城市数量 $n$ 较大时，计算量会迅速增加，表现出指数级的增长。
 
-## 8.4 [[ADS Cheat Sheet Dynamic Programming|DP Coding Problems]]
+## 8.4 [[ADS Cheatsheet Dynamic Programming|DP Coding Problems]]

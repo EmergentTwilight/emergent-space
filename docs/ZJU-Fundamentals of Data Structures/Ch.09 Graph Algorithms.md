@@ -1,18 +1,20 @@
 ---
-MkDocs_comments: true
-date_created: 2024-04-16 03:07:06
-date_modified: 2025-01-30 13:50:49
-is_published: true
+status:
+  - archived
+tags:
+  - CS/Algorithm/DFS
+  - CS/Algorithm/Dijkstra
+  - CS/Algorithm/Graph/Minimum-Spanning-Tree
+  - CS/Algorithm/Graph/Network-Flow
+  - CS/Algorithm/Sorting/Topological-Sort
+date_created: 2024-04-16T03:07:06
+date_modified: 2025-09-12T15:23:20
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-type:
-- note
 ---
+
 # 1 Definitions
 
-- $G(V,E)$ 
+- $G(V,E)$
 	- G: graph
 	- V: Vertex
 	- E: Edge
@@ -56,7 +58,7 @@ type:
 ### 1.1.1 Adjacency Matrix 邻接矩阵
 
 -  `adj_mat[i][j] = exist(i,j)? 1:0`
-	- UDG: symmetric	
+	- UDG: symmetric
 		- array: $adj\_mat[n(n+1)/2]=\{a_{11}, a_{12}, \dots , a_{1n}, a_{22}, \dots ,a_{2n}, \dots, a_{nn}\}$
 	- DG: all needed
 		- array: ...
@@ -254,7 +256,7 @@ void Unweighted( Teble T )
 ```
 
 - 所有顶点都进行的 queue 操作
-- 所有的边都走了一遍 
+- 所有的边都走了一遍
 - $T=O(|V|+|E|)$
 
 ### 3.1.2 Dijkstra's Algorithm(for weighted shortest paths)
@@ -396,10 +398,20 @@ For all pairs of $v_i$ and $v_j$ $(i\ne j)$ , find the shortest path between.
 - An augmenting path can be found by an unweighied shortest path algorithm
 	- $T=O(f*|E|)$, **f** is the maximum flow
 - Always choose the augmenting path that allows the largest increase in flow *modify Dijkstra's algorithm*
-	- $$T=T_{augmentation}*T_{find\space a\space path}=O(|E|\log cap_{max})*O(|E|\log |V|)=O(|E|^2\log |V|)$$
+	-
+
+$$
+T=T_{augmentation}*T_{find\space a\space path}=O(|E|\log cap_{max})*O(|E|\log |V|)=O(|E|^2\log |V|)
+$$
+
 	- if cap_max *the maximum of capacity* is a small integer
 - Always choose the augmenting path that has the least number of edges
-	- $$T=T_{augmentation}*T_{find\,a\,path}=O(|E|)*O(|E|*|V|)=O(|E|^2|V|)$$ 
+	-
+
+$$
+T=T_{augmentation}*T_{find\,a\,path}=O(|E|)*O(|E|*|V|)=O(|E|^2|V|)
+$$ 
+
 	- Note ![[__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005723299.webp]]
 
 # 5 Minimum Spanning Tree
@@ -509,7 +521,7 @@ void ListComponents( Graph G )
 	- 至少有一个孩子，而且无法从后代中通过 *back edge* 回到祖先
 	- ![[__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005758609.webp]]
 
-#### 6.2.1.3 $Low(u)=min\{Num(u),min\{Low(w)|w\,is\,a\,child\,of\,u\},min\{Num(w)|(u,w)is\,a\,back\,edge\}\}$ 
+#### 6.2.1.3 $Low(u)=min\{Num(u),min\{Low(w)|w\,is\,a\,child\,of\,u\},min\{Num(w)|(u,w)is\,a\,back\,edge\}\}$
 
 - 是 **自己的 number**、**children 中最小的 low number**、**自己 backedge 另一头中最小的 number** 中最小的
 - 计算 Low number
@@ -664,4 +676,5 @@ void ListComponents( Graph G )
 			- 这个结果就是 V 所在的 SCC
 		- visit SCC 内所有的顶点 *打印，标记*
 	- $O(N^3)$
+
 

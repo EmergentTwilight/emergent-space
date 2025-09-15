@@ -1,7 +1,9 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-01 21:09:36
-date_modified: 2025-02-16 00:37:52
+status:
+  - archived
+tags: CS/Math/Linear-Algebra
+date_created: 2024-12-01T21:09:36
+date_modified: 2025-09-13T10:18:01
 ---
 
 > 图形学依赖线性代数、微积分、统计、光学、力学、信号处理、数值分析...
@@ -18,7 +20,7 @@ date_modified: 2025-02-16 00:37:52
 - $\hat{a}=\vec{a}/||\vec{a}||$
 - $\mathbf{a}^T=(x, y)$
 - dot product: 求夹角、求投影
-- cross product: 
+- cross product:
 	- 确定一个向量在另一个向量的左侧还是右侧
 	- 确定一个点是否在图形内部，如果在所有边的同侧，那么一定在内部
 

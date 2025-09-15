@@ -1,8 +1,11 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-08 01:45:21
-date_modified: 2025-02-16 22:24:22
+status:
+  - archived
+tags: CS/CG-CV/Geometry
+date_created: 2025-02-08T01:45:21
+date_modified: 2025-09-13T10:18:01
 ---
+
 # Geometry
 
 ## Implicit Geometry
@@ -115,7 +118,9 @@ $$
 
 ![[./__assets/GAMES101 06 Geometry/IMG-GAMES101 06 Geometry-20250208152355782.webp]]
 
-$$\mathbf{b}^n(t)=\mathbf{b}_{0}(1-t)^{3}+\mathbf{b}_{1}3t(1-t)^{2}+\mathbf{b}_{2}3t^{2}(1-t)+\mathbf{b}_{3}t^{3}$$
+$$
+\mathbf{b}^n(t)=\mathbf{b}_{0}(1-t)^{3}+\mathbf{b}_{1}3t(1-t)^{2}+\mathbf{b}_{2}3t^{2}(1-t)+\mathbf{b}_{3}t^{3}
+$$
 
 ### normal form
 
@@ -132,12 +137,14 @@ $$
 
 > [!note] Bernstein Polynomials
 > ![[./__assets/GAMES101 06 Geometry/IMG-GAMES101 06 Geometry-20250208153251664.webp|300]]
-> 
-> $$B_i^n(t)=
+>
+> $$
+> B_i^n(t)=
 > \begin{pmatrix}
 > n \\
 > i
-> \end{pmatrix}t^i(1-t)^{n-i}$$
+> \end{pmatrix}t^i(1-t)^{n-i}
+> $$
 
 > [!note] property
 > - 贝塞尔曲线仿射变换前后不变
@@ -197,11 +204,14 @@ $$
 
 ![[./__assets/GAMES101 06 Geometry/IMG-GAMES101 06 Geometry-20250208221311926.webp]]
 
-$$N=\frac{3}{8}(A+B)+\frac{1}{8}(C+D)$$
+$$
+N=\frac{3}{8}(A+B)+\frac{1}{8}(C+D)
+$$
 
 ![[./__assets/GAMES101 06 Geometry/IMG-GAMES101 06 Geometry-20250208221351998.webp]]
 
-$$\begin{align}
+$$
+\begin{align}
 O'&=(1-\text{deg}(O)\cdot u)O+u\cdot \sum_{V_{i}\in \text{neighbor}(O)}V_{i} \\
 u&=\begin{cases}
 \frac{3}{16}\text{, if }n=3 \\
@@ -257,4 +267,5 @@ u&=\begin{cases}
 - 一条边坍缩之后，会改变相邻的几条边的坍缩误差，需要更新
 - 使用优先队列来维护，方便找到最小误差的边
 - 一个**贪心算法**，只是近似解
+
 

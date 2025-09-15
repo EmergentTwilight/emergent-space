@@ -1,12 +1,14 @@
 ---
-MkDocs_comments: true
-date_created: 2024-09-30 03:07:46
-date_modified: 2025-02-16 02:05:59
-number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
+status:
+  - archived
 tags:
-- Data-Structure/Priority-Queue/Binomial-Queue
-- Data-Structure/Priority-Queue/Fibonacci-Heap
+  - CS/Data-Structure/Priority-Queue/Binomial-Queue
+  - CS/Data-Structure/Priority-Queue/Fibonacci-Heap
+date_created: 2024-09-30T03:07:46
+date_modified: 2025-09-13T10:18:03
+number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
 ---
+
 # 1 Structure
 
 - Not a heap-ordered tree, but rather a **colloction** of heap-ordered trees, **forest**
@@ -21,7 +23,7 @@ tags:
 
 ![[__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028013928477.webp]]
 
-> [!NOTE] 
+> [!NOTE]
 > A priority queue of *any size* can be uniquely represented by a collection of binomial trees.
 
 ## 1.1 Definition
@@ -29,7 +31,7 @@ tags:
 - **Binomial Tree** *(recursive definition)* $B_i$: 两个 $B_{i-1}$，让其中一个是另一个的根节点的孩子
 - **Binomial Queue**: $B_i$ 的列表，实际是一个 **forest**
 
-> [!attention] 
+> [!attention]
 > 我们不使用 **binomial heap** 这个词，否则可能指代不清
 
 # 2 Operations
@@ -47,7 +49,7 @@ tags:
 - 直接将同阶的数组合成一颗更大的树，完成合并
 - $T(N)=O(\log N)$
 
-> [!NOTE] 
+> [!NOTE]
 > keep trees in the bq *sorted by height*, so that one traversal is enough
 
 ## 2.3 Insert
@@ -81,9 +83,9 @@ tags:
 
 > [!NOTE] Skew Binomial Queue
 > 第 $k$ 个树的容量为 $2^{k+1}-1$，而不是 $2^k$。这样带来的最大好处就是，每次 insert 一个节点时，最多只需要 carry 一次，能做到 $\Theta(1)$ 的 worst-case insert 时间。
-> 
+>
 > ![[__assets/ADS 05 Binomial Queue/IMG-ADS 05 Binomial Queue-20241028014012921.webp]]
-> 
+>
 > For example, 60 is represented as 11200 in skew binary (31 + 15 + 7 + 7), and adding 1 produces 12000 (31 + 15 + 15). Since the next higher digit is guaranteed not to be 2, a carry is performed at most once.[^1]
 
 # 3 Implementation
@@ -116,7 +118,7 @@ struct Collection
 }
 ```
 
-## 3.1 Combine 2 Trees/Merge %% fold %% 
+## 3.1 Combine 2 Trees/Merge %% fold %%
 
 ```c title="Combine 2 Trees"
 BinTree CombineTrees( BinTree T1, BinTree T2 )
@@ -130,7 +132,7 @@ BinTree CombineTrees( BinTree T1, BinTree T2 )
 }
 ```
 
-> [!hint] 
+> [!hint]
 > 从这里就能发现为什么 `LeftChild` 是最大的孩子了，这样方便树的合并操作；在合并时将根节点较大的一棵树直接当作 `LeftChild`，就不需要遍历所有 children。
 
 ```c title="Binomial Queue Merge"
@@ -258,7 +260,7 @@ $$
 
 Thus, $T_{worst}=O(\log N)$, but $T_{amortized}=2$
 
-# 5 More about heaps/Extened reading %% fold %% 
+# 5 More about heaps/Extened reading %% fold %%
 
 1. [[1403.0252] A Back-to-Basics Empirical Study of Priority Queues (arxiv.org)](https://arxiv.org/abs/1403.0252) 这篇论文的测试方法、数学推导和分析都非常值得学习
 2. [Fibonacci heaps 斐波那契堆_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1x54y1w7Y6/) Fibonacci Heaps 融合了很多数据结构的思想

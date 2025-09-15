@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-03 20:03:56
-date_modified: 2025-02-04 14:55:02
+status:
+  - archived
+tags: CS/Language/Assembly/80x86
+date_created: 2024-12-03T20:03:56
+date_modified: 2025-09-13T10:18:06
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-tags: Programming-Language/Assembly/80x86
-type:
-- note
 ---
+
 # 1 中断
 
 ```asm title="div00"
@@ -110,7 +107,7 @@ ss:2000    FL
 > [!attention]
 > 一定要保证**堆栈平衡**！
 
-## 1.2 
+## 1.2
 
 ```asm
 mov ah, 1

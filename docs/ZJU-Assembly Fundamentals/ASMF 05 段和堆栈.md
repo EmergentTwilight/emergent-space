@@ -1,14 +1,11 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-18 13:28:42
-date_modified: 2025-02-04 14:56:54
-state:
-- 待发布
-- 归档
-tags: Programming-Language/Assembly/80x86
-type:
-- note
+status:
+  - archived
+tags: CS/Language/Assembly/80x86
+date_created: 2024-12-18T13:28:42
+date_modified: 2025-09-13T10:18:05
 ---
+
 # 1 堆栈段的定义
 
 ## 定义和简单操作
@@ -35,7 +32,7 @@ stk segment stack  ; 定义堆栈段，堆栈段只能定义一个
 stk ends  ; 程序刚开始运行时，ss = stk，sp = 200h
 ```
 
-> [!attention] 
+> [!attention]
 > 堆栈段的定义必须要加 `stack` 修饰
 
 > [!hint] `push` 操作拆解
@@ -61,13 +58,14 @@ stk ends  ; 程序刚开始运行时，ss = stk，sp = 200h
 > - 堆栈只能有一个
 
 > [!note]- dword 的堆栈操作
+>
 > ```
 > ; ss = 1000h, sp = 200h
 > mov eax, 12345678h
 > push eax
 > pop ebx
 > ```
-> 
+>
 > > [!hint] 操作拆解
 > > - `sp = sp - 4`
 > > - `dword ptr ss:[sp] = 12345678h`
@@ -77,8 +75,8 @@ stk ends  ; 程序刚开始运行时，ss = stk，sp = 200h
 > > 1000:1FE  34h
 > > 1000:1FF  12h
 > >```
-> >- `ebx = dword ptr ss:[sp]`
-> >- `sp = sp + 4`
+> > - `ebx = dword ptr ss:[sp]`
+> > - `sp = sp + 4`
 
 ## 1.1 如果没有定义堆栈段？
 
@@ -99,7 +97,7 @@ B800:0000 ~ B800:7FFF  ; 显卡地址
 C000:0000 ~ F000:FFFF  ; ROM 映射，只读
 ```
 
-> [!important] 
+> [!important]
 > - DOS 系统是单任务的，所以一整块内存都是可用的，一直到 `9000:FFFF` 都是这个程序可用的空间
 > - `A000:0000` 前面一共有 640k，其中包含了 DOS 系统的内存
 
@@ -150,7 +148,7 @@ ds:0230 ?? ?? ?? ?? ?? ?? ?? ??  <ss:sp = 56A0:01FE = 569D:0230 = ds:0230 = 56A0
 >mov ax, ds 
 >```
 
-> [!attention] 
+> [!attention]
 > `ip` 的位置由 `end X` 决定，`ip` 会被赋值成 `X` label 的位移地址，所以 `end` 其实指定了程序的入口
 
 ## 3.1 调试观察 `psp` 段表现

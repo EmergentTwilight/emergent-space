@@ -1,8 +1,13 @@
 ---
+status:
+  - archived
+tags:
+  - CS/CG-CV/Rendering
+  - CS/CG-CV/Rendering/Ray-Tracing
 date_created: 2025-02-08T23:00:47
-date_modified: 2025-02-18T19:05:22
-MkDocs_comments: true
+date_modified: 2025-09-13T10:18:02
 ---
+
 # Intro
 
 > [!question] why ray tracing? rasterization couldn't handle **global** effects well
@@ -39,9 +44,11 @@ MkDocs_comments: true
 
 ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250208231655764.webp]]
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \mathbf{r}(t)=\mathbf{o}+t\mathbf{d}\quad0\leq t<\infty
-\end{aligned}$$
+\end{aligned}
+$$
 
 ## Ray Intersection
 
@@ -59,13 +66,15 @@ $$
 
 然后计算二次方程：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
  & at^{2}+bt+c=0,\mathrm{where} \\
  & a=\mathbf{d}\cdot\mathbf{d} \\
  & b=2(\mathbf{o-c})\cdot\mathbf{d} \\
  & c=(\mathbf{o}-\mathbf{c})\cdot(\mathbf{o}-\mathbf{c})-R^2 \\
  & t=\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}
-\end{aligned}$$
+\end{aligned}
+$$
 
 ### with implicit surface
 
@@ -90,17 +99,20 @@ $$
 > [!note] plane equation
 > $\mathbf{p}:(\mathbf{p}-\mathbf{p}^{\prime})\cdot\mathbf{N}=0 \implies ax+by+cz+d=0$
 
-$$\begin{aligned}
+$$
+\begin{aligned}
  & \mathrm{Set~}\mathbf{p}=\mathbf{r}(t)\text{ and solve for }t \\
  & (\mathbf{p}-\mathbf{p}^{\prime})\cdot\mathbf{N}=(\mathbf{o}+t\mathbf{d}-\mathbf{p}^{\prime})\cdot\mathbf{N}=0 \\
  & t=\frac{(\mathbf{p}^{\prime}-\mathbf{o})\cdot\mathbf{N}}{\mathbf{d}\cdot\mathbf{N}} & \mathrm{Check:~}0\leq t<\infty
-\end{aligned}$$
+\end{aligned}
+$$
 
 #### Moller Trumbore Algorithm
 
 > 直接求解重心坐标，判断是否有 $1-b_{1}-b_{2},b_{1},b_{2}\geq0$
 
-$$\begin{align}
+$$
+\begin{align}
 \vec{\mathbf{O}}+t\vec{\mathbf{D}}&=(1-b_{1}-b_{2})\vec{\mathbf{P}}_{0}+b_{1}\vec{\mathbf{P}}_{1}+b_{2}\vec{\mathbf{P}}_{2} \\
 \implies \begin{bmatrix}
 t \\
@@ -119,7 +131,8 @@ b_2
  & \mathbf{\vec{S}}_{1}=\mathbf{\vec{D}}\times\mathbf{\vec{E}}_{2} \\
  & \mathbf{\vec{S}}_{2}=\mathbf{\vec{S}}\times\mathbf{\vec{E}}_{1}
 \end{cases}
-\end{align}$$
+\end{align}
+$$
 
 ### with triangle mesh
 
@@ -205,7 +218,7 @@ b_2
 > - 与一个节点的 AABB 有交点，则需要判断与其子节点是否有交点，直到叶子节点
 > - 判断与最小叶子节点内物体是否有交点
 
-> [!bug] 
+> [!bug]
 > - 判断一个三角形与 AABB 相交比较复杂，即使三个顶点都不在盒子内，也可能相交
 > - 一个物体可能和不同的盒子都有交集，会出现在多个叶子节点里
 
@@ -241,20 +254,26 @@ b_2
 
 **Radiant Energy**: 电磁辐射的能量
 
-$$Q\text{ [J = Joule]}$$
+$$
+Q\text{ [J = Joule]}
+$$
 
 **Radiant Flux (power)**: 单位时间辐射能量 *\#photons flowing through a sensor in unit time*
 
-$$\Phi\equiv\frac{\mathrm{d}Q}{\mathrm{d}t}\mathrm{[W=Watt]}\mathrm{[lm=lumen]}^{\star}$$
+$$
+\Phi\equiv\frac{\mathrm{d}Q}{\mathrm{d}t}\mathrm{[W=Watt]}\mathrm{[lm=lumen]}^{\star}
+$$
 
 **Radiant Intensity**: the power per unit solid angle (立体角)
 
 ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209122251585.webp|300]]
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 I(\omega)  \equiv\frac{\mathrm{d}\Phi}{\mathrm{d}\omega} 
 \left[\frac{\mathrm{W}}{\mathrm{sr}}\right]\left[\frac{\mathrm{lm}}{\mathrm{sr}}  =\mathrm{cd}=\mathrm{candela}\right]
-\end{aligned}$$
+\end{aligned}
+$$
 
 > [!note] angles and solid andgles
 > - $\theta=\frac{l}{r}$ 弧长除以半径
@@ -268,7 +287,9 @@ I(\omega)  \equiv\frac{\mathrm{d}\Phi}{\mathrm{d}\omega}
 
 ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209142520786.webp|500]]
 
-$$E(\mathbf{x})\equiv\frac{\mathrm{d}\Phi(\mathbf{x})}{\mathrm{d}A}\left[\frac{\mathrm{W}}{\mathrm{m}^{2}}\right]\left[\frac{\mathrm{lm}}{\mathrm{m}^{2}}=\mathrm{lux}\right]$$
+$$
+E(\mathbf{x})\equiv\frac{\mathrm{d}\Phi(\mathbf{x})}{\mathrm{d}A}\left[\frac{\mathrm{W}}{\mathrm{m}^{2}}\right]\left[\frac{\mathrm{lm}}{\mathrm{m}^{2}}=\mathrm{lux}\right]
+$$
 
 > [!note] Note
 > ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209142651048.webp]]
@@ -281,7 +302,9 @@ $$E(\mathbf{x})\equiv\frac{\mathrm{d}\Phi(\mathbf{x})}{\mathrm{d}A}\left[\frac{\
 
 ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209143033139.webp|400]]
 
-$$L(\mathrm{p},\omega) \equiv\frac{\mathrm{d}^2\Phi(\mathrm{p},\omega)}{\mathrm{d}\omega \mathrm{d}A\cos\theta} \left[\frac{\mathrm{W}}{\mathrm{sr} \mathrm{m}^2}\right]\left[\frac{\mathrm{cd}}{\mathrm{m}^2}=\frac{\mathrm{lm}}{\mathrm{sr} \mathrm{m}^2}=\mathrm{nit}\right]$$
+$$
+L(\mathrm{p},\omega) \equiv\frac{\mathrm{d}^2\Phi(\mathrm{p},\omega)}{\mathrm{d}\omega \mathrm{d}A\cos\theta} \left[\frac{\mathrm{W}}{\mathrm{sr} \mathrm{m}^2}\right]\left[\frac{\mathrm{cd}}{\mathrm{m}^2}=\frac{\mathrm{lm}}{\mathrm{sr} \mathrm{m}^2}=\mathrm{nit}\right]
+$$
 
 > [!note] Note
 > 下面的 cos 表示 $\omega$ 方向上的投影面积
@@ -298,7 +321,8 @@ $$L(\mathrm{p},\omega) \equiv\frac{\mathrm{d}^2\Phi(\mathrm{p},\omega)}{\mathrm{
 
 ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209143033139.webp|400]]
 
-$$L(\mathrm{p},\omega)=\frac{\mathrm{d}I(\mathrm{p},\omega)}{\mathrm{d}A\cos\theta}$$
+$$L(\mathrm{p},\omega)=\frac{\mathrm{d}I(\mathrm{p},\omega)}{\mathrm{d}A\cos\theta}
+$$
 
 ### Irradiance vs. Radiance
 
@@ -310,7 +334,8 @@ $$L(\mathrm{p},\omega)=\frac{\mathrm{d}I(\mathrm{p},\omega)}{\mathrm{d}A\cos\the
 $$\begin{aligned}
 dE(\mathrm{p},\omega) & =L_i(\mathrm{p},\omega)\cos\theta\mathrm{d}\omega \\
 E(\mathrm{p}) & =\int_{H^2}L_i(\mathrm{p},\omega)\cos\theta\mathrm{d}\omega
-\end{aligned}$$
+\end{aligned}
+$$
 
 ## Bidirectional Reflectance Distribution Function (BRDF)
 
@@ -324,7 +349,8 @@ E(\mathrm{p}) & =\int_{H^2}L_i(\mathrm{p},\omega)\cos\theta\mathrm{d}\omega
 
 ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209150621727.webp]]
 
-$$\text{BRDF: }f_r(\omega_i\to\omega_r)=\frac{\mathrm{d}L_r(\omega_r)}{\mathrm{d}E_i(\omega_i)}=\frac{\mathrm{d}L_r(\omega_r)}{L_i(\omega_i)\cos\theta_i\mathrm{d}\omega_i}\left[\frac{1}{\text{sr}}\right]$$
+$$
+\text{BRDF: }f_r(\omega_i\to\omega_r)=\frac{\mathrm{d}L_r(\omega_r)}{\mathrm{d}E_i(\omega_i)}=\frac{\mathrm{d}L_r(\omega_r)}{L_i(\omega_i)\cos\theta_i\mathrm{d}\omega_i}\left[\frac{1}{\text{sr}}\right]$$
 
 > [!note] Note
 > 将漫反射和镜面反射一起考虑
@@ -354,26 +380,35 @@ $$\text{The Rendering Equation: }L_o(p,\omega_o)=\underbrace{   L_e(p,\omega_o)}
 ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209152239723.webp]]
 
 进行简化：
-
 $$
+
 \begin{align}
+
 \to && l(u)&=e(u)+\int l(v)K(u,v)dv \\
+
 \to && L&=E+KL
-\end{align}
-$$
 
+\end{align}
+
+$$
 这里的 $L$ 是全局光照(Global Illimination)
-
 $$
+
 \begin{align}
-L&=E+KL \\
-(I-K)L&=E \\
-L&=(I-K)^{-1}E \\
-L&=(I+K+K^2+K^3+\dots)E \\
-L&=E+KE+K^2E+K^3E+\dots
-\end{align}
-$$
 
+L&=E+KL \\
+
+(I-K)L&=E \\
+
+L&=(I-K)^{-1}E \\
+
+L&=(I+K+K^2+K^3+\dots)E \\
+
+L&=E+KE+K^2E+K^3E+\dots
+
+\end{align}
+
+$$
 ![[./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209153405715.webp|400]]
 
 > [!note] Note
@@ -394,12 +429,19 @@ $$
 > we want to solve an integral, but it can be too difficult to solve analytically.
 
 对于定积分 $\int_{a}^b f(x)\mathrm{d}x$，取随机变量 $X_i\sim p(x)$，则 Monte Carlo Integration 为：
+$$
 
-$$\int f(x)\mathrm{d}x\approx\frac{1}{N}\sum_{i=1}^{N}\frac{f(X_i)}{p(X_i)}$$
+\int f(x)\mathrm{d}x\approx\frac{1}{N}\sum_{i=1}^{N}\frac{f(X_i)}{p(X_i)}
+
+$$
 
 一种特殊情况是平均分布 $X_{i}\sim p(x)=\frac{1}{b-a}$：
 
-$$F_N=\frac{b-a}{N}\sum_{i=1}^Nf(X_i)$$
+$$
+
+F_N=\frac{b-a}{N}\sum_{i=1}^Nf(X_i)
+
+$$
 
 > [!note] Note
 > - 采样越多，方差越小
@@ -407,7 +449,11 @@ $$F_N=\frac{b-a}{N}\sum_{i=1}^Nf(X_i)$$
 
 ## Solve Rendering Equation
 
-$$\text{The Rendering Equation: }L_o(p,\omega_o)=\underbrace{   L_e(p,\omega_o)}_{\text{emitted by the object itself}}+\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i$$
+$$
+
+\text{The Rendering Equation: }L_o(p,\omega_o)=\underbrace{   L_e(p,\omega_o)}_{\text{emitted by the object itself}}+\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i
+
+$$
 
 > [!question] challenge
 > - 在半球面上积分
@@ -417,23 +463,32 @@ $$\text{The Rendering Equation: }L_o(p,\omega_o)=\underbrace{   L_e(p,\omega_o)}
 
 考虑要渲染一个像素(pixel, point)的 direct illumination
 
-$$L_o(p,\omega_o)=\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i$$
+$$
+
+L_o(p,\omega_o)=\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i$$
 
 使用 Monte Carlo 进行采样
 
 $$
+
 \begin{align}
+
 f(x)\text{ in Monte Carlo} & =L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i) \\
+
 p(\omega_{i})\text{ in Monte Carlo}&=1/2\pi
+
 \end{align}
+
 $$
 
 得到
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 L_{o}(p,\omega_{o}) & =\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i \\
  & \approx\frac{1}{N}\sum_{i=1}^N\frac{L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)}{p(\omega_i)}
-\end{aligned}$$
+\end{aligned}
+$$
 
 ```txt title="direct illumination"
 shade(p, wo)
@@ -553,14 +608,18 @@ shade(p, wo)
 
 根据立体角关系得到：
 
-$$d\omega=\frac{dA\cos\theta^{\prime}}{\|x^{\prime}-x\|^2}$$
+$$
+d\omega=\frac{dA\cos\theta^{\prime}}{\|x^{\prime}-x\|^2}
+$$
 
 改变积分域：
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 L_o(x,\omega_o) & =\int_{\Omega^+}L_i(x,\omega_i)f_r(x,\omega_i,\omega_o)\cos\theta\mathrm{d}\omega_i \\
  & =\int_AL_i(x,\omega_i)f_r(x,\omega_i,\omega_o)\frac{\cos\theta\cos\theta^{\prime}}{\|x^{\prime}-x\|^2}\mathrm{d}A
-\end{aligned}$$
+\end{aligned}
+$$
 
 ### light source v.s. other
 
@@ -590,7 +649,7 @@ shade(p, wo)
 	Return L_dir + L_indir
 ```
 
-> [!important] 
+> [!important]
 > 注意光源采样时，要保证光源不被遮挡
 
 # Outro
@@ -609,4 +668,5 @@ shade(p, wo)
 - random number matters(low discrepancy sequences)
 - 结合 hemishpere 和 light 两种采样方法，可以得到更好的效果
 - radiance 不是 color，需要经过 gamma correction 才能得到 rgb color
+
 

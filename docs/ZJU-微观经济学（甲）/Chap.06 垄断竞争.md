@@ -1,8 +1,10 @@
 ---
+status:
+  - archived
 date_created: 2024-05-22T11:02:57
-date_modified: 2025-03-01T14:57:02
-MkDocs_comments: true
+date_modified: 2025-09-13T09:24:52
 ---
+
 # 垄断竞争市场
 
 - 垄断竞争：由**大量生产相似而略有差别的产品**的相互竞争的企业组成

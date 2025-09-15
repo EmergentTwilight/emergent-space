@@ -1,16 +1,14 @@
 ---
-MkDocs_comments: true
-date_created: 2024-07-04 02:49:34
-date_modified: 2025-01-31 17:08:49
-state:
-- 待发布
-- 归档
-type:
-- note
+status:
+  - archived
+tags: CS/Tool/Linux
+attachment:
+  - "[[slides/4_集群软硬件及运维基础.pdf|4_集群软硬件及运维基础]]"
+date_created: 2024-07-04T02:49:34
+date_modified: 2025-09-12T15:23:19
 ---
-# 集群相关
 
-[[Attachment/4_集群软硬件及运维基础.pdf|4_集群软硬件及运维基础]]
+# 集群相关
 
 ## 登录节点
 
@@ -66,7 +64,7 @@ cht.sh  # cheat sheet，好用
 > 	- **文件权限**：Linux 使用用户和组来管理文件和目录的访问权限，每个文件或目录都有所有者（用户）、所属组以及其他用户的权限设置。
 > 	- **三种权限**：读 (r)、写 (w)、执行 (x)。
 
-> [!note] 
+> [!note]
 > 集群使用去中心化的用户认证：NIS, LDAP
 
 ### root

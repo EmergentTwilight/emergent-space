@@ -9,13 +9,16 @@
   margin-bottom: 16px;
   text-decoration: none;
   color: inherit;
-  transition: all 0.3s ease; /* 过渡效果，使变化更平滑 */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
 .friend-link-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 浮起效果，增加底部阴影 */
-  transform: translateY(-4px); /* 向上移动 4px，产生浮起效果 */
-  opacity: 0.9; /* 变透明效果 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-4px);
+  opacity: 0.9;
   border: 1px solid var(--md-accent-fg-color);
 }
 

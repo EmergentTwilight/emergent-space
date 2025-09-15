@@ -1,8 +1,10 @@
 ---
+status:
+  - archived
 date_created: 2024-05-22T10:00:09
-date_modified: 2025-03-01T14:56:49
-MkDocs_comments: true
+date_modified: 2025-09-13T09:24:52
 ---
+
 # 垄断
 
 # 价格歧视理论

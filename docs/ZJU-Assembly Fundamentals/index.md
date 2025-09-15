@@ -1,8 +1,10 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-01 14:33:26
-date_modified: 2025-02-04 15:02:20
+status:
+  - archived
+date_created: 2025-02-01T14:33:26
+date_modified: 2025-09-13T10:18:06
 ---
+
 # Table of Contents
 
 - [[ASMF 01 数据类型和变量]]
@@ -18,7 +20,7 @@ date_modified: 2025-02-04 15:02:20
 - [[ASMF 10 逻辑运算和移位指令]]
 - [[ASMF 11 字符串操作指令]]
 - [[ASMF 12 控制转移指令]]
-- [[ASMF Cheat Sheet]]
+- [[ASMF Cheatsheet]]
 
 # Info
 
@@ -36,9 +38,9 @@ date_modified: 2025-02-04 15:02:20
 
 # Tips
 
-> [!warning] 这份笔记并不完善 
+> [!warning] 这份笔记并不完善
 > - **调试**相关的内容有缺失，可以在教材上找到
-> - [[ASMF Cheat Sheet]] 是期末复习手稿，可能有部分错误或表述不清，请以教材为准
+> - [[ASMF Cheatsheet]] 是期末复习手稿，可能有部分错误或表述不清，请以教材为准
 
 > [!tip]
 > - 这门课并没有那么困难，只要认真完成作业 & 复习好期末就能拿到不错的分数

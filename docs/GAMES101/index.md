@@ -1,8 +1,10 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-11 15:22:40
-date_modified: 2025-02-16 01:01:38
+status:
+  - archived
+date_created: 2025-02-11T15:22:40
+date_modified: 2025-09-13T10:18:02
 ---
+
 # Table of Contents
 
 - [[GAMES101 01 Introduction]]

@@ -1,14 +1,11 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-17 20:39:11
-date_modified: 2025-02-04 14:27:34
-state:
-- 待发布
-- 归档
-tags: Programming-Language/Assembly/80x86
-type:
-- note
+status:
+  - archived
+tags: CS/Language/Assembly/80x86
+date_created: 2024-12-17T20:39:11
+date_modified: 2025-09-13T10:18:05
 ---
+
 # 1 汇编语言中的数据类型
 
 | type   | db     | dw (word)   | dd (double words) | dq (quadruple words)          | dt (ten bytes) |
@@ -17,7 +14,7 @@ type:
 | c type | `char` | `short int` | `long int, float` | `long long (__int64), double` | `long double`  |
 | printf |        |             |                   | `%lld, %llx`                  | `%Lf`          |
 
-> [!NOTE] 
+> [!NOTE]
 > - 8086 中的 word 指的是 **2 bytes, 16 bits**
 > - RISC-V 中的 word 一般指的是 **4bytes, 32bits**
 
@@ -116,10 +113,10 @@ end main
 | ---------- | -------- | -------- | --------- |
 | bytes      | 1        | 2        | 4         |
 
-> [!attention] 
+> [!attention]
 > - ptr 宽度修饰不能用于常数
 > - 变量在定义的时候已经声明了类型，编译器会自动加上修饰，所以不用加
->   但如果不是通过变量引用的方式来引用变量（即代码中没有出现变量名），还是需要加上修饰
+> 但如果不是通过变量引用的方式来引用变量（即代码中没有出现变量名），还是需要加上修饰
 
 ## 2.5 数组和元素合并
 

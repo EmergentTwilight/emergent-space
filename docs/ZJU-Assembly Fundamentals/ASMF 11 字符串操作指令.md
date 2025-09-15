@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-18 13:48:47
-date_modified: 2025-02-16 01:36:01
+status:
+  - archived
+tags: CS/Language/Assembly/80x86
+date_created: 2024-12-18T13:48:47
+date_modified: 2025-09-13T10:18:06
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-tags: Programming-Language/Assembly/80x86
-type:
-- note
 ---
+
 # 1 字符串复制指令
 
 ```c title="copy"

@@ -1,11 +1,13 @@
 ---
-MkDocs_comments: true
+status:
+  - archived
+tags: CS/Algorithm/Parallel
 comment: Summation, prefix-sum and find-max.
-date_created: 2024-12-09 13:25:50
-date_modified: 2025-01-31 18:52:50
+date_created: 2024-12-09T13:25:50
+date_modified: 2025-09-13T10:18:04
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-tags: Algorithm/Parallel
 ---
+
 # 1 Introduction
 
 - Machine parallelism
@@ -129,6 +131,7 @@ for i = 1 pardo
 ## 4.2 WD
 
 > [!tip] Brent's Theorem
+>
 > $$
 > \frac{W}{p}\leq T(n) \leq \frac{W}{p}+D
 > $$
@@ -138,7 +141,7 @@ for i = 1 pardo
 > [!question] Question
 > Please prove that a parallel algorithm with workload $W$ and depth $D$ can be implemented in $W/p+D$ time using $p$ processors for any $p>0$.
 
-Assume that the workload on $\text{depth}=i$ is $w_{i}$. 
+Assume that the workload on $\text{depth}=i$ is $w_{i}$.
 
 In the worst case that each layer must be totally completed before executing any workload of the upper layer, we have $t_{i}=\lceil w_{i}/p \rceil$, then:
 
@@ -331,4 +334,4 @@ In Work-Depth presentation, each time unit consists of a sequence of instruction
 > [!tip]- Answer
 > **T**, 定义就是这样说的，只要给定一个 unit 就行了，内部的操作数量任意
 
-### 8.2.2 
+### 8.2.2

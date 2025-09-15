@@ -1,10 +1,12 @@
 ---
-tags: Algorithm/Divide-and-Conquer
-number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
+status:
+  - archived
+tags: CS/Algorithm/Divide-and-Conquer
 date_created: 2024-10-14T15:22:45
-date_modified: 2025-02-18T19:03:30
-MkDocs_comments: true
+date_modified: 2025-09-13T10:18:03
+number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
 ---
+
 # 1 Intro
 
 - The maximum subsequence sum
@@ -18,12 +20,14 @@ MkDocs_comments: true
 	- $T(N)=O(N\log N)$
 
 > [!important] 出发点：递推公式
-> 
-> $$T(N)=aT(\frac{N}{b})+f(N)$$
+>
+> $$
+> T(N)=aT(\frac{N}{b})+f(N)
+> $$
 
 ## 1.1 Example: Closest Points Problem
 
-> [!question] 
+> [!question]
 > 一个平面上有 $N$ 个点，找到距离最近的一对点
 
 - **Divide**
@@ -33,7 +37,7 @@ MkDocs_comments: true
 	- 若子问题中找到的最小距离为 $\delta$，在分割直线左右两侧 $\pm \delta$ 范围内查找是否有更小的距离
 	- *problem*: 如何减小合并的复杂度？
 
-> [!solution] 
+> [!solution]
 > 按照一个方向坐标大小进行排序，然后顺序遍历，如果相邻的两个节点在这个方向上距离小于 $\delta$，才考虑它们之间的距离，并更新点对和 $\delta$<br>
 > 这样就是 $O(N)$
 
@@ -56,13 +60,17 @@ $T(N)=2T(N/2)+O(N)=O(N\log N)$
 
 > 进行猜测，然后使用归纳法证明，**方便用于验证**
 
-> [!example] 
-> 
-> $$T(N)=2T\left( \left\lfloor  \frac{N}{2}  \right\rfloor  \right)+N$$
+> [!example]
+>
+> $$
+> T(N)=2T\left( \left\lfloor  \frac{N}{2}  \right\rfloor  \right)+N
+> $$
 
 假设对于所有 $m<N$ 都成立，那么当 $m=\lfloor N/2 \rfloor$ 时也成立，即存在常数 $c\geq 1$ 使得：
 
-$$T(\lfloor N/2 \rfloor)\leq c \lfloor N/2 \rfloor \log \lfloor N/2 \rfloor$$
+$$
+T(\lfloor N/2 \rfloor)\leq c \lfloor N/2 \rfloor \log \lfloor N/2 \rfloor
+$$
 
 那么：
 
@@ -77,7 +85,7 @@ $$
 
 由此完成归纳，证毕。
 
-> [!attention] 
+> [!attention]
 > 可以选择足够大的常数 $c$，使得假设对于 $N=1$ 等较小的 case 也一定成立
 
 > [!attention] **Exact form**
@@ -86,9 +94,11 @@ $$
 
 ## 2.2 Recursion-tree Method
 
-> [!example] 
-> 
-> $$T(N)=3T(N/4)+\Theta(N^2)$$
+> [!example]
+>
+> $$
+> T(N)=3T(N/4)+\Theta(N^2)
+> $$
 
 ![[__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241030194254232.webp]]
 
@@ -111,23 +121,25 @@ $$
 2. 如果 $f(N)=\Theta(N^{\log_{b}a})$，即二者开销同阶，$T(N)=\Theta(N^{\log_{b}a}\log N)$
 3. 如果 $f(N)=\Omega(N^{\log_{b}a+\epsilon})$，即 $f(N)$ 的阶高于 $log_b a$，且 $af(N/b)<cf(N)$ (**regularity condition**)，那么 conquer 是主要开销，$T(N)=\Theta(F(N))$
 
-> [!attention] 
+> [!attention]
 > 无法覆盖所有条件，例如 $T(N)=2T(N/2)+N\log N$ 不满足任何一种条件，但是可以使用 [[#2.3.4 form 3]] 来解决
 
 > [!note]- Regularity Condition 的作用
 > ![[__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241109153027007.webp]]
-> 
+>
 > > [!note]- **Polynomially smaller**
 > >  **Polynomially smaller** 是指一个函数与另一个函数相比，在增长速率上相差一个多项式级别。
-> > 
+> >
 > > 具体来说，如果有两个函数 \( f(n) \) 和 \( g(n) \)，我们说 \( f(n) \) **polynomially smaller**（多项式级别小）于 \( g(n) \)，意味着存在某个多项式函数 \( n^k \)，使得
-> > 
-> > $$f(n) = O(\frac{g(n)}{n^{k}})$$
-> > 
+> >
+> > $$
+> > f(n) = O(\frac{g(n)}{n^{k}})
+> > $$
+> >
 > > 换句话说，\( f(n) \) 的增长速率比 \( g(n) \) 慢，并且相差一个多项式因子 \( n^k \)，其中 \( k \) 是一个常数。
-> > 
+> >
 > >  ***举例***
-> > 
+> >
 > >  1. **\( f(n) = n \) 和 \( g(n) = n^2 \)**：
 > > 在这种情况下，\( f(n) \) 是 \( g(n) \) 的多项式级别小，因为 \( n = O\left(\frac{n^2}{n}\right) \)，这里 \( k = 1 \)，所以 \( n \) 是 \( n^2 \) 的多项式级别小。
 > > 
@@ -135,14 +147,14 @@ $$
 > > 这里 \( f(n) \) 也是 \( g(n) \) 的多项式级别小，因为 \( n = O\left(\frac{n^3}{n^2}\right) \)，这里 \( k = 2 \)，所以 \( n \) 是 \( n^3 \) 的多项式级别小。
 > > 
 > >  ***为什么多项式级别小很重要？***
-> > 
+> >
 > > 在算法分析中，特别是递归分析或分治算法的分析中，**多项式级别小**的概念经常用来比较递归关系中不同部分的增长速率。比如：
-> > 
+> >
 > >  - 在 **Master Theorem** 中，当你分析递归关系时，会比较子问题的数量（即递归部分）与额外的工作量（即合并部分）。如果合并部分（比如 \( f(n) \)）在某一层比递归部分（比如 \( aT(n/b) \)）要小得多，那么可以认为这个合并部分是 **多项式级别小**，递归部分占主导地位。
 > >  - 反之，如果 \( f(n) \) 增长得与递归部分差不多或者更快，那么合并部分会成为主要开销，这时就会有不同的时间复杂度分析。
 > > 
 > >  ***总结***
-> > 
+> >
 > > "Polynomially smaller" 就是指在增长速度上，两个函数相差一个多项式的级别。这个概念在分析算法和递归关系时经常出现，帮助我们判断哪些部分在整体复杂度中占主导地位，哪些部分可以忽略掉。
 
 ### 2.3.2 Prove by Recursion-tree
@@ -155,7 +167,7 @@ $$
 2. 如果存在常数 $K>1$，使得 $af(N/b)=Kf(N)$，那么 $T(N)=\Theta(N^{\log_{b}a})$
 3. 如果 $af(N/b)=f(N)$，那么 $T(N)=\Theta(f(N)\log_{b}N)$
 
-> [!attention] 
+> [!attention]
 > 这种形式的适用范围没有前一种那么广，例如：
 > ![[__assets/ADS 07 Divide and Conquer/IMG-ADS 07 Divide and Conquer-20241030202916999.webp]]
 
@@ -163,13 +175,15 @@ $$
 
 当 $a\ge 1,b\geq 1, p\geq 0$ 时，对于递推式：
 
-$$T(N)=aT(N/b)+\Theta(N^k \log^p N)$$
+$$
+T(N)=aT(N/b)+\Theta(N^k \log^p N)
+$$
 
 1. if $a>b^k$, $T(N)=O(N^{\log_{b}a})$
 2. if $a=b^k$, $T(N)=O(N^k \log^{p+1}N)$
 3. if $a<b^k$, $T(N)=O(N^k \log^p N)$
 
-> [!important] 
+> [!important]
 > 这种形式的使用场景最广，但仍然可以进行以下推广，使 $p$ 为任意实数，则：
 > 1. if $a<b^k$, then
 >  	1. if $p<0$, $T(N)=\Theta(N^k)$
@@ -186,9 +200,9 @@ $$T(N)=aT(N/b)+\Theta(N^k \log^p N)$$
 
 > [!question]
 > **Three-way-mergesort** : Suppose instead of dividing in two halves at each step of the mergesort, we divide into three one thirds, sort each part, and finally combine all of them using a three-way-merge.
-> 
+>
 > What is the overall time complexity of this algorithm for sorting n elements? Prove it.
-> 
+>
 > How about $k$-way merge?
 
 $T(n)=kT(n/k)+O(n)$, where $O(n)$ is merge time.
@@ -197,7 +211,7 @@ By Master theorem, $a=k$, $b=k$, $f(n)=O(n)$, making $\log_{b}a=1$, the recurren
 
 ## 3.2 Solve this recursion beyond master theorem
 
-> [!question] 
+> [!question]
 > $T(n)=2T(|\sqrt{ n }|)+\log n$
 
 Let $m=\log n$,<br>

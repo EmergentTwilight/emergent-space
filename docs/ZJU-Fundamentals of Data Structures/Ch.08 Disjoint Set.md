@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-04-09 02:27:06
-date_modified: 2025-01-31 16:28:47
-is_published: true
+status:
+  - archived
+tags: CS/Data-Structure/Disjoint-Set
+date_created: 2024-04-09T02:27:06
+date_modified: 2025-09-12T15:23:20
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-type:
-- note
 ---
+
 # 1 Equivalence Relations
 
 ## 1.1 Definition
@@ -114,7 +111,7 @@ int Find( int i , DisjSet S)
 ![[__assets/Ch.08 Disjoint Set/IMG-Ch.08 Disjoint Set-20250125005211961.webp]]
 
 - 所有的 member 都直接和组长联系，只有两层
-- 在查找的同时指向 root  
+- 在查找的同时指向 root
 
 ```c
 SetType Find (int X, int* S)

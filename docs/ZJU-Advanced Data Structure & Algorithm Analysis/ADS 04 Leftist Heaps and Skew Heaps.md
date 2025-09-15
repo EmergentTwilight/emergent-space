@@ -1,12 +1,14 @@
 ---
-MkDocs_comments: true
-date_created: 2024-09-23 03:05:05
-date_modified: 2025-01-31 18:12:25
-number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
+status:
+  - archived
 tags:
-- Data-Structure/Priority-Queue/Leftist-Heap
-- Data-Structure/Priority-Queue/Skew-Heap
+  - CS/Data-Structure/Priority-Queue/Leftist-Heap
+  - CS/Data-Structure/Priority-Queue/Skew-Heap
+date_created: 2024-09-23T03:05:05
+date_modified: 2025-09-13T10:18:03
+number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
 ---
+
 # 1 Intro
 
 - Leftist heaps -> AVL *依靠规则维持平衡*
@@ -44,15 +46,19 @@ tags:
 
 $Definition$: The **null path length**, $Npl(x)$, of any node X is the length of the shortest path from x to a node without 2 children. Define $Npl(NULL)=-1$
 
-$$Npl(x)=\min \{Npl(C)+1\,for\,all\,C\,as\,children\,of\,X\}$$
+$$
+Npl(x)=\min \{Npl(C)+1\,for\,all\,C\,as\,children\,of\,X\}
+$$
 
 $Definition$: The leftist heap property is that for every node X in the heap, the null path length of the left child is ***at least as large as*** that of the right child.
 
-$$Npl(left) \ge Npl(right)$$
+$$
+Npl(left) \ge Npl(right)
+$$
 
 $Property$: Leftisit Heaps 的右路径节点数 $\le \lfloor \log(N+1) \rfloor$。<br>换一种说法就是，右路径上有 $r$ 个节点的 Leftist Heaps 至少有 $2^r-1$ 个节点。
 
-> [!hint] 
+> [!hint]
 > We can perform all the work on the **right** path, which is guaranteed to be **short**.
 
 ## 2.2 Merge
@@ -131,7 +137,7 @@ static PriorityQueue merge ( PriorityQueue H1, PriorityQueue H2 )
 
 **Always** swap the left and right children except that the largest of all the nodes on the right paths does not have its children swapped. **始终**交换左子树和右子树，除了在右路径上最大的节点不交换其子节点。
 
-> [!NOTE] 
+> [!NOTE]
 > - Skep Heap 的优势在于，无需多余的空间来记录路径长， 无需判断是否需要交换孩子
 > - It is an open problem to determine precisely the *expected right path length* of both leftist and skep heaps.
 
@@ -141,7 +147,7 @@ static PriorityQueue merge ( PriorityQueue H1, PriorityQueue H2 )
 
 ## 3.2 Amortized Analysis for Skew Heaps
 
-> [!question] 
+> [!question]
 > $T_{amortized}=O(\log N)$ ?
 
 - $D_{i}=$ the root of the resulting tree
@@ -151,16 +157,20 @@ $definition$: 某一节点的后代（包括自己）中，其右子树内的大
 
 ![[__assets/ADS 04 Leftist Heaps and Skew Heaps/IMG-ADS 04 Leftist Heaps and Skew Heaps-20241028013549950.webp]]
 
-> [!important] 
+> [!important]
 > 每次合并，只有原本在**右路经**上的节点才有机会改变轻重状态
 
 考虑 $H_{i}$ 的右路经上有 $l_i$ 个轻节点，$h_i$ 个重节点，合并的最坏情况就是遍历了两个右路径
 
-$$T_{worst}=l_{1}+h_{1}+l_{2}+h_{2}$$
+$$
+T_{worst}=l_{1}+h_{1}+l_{2}+h_{2}
+$$
 
 令两棵树中右路径除外的节点中还有 $h$ 个不会改变的重节点，则 merge 之前有
 
-$$\Phi_{i}=h_{1}+h_{2}+h$$
+$$
+\Phi_{i}=h_{1}+h_{2}+h
+$$
 
 Merge 后，由于 **heavy 一定变成 light，light 可能变成 heavy**[^1]
 
@@ -196,7 +206,7 @@ A leftist heap with the null path length of the root being r must have at least 
 > **T** 由于 $Npl(x)=min\{Npl(x.left), Npl(x.right)\}+1$，如果 $Npl(root)=r$，那么意味着不存在小于 $r$ 的 shorter path，极端情况是高为 $r$ 的满二叉树，最少有 $2^{r+1}-1$ 个节点
 > 注意与 *右路经上有 $r$ 个节点，则 Leftist Heap 至少有 $2^r-1$ 个节点* 区分
 
-## 5.2 HW4 
+## 5.2 HW4
 
 ### 5.2.1 Skew Heap 插入自然数
 

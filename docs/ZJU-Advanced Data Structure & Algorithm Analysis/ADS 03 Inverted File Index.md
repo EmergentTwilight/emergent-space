@@ -1,10 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-09-18 12:48:23
-date_modified: 2025-01-31 19:09:28
+status:
+  - archived
+tags: CS/Data-Structure/Inverted-File-Index
+date_created: 2024-09-18T12:48:23
+date_modified: 2025-09-13T10:18:02
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-tags: Data-Structure/Inverted-File-Index
 ---
+
 # 1 Intro
 
 - solution 1: traverse every page
@@ -45,7 +47,7 @@ Write the inverted index to disk;
 - **Word Stemming**: 将不同的词态还原为原本的形式
 - **Stop Words**: 常见的 "a", "the" 等
 
-> [!note] 
+> [!note]
 > [Byte Pair Encoding](https://github.com/openai/tiktoken) 能减少 tokenize 步骤丢失的信息，实现自动分词
 
 ## 2.4 Vocabulary Scanner
@@ -61,7 +63,7 @@ Write the inverted index to disk;
 ## 2.5 Memory
 
 - 按照块来存储，每次内存满了就存入磁盘
-- 索引结束后需要进行块合并 #Algorithm/Sorting/External-Sort
+- 索引结束后需要进行块合并 #CS/Algorithm/Sorting/External-Sort
 
 ## 2.6 Distributed indexing 分布式搜索
 
@@ -82,7 +84,7 @@ Write the inverted index to disk;
 ![[__assets/ADS 03 Inverted File Index/IMG-ADS 03 Inverted File Index-20241028013005001.webp]]
 
 - Term dict 可以用单个字符串，压缩空格
-- Posting list 中的位置编码可以存增量，用更少的 bit 
+- Posting list 中的位置编码可以存增量，用更少的 bit
 
 ## 2.9 Thresholding
 
@@ -116,8 +118,17 @@ Write the inverted index to disk;
 | Retrieved     | $R_R$ (TP) | $I_R$ (FP) |
 | Not Retrieved | $R_N$ (FN) | $I_N$ (TN) |
 
-- 找到的中的准确率 $$Precision=\frac{TP}{TP+FP}$$
-- 正确的中被找到的 $$Recall=\frac{TP}{TP+FN}$$
+- 找到的中的准确率
+
+$$
+Precision=\frac{TP}{TP+FP}
+$$
+
+- 正确的中被找到的
+
+$$
+Recall=\frac{TP}{TP+FN}
+$$
 
 ![[__assets/ADS 03 Inverted File Index/IMG-ADS 03 Inverted File Index-20241028013016802.webp]]
 

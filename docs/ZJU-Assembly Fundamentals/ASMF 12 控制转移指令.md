@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-12-10 19:13:46
-date_modified: 2025-01-25 16:27:55
+status:
+  - archived
+tags: CS/Language/Assembly/80x86
+date_created: 2024-12-10T19:13:46
+date_modified: 2025-09-13T10:18:06
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-tags: Programming-Language/Assembly/80x86
-type:
-- note
 ---
+
 # 1 无条件跳转指令 `jmp`
 
 |     | 短跳转          | 近跳转              | 远跳转                      |
@@ -29,9 +26,9 @@ type:
 
 > [!question] 为什么是 `EB06`
 > 计算 `0108h - 0102h = 06` 用目标地址减去下一条指令地址即可
-> 
+>
 > 如果是下面这种情况：
-> 
+>
 > ```asm
 > 1D3E:00F0  ...
 > 1D3E:0100  EB??  jmp 00F0h
@@ -226,7 +223,7 @@ done:
 > 如果 `cx = 0`，并不是 0 次循环，因为 `cx--` 会先执行，所以会执行 `10000h` 次
 > 如果不希望发生这种情况，可以在循环外面进行一个判断 `jcxz done`
 
-> [!NOTE] 
+> [!NOTE]
 > 另有 `loopz, loopnz` 指令，可以根据比较的结果来决定是否进行循环
 > ```asm
 > mov ax, 8000h

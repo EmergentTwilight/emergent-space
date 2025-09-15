@@ -1,15 +1,12 @@
 ---
-MkDocs_comments: true
-date_created: 2024-05-28 02:54:32
-date_modified: 2025-01-30 13:57:58
-is_published: true
+status:
+  - archived
+tags: CS/Data-Structure/Hash-Table
+date_created: 2024-05-28T02:54:32
+date_modified: 2025-09-12T15:23:20
 number headings: auto, first-level 1, max 6, contents ^toc, skip ^skipped, 1.1
-state:
-- 待发布
-- 归档
-type:
-- note
 ---
+
 # 1 Interpolation Search
 
 Find **Key** from a sorted list `f[l].key, f[l+1].key, ..., f[u].key`
@@ -84,7 +81,7 @@ Index Hash3(const char* x, int TableSize)
 -- Keep a **list of all keys** that hash to the same value
 - 将哈希表每个元素都变成一个链表的头节点
 
-> [!attention] 
+> [!attention]
 > - Separate Chaining 可以使用头插法，也就是往每个链表的头节点后插入，不需要放在链表的尾部，所以 $T_{insert}=O(1)$
 > - 但是在 Find 的时候，还是需要一个一个去找，worst case $T_{find}=T_{delete}=O(N)$
 
@@ -289,7 +286,7 @@ void Insert( ElementType Key, HashTable H )
 	- B. if the table size is prime and the table is at least half empty, a new element can always be inserted with quadratic probing **不确定**
 	- C. in separate chaining method, if duplicate elements are allowed in the list, insertions are generally quicker than deletions **这时 insert 只要插入头节点，deletion 要搜索**
 	- D. all of the above
-- Suppose that the numbers {4371, 1323, 6173, 4199, 4344, 9679, 1989} are hashed into a table of size 10 with the hash function h(X)=X%10, and hence have indices {1, 3, 4, 9, 5, 0, 2}. What are their indices after rehashing using h(X)=X%TableSize with linear probing? ***why*** 
+- Suppose that the numbers {4371, 1323, 6173, 4199, 4344, 9679, 1989} are hashed into a table of size 10 with the hash function h(X)=X%10, and hence have indices {1, 3, 4, 9, 5, 0, 2}. What are their indices after rehashing using h(X)=X%TableSize with linear probing? ***why***
 	- A. 11, 3, 13, 19, 4, 0, 9
 	- B. 1, 3, 4, 9, 5, 0, 2
 	- C. 1, 12, 9, 13, 20, 19, 11

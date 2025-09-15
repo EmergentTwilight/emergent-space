@@ -1,26 +1,35 @@
 ---
-MkDocs_comments: true
-date_created: 2025-02-11 05:34:28
-date_modified: 2025-02-17 09:29:39
+status:
+  - archived
+tags: CS/CG-CV/Animation
+date_created: 2025-02-11T05:34:28
+date_modified: 2025-09-13T10:18:02
 ---
+
 # Mass Spring System
 
 ## A Simple Spring
 
 ![[./__assets/GAMES101 12 Animation/IMG-GAMES101 12 Animation-20250211054723929.webp|311x161]]
 
-$$\begin{aligned}
+$$
+\begin{aligned}
  & \boldsymbol{f}_{a\to b}=k_S(\boldsymbol{b}-\boldsymbol{a}) \\
  & \boldsymbol{f}_{b\to a}=-\boldsymbol{f}_{a\to b}
-\end{aligned}$$
+\end{aligned}
+$$
 
 考虑弹簧原长度：
 
-$$\boldsymbol{f}_{a\to b}=k_S\frac{\boldsymbol{b}-\boldsymbol{a}}{||\boldsymbol{b}-\boldsymbol{a}||}\left(||\boldsymbol{b}-\boldsymbol{a}||-l\right)$$
+$$
+\boldsymbol{f}_{a\to b}=k_S\frac{\boldsymbol{b}-\boldsymbol{a}}{||\boldsymbol{b}-\boldsymbol{a}||}\left(||\boldsymbol{b}-\boldsymbol{a}||-l\right)
+$$
 
 考虑弹簧上的微小摩擦：
 
-$$f_{\boldsymbol{b}}=-k_d\frac{\boldsymbol{b}-\boldsymbol{a}}{\|\boldsymbol{b}-\boldsymbol{a}\|}(\dot{\boldsymbol{b}}-\dot{\boldsymbol{a}})\cdotp\frac{\boldsymbol{b}-\boldsymbol{a}}{||\boldsymbol{b}-\boldsymbol{a}||}$$
+$$
+f_{\boldsymbol{b}}=-k_d\frac{\boldsymbol{b}-\boldsymbol{a}}{\|\boldsymbol{b}-\boldsymbol{a}\|}(\dot{\boldsymbol{b}}-\dot{\boldsymbol{a}})\cdotp\frac{\boldsymbol{b}-\boldsymbol{a}}{||\boldsymbol{b}-\boldsymbol{a}||}
+$$
 
 ## Structures from Springs
 
@@ -78,11 +87,15 @@ $$f_{\boldsymbol{b}}=-k_d\frac{\boldsymbol{b}-\boldsymbol{a}}{\|\boldsymbol{b}-\
 
 常微分方程：
 
-$$\frac{\mathrm{d}x}{\mathrm{d}t}=\dot{x}=v(x,t)$$
+$$
+\frac{\mathrm{d}x}{\mathrm{d}t}=\dot{x}=v(x,t)
+$$
 
 ## Euler's Method
 
-$$\begin{aligned}\boldsymbol{x}^{t+\Delta t}&=\boldsymbol{x}^t+\Delta t\boldsymbol{\dot{x}}^t\\\boldsymbol{\dot{x}}^{t+\Delta t}&=\boldsymbol{\dot{x}}^t+\Delta t\boldsymbol{\ddot{x}}^t\end{aligned}$$
+$$
+\begin{aligned}\boldsymbol{x}^{t+\Delta t}&=\boldsymbol{x}^t+\Delta t\boldsymbol{\dot{x}}^t\\\boldsymbol{\dot{x}}^{t+\Delta t}&=\boldsymbol{\dot{x}}^t+\Delta t\boldsymbol{\ddot{x}}^t\end{aligned}
+$$
 
 > [!note] Note
 > - simple iterative
@@ -114,10 +127,12 @@ $$\begin{aligned}\boldsymbol{x}^{t+\Delta t}&=\boldsymbol{x}^t+\Delta t\boldsymb
 > 2. 得到欧拉方法下的中点速度
 > 3. 使用这个中点速度
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 x_{\mathrm{mid}} & =x(t)+\Delta t/2\cdot v(x(t),t) \\
 x(t+\Delta t) & =x(t)+\Delta t\cdot v(x_{\mathrm{mid}},t)
-\end{aligned}$$
+\end{aligned}
+$$
 
 ## Modified Euler
 
@@ -125,7 +140,8 @@ $$\begin{aligned}
  & \boldsymbol{x}^{t+\Delta t}=\boldsymbol{x}^t+\frac{\Delta t}{2}(\dot{\boldsymbol{x}}^t+\dot{\boldsymbol{x}}^{t+\Delta t}) \\
  & \dot{\boldsymbol{x}}^{t+\Delta t}=\dot{\boldsymbol{x}}^t+\Delta t\ddot{\boldsymbol{x}}^t \\
  & \boldsymbol{x}^{t+\Delta t}=\boldsymbol{x}^t+\Delta t\dot{\boldsymbol{x}}^t+\frac{(\Delta t)^2}{2}\ddot{\boldsymbol{x}}^t
-\end{aligned}$$
+\end{aligned}
+$$
 
 > [!note] Note
 > - 使用起点和终点处的平均速度
@@ -142,7 +158,8 @@ $$\begin{aligned}
 
 ## Implicit Euler Method
 
-$$\begin{aligned}
+$$
+\begin{aligned}
 \boldsymbol{x}^{t+\Delta t} & =\boldsymbol{x}^{t}+\Delta t\boldsymbol{\dot{x}}^{t+\Delta t} \\
 \boldsymbol{\dot{x}}^{t+\Delta t} & =\boldsymbol{\dot{x}}^{t}+\Delta t\boldsymbol{\ddot{x}}^{t+\Delta t}
 \end{aligned}$$
@@ -186,7 +203,8 @@ $$\frac{d}{dt}
 {\omega} \\
 {\mathrm{F}/M} \\
 {\Gamma/I}
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 > 是对粒子模拟的扩展
 
@@ -207,3 +225,5 @@ $$\frac{d}{dt}
 - 使用 eulerian 中的粒子来表示物质性质
 - 使用 lagrangian 的网格进行计算
 - 同步更新两种数据结构
+
+
