@@ -585,6 +585,8 @@
       
         
       
+        
+      
     
     
       
@@ -826,7 +828,7 @@
     
   
   
-    <span class="md-status md-status--['new']"></span>
+    <span class="md-status md-status--['archived']"></span>
   
 
   
@@ -866,7 +868,7 @@
     
   
   
-    <span class="md-status md-status--['active']"></span>
+    <span class="md-status md-status--['archived']"></span>
   
 
   
@@ -891,6 +893,13 @@
     02 Image Formation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -911,6 +920,13 @@
   <span class="md-ellipsis">
     03 Image Processing
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -933,6 +949,13 @@
     04 Model Fitting and Optimization
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -953,6 +976,13 @@
   <span class="md-ellipsis">
     05 Image Matching and Motion Estimation
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -982,6 +1012,13 @@
     06 Image Stiching
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -992,6 +1029,13 @@
   <span class="md-ellipsis">
     06 Image Stiching
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1143,6 +1187,13 @@
     07 Structure from Motion
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1163,6 +1214,13 @@
   <span class="md-ellipsis">
     08 Depth Estimation and 3D Reconstruction
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1185,6 +1243,13 @@
     09 Deep Learning
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1205,6 +1270,13 @@
   <span class="md-ellipsis">
     10 Recognition
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1227,6 +1299,13 @@
     11 3D Deep Learning
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1248,6 +1327,13 @@
     12 Computational Photography
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1268,6 +1354,13 @@
   <span class="md-ellipsis">
     13 Image-Based Rendering
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1669,7 +1762,7 @@ y_i \\
 </ul>
 </li>
 </ul>
-<p><img alt="__assets/CV 06 Image Stiching/IMG-CV 06 Image Stiching-20250801120400122.webp" src="__assets/CV%2006%20Image%20Stiching/IMG-CV%2006%20Image%20Stiching-20250801120400122.webp" /></p>
+<p><img alt="IMG-CV 06 Image Stiching-20250801120400122.webp" src="__assets/CV%2006%20Image%20Stiching/IMG-CV%2006%20Image%20Stiching-20250801120400122.webp" /></p>
 <div class="admonition note">
 <p class="admonition-title">满足 Homography 的变换</p>
 <ul>
@@ -1784,7 +1877,8 @@ y_n^{\prime}
 \mathbf{t}=(\mathbf{A}^T\mathbf{A})^{-1}\mathbf{A}^T\mathbf{b}
 \]</div>
 <h3 id="for-homographies">for Homographies<a class="headerlink" href="#for-homographies" title="Locate to heading">#</a></h3>
-<div class="arithmatex">\[\begin{gathered}
+<div class="arithmatex">\[
+\begin{gathered}
 \left.\left[
 \begin{array}
 {c}x_{i}^{\prime} \\
@@ -1811,7 +1905,8 @@ y_{i}^{\prime}\left(h_{20}x_{i}+h_{21}y_{i}+h_{22}\right)=h_{10}x_{i}+h_{11}y_{i
 \]</div>
 <p>实际上关于未知数，还是线性的。</p>
 <p>一对匹配仍然两个方程：</p>
-<div class="arithmatex">\[\left.\left[
+<div class="arithmatex">\[
+\left.\left[
 \begin{array}
 {ccccccc}x_i &amp; y_i &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; -x_i^{\prime}x_i &amp; -x_i^{\prime}y_i &amp; -x_i^{\prime} \\
 0 &amp; 0 &amp; 0 &amp; x_i &amp; y_i &amp; 1 &amp; -y_i^{\prime}x_i &amp; -y_i^{\prime}y_i &amp; -y_i^{\prime}
@@ -1833,7 +1928,8 @@ h_{22}
 \end{bmatrix}
 \]</div>
 <p><span class="arithmatex">\(n\)</span> 对匹配得到方程组 <span class="arithmatex">\(\mathbf{Ah}=\mathbf{0}\)</span>，至少需要 4 对点，8 个方程：</p>
-<div class="arithmatex">\[\begin{bmatrix}
+<div class="arithmatex">\[
+\begin{bmatrix}
 x_1 &amp; y_1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; -x_1^{\prime}x_1 &amp; -x_1^{\prime}y_1 &amp; -x_1^{\prime} \\
 0 &amp; 0 &amp; 0 &amp; x_1 &amp; y_1 &amp; 1 &amp; -y_1^{\prime}x_1 &amp; -y_1^{\prime}y_1 &amp; -y_1^{\prime} \\
  &amp; &amp; &amp; &amp; &amp; \vdots \\
@@ -1857,11 +1953,12 @@ h_{22}
 \vdots \\
 0 \\
 0
-\end{bmatrix}\]</div>
-<p>优化目标为 <span class="arithmatex">\(\text{minimize}||\mathbf{Ah}-\mathbf{0}||^2\)</span>，这时需要对 <span class="arithmatex">\(\mathbf{h}\)</span> 有额外约束，否则 <span class="arithmatex">\(\mathbf{f}=\mathbf{0}\)</span>。所以加一个 <span class="arithmatex">\(||\mathbf{h}||_2=1\)</span>。解析解为：
-$$</p>
-<p>\hat{\mathbf{h}}=\text{eigenvector of }\mathbf{A}^T\mathbf{A}\text{ with smallest eigenvalue}</p>
-<p>$$</p>
+\end{bmatrix}
+\]</div>
+<p>优化目标为 <span class="arithmatex">\(\text{minimize}||\mathbf{Ah}-\mathbf{0}||^2\)</span>，这时需要对 <span class="arithmatex">\(\mathbf{h}\)</span> 有额外约束，否则 <span class="arithmatex">\(\mathbf{f}=\mathbf{0}\)</span>。所以加一个 <span class="arithmatex">\(||\mathbf{h}||_2=1\)</span>。解析解为：</p>
+<div class="arithmatex">\[
+\hat{\mathbf{h}}=\text{eigenvector of }\mathbf{A}^T\mathbf{A}\text{ with smallest eigenvalue}
+\]</div>
 <h3 id="outliers">Outliers<a class="headerlink" href="#outliers" title="Locate to heading">#</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">解决 outlier 问题的几种方法</p>
@@ -1905,7 +2002,7 @@ y'&amp;=\frac{ry}{\sqrt{x^2+f^2}}
 \end{aligned}
 \]</div>
 <p>注意，<strong>相机旋转在柱面上是平移</strong>，可以先投影到柱面上，然后计算平移来拼接，但是存在累积误差！</p>
-<p><img alt="__assets/CV 06 Image Stiching/IMG-CV 06 Image Stiching-20250801150558870.webp" src="__assets/CV%2006%20Image%20Stiching/IMG-CV%2006%20Image%20Stiching-20250801150558870.webp" /></p>
+<p><img alt="IMG-CV 06 Image Stiching-20250801150558870.webp" src="__assets/CV%2006%20Image%20Stiching/IMG-CV%2006%20Image%20Stiching-20250801150558870.webp" /></p>
 <p><em>如果拍摄时精度足够</em>，可以加一个纵向平移为 0 的约束</p>
 
 

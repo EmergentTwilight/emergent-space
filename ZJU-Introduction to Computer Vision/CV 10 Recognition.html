@@ -585,6 +585,8 @@
       
         
       
+        
+      
     
     
       
@@ -826,7 +828,7 @@
     
   
   
-    <span class="md-status md-status--['new']"></span>
+    <span class="md-status md-status--['archived']"></span>
   
 
   
@@ -866,7 +868,7 @@
     
   
   
-    <span class="md-status md-status--['active']"></span>
+    <span class="md-status md-status--['archived']"></span>
   
 
   
@@ -891,6 +893,13 @@
     02 Image Formation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -911,6 +920,13 @@
   <span class="md-ellipsis">
     03 Image Processing
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -933,6 +949,13 @@
     04 Model Fitting and Optimization
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -953,6 +976,13 @@
   <span class="md-ellipsis">
     05 Image Matching and Motion Estimation
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -975,6 +1005,13 @@
     06 Image Stiching
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -995,6 +1032,13 @@
   <span class="md-ellipsis">
     07 Structure from Motion
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1017,6 +1061,13 @@
     08 Depth Estimation and 3D Reconstruction
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1037,6 +1088,13 @@
   <span class="md-ellipsis">
     09 Deep Learning
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1066,6 +1124,13 @@
     10 Recognition
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1076,6 +1141,13 @@
   <span class="md-ellipsis">
     10 Recognition
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1377,6 +1449,13 @@
     11 3D Deep Learning
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1398,6 +1477,13 @@
     12 Computational Photography
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1418,6 +1504,13 @@
   <span class="md-ellipsis">
     13 Image-Based Rendering
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1922,13 +2015,13 @@
 <blockquote>
 <p>语义分割</p>
 </blockquote>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802134444277.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802134444277.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802134444277.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802134444277.webp" /></p>
 <div class="admonition note">
 <p class="admonition-title">和 instance segmentation 的区别</p>
 <p>语义分割只用知道这个像素是猫，实例分割需要知道是三只猫中的哪只猫</p>
 </div>
 <h3 id="sliding-window">Sliding Window?<a class="headerlink" href="#sliding-window" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802134654835.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802134654835.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802134654835.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802134654835.webp" /></p>
 <blockquote>
 <p>每个像素，取周围图像块，对这个像素进行分类。</p>
 </blockquote>
@@ -1945,7 +2038,7 @@
 <li>可以每个像素做一个 softmax</li>
 </ul>
 <h3 id="u-net">U-Net<a class="headerlink" href="#u-net" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802135112247.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802135112247.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802135112247.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802135112247.webp" /></p>
 <ul>
 <li>加 pooling 减小尺寸</li>
 <li>插值增大尺寸<ul>
@@ -1959,7 +2052,7 @@
 <p class="admonition-title">Question</p>
 <p>但 downsampling 的时候仍然有信息损失，U-Net 引入 skip connection</p>
 </div>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802135451458.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802135451458.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802135451458.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802135451458.webp" /></p>
 <p>将先前此分辨率的 feature map 叠加，再做卷积。</p>
 <h3 id="deeplab">DeepLab<a class="headerlink" href="#deeplab" title="Locate to heading">#</a></h3>
 <ul>
@@ -1994,13 +2087,13 @@
 <li>先找到一些可能的 patch/box</li>
 <li>然后再过网络，需要 resize 到网络的输入大小</li>
 </ul>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802153202000.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802153202000.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802153202000.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802153202000.webp" /></p>
 <ul>
 <li>称为 Region-CNN，大概会选择 2000 个框</li>
 <li>损失函数，label 用 cross-entropy，位置和尺寸可用 L2</li>
 </ul>
 <h4 id="non-max-suppression">Non-Max Suppression<a class="headerlink" href="#non-max-suppression" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802153348410.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802153348410.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802153348410.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802153348410.webp" /></p>
 <p>对每一个类别，选择 score 最大的框，删除同一类别中其他 IoU 较高的</p>
 <div class="admonition question">
 <p class="admonition-title">如何提高检测速度</p>
@@ -2042,7 +2135,7 @@
 <p>但是速度仍然不够？这些方法都是<strong>两阶段目标检测</strong>。</p>
 </div>
 <h3 id="single-stage-object-detection">Single-Stage Object Detection<a class="headerlink" href="#single-stage-object-detection" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802154627631.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802154627631.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802154627631.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802154627631.webp" /></p>
 <ul>
 <li>直接输出 K 个框的 class label 概率分布</li>
 <li>e.g. YOLO(you only look once) 速度快，准确率也足够</li>
@@ -2050,7 +2143,7 @@
 <h2 id="instance-segmentation">Instance Segmentation<a class="headerlink" href="#instance-segmentation" title="Locate to heading">#</a></h2>
 <p>在 Object Detection 的基础上，输出一个 mask，判断前景还是背景（逐像素分类）</p>
 <h3 id="deep-snake">Deep Snake<a class="headerlink" href="#deep-snake" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802154955621.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802154955621.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802154955621.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802154955621.webp" /></p>
 <ul>
 <li>snake<ul>
 <li>初始有一个框</li>
@@ -2068,9 +2161,9 @@
 <p><img alt="600" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802155259226.webp" /></p>
 <p>用人体的关键点来表示人体姿态。</p>
 <h3 id="single-human">Single Human<a class="headerlink" href="#single-human" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802155514714.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802155514714.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802155514714.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802155514714.webp" /></p>
 <p>直接让网络输出这 17 个点的位置，网络表现不好。</p>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802155550627.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802155550627.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802155550627.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802155550627.webp" /></p>
 <p>使用热力图，希望输出 17 个热力图，每个图表示一个关键点的位置，可以使用 CNN 去做了，也可以是 U-Net。</p>
 <h3 id="multiple-human">Multiple Human<a class="headerlink" href="#multiple-human" title="Locate to heading">#</a></h3>
 <ul>
@@ -2111,7 +2204,7 @@
 <li>时间和位置维度上对人的动作进行分类</li>
 </ul>
 <h3 id="multi-object-tracking">Multi-Object Tracking<a class="headerlink" href="#multi-object-tracking" title="Locate to heading">#</a></h3>
-<p><img alt="__assets/CV 10 Recognition/IMG-CV 10 Recognition-20250802160505301.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802160505301.webp" /></p>
+<p><img alt="IMG-CV 10 Recognition-20250802160505301.webp" src="__assets/CV%2010%20Recognition/IMG-CV%2010%20Recognition-20250802160505301.webp" /></p>
 <ul>
 <li>每一帧得到框，然后通过特征、光流等方法与上一帧的匹配</li>
 <li>光流，前后帧特征匹配，或者另一个神经网络</li>

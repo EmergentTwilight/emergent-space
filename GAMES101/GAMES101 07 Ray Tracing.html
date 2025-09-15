@@ -585,6 +585,8 @@
       
         
       
+        
+      
     
     
       
@@ -748,6 +750,13 @@
     GAMES101
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
             </a>
             
@@ -781,6 +790,13 @@
     01 Introduction
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -801,6 +817,13 @@
   <span class="md-ellipsis">
     02 About Linear Algebra
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -823,6 +846,13 @@
     03 Transformation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -843,6 +873,13 @@
   <span class="md-ellipsis">
     04 Resterization
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -865,6 +902,13 @@
     05 Shading
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -885,6 +929,13 @@
   <span class="md-ellipsis">
     06 Geometry
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -914,6 +965,13 @@
     07 Ray Tracing
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -924,6 +982,13 @@
   <span class="md-ellipsis">
     07 Ray Tracing
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1303,6 +1368,13 @@
     08 Materials and Appearances
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1323,6 +1395,13 @@
   <span class="md-ellipsis">
     09 Advanced Topics in Rendering
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1345,6 +1424,13 @@
     10 Cameras, Lenses and Light Fields
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1366,6 +1452,13 @@
     11 Color and Perception
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1386,6 +1479,13 @@
   <span class="md-ellipsis">
     12 Animation
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -2076,9 +2176,11 @@
 <p><img alt="./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250208231531988.webp" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250208231531988.webp" /></p>
 <h3 id="ray-equation">Ray Equation<a class="headerlink" href="#ray-equation" title="Locate to heading">#</a></h3>
 <p><img alt="./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250208231655764.webp" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250208231655764.webp" /></p>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
 \mathbf{r}(t)=\mathbf{o}+t\mathbf{d}\quad0\leq t&lt;\infty
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <h3 id="ray-intersection">Ray Intersection<a class="headerlink" href="#ray-intersection" title="Locate to heading">#</a></h3>
 <h4 id="with-sphere">with sphere<a class="headerlink" href="#with-sphere" title="Locate to heading">#</a></h4>
 <p><img alt="./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250208232045614.webp" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250208232045614.webp" /></p>
@@ -2090,13 +2192,15 @@
 (\mathbf{o}+t\mathbf{d}-\mathbf{c})^2-R^2=0
 \]</div>
 <p>然后计算二次方程：</p>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
  &amp; at^{2}+bt+c=0,\mathrm{where} \\
  &amp; a=\mathbf{d}\cdot\mathbf{d} \\
  &amp; b=2(\mathbf{o-c})\cdot\mathbf{d} \\
  &amp; c=(\mathbf{o}-\mathbf{c})\cdot(\mathbf{o}-\mathbf{c})-R^2 \\
  &amp; t=\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <h4 id="with-implicit-surface">with implicit surface<a class="headerlink" href="#with-implicit-surface" title="Locate to heading">#</a></h4>
 <div class="arithmatex">\[
 \begin{cases}
@@ -2119,16 +2223,19 @@ f(\mathbf{o}+t\mathbf{d})=0
 <p class="admonition-title">plane equation</p>
 <p><span class="arithmatex">\(\mathbf{p}:(\mathbf{p}-\mathbf{p}^{\prime})\cdot\mathbf{N}=0 \implies ax+by+cz+d=0\)</span></p>
 </div>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
  &amp; \mathrm{Set~}\mathbf{p}=\mathbf{r}(t)\text{ and solve for }t \\
  &amp; (\mathbf{p}-\mathbf{p}^{\prime})\cdot\mathbf{N}=(\mathbf{o}+t\mathbf{d}-\mathbf{p}^{\prime})\cdot\mathbf{N}=0 \\
  &amp; t=\frac{(\mathbf{p}^{\prime}-\mathbf{o})\cdot\mathbf{N}}{\mathbf{d}\cdot\mathbf{N}} &amp; \mathrm{Check:~}0\leq t&lt;\infty
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <h5 id="moller-trumbore-algorithm">Moller Trumbore Algorithm<a class="headerlink" href="#moller-trumbore-algorithm" title="Locate to heading">#</a></h5>
 <blockquote>
 <p>直接求解重心坐标，判断是否有 <span class="arithmatex">\(1-b_{1}-b_{2},b_{1},b_{2}\geq0\)</span></p>
 </blockquote>
-<div class="arithmatex">\[\begin{align}
+<div class="arithmatex">\[
+\begin{align}
 \vec{\mathbf{O}}+t\vec{\mathbf{D}}&amp;=(1-b_{1}-b_{2})\vec{\mathbf{P}}_{0}+b_{1}\vec{\mathbf{P}}_{1}+b_{2}\vec{\mathbf{P}}_{2} \\
 \implies \begin{bmatrix}
 t \\
@@ -2147,7 +2254,8 @@ b_2
  &amp; \mathbf{\vec{S}}_{1}=\mathbf{\vec{D}}\times\mathbf{\vec{E}}_{2} \\
  &amp; \mathbf{\vec{S}}_{2}=\mathbf{\vec{S}}\times\mathbf{\vec{E}}_{1}
 \end{cases}
-\end{align}\]</div>
+\end{align}
+\]</div>
 <h4 id="with-triangle-mesh">with triangle mesh<a class="headerlink" href="#with-triangle-mesh" title="Locate to heading">#</a></h4>
 <div class="admonition failure">
 <p class="admonition-title">naive solution</p>
@@ -2293,15 +2401,21 @@ b_2
 <h3 id="radiant-energy-and-flux-power">Radiant Energy and Flux (Power)<a class="headerlink" href="#radiant-energy-and-flux-power" title="Locate to heading">#</a></h3>
 <h4 id="basic-concepts">Basic concepts<a class="headerlink" href="#basic-concepts" title="Locate to heading">#</a></h4>
 <p><strong>Radiant Energy</strong>: 电磁辐射的能量</p>
-<div class="arithmatex">\[Q\text{ [J = Joule]}\]</div>
+<div class="arithmatex">\[
+Q\text{ [J = Joule]}
+\]</div>
 <p><strong>Radiant Flux (power)</strong>: 单位时间辐射能量 <em>#photons flowing through a sensor in unit time</em></p>
-<div class="arithmatex">\[\Phi\equiv\frac{\mathrm{d}Q}{\mathrm{d}t}\mathrm{[W=Watt]}\mathrm{[lm=lumen]}^{\star}\]</div>
+<div class="arithmatex">\[
+\Phi\equiv\frac{\mathrm{d}Q}{\mathrm{d}t}\mathrm{[W=Watt]}\mathrm{[lm=lumen]}^{\star}
+\]</div>
 <p><strong>Radiant Intensity</strong>: the power per unit solid angle (立体角)</p>
 <p><img alt="300" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209122251585.webp" /></p>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
 I(\omega)  \equiv\frac{\mathrm{d}\Phi}{\mathrm{d}\omega} 
 \left[\frac{\mathrm{W}}{\mathrm{sr}}\right]\left[\frac{\mathrm{lm}}{\mathrm{sr}}  =\mathrm{cd}=\mathrm{candela}\right]
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">angles and solid andgles</p>
 <ul>
@@ -2314,7 +2428,9 @@ I(\omega)  \equiv\frac{\mathrm{d}\Phi}{\mathrm{d}\omega}
 <p>对于一个向所有方向均匀辐射的点光源，<span class="arithmatex">\(I=\frac{\Phi}{4\pi}\)</span></p>
 <p><strong>Irradiance</strong>: power per unit area</p>
 <p><img alt="500" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209142520786.webp" /></p>
-<div class="arithmatex">\[E(\mathbf{x})\equiv\frac{\mathrm{d}\Phi(\mathbf{x})}{\mathrm{d}A}\left[\frac{\mathrm{W}}{\mathrm{m}^{2}}\right]\left[\frac{\mathrm{lm}}{\mathrm{m}^{2}}=\mathrm{lux}\right]\]</div>
+<div class="arithmatex">\[
+E(\mathbf{x})\equiv\frac{\mathrm{d}\Phi(\mathbf{x})}{\mathrm{d}A}\left[\frac{\mathrm{W}}{\mathrm{m}^{2}}\right]\left[\frac{\mathrm{lm}}{\mathrm{m}^{2}}=\mathrm{lux}\right]
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><img alt="./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209142651048.webp" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209142651048.webp" /></p>
@@ -2328,7 +2444,9 @@ I(\omega)  \equiv\frac{\mathrm{d}\Phi}{\mathrm{d}\omega}
 </div>
 <p><strong>Radiance(Luminance)</strong>: power <em>per unit solid angle, per projected unit area</em></p>
 <p><img alt="400" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209143033139.webp" /></p>
-<div class="arithmatex">\[L(\mathrm{p},\omega) \equiv\frac{\mathrm{d}^2\Phi(\mathrm{p},\omega)}{\mathrm{d}\omega \mathrm{d}A\cos\theta} \left[\frac{\mathrm{W}}{\mathrm{sr} \mathrm{m}^2}\right]\left[\frac{\mathrm{cd}}{\mathrm{m}^2}=\frac{\mathrm{lm}}{\mathrm{sr} \mathrm{m}^2}=\mathrm{nit}\right]\]</div>
+<div class="arithmatex">\[
+L(\mathrm{p},\omega) \equiv\frac{\mathrm{d}^2\Phi(\mathrm{p},\omega)}{\mathrm{d}\omega \mathrm{d}A\cos\theta} \left[\frac{\mathrm{W}}{\mathrm{sr} \mathrm{m}^2}\right]\left[\frac{\mathrm{cd}}{\mathrm{m}^2}=\frac{\mathrm{lm}}{\mathrm{sr} \mathrm{m}^2}=\mathrm{nit}\right]
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>下面的 cos 表示 <span class="arithmatex">\(\omega\)</span> 方向上的投影面积</p>
@@ -2350,7 +2468,8 @@ I(\omega)  \equiv\frac{\mathrm{d}\Phi}{\mathrm{d}\omega}
 </div>
 <p><strong>Exiting Radiance</strong>: 和 Radiance 一样，但是发出的能量</p>
 <p><img alt="400" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209143033139.webp" /></p>
-<div class="arithmatex">\[L(\mathrm{p},\omega)=\frac{\mathrm{d}I(\mathrm{p},\omega)}{\mathrm{d}A\cos\theta}\]</div>
+<div class="arithmatex">\[L(\mathrm{p},\omega)=\frac{\mathrm{d}I(\mathrm{p},\omega)}{\mathrm{d}A\cos\theta}
+\]</div>
 <h4 id="irradiance-vs-radiance">Irradiance vs. Radiance<a class="headerlink" href="#irradiance-vs-radiance" title="Locate to heading">#</a></h4>
 <p><img alt="400" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209143859604.webp" /></p>
 <ul>
@@ -2360,7 +2479,8 @@ I(\omega)  \equiv\frac{\mathrm{d}\Phi}{\mathrm{d}\omega}
 <div class="arithmatex">\[\begin{aligned}
 dE(\mathrm{p},\omega) &amp; =L_i(\mathrm{p},\omega)\cos\theta\mathrm{d}\omega \\
 E(\mathrm{p}) &amp; =\int_{H^2}L_i(\mathrm{p},\omega)\cos\theta\mathrm{d}\omega
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <h3 id="bidirectional-reflectance-distribution-function-brdf">Bidirectional Reflectance Distribution Function (BRDF)<a class="headerlink" href="#bidirectional-reflectance-distribution-function-brdf" title="Locate to heading">#</a></h3>
 <blockquote>
 <p>双向反射分布函数
@@ -2372,7 +2492,8 @@ E(\mathrm{p}) &amp; =\int_{H^2}L_i(\mathrm{p},\omega)\cos\theta\mathrm{d}\omega
 <li>differential radiance exiting (due to <span class="arithmatex">\(\mathrm{d}E(\omega_{i})\)</span>): <span class="arithmatex">\(\mathrm{d}L_{r}(\omega_{r})\)</span></li>
 </ul>
 <p><img alt="./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209150621727.webp" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209150621727.webp" /></p>
-<div class="arithmatex">\[\text{BRDF: }f_r(\omega_i\to\omega_r)=\frac{\mathrm{d}L_r(\omega_r)}{\mathrm{d}E_i(\omega_i)}=\frac{\mathrm{d}L_r(\omega_r)}{L_i(\omega_i)\cos\theta_i\mathrm{d}\omega_i}\left[\frac{1}{\text{sr}}\right]\]</div>
+<div class="arithmatex">\[
+\text{BRDF: }f_r(\omega_i\to\omega_r)=\frac{\mathrm{d}L_r(\omega_r)}{\mathrm{d}E_i(\omega_i)}=\frac{\mathrm{d}L_r(\omega_r)}{L_i(\omega_i)\cos\theta_i\mathrm{d}\omega_i}\left[\frac{1}{\text{sr}}\right]\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>将漫反射和镜面反射一起考虑</p>
@@ -2401,24 +2522,24 @@ E(\mathrm{p}) &amp; =\int_{H^2}L_i(\mathrm{p},\omega)\cos\theta\mathrm{d}\omega
 </ul>
 </div>
 <p><img alt="./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209152239723.webp" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209152239723.webp" /></p>
-<p>进行简化：</p>
+<p>进行简化：
+$$</p>
+<p>\begin{align}</p>
+<p>\to &amp;&amp; l(u)&amp;=e(u)+\int l(v)K(u,v)dv \</p>
+<p>\to &amp;&amp; L&amp;=E+KL</p>
+<p>\end{align}</p>
 <div class="arithmatex">\[
-\begin{align}
-\to &amp;&amp; l(u)&amp;=e(u)+\int l(v)K(u,v)dv \\
-\to &amp;&amp; L&amp;=E+KL
-\end{align}
+这里的 $L$ 是全局光照(Global Illimination)
 \]</div>
-<p>这里的 <span class="arithmatex">\(L\)</span> 是全局光照(Global Illimination)</p>
-<div class="arithmatex">\[
-\begin{align}
-L&amp;=E+KL \\
-(I-K)L&amp;=E \\
-L&amp;=(I-K)^{-1}E \\
-L&amp;=(I+K+K^2+K^3+\dots)E \\
-L&amp;=E+KE+K^2E+K^3E+\dots
-\end{align}
-\]</div>
-<p><img alt="400" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209153405715.webp" /></p>
+<p>\begin{align}</p>
+<p>L&amp;=E+KL \</p>
+<p>(I-K)L&amp;=E \</p>
+<p>L&amp;=(I-K)^{-1}E \</p>
+<p>L&amp;=(I+K+K^2+K^3+\dots)E \</p>
+<p>L&amp;=E+KE+K^2E+K^3E+\dots</p>
+<p>\end{align}</p>
+<p>$$
+<img alt="400" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209153405715.webp" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -2441,10 +2562,14 @@ L&amp;=E+KE+K^2E+K^3E+\dots
 <p class="admonition-title">why</p>
 <p>we want to solve an integral, but it can be too difficult to solve analytically.</p>
 </div>
-<p>对于定积分 <span class="arithmatex">\(\int_{a}^b f(x)\mathrm{d}x\)</span>，取随机变量 <span class="arithmatex">\(X_i\sim p(x)\)</span>，则 Monte Carlo Integration 为：</p>
-<div class="arithmatex">\[\int f(x)\mathrm{d}x\approx\frac{1}{N}\sum_{i=1}^{N}\frac{f(X_i)}{p(X_i)}\]</div>
+<p>对于定积分 <span class="arithmatex">\(\int_{a}^b f(x)\mathrm{d}x\)</span>，取随机变量 <span class="arithmatex">\(X_i\sim p(x)\)</span>，则 Monte Carlo Integration 为：
+$$</p>
+<p>\int f(x)\mathrm{d}x\approx\frac{1}{N}\sum_{i=1}^{N}\frac{f(X_i)}{p(X_i)}</p>
+<p>$$</p>
 <p>一种特殊情况是平均分布 <span class="arithmatex">\(X_{i}\sim p(x)=\frac{1}{b-a}\)</span>：</p>
-<div class="arithmatex">\[F_N=\frac{b-a}{N}\sum_{i=1}^Nf(X_i)\]</div>
+<p>$$</p>
+<p>F_N=\frac{b-a}{N}\sum_{i=1}^Nf(X_i)</p>
+<p>$$</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -2453,7 +2578,9 @@ L&amp;=E+KE+K^2E+K^3E+\dots
 </ul>
 </div>
 <h3 id="solve-rendering-equation">Solve Rendering Equation<a class="headerlink" href="#solve-rendering-equation" title="Locate to heading">#</a></h3>
-<div class="arithmatex">\[\text{The Rendering Equation: }L_o(p,\omega_o)=\underbrace{   L_e(p,\omega_o)}_{\text{emitted by the object itself}}+\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i\]</div>
+<p>$$</p>
+<p>\text{The Rendering Equation: }L_o(p,\omega_o)=\underbrace{   L_e(p,\omega_o)}<em>{\text{emitted by the object itself}}+\int</em>{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i</p>
+<p>$$</p>
 <div class="admonition question">
 <p class="admonition-title">challenge</p>
 <ul>
@@ -2463,19 +2590,22 @@ L&amp;=E+KE+K^2E+K^3E+\dots
 </div>
 <h4 id="direct-illumination">Direct Illumination<a class="headerlink" href="#direct-illumination" title="Locate to heading">#</a></h4>
 <p>考虑要渲染一个像素(pixel, point)的 direct illumination</p>
-<div class="arithmatex">\[L_o(p,\omega_o)=\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i\]</div>
+<p>$$</p>
+<p>L_o(p,\omega_o)=\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i$$</p>
 <p>使用 Monte Carlo 进行采样</p>
-<div class="arithmatex">\[
-\begin{align}
-f(x)\text{ in Monte Carlo} &amp; =L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i) \\
-p(\omega_{i})\text{ in Monte Carlo}&amp;=1/2\pi
-\end{align}
-\]</div>
+<p>$$</p>
+<p>\begin{align}</p>
+<p>f(x)\text{ in Monte Carlo} &amp; =L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i) \</p>
+<p>p(\omega_{i})\text{ in Monte Carlo}&amp;=&frac12;\pi</p>
+<p>\end{align}</p>
+<p>$$</p>
 <p>得到</p>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
 L_{o}(p,\omega_{o}) &amp; =\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)\mathrm{d}\omega_i \\
  &amp; \approx\frac{1}{N}\sum_{i=1}^N\frac{L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)}{p(\omega_i)}
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">direct illumination</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -2634,12 +2764,16 @@ L_{o}(p,\omega_{o}) &amp; =\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o
 </ul>
 </div>
 <p>根据立体角关系得到：</p>
-<div class="arithmatex">\[d\omega=\frac{dA\cos\theta^{\prime}}{\|x^{\prime}-x\|^2}\]</div>
+<div class="arithmatex">\[
+d\omega=\frac{dA\cos\theta^{\prime}}{\|x^{\prime}-x\|^2}
+\]</div>
 <p>改变积分域：</p>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
 L_o(x,\omega_o) &amp; =\int_{\Omega^+}L_i(x,\omega_i)f_r(x,\omega_i,\omega_o)\cos\theta\mathrm{d}\omega_i \\
  &amp; =\int_AL_i(x,\omega_i)f_r(x,\omega_i,\omega_o)\frac{\cos\theta\cos\theta^{\prime}}{\|x^{\prime}-x\|^2}\mathrm{d}A
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <h4 id="light-source-vs-other">light source v.s. other<a class="headerlink" href="#light-source-vs-other" title="Locate to heading">#</a></h4>
 <p><img alt="./__assets/GAMES101 07 Ray Tracing/IMG-GAMES101 07 Ray Tracing-20250209164717749.webp" src="__assets/GAMES101%2007%20Ray%20Tracing/IMG-GAMES101%2007%20Ray%20Tracing-20250209164717749.webp" /></p>
 <div class="admonition note">
@@ -2728,59 +2862,6 @@ L_o(x,\omega_o) &amp; =\int_{\Omega^+}L_i(x,\omega_i)f_r(x,\omega_i,\omega_o)\co
 
 
 
-<!--  -->
-<h2 id="__comments">Comments</h2>
-<!-- Insert generated snippet here -->
-<script src="https://giscus.app/client.js"
-        data-repo="EmergentTwilight/Emergent-Space"
-        data-repo-id="R_kgDOMQFYhw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMQFYh84Cmb5p"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-  var giscus = document.querySelector("script[src*=giscus]")
-
-  // Set palette on initial load
-  var palette = __md_get("__palette")
-  if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate"
-      ? "transparent_dark"
-      : "light"
-
-    // Instruct Giscus to set theme
-    giscus.setAttribute("data-theme", theme) 
-  }
-
-  // Register event handlers after documented loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-      var palette = __md_get("__palette")
-      if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate"
-          ? "transparent_dark"
-          : "light"
-
-        // Instruct Giscus to change theme
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        )
-      }
-    })
-  })
-</script>
 <!--  -->
                 
               </article>

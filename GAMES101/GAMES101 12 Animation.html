@@ -585,6 +585,8 @@
       
         
       
+        
+      
     
     
       
@@ -748,6 +750,13 @@
     GAMES101
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
             </a>
             
@@ -781,6 +790,13 @@
     01 Introduction
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -801,6 +817,13 @@
   <span class="md-ellipsis">
     02 About Linear Algebra
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -823,6 +846,13 @@
     03 Transformation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -843,6 +873,13 @@
   <span class="md-ellipsis">
     04 Resterization
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -865,6 +902,13 @@
     05 Shading
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -885,6 +929,13 @@
   <span class="md-ellipsis">
     06 Geometry
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -907,6 +958,13 @@
     07 Ray Tracing
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -927,6 +985,13 @@
   <span class="md-ellipsis">
     08 Materials and Appearances
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -949,6 +1014,13 @@
     09 Advanced Topics in Rendering
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -970,6 +1042,13 @@
     10 Cameras, Lenses and Light Fields
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -990,6 +1069,13 @@
   <span class="md-ellipsis">
     11 Color and Perception
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1019,6 +1105,13 @@
     12 Animation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1029,6 +1122,13 @@
   <span class="md-ellipsis">
     12 Animation
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1916,14 +2016,20 @@
 <h2 id="mass-spring-system">Mass Spring System<a class="headerlink" href="#mass-spring-system" title="Locate to heading">#</a></h2>
 <h3 id="a-simple-spring">A Simple Spring<a class="headerlink" href="#a-simple-spring" title="Locate to heading">#</a></h3>
 <p><img alt="311x161" src="__assets/GAMES101%2012%20Animation/IMG-GAMES101%2012%20Animation-20250211054723929.webp" /></p>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
  &amp; \boldsymbol{f}_{a\to b}=k_S(\boldsymbol{b}-\boldsymbol{a}) \\
  &amp; \boldsymbol{f}_{b\to a}=-\boldsymbol{f}_{a\to b}
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <p>考虑弹簧原长度：</p>
-<div class="arithmatex">\[\boldsymbol{f}_{a\to b}=k_S\frac{\boldsymbol{b}-\boldsymbol{a}}{||\boldsymbol{b}-\boldsymbol{a}||}\left(||\boldsymbol{b}-\boldsymbol{a}||-l\right)\]</div>
+<div class="arithmatex">\[
+\boldsymbol{f}_{a\to b}=k_S\frac{\boldsymbol{b}-\boldsymbol{a}}{||\boldsymbol{b}-\boldsymbol{a}||}\left(||\boldsymbol{b}-\boldsymbol{a}||-l\right)
+\]</div>
 <p>考虑弹簧上的微小摩擦：</p>
-<div class="arithmatex">\[f_{\boldsymbol{b}}=-k_d\frac{\boldsymbol{b}-\boldsymbol{a}}{\|\boldsymbol{b}-\boldsymbol{a}\|}(\dot{\boldsymbol{b}}-\dot{\boldsymbol{a}})\cdotp\frac{\boldsymbol{b}-\boldsymbol{a}}{||\boldsymbol{b}-\boldsymbol{a}||}\]</div>
+<div class="arithmatex">\[
+f_{\boldsymbol{b}}=-k_d\frac{\boldsymbol{b}-\boldsymbol{a}}{\|\boldsymbol{b}-\boldsymbol{a}\|}(\dot{\boldsymbol{b}}-\dot{\boldsymbol{a}})\cdotp\frac{\boldsymbol{b}-\boldsymbol{a}}{||\boldsymbol{b}-\boldsymbol{a}||}
+\]</div>
 <h3 id="structures-from-springs">Structures from Springs<a class="headerlink" href="#structures-from-springs" title="Locate to heading">#</a></h3>
 <p><img alt="311x303" src="__assets/GAMES101%2012%20Animation/IMG-GAMES101%2012%20Animation-20250211055453295.webp" /></p>
 <div class="admonition note">
@@ -1971,9 +2077,13 @@
 </blockquote>
 <p><img alt="376x431" src="__assets/GAMES101%2012%20Animation/IMG-GAMES101%2012%20Animation-20250211141406675.webp" /></p>
 <p>常微分方程：</p>
-<div class="arithmatex">\[\frac{\mathrm{d}x}{\mathrm{d}t}=\dot{x}=v(x,t)\]</div>
+<div class="arithmatex">\[
+\frac{\mathrm{d}x}{\mathrm{d}t}=\dot{x}=v(x,t)
+\]</div>
 <h3 id="eulers-method">Euler's Method<a class="headerlink" href="#eulers-method" title="Locate to heading">#</a></h3>
-<div class="arithmatex">\[\begin{aligned}\boldsymbol{x}^{t+\Delta t}&amp;=\boldsymbol{x}^t+\Delta t\boldsymbol{\dot{x}}^t\\\boldsymbol{\dot{x}}^{t+\Delta t}&amp;=\boldsymbol{\dot{x}}^t+\Delta t\boldsymbol{\ddot{x}}^t\end{aligned}\]</div>
+<div class="arithmatex">\[
+\begin{aligned}\boldsymbol{x}^{t+\Delta t}&amp;=\boldsymbol{x}^t+\Delta t\boldsymbol{\dot{x}}^t\\\boldsymbol{\dot{x}}^{t+\Delta t}&amp;=\boldsymbol{\dot{x}}^t+\Delta t\boldsymbol{\ddot{x}}^t\end{aligned}
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -2012,16 +2122,19 @@
 <li>使用这个中点速度</li>
 </ol>
 </div>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
 x_{\mathrm{mid}} &amp; =x(t)+\Delta t/2\cdot v(x(t),t) \\
 x(t+\Delta t) &amp; =x(t)+\Delta t\cdot v(x_{\mathrm{mid}},t)
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <h3 id="modified-euler">Modified Euler<a class="headerlink" href="#modified-euler" title="Locate to heading">#</a></h3>
 <div class="arithmatex">\[\begin{aligned}
  &amp; \boldsymbol{x}^{t+\Delta t}=\boldsymbol{x}^t+\frac{\Delta t}{2}(\dot{\boldsymbol{x}}^t+\dot{\boldsymbol{x}}^{t+\Delta t}) \\
  &amp; \dot{\boldsymbol{x}}^{t+\Delta t}=\dot{\boldsymbol{x}}^t+\Delta t\ddot{\boldsymbol{x}}^t \\
  &amp; \boldsymbol{x}^{t+\Delta t}=\boldsymbol{x}^t+\Delta t\dot{\boldsymbol{x}}^t+\frac{(\Delta t)^2}{2}\ddot{\boldsymbol{x}}^t
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -2040,7 +2153,8 @@ x(t+\Delta t) &amp; =x(t)+\Delta t\cdot v(x_{\mathrm{mid}},t)
 </ul>
 </div>
 <h3 id="implicit-euler-method">Implicit Euler Method<a class="headerlink" href="#implicit-euler-method" title="Locate to heading">#</a></h3>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
 \boldsymbol{x}^{t+\Delta t} &amp; =\boldsymbol{x}^{t}+\Delta t\boldsymbol{\dot{x}}^{t+\Delta t} \\
 \boldsymbol{\dot{x}}^{t+\Delta t} &amp; =\boldsymbol{\dot{x}}^{t}+\Delta t\boldsymbol{\ddot{x}}^{t+\Delta t}
 \end{aligned}\]</div>
@@ -2095,7 +2209,8 @@ x(t+\Delta t) &amp; =x(t)+\Delta t\cdot v(x_{\mathrm{mid}},t)
 {\omega} \\
 {\mathrm{F}/M} \\
 {\Gamma/I}
-\end{pmatrix}\]</div>
+\end{pmatrix}
+\]</div>
 <blockquote>
 <p>是对粒子模拟的扩展</p>
 </blockquote>
@@ -2131,59 +2246,6 @@ x(t+\Delta t) &amp; =x(t)+\Delta t\cdot v(x_{\mathrm{mid}},t)
 
 
 
-<!--  -->
-<h2 id="__comments">Comments</h2>
-<!-- Insert generated snippet here -->
-<script src="https://giscus.app/client.js"
-        data-repo="EmergentTwilight/Emergent-Space"
-        data-repo-id="R_kgDOMQFYhw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMQFYh84Cmb5p"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-  var giscus = document.querySelector("script[src*=giscus]")
-
-  // Set palette on initial load
-  var palette = __md_get("__palette")
-  if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate"
-      ? "transparent_dark"
-      : "light"
-
-    // Instruct Giscus to set theme
-    giscus.setAttribute("data-theme", theme) 
-  }
-
-  // Register event handlers after documented loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-      var palette = __md_get("__palette")
-      if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate"
-          ? "transparent_dark"
-          : "light"
-
-        // Instruct Giscus to change theme
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        )
-      }
-    })
-  })
-</script>
 <!--  -->
                 
               </article>

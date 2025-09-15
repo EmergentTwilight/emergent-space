@@ -585,6 +585,8 @@
       
         
       
+        
+      
     
     
       
@@ -748,6 +750,13 @@
     GAMES101
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
             </a>
             
@@ -781,6 +790,13 @@
     01 Introduction
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -801,6 +817,13 @@
   <span class="md-ellipsis">
     02 About Linear Algebra
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -823,6 +846,13 @@
     03 Transformation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -843,6 +873,13 @@
   <span class="md-ellipsis">
     04 Resterization
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -865,6 +902,13 @@
     05 Shading
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -886,6 +930,13 @@
     06 Geometry
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -906,6 +957,13 @@
   <span class="md-ellipsis">
     07 Ray Tracing
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -935,6 +993,13 @@
     08 Materials and Appearances
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -945,6 +1010,13 @@
   <span class="md-ellipsis">
     08 Materials and Appearances
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1120,6 +1192,13 @@
     09 Advanced Topics in Rendering
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1140,6 +1219,13 @@
   <span class="md-ellipsis">
     10 Cameras, Lenses and Light Fields
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1162,6 +1248,13 @@
     11 Color and Perception
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1182,6 +1275,13 @@
   <span class="md-ellipsis">
     12 Animation
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1637,17 +1737,23 @@
 <li>不同的材质与光线的作用不同</li>
 <li>画面应该能够体现材质的不同</li>
 </ul>
-<div class="arithmatex">\[\text{Material}=\text{BRDF}\]</div>
+<div class="arithmatex">\[
+\text{Material}=\text{BRDF}
+\]</div>
 <h2 id="diffuse-lambertian-material">Diffuse / Lambertian Material<a class="headerlink" href="#diffuse-lambertian-material" title="Locate to heading">#</a></h2>
 <p><img alt="./__assets/GAMES101 08 Materials and Appearances/IMG-GAMES101 08 Materials and Appearances-20250209231358638.webp" src="__assets/GAMES101%2008%20Materials%20and%20Appearances/IMG-GAMES101%2008%20Materials%20and%20Appearances-20250209231358638.webp" /></p>
 <p>在所有方向上积分得到的出射光：</p>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
 L_o(\omega_o) &amp; =\int_{H^2}f_rL_i(\omega_i)\cos\theta_i\mathrm{d}\omega_i \\
  &amp; =f_rL_i\int_{H^2}(\omega_i)\cos\theta_i\mathrm{d}\omega_i \\
  &amp; =\pi f_rL_i
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <p>由于假设 <span class="arithmatex">\(L_{i}=L_{o}\)</span>，得到 <span class="arithmatex">\(f_{r}=\frac{1}{\pi}\)</span>，就是不吸收情况下的均匀漫反射，可以考虑吸收：</p>
-<div class="arithmatex">\[f_{r}=\frac{\rho}{\pi}\quad\rho\text{ is albedo(color) 基础反射率}\]</div>
+<div class="arithmatex">\[
+f_{r}=\frac{\rho}{\pi}\quad\rho\text{ is albedo(color) 基础反射率}
+\]</div>
 <h2 id="glossy-material">Glossy Material<a class="headerlink" href="#glossy-material" title="Locate to heading">#</a></h2>
 <p><img alt="400" src="__assets/GAMES101%2008%20Materials%20and%20Appearances/IMG-GAMES101%2008%20Materials%20and%20Appearances-20250209231838904.webp" /></p>
 <h2 id="ideal-reflective-refractive-material-bsdf">Ideal Reflective / Refractive Material (BSDF)<a class="headerlink" href="#ideal-reflective-refractive-material-bsdf" title="Locate to heading">#</a></h2>
@@ -1659,7 +1765,9 @@ L_o(\omega_o) &amp; =\int_{H^2}f_rL_i(\omega_i)\cos\theta_i\mathrm{d}\omega_i \\
 <p><img alt="400" src="__assets/GAMES101%2008%20Materials%20and%20Appearances/IMG-GAMES101%2008%20Materials%20and%20Appearances-20250209232200553.webp" /></p>
 <h3 id="specular-refraction">Specular Refraction<a class="headerlink" href="#specular-refraction" title="Locate to heading">#</a></h3>
 <p><img alt="400" src="__assets/GAMES101%2008%20Materials%20and%20Appearances/IMG-GAMES101%2008%20Materials%20and%20Appearances-20250209232347629.webp" /></p>
-<div class="arithmatex">\[\eta_{i}\sin \theta_{i}=\eta_{t}\sin \theta_{t}\]</div>
+<div class="arithmatex">\[
+\eta_{i}\sin \theta_{i}=\eta_{t}\sin \theta_{t}
+\]</div>
 <p><strong>全反射</strong>，光密介质到光疏介质，折射角为 90°</p>
 <h2 id="fresnel-term">Fresnel Term<a class="headerlink" href="#fresnel-term" title="Locate to heading">#</a></h2>
 <p><img alt="500" src="__assets/GAMES101%2008%20Materials%20and%20Appearances/IMG-GAMES101%2008%20Materials%20and%20Appearances-20250209232845429.webp" /></p>
@@ -1672,13 +1780,16 @@ L_o(\omega_o) &amp; =\int_{H^2}f_rL_i(\omega_i)\cos\theta_i\mathrm{d}\omega_i \\
 <p class="admonition-title">Note</p>
 <p>导体和绝缘体的变化趋势不同</p>
 </div>
-<div class="arithmatex">\[\begin{align}
+<div class="arithmatex">\[
+\begin{align}
 R_s&amp;=\left|\frac{n_1\cos\theta_i-n_2\cos\theta_i}{n_1\cos\theta_i+n_2\cos\theta_i}\right|^2=\left|\frac{n_1\cos\theta_i-n_2\sqrt{1-\left(\frac{n_1}{n_2}\sin\theta_i\right)^2}}{n_1\cos\theta_i+n_2\sqrt{1-\left(\frac{n_1}{n_2}\sin\theta_i\right)^2}}\right|^2 \\
 R_p&amp;=\left|\frac{n_1\cos\theta_i-n_2\cos\theta_i}{n_1\cos\theta_i+n_2\cos\theta_i}\right|^2=\left|\frac{n_1\sqrt{1-\left(\frac{n_1}{n_2}\sin\theta_i\right)^2}-n_2\cos\theta_i}{n_1\sqrt{1-\left(\frac{n_1}{n_2}\sin\theta_i\right)^2}+n_2\cos\theta_i}\right|^2\\
 R_{\mathrm{eff}}&amp;=\frac{1}{2}\left(R_{\mathrm{s}}+R_{\mathrm{p}}\right) 
-\end{align}\]</div>
+\end{align}
+\]</div>
 <h3 id="approximate-schlicks-approximation">Approximate: Schlick's approximation<a class="headerlink" href="#approximate-schlicks-approximation" title="Locate to heading">#</a></h3>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
 R(\theta) &amp; =R_0+(1-R_0)(1-\cos\theta)^5 \\
 R_{0} &amp; =\left(\frac{n_1-n_2}{n_1+n_2}\right)^2
 \end{aligned}\]</div>
@@ -1740,59 +1851,6 @@ R_{0} &amp; =\left(\frac{n_1-n_2}{n_1+n_2}\right)^2
 
 
 
-<!--  -->
-<h2 id="__comments">Comments</h2>
-<!-- Insert generated snippet here -->
-<script src="https://giscus.app/client.js"
-        data-repo="EmergentTwilight/Emergent-Space"
-        data-repo-id="R_kgDOMQFYhw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMQFYh84Cmb5p"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-  var giscus = document.querySelector("script[src*=giscus]")
-
-  // Set palette on initial load
-  var palette = __md_get("__palette")
-  if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate"
-      ? "transparent_dark"
-      : "light"
-
-    // Instruct Giscus to set theme
-    giscus.setAttribute("data-theme", theme) 
-  }
-
-  // Register event handlers after documented loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-      var palette = __md_get("__palette")
-      if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate"
-          ? "transparent_dark"
-          : "light"
-
-        // Instruct Giscus to change theme
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        )
-      }
-    })
-  })
-</script>
 <!--  -->
                 
               </article>

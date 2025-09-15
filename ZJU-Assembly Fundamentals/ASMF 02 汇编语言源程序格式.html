@@ -646,6 +646,13 @@
     汇编语言程序设计基础
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
             </a>
             
@@ -679,6 +686,13 @@
     01 数据类型和变量
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -707,6 +721,13 @@
     02 汇编语言源程序格式
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -717,6 +738,13 @@
   <span class="md-ellipsis">
     02 汇编语言源程序格式
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -949,6 +977,13 @@
     03 内存与寻址
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -969,6 +1004,13 @@
   <span class="md-ellipsis">
     04 寄存器
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -991,6 +1033,13 @@
     05 段和堆栈
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1011,6 +1060,13 @@
   <span class="md-ellipsis">
     06 中断和函数调用
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1033,6 +1089,13 @@
     07 数据传送指令
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1053,6 +1116,13 @@
   <span class="md-ellipsis">
     08 转换指令
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1075,6 +1145,13 @@
     09 算术运算指令
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1095,6 +1172,13 @@
   <span class="md-ellipsis">
     10 逻辑运算和移位指令
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1117,6 +1201,13 @@
     11 字符串操作指令
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1138,6 +1229,13 @@
     12 控制转移指令
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1152,12 +1250,19 @@
   
   
     <li class="md-nav__item">
-      <a href="ASMF%20Cheat%20Sheet.html" class="md-nav__link">
+      <a href="ASMF%20Cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Cheat Sheet
+    Cheatsheet
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1192,6 +1297,8 @@
       
         
           
+        
+      
         
       
         
@@ -1779,11 +1886,13 @@
 <p>就是 <code>wsprintf(&amp;result[0], &amp;format[0], eax);</code>，这是 windows 的一个函数，对应 c 语言中的 <code>sprintf(result, "%d", eax);</code></p>
 <div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nf">invoke</span><span class="w"> </span><span class="no">MessageBoxA</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">result</span><span class="p">,</span><span class="w"> </span><span class="no">offset</span><span class="w"> </span><span class="no">prompt</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
 </span></code></pre></div></td></tr></table></div>
-<p>也就是 <code>MessageBoxA(0, &amp;result[0], &amp;prompt[0], 0);</code>，这是一个 windows 函数，实现了一个系统弹窗
-- <code>var1</code>: 建的消息框的所有者窗口的句柄
-- <code>result</code>: 这里是将会显示的消息文本
-- <code>prompt</code>: 这里是窗口的标题
-- <code>var4</code>: 这里是对会话框按钮的样式</p>
+<p>也就是 <code>MessageBoxA(0, &amp;result[0], &amp;prompt[0], 0);</code>，这是一个 windows 函数，实现了一个系统弹窗</p>
+<ul>
+<li><code>var1</code>: 建的消息框的所有者窗口的句柄</li>
+<li><code>result</code>: 这里是将会显示的消息文本</li>
+<li><code>prompt</code>: 这里是窗口的标题</li>
+<li><code>var4</code>: 这里是对会话框按钮的样式</li>
+</ul>
 <h3 id="13-变量定义">1.3 变量定义<a class="headerlink" href="#13-变量定义" title="Locate to heading">#</a></h3>
 <div class="language-asm highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
@@ -2218,59 +2327,6 @@ Windows 和 Linux 的汇编语言是 32 位的</p>
 
 
 
-<!--  -->
-<h2 id="__comments">Comments</h2>
-<!-- Insert generated snippet here -->
-<script src="https://giscus.app/client.js"
-        data-repo="EmergentTwilight/Emergent-Space"
-        data-repo-id="R_kgDOMQFYhw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMQFYh84Cmb5p"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-  var giscus = document.querySelector("script[src*=giscus]")
-
-  // Set palette on initial load
-  var palette = __md_get("__palette")
-  if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate"
-      ? "transparent_dark"
-      : "light"
-
-    // Instruct Giscus to set theme
-    giscus.setAttribute("data-theme", theme) 
-  }
-
-  // Register event handlers after documented loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-      var palette = __md_get("__palette")
-      if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate"
-          ? "transparent_dark"
-          : "light"
-
-        // Instruct Giscus to change theme
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        )
-      }
-    })
-  })
-</script>
 <!--  -->
                 
               </article>

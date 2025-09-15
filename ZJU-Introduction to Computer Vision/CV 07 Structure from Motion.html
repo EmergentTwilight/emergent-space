@@ -585,6 +585,8 @@
       
         
       
+        
+      
     
     
       
@@ -826,7 +828,7 @@
     
   
   
-    <span class="md-status md-status--['new']"></span>
+    <span class="md-status md-status--['archived']"></span>
   
 
   
@@ -866,7 +868,7 @@
     
   
   
-    <span class="md-status md-status--['active']"></span>
+    <span class="md-status md-status--['archived']"></span>
   
 
   
@@ -891,6 +893,13 @@
     02 Image Formation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -911,6 +920,13 @@
   <span class="md-ellipsis">
     03 Image Processing
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -933,6 +949,13 @@
     04 Model Fitting and Optimization
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -954,6 +977,13 @@
     05 Image Matching and Motion Estimation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -974,6 +1004,13 @@
   <span class="md-ellipsis">
     06 Image Stiching
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1003,6 +1040,13 @@
     07 Structure from Motion
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1013,6 +1057,13 @@
   <span class="md-ellipsis">
     07 Structure from Motion
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1338,6 +1389,13 @@
     08 Depth Estimation and 3D Reconstruction
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1358,6 +1416,13 @@
   <span class="md-ellipsis">
     09 Deep Learning
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1380,6 +1445,13 @@
     10 Recognition
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1400,6 +1472,13 @@
   <span class="md-ellipsis">
     11 3D Deep Learning
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1422,6 +1501,13 @@
     12 Computational Photography
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1442,6 +1528,13 @@
   <span class="md-ellipsis">
     13 Image-Based Rendering
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -2183,9 +2276,9 @@ r_{31} &amp; r_{32} &amp; r_{33} &amp; t_z \\
 <p><img alt="600" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801164016899.webp" /></p>
 <p>标定板格点的世界坐标是已知的，世界坐标系同样也是由标定板确定的</p>
 <p>由标定点，可以列出和 <span class="arithmatex">\(P\)</span> 相关的线性表达：</p>
-<p><img alt="__assets/CV 07 Structure from Motion/IMG-CV 07 Structure from Motion-20250801164208341.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801164208341.webp" /></p>
+<p><img alt="IMG-CV 07 Structure from Motion-20250801164208341.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801164208341.webp" /></p>
 <p>用同样的方法，可以拆成 <span class="arithmatex">\(2n\)</span> 个方程构成的方程组 <span class="arithmatex">\(A\mathbf{p}=\mathbf{0}\)</span>：</p>
-<p><img alt="__assets/CV 07 Structure from Motion/IMG-CV 07 Structure from Motion-20250801164520048.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801164520048.webp" /></p>
+<p><img alt="IMG-CV 07 Structure from Motion-20250801164520048.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801164520048.webp" /></p>
 <p>且由于齐次坐标的性质，<span class="arithmatex">\(kP\)</span> 和 <span class="arithmatex">\(P\)</span> 代表同样的变换，<span class="arithmatex">\(P\)</span> is up to scale，可令 <span class="arithmatex">\(||\mathbf{p}||^2=1\)</span>，则求解问题为：</p>
 <div class="arithmatex">\[
 \text{minimize }||A\mathbf{p}||^2\text{, such that }||\mathbf{p}||^2=1
@@ -2286,10 +2379,10 @@ t_z
 <blockquote>
 <p>假设只有 3 对点，内参已知、世界坐标、图像坐标已知，求外参</p>
 </blockquote>
-<p><img alt="__assets/CV 07 Structure from Motion/IMG-CV 07 Structure from Motion-20250801171330077.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801171330077.webp" /></p>
+<p><img alt="IMG-CV 07 Structure from Motion-20250801171330077.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801171330077.webp" /></p>
 <p>其本质上就是求解 <span class="arithmatex">\(OA,OB,OC\)</span>。</p>
 <p>使用余弦定理，进行化简得到：</p>
-<p><img alt="__assets/CV 07 Structure from Motion/IMG-CV 07 Structure from Motion-20250801183525742.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801183525742.webp" /></p>
+<p><img alt="IMG-CV 07 Structure from Motion-20250801183525742.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801183525742.webp" /></p>
 <p>这是一个二元二次方程，一般有 4 组解，需要额外的一对点来验证。</p>
 <h4 id="optimization">Optimization<a class="headerlink" href="#optimization" title="Locate to heading">#</a></h4>
 <blockquote>
@@ -2329,14 +2422,14 @@ t_z
 </ul>
 </li>
 </ul>
-<p><img alt="__assets/CV 07 Structure from Motion/IMG-CV 07 Structure from Motion-20250801184538401.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801184538401.webp" /></p>
+<p><img alt="IMG-CV 07 Structure from Motion-20250801184538401.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801184538401.webp" /></p>
 <ul>
 <li><strong>Epipolar plane of Scene Point P</strong>:<ul>
 <li>每个场景点确定唯一一个对极面</li>
 </ul>
 </li>
 </ul>
-<p><img alt="__assets/CV 07 Structure from Motion/IMG-CV 07 Structure from Motion-20250801184955485.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801184955485.webp" /></p>
+<p><img alt="IMG-CV 07 Structure from Motion-20250801184955485.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801184955485.webp" /></p>
 <h4 id="epipolar-constraint">Epipolar Constraint<a class="headerlink" href="#epipolar-constraint" title="Locate to heading">#</a></h4>
 <p><span class="arithmatex">\(\mathbf{x}_l\)</span> 与 <span class="arithmatex">\(\mathbf{x}_l\times\mathbf{t}\)</span> 垂直，其中 <span class="arithmatex">\(\mathbf{x}_l\times\mathbf{t}\)</span> 是 epipolar plane 的法向，展开得：</p>
 <div class="arithmatex">\[
@@ -2508,7 +2601,7 @@ v_r^{(i)} \\
 \end{bmatrix}=0
 \]</div>
 <p>这里的 <span class="arithmatex">\(F\)</span> 也是 up to scale 的，所以设置约束 <span class="arithmatex">\(||F||_2=1\)</span>。对每一对匹配点，都能得到一个关于 <span class="arithmatex">\(f\)</span> 的线性方程：</p>
-<p><img alt="__assets/CV 07 Structure from Motion/IMG-CV 07 Structure from Motion-20250801203106382.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801203106382.webp" /></p>
+<p><img alt="IMG-CV 07 Structure from Motion-20250801203106382.webp" src="__assets/CV%2007%20Structure%20from%20Motion/IMG-CV%2007%20Structure%20from%20Motion-20250801203106382.webp" /></p>
 <p>至少需要 8 对点，优化目标为：</p>
 <div class="arithmatex">\[
 \min_f||A\mathbf{f}||^2\text{ such that }||\mathbf{f}||^2=1

@@ -588,6 +588,13 @@
     Fundamentals of Data Structures
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
             </a>
             
@@ -621,6 +628,13 @@
     Ch.02 Algorithm Analysis
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -641,6 +655,13 @@
   <span class="md-ellipsis">
     Ch.03 List
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -663,6 +684,13 @@
     Ch.04 Trees
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -683,6 +711,13 @@
   <span class="md-ellipsis">
     Ch.05 Priority Queues (Heaps)
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -712,6 +747,13 @@
     Ch.06 Sorting
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -722,6 +764,13 @@
   <span class="md-ellipsis">
     Ch.06 Sorting
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -959,6 +1008,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-assume-the-average-value-of-ti-for-any-i-is-frac1nsum_j0n-1tj" class="md-nav__link">
+    <span class="md-ellipsis">
+      - Assume the average value of \(T(i)\) for any \(i\) is \(\frac{1}{N}[\sum_{j=0}^{N-1}T(j)]\)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1071,6 +1129,13 @@
     Ch.07 Hashing
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1091,6 +1156,13 @@
   <span class="md-ellipsis">
     Ch.08 Disjoint Set
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1113,6 +1185,13 @@
     Ch.09 Graph Algorithms
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1127,12 +1206,19 @@
   
   
     <li class="md-nav__item">
-      <a href="Cheat%20Sheet.html" class="md-nav__link">
+      <a href="FDS%20Cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Cheat Sheet
+    Cheatsheet
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1361,6 +1447,8 @@
       
         
           
+        
+      
         
       
         
@@ -1748,6 +1836,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-assume-the-average-value-of-ti-for-any-i-is-frac1nsum_j0n-1tj" class="md-nav__link">
+    <span class="md-ellipsis">
+      - Assume the average value of \(T(i)\) for any \(i\) is \(\frac{1}{N}[\sum_{j=0}^{N-1}T(j)]\)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2020,7 +2117,7 @@
 <ul>
 <li>An <strong>Inversion</strong> <em>逆序对，index 大小和值的大小相反</em>，类比逆序数问题，假设逆序数为 n</li>
 <li>There are <span class="arithmatex">\(n\)</span> swaps needed to sort this list by insertion sort</li>
-<li><span class="arithmatex">\(T(N, I)=O(I+N)\)</span> <span class="arithmatex">\(I\)</span> <ul>
+<li><span class="arithmatex">\(T(N, I)=O(I+N)\)</span> <span class="arithmatex">\(I\)</span><ul>
 <li>至少需要数组过一遍 <span class="arithmatex">\(N\)</span></li>
 <li>每个逆序对都需要 swap <span class="arithmatex">\(I\)</span></li>
 <li>如果本来就接近于排好了，那么接近于 <span class="arithmatex">\(O(N)\)</span> Linear</li>
@@ -2392,14 +2489,12 @@ T(N)&amp;=2T(N/2)+O(N)\\
 <li><span class="arithmatex">\(T(N) = T(i)+T(N-i-1)+cN\)</span></li>
 <li>Worst case: <span class="arithmatex">\(T(N)=T(N-1)+cN=O(N^2)\)</span></li>
 <li>Best case: <span class="arithmatex">\(T(N)=2T(N/2)+cN=O(N\log N)\)</span></li>
-<li>Average case<ul>
-<li>Assume the average value of <span class="arithmatex">\(T(i)\)</span> for any <span class="arithmatex">\(i\)</span> is <span class="arithmatex">\(\frac{1}{N}[\sum_{j=0}^{N-1}T(j)]\)</span></li>
-<li>
-<div class="arithmatex">\[T(N)=\frac{2}{N}[\sum_{j=0}^{N-1}T(j)]+cN=O(N\log N)\]</div>
+<li>Average case<h3 id="-assume-the-average-value-of-ti-for-any-i-is-frac1nsum_j0n-1tj">- Assume the average value of <span class="arithmatex">\(T(i)\)</span> for any <span class="arithmatex">\(i\)</span> is <span class="arithmatex">\(\frac{1}{N}[\sum_{j=0}^{N-1}T(j)]\)</span><a class="headerlink" href="#-assume-the-average-value-of-ti-for-any-i-is-frac1nsum_j0n-1tj" title="Locate to heading">#</a></h3>
 </li>
 </ul>
-</li>
-</ul>
+<div class="arithmatex">\[
+T(N)=\frac{2}{N}[\sum_{j=0}^{N-1}T(j)]+cN=O(N\log N)
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">Quicksort to find the kth largest element</p>
 <p>每次找到 pivot 进行 partition 之后，计算大的一边的元素个数，判断第 k 大的元素在哪边，直到其出现在 pivot<br>
@@ -2529,59 +2624,6 @@ T(N)&amp;=2T(N/2)+O(N)\\
 
 
 
-<!--  -->
-<h2 id="__comments">Comments</h2>
-<!-- Insert generated snippet here -->
-<script src="https://giscus.app/client.js"
-        data-repo="EmergentTwilight/Emergent-Space"
-        data-repo-id="R_kgDOMQFYhw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMQFYh84Cmb5p"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-  var giscus = document.querySelector("script[src*=giscus]")
-
-  // Set palette on initial load
-  var palette = __md_get("__palette")
-  if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate"
-      ? "transparent_dark"
-      : "light"
-
-    // Instruct Giscus to set theme
-    giscus.setAttribute("data-theme", theme) 
-  }
-
-  // Register event handlers after documented loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-      var palette = __md_get("__palette")
-      if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate"
-          ? "transparent_dark"
-          : "light"
-
-        // Instruct Giscus to change theme
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        )
-      }
-    })
-  })
-</script>
 <!--  -->
                 
               </article>

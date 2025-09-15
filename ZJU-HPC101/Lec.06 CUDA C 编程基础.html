@@ -587,6 +587,8 @@
       
         
       
+        
+      
     
     
       
@@ -686,6 +688,13 @@
     HPC101
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
             </a>
             
@@ -719,6 +728,13 @@
     Lec.02 体系结构与高性能计算基础
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -739,6 +755,13 @@
   <span class="md-ellipsis">
     Lec.03 高性能计算方法学
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -761,6 +784,13 @@
     Lec.04 集群软硬件及运维基础
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -781,6 +811,13 @@
   <span class="md-ellipsis">
     Lec.05 向量化计算
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -810,6 +847,13 @@
     Lec.06 CUDA C 编程基础
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -820,6 +864,13 @@
   <span class="md-ellipsis">
     Lec.06 CUDA C 编程基础
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1208,6 +1259,13 @@
     Lec.07 OpenMP, MPI 并行计算基础
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1228,6 +1286,13 @@
   <span class="md-ellipsis">
     Lec.09 Introduction to Machine Learning
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1296,6 +1361,85 @@
   
   <span class="md-ellipsis">
     Computer Organization
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-Database%20System/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Database System
   </span>
   
 
@@ -1935,7 +2079,6 @@
 }
 </style>
 <h2 id="part-1-graphics-processing-units">Part 1. Graphics Processing Units<a class="headerlink" href="#part-1-graphics-processing-units" title="Locate to heading">#</a></h2>
-<p><a href="Attachment/6_gpus-architecture-2024.pdf">6_gpus-architecture-2024</a></p>
 <h3 id="roadmap">Roadmap<a class="headerlink" href="#roadmap" title="Locate to heading">#</a></h3>
 <ul>
 <li>^ Many-core (GPU)</li>
@@ -2005,7 +2148,7 @@
 <h4 id="a-gpu-is-a-simd-simt-machine">A GPU is a SIMD (SIMT) Machine<a class="headerlink" href="#a-gpu-is-a-simd-simt-machine" title="Locate to heading">#</a></h4>
 <ul>
 <li>Except it is not programmed using SIMD instructions</li>
-<li>It is <em>programmed using threads</em> (SPMD programming model) <ul>
+<li>It is <em>programmed using threads</em> (SPMD programming model)<ul>
 <li>每个线程对不同的数据执行相同的操作</li>
 <li>每个线程可以被独立执行控制</li>
 </ul>
@@ -3415,59 +3558,6 @@ Time(%)      Total Time   Instances         Average         Minimum         Maxi
 
 
 
-<!--  -->
-<h2 id="__comments">Comments</h2>
-<!-- Insert generated snippet here -->
-<script src="https://giscus.app/client.js"
-        data-repo="EmergentTwilight/Emergent-Space"
-        data-repo-id="R_kgDOMQFYhw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMQFYh84Cmb5p"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-  var giscus = document.querySelector("script[src*=giscus]")
-
-  // Set palette on initial load
-  var palette = __md_get("__palette")
-  if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate"
-      ? "transparent_dark"
-      : "light"
-
-    // Instruct Giscus to set theme
-    giscus.setAttribute("data-theme", theme) 
-  }
-
-  // Register event handlers after documented loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-      var palette = __md_get("__palette")
-      if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate"
-          ? "transparent_dark"
-          : "light"
-
-        // Instruct Giscus to change theme
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        )
-      }
-    })
-  })
-</script>
 <!--  -->
                 
               </article>

@@ -585,6 +585,8 @@
       
         
       
+        
+      
     
     
       
@@ -826,7 +828,7 @@
     
   
   
-    <span class="md-status md-status--['new']"></span>
+    <span class="md-status md-status--['archived']"></span>
   
 
   
@@ -866,7 +868,7 @@
     
   
   
-    <span class="md-status md-status--['active']"></span>
+    <span class="md-status md-status--['archived']"></span>
   
 
   
@@ -891,6 +893,13 @@
     02 Image Formation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -911,6 +920,13 @@
   <span class="md-ellipsis">
     03 Image Processing
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -933,6 +949,13 @@
     04 Model Fitting and Optimization
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -953,6 +976,13 @@
   <span class="md-ellipsis">
     05 Image Matching and Motion Estimation
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -975,6 +1005,13 @@
     06 Image Stiching
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -996,6 +1033,13 @@
     07 Structure from Motion
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1016,6 +1060,13 @@
   <span class="md-ellipsis">
     08 Depth Estimation and 3D Reconstruction
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1045,6 +1096,13 @@
     09 Deep Learning
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1055,6 +1113,13 @@
   <span class="md-ellipsis">
     09 Deep Learning
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1149,6 +1214,13 @@
     10 Recognition
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1169,6 +1241,13 @@
   <span class="md-ellipsis">
     11 3D Deep Learning
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1191,6 +1270,13 @@
     12 Computational Photography
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1211,6 +1297,13 @@
   <span class="md-ellipsis">
     13 Image-Based Rendering
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1569,11 +1662,11 @@ f(x)=\sigma(x*w+b)
 <li>权重共享</li>
 </ul>
 </div>
-<p><img alt="__assets/CV 09 Deep Learning/IMG-CV 09 Deep Learning-20250802130029563.webp" src="__assets/CV%2009%20Deep%20Learning/IMG-CV%2009%20Deep%20Learning-20250802130029563.webp" /></p>
+<p><img alt="IMG-CV 09 Deep Learning-20250802130029563.webp" src="__assets/CV%2009%20Deep%20Learning/IMG-CV%2009%20Deep%20Learning-20250802130029563.webp" /></p>
 <p>多通道卷积，卷积核也是多通道的。上图中的输出大小为 28x28x1。</p>
 <p>多个卷积核，输出多个 feature map，通常 stack 在一起，例如 28x28x6。</p>
 <p>卷积也需要激活函数，否则相当于一层。</p>
-<p><img alt="__assets/CV 09 Deep Learning/IMG-CV 09 Deep Learning-20250802130424342.webp" src="__assets/CV%2009%20Deep%20Learning/IMG-CV%2009%20Deep%20Learning-20250802130424342.webp" /></p>
+<p><img alt="IMG-CV 09 Deep Learning-20250802130424342.webp" src="__assets/CV%2009%20Deep%20Learning/IMG-CV%2009%20Deep%20Learning-20250802130424342.webp" /></p>
 <p>感受野是输出的一个 feature 对应原始图像的范围，层数越多，感受野越大。</p>
 <p>实际上，为了快速减小 feature map 的尺寸，并聚合信息，会使用 pooling，一般有 max pooling 和 avg pooling。</p>
 <h2 id="training-neural-networks">Training Neural Networks<a class="headerlink" href="#training-neural-networks" title="Locate to heading">#</a></h2>
@@ -1596,7 +1689,7 @@ W^{t+1}=W^t-\eta_t\frac{\partial L}{\partial W}(W^t)
 </div>
 <p>超参数一般是离散的，只能手工修改，修改超参数的目标应该是最大化测试分数（泛化能力）。</p>
 <p>最规范的做法是分成三个 split，train/validation/test，调超参数的测试是在 validation 上进行的。</p>
-<p><img alt="__assets/CV 09 Deep Learning/IMG-CV 09 Deep Learning-20250802132736448.webp" src="__assets/CV%2009%20Deep%20Learning/IMG-CV%2009%20Deep%20Learning-20250802132736448.webp" /></p>
+<p><img alt="IMG-CV 09 Deep Learning-20250802132736448.webp" src="__assets/CV%2009%20Deep%20Learning/IMG-CV%2009%20Deep%20Learning-20250802132736448.webp" /></p>
 <p>train loss 降低，在一点开始 validation loss 开始上升，说明模型开始过拟合，就停止训练。</p>
 <p>为了避免过拟合，或者模型参数量过大训练数据太少，可以使用：</p>
 <ul>

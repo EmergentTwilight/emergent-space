@@ -587,6 +587,8 @@
       
         
       
+        
+      
     
     
       
@@ -686,6 +688,13 @@
     HPC101
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
             </a>
             
@@ -719,6 +728,13 @@
     Lec.02 体系结构与高性能计算基础
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -739,6 +755,13 @@
   <span class="md-ellipsis">
     Lec.03 高性能计算方法学
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -761,6 +784,13 @@
     Lec.04 集群软硬件及运维基础
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -782,6 +812,13 @@
     Lec.05 向量化计算
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -802,6 +839,13 @@
   <span class="md-ellipsis">
     Lec.06 CUDA C 编程基础
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -831,6 +875,13 @@
     Lec.07 OpenMP, MPI 并行计算基础
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -841,6 +892,13 @@
   <span class="md-ellipsis">
     Lec.07 OpenMP, MPI 并行计算基础
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1190,6 +1248,13 @@
     Lec.09 Introduction to Machine Learning
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1257,6 +1322,85 @@
   
   <span class="md-ellipsis">
     Computer Organization
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../ZJU-Database%20System/index.html" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Database System
   </span>
   
 
@@ -1858,7 +2002,6 @@
 </style>
 <h2 id="openmp">OpenMP<a class="headerlink" href="#openmp" title="Locate to heading">#</a></h2>
 <h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Locate to heading">#</a></h3>
-<p><a href="Attachment/7_HPC101_24_MPI.pdf">7_HPC101_24_MPI</a></p>
 <h4 id="shared-memory-parallel-model">Shared Memory Parallel Model<a class="headerlink" href="#shared-memory-parallel-model" title="Locate to heading">#</a></h4>
 <ul>
 <li>UMA (Uniform memory access)：所有核心访问一块内存</li>
@@ -2173,7 +2316,7 @@ Think anout locality and data dependency before you use collapse clause.<br>
 </ul>
 <h5 id="comparison">Comparison<a class="headerlink" href="#comparison" title="Locate to heading">#</a></h5>
 <ul>
-<li>Critical Region: 软件层面上的锁机制 </li>
+<li>Critical Region: 软件层面上的锁机制</li>
 <li>Atomic: CPU 层面上的原子化指令调用，<strong>通常具有更高的性能</strong></li>
 <li>Reduction: 在最终进行同步</li>
 </ul>
@@ -2274,11 +2417,13 @@ Think anout locality and data dependency before you use collapse clause.<br>
 </ol>
 <h2 id="mpi">MPI<a class="headerlink" href="#mpi" title="Locate to heading">#</a></h2>
 <h3 id="introduction_1">Introduction<a class="headerlink" href="#introduction_1" title="Locate to heading">#</a></h3>
-<p><a href="Attachment/7_HPC101_24_MPI.pdf">7_HPC101_24_MPI</a></p>
-<p>MPI, <strong>Message Passing Interface</strong>
-- OpenMPI
-- Intel-MPI
-- MPICH</p>
+<p><a href="slides/7_HPC101_24_MPI.pdf">7_HPC101_24_MPI</a></p>
+<p>MPI, <strong>Message Passing Interface</strong></p>
+<ul>
+<li>OpenMPI</li>
+<li>Intel-MPI</li>
+<li>MPICH</li>
+</ul>
 <div class="language-c highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">MPI Hello World</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
 <span class="normal"><a href="#__codelineno-17-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mpi.h&gt;</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -2355,59 +2500,6 @@ Think anout locality and data dependency before you use collapse clause.<br>
 
 
 
-<!--  -->
-<h2 id="__comments">Comments</h2>
-<!-- Insert generated snippet here -->
-<script src="https://giscus.app/client.js"
-        data-repo="EmergentTwilight/Emergent-Space"
-        data-repo-id="R_kgDOMQFYhw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMQFYh84Cmb5p"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-  var giscus = document.querySelector("script[src*=giscus]")
-
-  // Set palette on initial load
-  var palette = __md_get("__palette")
-  if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate"
-      ? "transparent_dark"
-      : "light"
-
-    // Instruct Giscus to set theme
-    giscus.setAttribute("data-theme", theme) 
-  }
-
-  // Register event handlers after documented loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-      var palette = __md_get("__palette")
-      if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate"
-          ? "transparent_dark"
-          : "light"
-
-        // Instruct Giscus to change theme
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        )
-      }
-    })
-  })
-</script>
 <!--  -->
                 
               </article>

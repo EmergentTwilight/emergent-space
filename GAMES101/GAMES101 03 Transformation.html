@@ -585,6 +585,8 @@
       
         
       
+        
+      
     
     
       
@@ -748,6 +750,13 @@
     GAMES101
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
             </a>
             
@@ -781,6 +790,13 @@
     01 Introduction
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -801,6 +817,13 @@
   <span class="md-ellipsis">
     02 About Linear Algebra
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -830,6 +853,13 @@
     03 Transformation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -840,6 +870,13 @@
   <span class="md-ellipsis">
     03 Transformation
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1159,6 +1196,13 @@
     04 Resterization
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1179,6 +1223,13 @@
   <span class="md-ellipsis">
     05 Shading
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1201,6 +1252,13 @@
     06 Geometry
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1221,6 +1279,13 @@
   <span class="md-ellipsis">
     07 Ray Tracing
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1243,6 +1308,13 @@
     08 Materials and Appearances
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1263,6 +1335,13 @@
   <span class="md-ellipsis">
     09 Advanced Topics in Rendering
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1285,6 +1364,13 @@
     10 Cameras, Lenses and Light Fields
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1306,6 +1392,13 @@
     11 Color and Perception
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1326,6 +1419,13 @@
   <span class="md-ellipsis">
     12 Animation
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1934,7 +2034,8 @@
 </ul>
 <h2 id="2d-transformation">2D Transformation<a class="headerlink" href="#2d-transformation" title="Locate to heading">#</a></h2>
 <h3 id="scale">Scale<a class="headerlink" href="#scale" title="Locate to heading">#</a></h3>
-<div class="arithmatex">\[\begin{bmatrix}
+<div class="arithmatex">\[
+\begin{bmatrix}
 x^{\prime} \\
 y^{\prime}
 \end{bmatrix}=
@@ -1945,14 +2046,16 @@ s_{x} &amp; 0 \\
 \begin{bmatrix}
 x \\
 y
-\end{bmatrix}\]</div>
+\end{bmatrix}
+\]</div>
 <ul>
 <li>对角阵</li>
 <li>可以实现 reflection，例如 <span class="arithmatex">\(s_{x}=-1, s_{y}=1\)</span></li>
 </ul>
 <h3 id="shear">Shear<a class="headerlink" href="#shear" title="Locate to heading">#</a></h3>
 <p><img alt="__assets/GAMES101 03 Transformation/IMG-GAMES101 03 Transformation-20250205113500277.webp" src="__assets/GAMES101%2003%20Transformation/IMG-GAMES101%2003%20Transformation-20250205113500277.webp" /></p>
-<div class="arithmatex">\[\begin{bmatrix}
+<div class="arithmatex">\[
+\begin{bmatrix}
 x^{\prime} \\
 y^{\prime}
 \end{bmatrix}=
@@ -1963,9 +2066,11 @@ y^{\prime}
 \begin{bmatrix}
 x \\
 y
-\end{bmatrix}\]</div>
+\end{bmatrix}
+\]</div>
 <h3 id="rotate">Rotate<a class="headerlink" href="#rotate" title="Locate to heading">#</a></h3>
-<div class="arithmatex">\[\begin{bmatrix}
+<div class="arithmatex">\[
+\begin{bmatrix}
 x^{\prime} \\
 y^{\prime}
 \end{bmatrix}=
@@ -1976,10 +2081,12 @@ y^{\prime}
 \begin{bmatrix}
 x \\
 y
-\end{bmatrix}\]</div>
+\end{bmatrix}
+\]</div>
 <p><span class="arithmatex">\(\mathbf{R}_{-\theta}=\mathbf{R}_{\theta}^T\)</span>，矩阵的逆等于其转置，称为<strong>正交矩阵</strong></p>
 <h3 id="conc-linear-transformations-matrices">Conc: Linear Transformations = Matrices<a class="headerlink" href="#conc-linear-transformations-matrices" title="Locate to heading">#</a></h3>
-<div class="arithmatex">\[\begin{bmatrix}
+<div class="arithmatex">\[
+\begin{bmatrix}
 x^{\prime} \\
 y^{\prime}
 \end{bmatrix}=
@@ -1990,30 +2097,36 @@ c &amp; d
 \begin{bmatrix}
 x \\
 y
-\end{bmatrix} \quad \mathbf{x'=M~x}\]</div>
+\end{bmatrix} \quad \mathbf{x'=M~x}
+\]</div>
 <h2 id="homogeneous-coordinates">Homogeneous coordinates<a class="headerlink" href="#homogeneous-coordinates" title="Locate to heading">#</a></h2>
 <h3 id="translation">Translation<a class="headerlink" href="#translation" title="Locate to heading">#</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Why homogeneous coordinates</p>
-<div class="arithmatex">\[\begin{bmatrix}
-x^{\prime} \\
-y^{\prime}
-\end{bmatrix}=
+</div>
+<div class="arithmatex">\[
 \begin{bmatrix}
-a &amp; b \\
-c &amp; d
-\end{bmatrix}
-\begin{bmatrix}
-x \\
-y
-\end{bmatrix}+\begin{bmatrix}
-t_{x} \\
-t_{y}
-\end{bmatrix}\]</div>
+&gt; x^{\prime} \\
+&gt; y^{\prime}
+&gt; \end{bmatrix}=
+&gt; \begin{bmatrix}
+&gt; a &amp; b \\
+&gt; c &amp; d
+&gt; \end{bmatrix}
+&gt; \begin{bmatrix}
+&gt; x \\
+&gt; y
+&gt; \end{bmatrix}+\begin{bmatrix}
+&gt; t_{x} \\
+&gt; t_{y}
+&gt; \end{bmatrix}
+&gt; 
+\]</div>
+<blockquote>
 <blockquote>
 <p>平移变换中含有常向量，希望使用统一的方式表示变换</p>
 </blockquote>
-</div>
+</blockquote>
 <ul>
 <li><span class="arithmatex">\(w\)</span>-coordinate<ul>
 <li>2D point: <span class="arithmatex">\((x,y,1)^T\)</span></li>
@@ -2027,7 +2140,8 @@ t_{y}
 </ul>
 </li>
 </ul>
-<div class="arithmatex">\[\begin{pmatrix}
+<div class="arithmatex">\[
+\begin{pmatrix}
 x^{\prime} \\
 y^{\prime} \\
 w^{\prime}
@@ -2046,9 +2160,11 @@ y \\
 x+t_x \\
 y+t_y \\
 1
-\end{pmatrix}\]</div>
+\end{pmatrix}
+\]</div>
 <p>In homogeneous coordinates, <span class="arithmatex">\(\begin{pmatrix}x\\y\\w\end{pmatrix}\)</span> is the 2D point <span class="arithmatex">\(\begin{pmatrix}x/w\\y/w\\1\end{pmatrix}\)</span>, <span class="arithmatex">\(w\neq 0\)</span>.</p>
-<div class="arithmatex">\[\begin{pmatrix}
+<div class="arithmatex">\[
+\begin{pmatrix}
 x^{\prime} \\
 y^{\prime} \\
 1
@@ -2062,7 +2178,8 @@ c &amp; d &amp; t_y \\
 x \\
 y \\
 1
-\end{pmatrix}\]</div>
+\end{pmatrix}
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">inverse transform</p>
 <p><span class="arithmatex">\(M^{-1}\)</span> 就是逆变换的变换矩阵</p>
@@ -2086,7 +2203,8 @@ y \\
 <li>3D point <span class="arithmatex">\((x,y,z,1)^T\)</span> 同样能够进行仿射使 <span class="arithmatex">\(w=1\)</span></li>
 <li>3D vector <span class="arithmatex">\((x,y,z,0)^T\)</span></li>
 </ul>
-<div class="arithmatex">\[\begin{pmatrix}
+<div class="arithmatex">\[
+\begin{pmatrix}
 x^{\prime} \\
 y^{\prime} \\
 z^{\prime} \\
@@ -2103,14 +2221,16 @@ x \\
 y \\
 z \\
 1
-\end{pmatrix}\]</div>
+\end{pmatrix}
+\]</div>
 <div class="admonition abstract">
 <p class="admonition-title">Summary</p>
 <p>一般变换的矩阵表示形式下，先进行线性变换，再进行平移</p>
 </div>
 <h3 id="rotation">rotation<a class="headerlink" href="#rotation" title="Locate to heading">#</a></h3>
 <h4 id="around-axis">around axis<a class="headerlink" href="#around-axis" title="Locate to heading">#</a></h4>
-<div class="arithmatex">\[\begin{gathered}
+<div class="arithmatex">\[
+\begin{gathered}
 \mathbf{R}_{x}(\alpha)=
 \begin{pmatrix}
 1 &amp; 0 &amp; 0 &amp; 0 \\
@@ -2132,7 +2252,8 @@ z \\
 0 &amp; 0 &amp; 1 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 1
 \end{pmatrix}
-\end{gathered}\]</div>
+\end{gathered}
+\]</div>
 <ul>
 <li>绕 <span class="arithmatex">\(x\)</span> 轴旋转，则 <span class="arithmatex">\(x\)</span> 坐标不变</li>
 <li>其中的 <span class="arithmatex">\(\mathbf{R}_{y}\)</span> 的正负号不同，这是因为 <span class="arithmatex">\(x \times y=z, y\times z=x\)</span> 但是 <span class="arithmatex">\(z\times x=y\)</span></li>
@@ -2144,16 +2265,19 @@ z \\
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Rodrigues' Rotation Formula</p>
-<div class="arithmatex">\[\mathbf{R}(\mathbf{n},\alpha)=\cos(\alpha)\mathbf{I}+(1-\cos(\alpha))\mathbf{n}\mathbf{n}^T+\sin(\alpha)\underbrace{
-\begin{pmatrix}
-0 &amp; &amp; -n_z &amp; &amp; n_y \\
-n_z &amp; &amp; 0 &amp; &amp; -n_x \\
+</div>
+<p>$$\mathbf{R}(\mathbf{n},\alpha)=\cos(\alpha)\mathbf{I}+(1-\cos(\alpha))\mathbf{n}\mathbf{n}^T+\sin(\alpha)\underbrace{</p>
+<blockquote>
+<p>\begin{pmatrix}
+0 &amp; &amp; -n_z &amp; &amp; n_y \
+n_z &amp; &amp; 0 &amp; &amp; -n_x \
 -n_y &amp; &amp; n_x &amp; &amp; 0
-\end{pmatrix}}_{\mathbf{N}}\]</div>
+\end{pmatrix}}_{\mathbf{N}}
+$$</p>
 <blockquote>
 <p>表示，绕着 <span class="arithmatex">\(\mathbf{n}\)</span> 方向旋转 <span class="arithmatex">\(\alpha\)</span> 角</p>
 </blockquote>
-</div>
+</blockquote>
 <p>但是上面的公式只能绕着过原点的轴旋转，如果要实现绕着任意轴旋转，如 <a href="#decomposing-complex-transforms">Decomposing Complex Transforms</a> 将轴上一点平移到原点、旋转并平移回来即可</p>
 <h2 id="viewcamera-transformation">View/Camera Transformation<a class="headerlink" href="#viewcamera-transformation" title="Locate to heading">#</a></h2>
 <h3 id="intro">intro<a class="headerlink" href="#intro" title="Locate to heading">#</a></h3>
@@ -2191,22 +2315,27 @@ n_z &amp; &amp; 0 &amp; &amp; -n_x \\
 <div class="admonition note">
 <p class="admonition-title">如何求 <span class="arithmatex">\(R_{\text{view}}\)</span></p>
 <p>从逆变换出发，先求出 <span class="arithmatex">\(Y\to t, g\to -Z, (g\times t)\to X\)</span></p>
-<div class="arithmatex">\[R_{\text{view}}^{-1}=
-\begin{bmatrix}
-x_{\hat{g}\times\hat{t}} &amp; x_t &amp; x_{-g} &amp; 0 \\
-y_{\hat{g}\times\hat{t}} &amp; y_t &amp; y_{-g} &amp; 0 \\
-z_{\hat{g}\times\hat{t}} &amp; z_t &amp; z_{-g} &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}\]</div>
-<p>然后进行<strong>转置</strong>就能得到</p>
-<div class="arithmatex">\[R_{\text{view}}=
-\begin{bmatrix}
-x_{\hat{g}\times\hat{t}} &amp; y_{\hat{g}\times\hat{t}} &amp; z_{\hat{g}\times\hat{t}} &amp; 0 \\
-x_t &amp; y_t &amp; z_t &amp; 0 \\
-x_{-g} &amp; y_{-g} &amp; z_{-g} &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}\]</div>
 </div>
+<div class="arithmatex">\[R_{\text{view}}^{-1}=
+&gt; \begin{bmatrix}
+&gt; x_{\hat{g}\times\hat{t}} &amp; x_t &amp; x_{-g} &amp; 0 \\
+&gt; y_{\hat{g}\times\hat{t}} &amp; y_t &amp; y_{-g} &amp; 0 \\
+&gt; z_{\hat{g}\times\hat{t}} &amp; z_t &amp; z_{-g} &amp; 0 \\
+&gt; 0 &amp; 0 &amp; 0 &amp; 1
+&gt; \end{bmatrix}
+&gt; $$
+&gt; 
+&gt; 然后进行**转置**就能得到
+&gt; 
+&gt; 
+$$R_{\text{view}}=
+&gt; \begin{bmatrix}
+&gt; x_{\hat{g}\times\hat{t}} &amp; y_{\hat{g}\times\hat{t}} &amp; z_{\hat{g}\times\hat{t}} &amp; 0 \\
+&gt; x_t &amp; y_t &amp; z_t &amp; 0 \\
+&gt; x_{-g} &amp; y_{-g} &amp; z_{-g} &amp; 0 \\
+&gt; 0 &amp; 0 &amp; 0 &amp; 1
+&gt; \end{bmatrix}
+&gt; \]</div>
 <h3 id="conc">Conc.<a class="headerlink" href="#conc" title="Locate to heading">#</a></h3>
 <ul>
 <li>物体和相机进行相同的变换</li>
@@ -2237,19 +2366,20 @@ x_{-g} &amp; y_{-g} &amp; z_{-g} &amp; 0 \\
 </ul>
 </li>
 </ul>
-<div class="arithmatex">\[M_{ortho}=
-\begin{bmatrix}
-\frac{2}{r-l} &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; \frac{2}{t-b} &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; \frac{2}{n-f} &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}
-\begin{bmatrix}
-1 &amp; 0 &amp; 0 &amp; -\frac{r+l}{2} \\
-0 &amp; 1 &amp; 0 &amp; -\frac{t+b}{2} \\
-0 &amp; 0 &amp; 1 &amp; -\frac{n+f}{2} \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}\]</div>
+<p>$$</p>
+<p>M_{ortho}=</p>
+<p>\begin{bmatrix}</p>
+<p>\frac{2}{r-l} &amp; 0 &amp; 0 &amp; 0 \</p>
+<p>0 &amp; \frac{2}{t-b} &amp; 0 &amp; 0 \</p>
+<p>0 &amp; 0 &amp; \frac{2}{n-f} &amp; 0 \</p>
+<p>0 &amp; 0 &amp; 0 &amp; 1</p>
+<p>\end{bmatrix}</p>
+<p>\begin{bmatrix}</p>
+<p>1 &amp; 0 &amp; 0 &amp; -\frac{r+l}{2} \</p>
+<p>0 &amp; 1 &amp; 0 &amp; -\frac{t+b}{2} \</p>
+<p>0 &amp; 0 &amp; 1 &amp; -\frac{n+f}{2} \</p>
+<p>0 &amp; 0 &amp; 0 &amp; 1</p>
+<p>\end{bmatrix}$$</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>OpenGL 之类的 API 使用的是左手系，Z 越大表示离相机越远</p>
@@ -2316,27 +2446,28 @@ ny \\
 n^2 \\
 n
 \end{pmatrix}\]</div>
-<p>第三行结果与 <span class="arithmatex">\(x,y\)</span> 都没有关系，所以可能是 <span class="arithmatex">\((0,0,A,B)\)</span>，那么：</p>
-<div class="arithmatex">\[
-\begin{pmatrix}
-0 &amp; 0&amp;A&amp;B
-\end{pmatrix}
-\begin{pmatrix}
-x \\
-y \\
-n \\
-1
-\end{pmatrix}=An+B=n^2
-\]</div>
-<p>同理，f 平面上的点 Z 也不变，有 <span class="arithmatex">\(Af+B=f^2\)</span>，联立得到 <span class="arithmatex">\(\begin{cases}A=n+f \\ B=-nf\end{cases}\)</span></p>
-<p>所以：</p>
-<div class="arithmatex">\[M_{persp\to ortho}=
-\begin{pmatrix}
-n &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; n &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; n+f &amp; -nf \\
-0 &amp; 0 &amp; 1 &amp; 0
-\end{pmatrix}\]</div>
+<p>第三行结果与 <span class="arithmatex">\(x,y\)</span> 都没有关系，所以可能是 <span class="arithmatex">\((0,0,A,B)\)</span>，那么：
+$$</p>
+<p>\begin{pmatrix}</p>
+<p>0 &amp; 0&amp;A&amp;B</p>
+<p>\end{pmatrix}</p>
+<p>\begin{pmatrix}</p>
+<p>x \</p>
+<p>y \</p>
+<p>n \</p>
+<p>1</p>
+<p>\end{pmatrix}=An+B=n^2</p>
+<p>$$
+同理，f 平面上的点 Z 也不变，有 <span class="arithmatex">\(Af+B=f^2\)</span>，联立得到 <span class="arithmatex">\(\begin{cases}A=n+f \\ B=-nf\end{cases}\)</span></p>
+<p>所以：
+$$</p>
+<p>M_{persp\to ortho}=</p>
+<p>\begin{pmatrix}</p>
+<p>n &amp; 0 &amp; 0 &amp; 0 \</p>
+<p>0 &amp; n &amp; 0 &amp; 0 \</p>
+<p>0 &amp; 0 &amp; n+f &amp; -nf \</p>
+<p>0 &amp; 0 &amp; 1 &amp; 0</p>
+<p>\end{pmatrix}$$</p>
 <p>且 <span class="arithmatex">\(M_{persp}=M_{ortho}M_{persp\to ortho}\)</span></p>
 <div class="admonition question">
 <p class="admonition-title">经过变换后，中间的点的 Z 值如何变化？</p>
@@ -2356,59 +2487,6 @@ n &amp; 0 &amp; 0 &amp; 0 \\
 
 
 
-<!--  -->
-<h2 id="__comments">Comments</h2>
-<!-- Insert generated snippet here -->
-<script src="https://giscus.app/client.js"
-        data-repo="EmergentTwilight/Emergent-Space"
-        data-repo-id="R_kgDOMQFYhw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMQFYh84Cmb5p"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-  var giscus = document.querySelector("script[src*=giscus]")
-
-  // Set palette on initial load
-  var palette = __md_get("__palette")
-  if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate"
-      ? "transparent_dark"
-      : "light"
-
-    // Instruct Giscus to set theme
-    giscus.setAttribute("data-theme", theme) 
-  }
-
-  // Register event handlers after documented loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-      var palette = __md_get("__palette")
-      if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate"
-          ? "transparent_dark"
-          : "light"
-
-        // Instruct Giscus to change theme
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        )
-      }
-    })
-  })
-</script>
 <!--  -->
                 
               </article>

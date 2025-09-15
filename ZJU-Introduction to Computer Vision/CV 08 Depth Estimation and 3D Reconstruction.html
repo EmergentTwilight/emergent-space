@@ -585,6 +585,8 @@
       
         
       
+        
+      
     
     
       
@@ -826,7 +828,7 @@
     
   
   
-    <span class="md-status md-status--['new']"></span>
+    <span class="md-status md-status--['archived']"></span>
   
 
   
@@ -866,7 +868,7 @@
     
   
   
-    <span class="md-status md-status--['active']"></span>
+    <span class="md-status md-status--['archived']"></span>
   
 
   
@@ -891,6 +893,13 @@
     02 Image Formation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -911,6 +920,13 @@
   <span class="md-ellipsis">
     03 Image Processing
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -933,6 +949,13 @@
     04 Model Fitting and Optimization
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -953,6 +976,13 @@
   <span class="md-ellipsis">
     05 Image Matching and Motion Estimation
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -975,6 +1005,13 @@
     06 Image Stiching
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -995,6 +1032,13 @@
   <span class="md-ellipsis">
     07 Structure from Motion
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1024,6 +1068,13 @@
     08 Depth Estimation and 3D Reconstruction
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1034,6 +1085,13 @@
   <span class="md-ellipsis">
     08 Depth Estimation and 3D Reconstruction
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1284,6 +1342,13 @@
     09 Deep Learning
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1304,6 +1369,13 @@
   <span class="md-ellipsis">
     10 Recognition
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1326,6 +1398,13 @@
     11 3D Deep Learning
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1347,6 +1426,13 @@
     12 Computational Photography
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1367,6 +1453,13 @@
   <span class="md-ellipsis">
     13 Image-Based Rendering
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -2002,14 +2095,14 @@ x_2-x_1=\text{the disparity of pixel }(x_1,y_1)
 <p>每个点都进行优化，计算量太大了，如何减少计算量？</p>
 </div>
 <h4 id="plane-sweep">Plane-Sweep<a class="headerlink" href="#plane-sweep" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/CV 08 Depth Estimation and 3D Reconstruction/IMG-CV 08 Depth Estimation and 3D Reconstruction-20250802041411755.webp" src="__assets/CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction/IMG-CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction-20250802041411755.webp" /></p>
+<p><img alt="IMG-CV 08 Depth Estimation and 3D Reconstruction-20250802041411755.webp" src="__assets/CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction/IMG-CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction-20250802041411755.webp" /></p>
 <ul>
 <li>sweep 是扫描的意思</li>
 <li>有一系列的 sweep family plane，平行于 ref camera，深度不同</li>
 <li>对于每一个 plane，假设深度就是这个 plane 的深度</li>
 <li>然后投影到旁边的相机上，计算误差并保留，最终得到 cost volume</li>
 </ul>
-<p><img alt="__assets/CV 08 Depth Estimation and 3D Reconstruction/IMG-CV 08 Depth Estimation and 3D Reconstruction-20250802041859093.webp" src="__assets/CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction/IMG-CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction-20250802041859093.webp" /></p>
+<p><img alt="IMG-CV 08 Depth Estimation and 3D Reconstruction-20250802041859093.webp" src="__assets/CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction/IMG-CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction-20250802041859093.webp" /></p>
 <ul>
 <li>然后，对于每个像素，找到使得 cost 最小的深度即可</li>
 <li>可以考虑加入 Markov Random Field 来获得比较光滑的深度图</li>
@@ -2072,10 +2165,10 @@ x_2-x_1=\text{the disparity of pixel }(x_1,y_1)
 \]</div>
 <p>其解析解可以用 Poisson equation 解出。</p>
 <h4 id="marching-cubes">Marching Cubes<a class="headerlink" href="#marching-cubes" title="Locate to heading">#</a></h4>
-<p><img alt="__assets/CV 08 Depth Estimation and 3D Reconstruction/IMG-CV 08 Depth Estimation and 3D Reconstruction-20250802043838522.webp" src="__assets/CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction/IMG-CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction-20250802043838522.webp" /></p>
+<p><img alt="IMG-CV 08 Depth Estimation and 3D Reconstruction-20250802043838522.webp" src="__assets/CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction/IMG-CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction-20250802043838522.webp" /></p>
 <p>只考虑同时有黑白的格子，这说明存在边缘。</p>
 <p>Occupancy 比较简单，直接设定格子内的面就行：</p>
-<p><img alt="__assets/CV 08 Depth Estimation and 3D Reconstruction/IMG-CV 08 Depth Estimation and 3D Reconstruction-20250802044029303.webp" src="__assets/CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction/IMG-CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction-20250802044029303.webp" /></p>
+<p><img alt="IMG-CV 08 Depth Estimation and 3D Reconstruction-20250802044029303.webp" src="__assets/CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction/IMG-CV%2008%20Depth%20Estimation%20and%203D%20Reconstruction-20250802044029303.webp" /></p>
 <p>而 SDF 是连续的，更加精细，点的位置可以优化。</p>
 <div class="admonition note">
 <p class="admonition-title">in 3D</p>

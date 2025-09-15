@@ -18,7 +18,7 @@
         <link rel="prev" href="Ch.08%20Disjoint%20Set.html">
       
       
-        <link rel="next" href="Cheat%20Sheet.html">
+        <link rel="next" href="FDS%20Cheatsheet.html">
       
       
       <link rel="icon" href="../__srcs/images/logo-E.png">
@@ -588,6 +588,13 @@
     Fundamentals of Data Structures
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
             </a>
             
@@ -621,6 +628,13 @@
     Ch.02 Algorithm Analysis
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -641,6 +655,13 @@
   <span class="md-ellipsis">
     Ch.03 List
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -663,6 +684,13 @@
     Ch.04 Trees
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -683,6 +711,13 @@
   <span class="md-ellipsis">
     Ch.05 Priority Queues (Heaps)
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -705,6 +740,13 @@
     Ch.06 Sorting
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -726,6 +768,13 @@
     Ch.07 Hashing
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -746,6 +795,13 @@
   <span class="md-ellipsis">
     Ch.08 Disjoint Set
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -775,6 +831,13 @@
     Ch.09 Graph Algorithms
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -785,6 +848,13 @@
   <span class="md-ellipsis">
     Ch.09 Graph Algorithms
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1340,12 +1410,19 @@
   
   
     <li class="md-nav__item">
-      <a href="Cheat%20Sheet.html" class="md-nav__link">
+      <a href="FDS%20Cheatsheet.html" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Cheat Sheet
+    Cheatsheet
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1574,6 +1651,8 @@
       
         
           
+        
+      
         
       
         
@@ -2407,7 +2486,7 @@
 </style>
 <h2 id="1-definitions">1 Definitions<a class="headerlink" href="#1-definitions" title="Locate to heading">#</a></h2>
 <ul>
-<li><span class="arithmatex">\(G(V,E)\)</span> <ul>
+<li><span class="arithmatex">\(G(V,E)\)</span><ul>
 <li>G: graph</li>
 <li>V: Vertex</li>
 <li>E: Edge</li>
@@ -2474,7 +2553,7 @@
 <h4 id="111-adjacency-matrix-邻接矩阵">1.1.1 Adjacency Matrix 邻接矩阵<a class="headerlink" href="#111-adjacency-matrix-邻接矩阵" title="Locate to heading">#</a></h4>
 <ul>
 <li><code>adj_mat[i][j] = exist(i,j)? 1:0</code><ul>
-<li>UDG: symmetric    <ul>
+<li>UDG: symmetric<ul>
 <li>array: <span class="arithmatex">\(adj\_mat[n(n+1)/2]=\{a_{11}, a_{12}, \dots , a_{1n}, a_{22}, \dots ,a_{2n}, \dots, a_{nn}\}\)</span></li>
 </ul>
 </li>
@@ -2760,7 +2839,7 @@
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>所有顶点都进行的 queue 操作</li>
-<li>所有的边都走了一遍 </li>
+<li>所有的边都走了一遍</li>
 <li><span class="arithmatex">\(T=O(|V|+|E|)\)</span></li>
 </ul>
 <h4 id="312-dijkstras-algorithmfor-weighted-shortest-paths">3.1.2 Dijkstra's Algorithm(for weighted shortest paths)<a class="headerlink" href="#312-dijkstras-algorithmfor-weighted-shortest-paths" title="Locate to heading">#</a></h4>
@@ -2942,21 +3021,23 @@
 <li><span class="arithmatex">\(T=O(f*|E|)\)</span>, <strong>f</strong> is the maximum flow</li>
 </ul>
 </li>
-<li>Always choose the augmenting path that allows the largest increase in flow <em>modify Dijkstra's algorithm</em><ul>
-<li>
-<div class="arithmatex">\[T=T_{augmentation}*T_{find\space a\space path}=O(|E|\log cap_{max})*O(|E|\log |V|)=O(|E|^2\log |V|)\]</div>
-</li>
-<li>if cap_max <em>the maximum of capacity</em> is a small integer</li>
+<li>Always choose the augmenting path that allows the largest increase in flow <em>modify Dijkstra's algorithm</em>
+    -</li>
 </ul>
-</li>
-<li>Always choose the augmenting path that has the least number of edges<ul>
-<li>
-<div class="arithmatex">\[T=T_{augmentation}*T_{find\,a\,path}=O(|E|)*O(|E|*|V|)=O(|E|^2|V|)\]</div>
-</li>
-<li>Note <img alt="__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005723299.webp" src="__assets/Ch.09%20Graph%20Algorithms/IMG-Ch.09%20Graph%20Algorithms-20250125005723299.webp" /></li>
+<div class="arithmatex">\[
+T=T_{augmentation}*T_{find\space a\space path}=O(|E|\log cap_{max})*O(|E|\log |V|)=O(|E|^2\log |V|)
+\]</div>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>- if cap_max *the maximum of capacity* is a small integer
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Always choose the augmenting path that has the least number of edges
+    -</li>
 </ul>
-</li>
-</ul>
+<div class="arithmatex">\[
+T=T_{augmentation}*T_{find\,a\,path}=O(|E|)*O(|E|*|V|)=O(|E|^2|V|)
+\]</div>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>- Note ![__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005723299.webp](__assets/Ch.09 Graph Algorithms/IMG-Ch.09 Graph Algorithms-20250125005723299.webp)
+</code></pre></div></td></tr></table></div>
 <h2 id="5-minimum-spanning-tree">5 Minimum Spanning Tree<a class="headerlink" href="#5-minimum-spanning-tree" title="Locate to heading">#</a></h2>
 <p><strong>Definition</strong>: A spanning tree of graph G is a tree which consists of <strong>V(G)</strong> and a <strong>subset of E(G)</strong></p>
 <ul>
@@ -3293,59 +3374,6 @@
 
 
 <!--  -->
-<h2 id="__comments">Comments</h2>
-<!-- Insert generated snippet here -->
-<script src="https://giscus.app/client.js"
-        data-repo="EmergentTwilight/Emergent-Space"
-        data-repo-id="R_kgDOMQFYhw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMQFYh84Cmb5p"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-  var giscus = document.querySelector("script[src*=giscus]")
-
-  // Set palette on initial load
-  var palette = __md_get("__palette")
-  if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate"
-      ? "transparent_dark"
-      : "light"
-
-    // Instruct Giscus to set theme
-    giscus.setAttribute("data-theme", theme) 
-  }
-
-  // Register event handlers after documented loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-      var palette = __md_get("__palette")
-      if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate"
-          ? "transparent_dark"
-          : "light"
-
-        // Instruct Giscus to change theme
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        )
-      }
-    })
-  })
-</script>
-<!--  -->
                 
               </article>
             </div>
@@ -3386,13 +3414,13 @@
         
         
           
-          <a href="Cheat%20Sheet.html" class="md-footer__link md-footer__link--next" aria-label="Next: Cheat Sheet">
+          <a href="FDS%20Cheatsheet.html" class="md-footer__link md-footer__link--next" aria-label="Next: Cheatsheet">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Cheat Sheet
+                Cheatsheet
               </div>
             </div>
             <div class="md-footer__button md-icon">

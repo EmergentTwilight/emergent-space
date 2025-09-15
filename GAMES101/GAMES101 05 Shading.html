@@ -585,6 +585,8 @@
       
         
       
+        
+      
     
     
       
@@ -748,6 +750,13 @@
     GAMES101
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
             </a>
             
@@ -781,6 +790,13 @@
     01 Introduction
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -801,6 +817,13 @@
   <span class="md-ellipsis">
     02 About Linear Algebra
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -823,6 +846,13 @@
     03 Transformation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -843,6 +873,13 @@
   <span class="md-ellipsis">
     04 Resterization
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -872,6 +909,13 @@
     05 Shading
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -882,6 +926,13 @@
   <span class="md-ellipsis">
     05 Shading
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1216,6 +1267,13 @@
     06 Geometry
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1236,6 +1294,13 @@
   <span class="md-ellipsis">
     07 Ray Tracing
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1258,6 +1323,13 @@
     08 Materials and Appearances
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1278,6 +1350,13 @@
   <span class="md-ellipsis">
     09 Advanced Topics in Rendering
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1300,6 +1379,13 @@
     10 Cameras, Lenses and Light Fields
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1321,6 +1407,13 @@
     11 Color and Perception
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
+  
 
       </a>
     </li>
@@ -1341,6 +1434,13 @@
   <span class="md-ellipsis">
     12 Animation
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--['archived']"></span>
+  
+
   
 
       </a>
@@ -1986,7 +2086,9 @@ In this course, the process of <strong>applying a material</strong> to an object
 </ul>
 </div>
 <p><strong>Lambertian (Diffuse) Shading</strong>:</p>
-<div class="arithmatex">\[L_{d}=k_{d}(I/r^2) \max(0,\hat{n}\cdot \hat{l})\]</div>
+<div class="arithmatex">\[
+L_{d}=k_{d}(I/r^2) \max(0,\hat{n}\cdot \hat{l})
+\]</div>
 <ul>
 <li><span class="arithmatex">\(k_{d}\)</span> diffuse coeffficient，与表面性质、波长有关</li>
 <li><span class="arithmatex">\(r\)</span> 是光源与 shading point 的距离</li>
@@ -1997,8 +2099,12 @@ In this course, the process of <strong>applying a material</strong> to an object
 </blockquote>
 <p><img alt="./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250207210336265.webp" src="__assets/GAMES101%2005%20Shading/IMG-GAMES101%2005%20Shading-20250207210336265.webp" /></p>
 <p>bisector vector <span class="arithmatex">\(h\)</span>:</p>
-<div class="arithmatex">\[\mathbf{h}=\text{bisector}(\mathbf{v},\mathbf{l})=\frac{\mathbf{v}+\mathbf{l}}{||\mathbf{v}+\mathbf{l}||}\]</div>
-<div class="arithmatex">\[L_{s}=k_{s}(I/r^2)\max(0,\mathbf{n}\cdot\mathbf{h})^p\]</div>
+<div class="arithmatex">\[
+\mathbf{h}=\text{bisector}(\mathbf{v},\mathbf{l})=\frac{\mathbf{v}+\mathbf{l}}{||\mathbf{v}+\mathbf{l}||}
+\]</div>
+<div class="arithmatex">\[
+L_{s}=k_{s}(I/r^2)\max(0,\mathbf{n}\cdot\mathbf{h})^p
+\]</div>
 <p>其中指数 <span class="arithmatex">\(p\)</span> 有利于控制镜面反射范围，一般取 100~200</p>
 <p><img alt="./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250207210844482.webp" src="__assets/GAMES101%2005%20Shading/IMG-GAMES101%2005%20Shading-20250207210844482.webp" /></p>
 <h3 id="ambient-term">Ambient Term<a class="headerlink" href="#ambient-term" title="Locate to heading">#</a></h3>
@@ -2006,12 +2112,16 @@ In this course, the process of <strong>applying a material</strong> to an object
 <p>假设环境光强为定值 <span class="arithmatex">\(I_{a}\)</span></p>
 </blockquote>
 <p><img alt="./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250207210933574.webp" src="__assets/GAMES101%2005%20Shading/IMG-GAMES101%2005%20Shading-20250207210933574.webp" /></p>
-<div class="arithmatex">\[L_{a}=k_{a}I_{a}\]</div>
+<div class="arithmatex">\[
+L_{a}=k_{a}I_{a}
+\]</div>
 <h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Locate to heading">#</a></h3>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
 \mathrm{L} &amp; =L_a+L_d+L_s \\
  &amp; =k_aI_a+k_d(I/r^2)\max(0,\mathbf{n}\cdot\mathbf{l})+k_s(I/r^2)\max(0,\mathbf{n}\cdot\mathbf{h})^p
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>并不考虑 viewer 距离对亮度的影响</p>
@@ -2019,7 +2129,7 @@ In this course, the process of <strong>applying a material</strong> to an object
 <h2 id="shading-frequencies">Shading Frequencies<a class="headerlink" href="#shading-frequencies" title="Locate to heading">#</a></h2>
 <p><img alt="./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250207211506628.webp" src="__assets/GAMES101%2005%20Shading/IMG-GAMES101%2005%20Shading-20250207211506628.webp" /></p>
 <blockquote>
-<p>上图中分别是平面着色(Flat shading)、顶点着色再插值(Gouraud shading)和像素着色(Phong shading)</p>
+<p>上图中分别是平面着色 (Flat shading)、顶点着色再插值 (Gouraud shading) 和像素着色 (Phong shading)</p>
 </blockquote>
 <p><img alt="./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250207211931370.webp" src="__assets/GAMES101%2005%20Shading/IMG-GAMES101%2005%20Shading-20250207211931370.webp" /></p>
 <div class="admonition note">
@@ -2242,7 +2352,8 @@ In this course, the process of <strong>applying a material</strong> to an object
 <h2 id="interpolation-across-triangles-barycentric-coordinates-重心坐标">Interpolation Across Triangles: Barycentric Coordinates 重心坐标<a class="headerlink" href="#interpolation-across-triangles-barycentric-coordinates-重心坐标" title="Locate to heading">#</a></h2>
 <h3 id="barycentric-coordinates">Barycentric Coordinates<a class="headerlink" href="#barycentric-coordinates" title="Locate to heading">#</a></h3>
 <p><img alt="./__assets/GAMES101 05 Shading/IMG-GAMES101 05 Shading-20250208002629950.webp" src="__assets/GAMES101%2005%20Shading/IMG-GAMES101%2005%20Shading-20250208002629950.webp" /></p>
-<div class="arithmatex">\[\begin{cases}
+<div class="arithmatex">\[
+\begin{cases}
 (x,y)&amp;=\alpha A+\beta B+\gamma C \\
 \alpha+\beta+\gamma&amp;=1
 \end{cases}
@@ -2251,19 +2362,25 @@ In this course, the process of <strong>applying a material</strong> to an object
 \]</div>
 <p>如果 <span class="arithmatex">\(\alpha,\beta,\gamma\geq0\)</span>，那么在三角形内。</p>
 <p>可以通过面积的比例关系求解重心坐标：</p>
-<div class="arithmatex">\[\begin{align}
+<div class="arithmatex">\[
+\begin{align}
 \alpha &amp;=\frac{A_A}{A_A+A_B+A_C} \\
 \beta &amp;=\frac{A_B}{A_A+A_B+A_C} \\
 \gamma &amp;=\frac{A_C}{A_A+A_B+A_C}
-\end{align}\]</div>
+\end{align}
+\]</div>
 <p>也可以使用公式：</p>
-<div class="arithmatex">\[\begin{aligned}
+<div class="arithmatex">\[
+\begin{aligned}
  &amp; \alpha=\frac{-(x-x_B)(y_C-y_B)+(y-y_B)(x_C-x_B)}{-(x_A-x_B)(y_C-y_B)+(y_A-y_B)(x_C-x_B)} \\
  &amp; \beta=\frac{-(x-x_C)(y_A-y_C)+(y-y_C)(x_A-x_C)}{-(x_B-x_C)(y_A-y_C)+(y_B-y_C)(x_A-x_C)} \\
  &amp; \gamma=1-\alpha-\beta
-\end{aligned}\]</div>
+\end{aligned}
+\]</div>
 <h3 id="using-barycentric-coordinates">Using Barycentric Coordinates<a class="headerlink" href="#using-barycentric-coordinates" title="Locate to heading">#</a></h3>
-<div class="arithmatex">\[V=\alpha V_A+\beta V_B+\gamma V_C\]</div>
+<div class="arithmatex">\[
+V=\alpha V_A+\beta V_B+\gamma V_C
+\]</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>空间三角形经过投影之后，重心坐标并不是不变的，所以要先在三维空间中完成插值</p>
@@ -2282,59 +2399,6 @@ In this course, the process of <strong>applying a material</strong> to an object
 
 
 
-<!--  -->
-<h2 id="__comments">Comments</h2>
-<!-- Insert generated snippet here -->
-<script src="https://giscus.app/client.js"
-        data-repo="EmergentTwilight/Emergent-Space"
-        data-repo-id="R_kgDOMQFYhw"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOMQFYh84Cmb5p"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- Synchronize Giscus theme with palette -->
-<script>
-  var giscus = document.querySelector("script[src*=giscus]")
-
-  // Set palette on initial load
-  var palette = __md_get("__palette")
-  if (palette && typeof palette.color === "object") {
-    var theme = palette.color.scheme === "slate"
-      ? "transparent_dark"
-      : "light"
-
-    // Instruct Giscus to set theme
-    giscus.setAttribute("data-theme", theme) 
-  }
-
-  // Register event handlers after documented loaded
-  document.addEventListener("DOMContentLoaded", function() {
-    var ref = document.querySelector("[data-md-component=palette]")
-    ref.addEventListener("change", function() {
-      var palette = __md_get("__palette")
-      if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate"
-          ? "transparent_dark"
-          : "light"
-
-        // Instruct Giscus to change theme
-        var frame = document.querySelector(".giscus-frame")
-        frame.contentWindow.postMessage(
-          { giscus: { setConfig: { theme } } },
-          "https://giscus.app"
-        )
-      }
-    })
-  })
-</script>
 <!--  -->
                 
               </article>
