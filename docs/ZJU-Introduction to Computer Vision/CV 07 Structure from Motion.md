@@ -6,7 +6,7 @@ tags:
   - CS/CG-CV/Method/MVS
   - CS/CG-CV/Method/SfM
 date_created: 2025-08-01T15:10:42
-date_modified: 2025-09-12T15:23:21
+date_modified: 2025-09-15T15:48:12
 ---
 
 # Introduction
@@ -728,43 +728,24 @@ $$
 
 $$
 \left.\left[
-
 \begin{array}
-
 {ccc}u_rm_{31}-m_{11} & u_rm_{32}-m_{12} & u_rm_{33}-m_{13} \\
-
 v_rm_{31}-m_{21} & v_rm_{32}-m_{22} & v_rm_{33}-m_{23} \\
-
 u_lp_{31}-p_{11} & u_lp_{32}-p_{12} & u_lp_{33}-p_{13} \\
-
 v_lp_{31}-p_{21} & v_lp_{32}-p_{22} & v_lp_{33}-p_{23}
-
 \end{array}\right.\right]
-
 \begin{bmatrix}
-
 x_r \\
-
 y_r \\
-
 z_r
-
 \end{bmatrix}=
-
 \begin{bmatrix}
-
 m_{14}-m_{34} \\
-
 m_{24}-m_{34} \\
-
 p_{14}-p_{34} \\
-
 p_{24}-p_{34}
-
 \end{bmatrix}
-
 \quad\text{or}\quad
-
 A_{4\times 3}\mathbf{x}_r=\mathbf{b}_{4\times 1}
 $$
 
